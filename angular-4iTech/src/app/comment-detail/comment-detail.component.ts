@@ -1,0 +1,38 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Comment } from '@angular/compiler';
+
+@Component({
+  selector: 'app-comment-detail',
+  standalone: true,
+  imports: [HttpClientModule],
+  templateUrl: './comment-detail.component.html',
+  styleUrl: './comment-detail.component.css'
+})
+export class CommentDetailComponent implements OnInit{
+
+  comment: Comment | undefined;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private http: HttpClient
+  ) {}
+
+  ngOnInit(): void {
+
+    this.activatedRoute.params.subscribe(params => {
+      const id = params['id'];
+
+      if (!id) return;
+      const backendUrl = 'http://localhost:8080/comments/' + id;
+      this.http.get<Comment>(backendUrl).subscribe(commentBackend => {
+        this.comment = commentBackend;
+        console.log(this.comment);
+      });
+    });
+   
+  }
+  
+}
+

@@ -1,0 +1,32 @@
+<p>track-form works!</p>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <form [formGroup]="trackForm" (ngSubmit)="save()">
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="name"
+                     placeholder="Nombre por defecto Track" formControlName="name"> <!--conexion entre html y TS-->
+                    <label for="name">Nombre del Track</label>
+                </div>
+                
+               
+                  <div class="form-floating mb-3">
+                    <input type="datetime-local" class="form-control" id="startDate"
+                      formControlName="startDate"> <!--conexion entre html y TS-->
+                    <label for="startDate">Fecha inicio del Track</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="datetime-local" class="form-control" id="endDate"
+                      formControlName="endDate"> <!--conexion entre html y TS-->
+                    <label for="endDate">Fecha fin del Track</label>
+                </div>   
+            
+                  <button class="btn btn-success" type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<hr/>

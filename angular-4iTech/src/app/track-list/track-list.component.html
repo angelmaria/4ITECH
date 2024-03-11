@@ -1,0 +1,12 @@
+<p>track-list works!</p>
+
+<ul>
+    @for (currentTrack of tracks; track currentTrack.id) {
+      <li>
+        <a [routerLink]="['/tracks', currentTrack.id, 'detail']">{{currentTrack.name}}</a>
+      </li>
+      <li>
+        <a [routerLink]="['/tracks', currentTrack.id, 'detail']">{{currentTrack.startDate}}--{{currentTrack.endDate}}</a>
+      </li>
+    }
+  </ul>
