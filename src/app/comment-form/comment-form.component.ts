@@ -16,8 +16,8 @@ export class CommentFormComponent {
     id: [0],
     rating: [0.0],
     opinion: [''],
-    user: [],
-    keynote: [[]]
+    //user: [],
+    //keynote: [[]]
   });
 
   constructor (private fb: FormBuilder, private httpCliente: HttpClient) {}
@@ -32,6 +32,7 @@ export class CommentFormComponent {
     const keynote = this.commentForm.get('keynote')?.value ?? [];
 
     // Crear el objeto utilizando los valores extraídos
+    /*
     const commentToSave: Comment = {
       id: id,
       rating: rating,
@@ -39,10 +40,11 @@ export class CommentFormComponent {
       user: user,
       keynote: keynote
     }
-    console.log(commentToSave);
+    */
+    //console.log(commentToSave);
     // Enviar el objeto a backend utilizando HttpCliente
     const url = 'http://localhost:8080/comments';
-    this.httpCliente.post<Comment>(url, commentToSave).subscribe (comment => console.log(comment));
+    //this.httpCliente.post<Comment>(url, commentToSave).subscribe (comment => console.log(comment));
   }
 
 }
