@@ -1,1 +1,11 @@
 <p>ticket-list works!</p>
+<ul>
+    @for (ticket of tickets; track ticket.id) {
+      <li>
+        <a [routerLink]="['/tickets', ticket.id, 'detail']">{{ticket.title}}</a>
+      </li>
+      <li>
+        <a [routerLink]="['/ticket', ticket.id, 'detail']">{{ticket.price}}</a>
+      </li>
+    }
+  </ul>

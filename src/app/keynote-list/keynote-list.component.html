@@ -1,1 +1,12 @@
 <p>keynote-list works!</p>
+
+<ul>
+    @for (keynote of keynotes; track keynote.id) {
+      <li>
+        <a [routerLink]="['/keynotes', keynote.id, 'detail']">{{keynote.title}}</a>
+      </li>
+      <li>
+        <a [routerLink]="['/keynotes', keynote.id, 'detail']">{{keynote.description}}</a>
+      </li>
+    }
+  </ul>
