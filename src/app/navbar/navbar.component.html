@@ -21,6 +21,15 @@
 		<div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
 			<ul class="navbar-nav ms-auto">
 				<li class="nav-item" ngbDropdown>
+					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-mic me-1"></i>Charlas</a>
+					<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+						<a ngbDropdownItem routerLink="/keynotes" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Keynotes</a>
+
+            
+						<a ngbDropdownItem routerLink="/keynotes/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear Keynote</a>
+					</div>
+				</li>
+				<li class="nav-item" ngbDropdown>
 					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-cart4 me-1"></i>Tracks</a>
 					<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
 						<a ngbDropdownItem routerLink="/tracks" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Tracks</a>
