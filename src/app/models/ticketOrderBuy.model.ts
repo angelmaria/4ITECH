@@ -4,7 +4,7 @@ import { User } from "./user.model";
 export interface TicketOrderBuy {
     id: number;
     date: Date;
-    discount: number; 
+    discount: number;
     totalPrice: number;
     quantity: number;
     paymentMethod: string;
@@ -12,8 +12,8 @@ export interface TicketOrderBuy {
     qrUrl: string;
 
     //ManyToOne
-    user: User; // crear clase
+    //user: User; // crear clase
 
     //ManyToOne
-    ticket: Ticket; // crear clase
+    //ticket: Ticket; // crear clase
 }

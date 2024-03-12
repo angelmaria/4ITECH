@@ -1,1 +1,40 @@
 <p>ticket-form works!</p>
+<hr>
+<div class="form-page">
+
+        <div class="row">
+            <div class="col d-flex justify-content-center align-items-center">
+        
+
+                <form [formGroup]="ticketForm" (ngSubmit)="save()">
+
+                    <div class="form-floating mb-1">
+                        <input type="text" class="form-control" id="title"
+                        placeholder="ticket" formControlName="title">
+                        <label for="title"> ticket de evento</label>
+                    </div>
+    
+    
+                    <div class="form-floating mb-1">
+                        <input type="text" class="form-control" id="username"
+                        placeholder="Username" formControlName="username">
+                        <label for="title"> Username ticket </label>
+                    </div>
+    
+                    <div class="form-floating mb-1">
+                        <input min="0" type="number" class="form-control" id="price" formControlName="price" step="10">
+                        <label for="price">Precio en euros (€)</label>
+                    </div>
+    
+                    <div class="form-floating mb-1">
+                        <input min="0" type="number" class="form-control" id="maxNum" formControlName="maxNum">
+                        <label for="publishDate">Numero maximo de tickets </label>
+                    </div>
+    
+                <button class="btn btn-success" type="submit">Enviar</button>
+    
+                </form>
+            </div>
+        </div>
+    </div>
+<hr/>

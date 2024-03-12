@@ -25,9 +25,10 @@
 					<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
 						<a ngbDropdownItem routerLink="/keynotes" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Keynotes</a>
 
-            
 						<a ngbDropdownItem routerLink="/keynotes/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear Keynote</a>
 					</div>
+
+
 				</li>
 				<li class="nav-item" ngbDropdown>
 					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-cart4 me-1"></i>Tracks</a>
@@ -57,7 +58,30 @@
 						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Another action</a>
 						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a>
 					</div>
-				</li>
+
+
+					<li class="nav-item" ngbDropdown>
+						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdownTicket" role="button"><i class="bi bi-ticket me-1"></i>Tickets</a>
+							
+						<div ngbDropdownMenu aria-labelledby="navbarDropdownTicket" class="dropdown-menu">
+							<a ngbDropdownItem routerLink="/tickets" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Tickets</a>
+							<a ngbDropdownItem routerLink="/tickets/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear Ticket</a>
+						
+						</div>
+
+					</li>
+
+
+					<li class="nav-item" ngbDropdown>
+						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdownTicketOrderBuy" role="button"><i class="bi bi-ticketOrderBuy me-1"></i>TicketOrderBuys</a>
+							
+						<div ngbDropdownMenu aria-labelledby="navbarDropdownTicketOrderBuy" class="dropdown-menu">
+							<a ngbDropdownItem routerLink="/ticketOrderBuys" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de TicketOrderBuys</a>
+							<a ngbDropdownItem routerLink="/ticketOrderBuys/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear TicketOrderBuys</a>
+						
+						</div>
+					</li>
+					
 			</ul>
 		</div>
 	</div>

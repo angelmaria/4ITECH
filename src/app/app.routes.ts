@@ -95,7 +95,7 @@ export const routes: Routes = [
 
     },
     {
-        path: 'comments', 
+        path: 'comments',
         component: CommentListComponent
     },
     {
