@@ -16,7 +16,7 @@ export class TicketListComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    // traer una lista de tracks del backend: crea y ejecuta una petición HTTP contra un controlador Backend
+    // traer una lista de tickets del backend: crea y ejecuta una petición HTTP contra un controlador Backend
     const backenUrl = 'http://localhost:8080/tickets';
     this.http.get<Ticket[]>(backenUrl).subscribe(tickets => {
       console.log(tickets);

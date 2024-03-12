@@ -43,8 +43,8 @@ constructor(private fb: FormBuilder, private httpClient: HttpClient) {}
     }
     console.log(ticketToSave);
   
-    const url = 'http://localhost:8080/ticket';
-    this.http.post(url, ticketToSave).subscribe((ticket: Ticket) => console.log(ticket));
+    // const url = 'http://localhost:8080/tickets';
+    // this.http.post(url, ticketToSave).subscribe(ticket => console.log(ticket));
     
     
   }
