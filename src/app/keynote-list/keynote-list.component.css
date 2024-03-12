@@ -21,7 +21,16 @@ h1.display-4 {
     background-color: #198754;
 }
 
+/* Reduciendo margen superior e inferior del banner superior de la home de keynotes */
 .py-5 {
 padding-top: 2rem !important;
 padding-bottom: 2rem !important;
+}
+
+/* stilos del search form */
+form.form-inline {
+    min-width: 400px;
+    float: right;
+    margin-top: 65px; 
+
 }

@@ -5,6 +5,12 @@
       <div class="row py-5">
         <div class="col-lg-12 mx-auto">
           <div class="text-white p-5 shadow-sm rounded banner">
+            <!-- Search form -->
+                <form class="form-inline waves-light" mdbWavesEffect>
+                  <div class="md-form mt-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                  </div>
+                </form>
             <h1 class="display-4">Charlas recientes en 4iTech</h1>
             <p class="lead">Descubre nuestras charlas y no te piedas detalle.</p>
             <p class="lead">Patrocinado por <a href="https://formacion.adecco.com" class="text-reset"> 
@@ -23,7 +29,7 @@
           <div class="bg-white rounded shadow-sm"><img src="{{keynote.webinarUrl}}" alt="" class="img-fluid card-img-top">
             <div class="p-4">
               <h5> <a href="#" class="text-dark">{{keynote.title}}</a></h5>
-              <p class="small text-muted mb-0">{{keynote.description}}</p>
+              <p class="small text-muted mb-0">{{keynote.summary}}</p>
               <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
                 <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Dificultad</span></p>
                 <div class="badge badge-danger px-3 rounded-pill font-weight-normal">JUNIOR</div>
@@ -40,7 +46,7 @@
           <div class="bg-white rounded shadow-sm"><img src="{{keynote.webinarUrl}}" alt="" class="img-fluid card-img-top">
             <div class="p-4">
               <h5> <a href="#" class="text-dark">{{keynote.title}}</a></h5>
-              <p class="small text-muted mb-0">{{keynote.description}}</p>
+              <p class="small text-muted mb-0">{{keynote.summary}}</p>
               <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
                 <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Dificultad</span></p>
                 <div class="badge badge-secondary px-3 rounded-pill font-weight-normal">SEMI-SENIOR</div>
@@ -57,7 +63,7 @@
           <div class="bg-white rounded shadow-sm"><img src="{{keynote.webinarUrl}}" alt="" class="img-fluid card-img-top">
             <div class="p-4">
               <h5> <a href="#" class="text-dark">{{keynote.title}}</a></h5>
-              <p class="small text-muted mb-0">{{keynote.description}}</p>
+              <p class="small text-muted mb-0">{{keynote.summary}}</p>
               <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
                 <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Dificultad</span></p>
                 <div class="badge badge-primary px-3 rounded-pill font-weight-normal text-white">SENIOR</div>
