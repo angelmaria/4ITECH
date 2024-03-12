@@ -25,6 +25,7 @@ export class TicketDetailComponent implements OnInit {
       const id = params['id'];
       if (!id) return;
       const backendUrl = 'http://localhost:8080/tickets/' + id;
+      console.log(backendUrl)
       this.http.get<Ticket>(backendUrl).subscribe(ticketBackend => {
         this.ticket = ticketBackend;
         console.log(this.ticket);
