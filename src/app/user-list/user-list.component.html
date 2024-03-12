@@ -1,1 +1,10 @@
-<p>user-list works!</p>
+
+@for (user of users; track user.id) {
+  <p> <!-- haré que el user.id sea clicable insertando routerLink + una ruta en forma de String que apunte
+  a:  users/:id/detail  ...y que me lleve a la pantalla detalle de un usuario.
+  El enrutado lo debo crear en el archivo 'app.routes.ts' -->
+    <a [routerLink]="['/users', user.id, 'detail']">{{user.id}}</a> {{user.userName}}
+  </p>
+} @empty {
+  <p>Oh Gosh! ain't no users.</p>
+}
