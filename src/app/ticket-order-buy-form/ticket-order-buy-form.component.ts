@@ -40,27 +40,29 @@ export class TicketOrderBuyFormComponent {
       const channel = this.ticketOrderBuyForm .get('channel')?.value ?? 'canal de compra por defecto';
       const qrUrl = this.ticketOrderBuyForm .get('qrUrl')?.value ?? 'qrUrl por defecto';
       
-      const ticketOrderBuyToSave: TicketOrderBuy = {
-        id: id,
-        date: date,
-        discount: discount,
-        totalPrice: totalPrice,
-        quantity: quantity,
-        paymentMethod: paymentMethod,
-        channel: channel,
-        qrUrl: qrUrl,
+      //const ticketOrderBuyToSave: TicketOrderBuy = {
+        // id: id,
+        // date: date,
+        // discount: discount,
+        // totalPrice: totalPrice,
+        // quantity: quantity,
+        // paymentMethod: paymentMethod,
+        // channel: channel,
+        // qrUrl: qrUrl,
         //user: undefined,
         //ticket: undefined
-      }
-      console.log(ticketOrderBuyToSave);
-      const url = 'http://localhost:8080/ticketOrderBuy';
-      this.http.post(url, ticketOrderBuyToSave).subscribe((ticketOrderBuy: TicketOrderBuy) => console.log(ticketOrderBuy));
+      //}
+      //console.log(ticketOrderBuyToSave);
+      const url = 'http://localhost:8080/ticketOrderBuys';
+      //this.http.post(url, ticketOrderBuyToSave).subscribe((ticketOrderBuy: TicketOrderBuy) => console.log(ticketOrderBuy));
       
+      //this.ticketOrderBuyForm.reset();
 
 
 
     }
+}
     
       
-  }
+  
   
