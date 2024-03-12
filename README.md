@@ -1,3 +1,15 @@
+
+# Proyecto3_Angular_@4iTech
+Proyecto del Grupo 3 de Adecco en Angular para conectar con backend en Java Spring-Boot y desarrollar el frontend.
+
+# Enlaces rápidos sugeridos:
+
+https://getbootstrap.com/
+
+https://ng-bootstrap.github.io/#/home
+
+https://icons.getbootstrap.com/icons
+
 # Angular4iTech
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
