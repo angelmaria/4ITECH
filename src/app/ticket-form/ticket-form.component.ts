@@ -2,6 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Ticket } from '../models/ticket.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -23,7 +24,31 @@ ticketForm = this.fb.group ({
 });
   http: any;
 
-constructor(private fb: FormBuilder, private httpClient: HttpClient) {}
+constructor(private fb: FormBuilder,
+  private httpClient: HttpClient,
+  private router: Router,
+  private activatedRoute: ActivatedRoute) {}
+
+  ngOnInit(): void{
+    this.activatedRoute.params.subscribe(params =>{
+      const id = params['id'];
+      if(!id)return;
+    this.httpClient.get<Ticket>('http://localhost:8080/tickets/'+ id)
+    .subscribe(ticketFromBackend =>{
+      //cargar el libro en el formulario ticketbook
+      this.ticketForm.reset({
+        id: ticketFromBackend.id,
+        title: ticketFromBackend.title,
+        username: ticketFromBackend.username,
+        price: ticketFromBackend.price,
+        maxNum: ticketFromBackend.maxNum
+
+      });
+
+      });
+    });
+
+  }
 
   save() {
     console.log("Guardando ticket");
@@ -42,11 +67,16 @@ constructor(private fb: FormBuilder, private httpClient: HttpClient) {}
       maxNum: maxNum,
     }
     console.log(ticketToSave);
-  
-     const url = 'http://localhost:8080/tickets';
-    // this.http.post(url, ticketToSave).subscribe(ticket => console.log(ticket));
-    
-    
+
+    const url = 'http://localhost:8080/tickets'
+
+    this.httpClient.post<Ticket>(url,ticketToSave).subscribe({
+      next: ticket=>this.router.navigate(['/tickets', ticket.id, 'detail']),
+      error: error=>window.alert("datos incorrectos"),
+
+    });
+
+
   }
     
 }

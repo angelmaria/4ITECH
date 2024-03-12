@@ -70,6 +70,10 @@ export const routes: Routes = [
         component: TicketFormComponent
     },
     {
+        path: 'tickets/:id/update',
+        component: TicketFormComponent
+    },
+    {
         path: 'ticketOrderBuys',
         component: TicketOrderBuyListComponent
     },
@@ -79,6 +83,10 @@ export const routes: Routes = [
     },
     {
         path: 'ticketOrderBuys/create',
+        component: TicketOrderBuyFormComponent
+    },
+    {
+        path: 'ticketOrderBuys/:id/update',
         component: TicketOrderBuyFormComponent
     },
     {

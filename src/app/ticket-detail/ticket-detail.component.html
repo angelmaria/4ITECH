@@ -1,3 +1,4 @@
-<p>ticket-detail works!</p>
-{{ticket?.title}}
-- {{ticket?.price}}
+
+@if (ticket) {
+    <p>{{ticket.id}} {{ticket.title}} {{ticket.username}} {{ticket.price}} {{ticket.maxNum}}</p>
+}

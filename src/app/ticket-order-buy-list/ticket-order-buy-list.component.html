@@ -7,5 +7,7 @@
       <li>
         <a [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'detail']">{{ticketOrderBuy.paymentMethod}}</a>
       </li>
+    } @empty {
+      <p>No hay datos.</p>
     }
   </ul>
