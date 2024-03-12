@@ -1,3 +1,7 @@
+.container-fluid {
+    background: #f4f4f4;
+  }
+
 .banner {
     background: #a770ef;
     background: -webkit-linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
@@ -15,4 +19,9 @@ h1.display-4 {
 }
 .badge-secondary {
     background-color: #198754;
+}
+
+.py-5 {
+padding-top: 2rem !important;
+padding-bottom: 2rem !important;
 }
