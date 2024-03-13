@@ -17,7 +17,7 @@ export class KeynoteListComponent implements OnInit {
 
   ngOnInit(): void {
     // traer una lista de keynotes del backend: crea y ejecuta una petición HTTP contra un controlador Backend
-    const backenUrl = 'http://localhost:8080/keynote';
+    const backenUrl = 'http://localhost:8080/keynotes';
     this.http.get<Keynote[]>(backenUrl).subscribe(keynotes => {
       console.log(keynotes);
       // guardamos la respuesta del backend en una variable para poder usarla

@@ -15,7 +15,7 @@ export class KeynoteDetailComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private http: HttpClient
+    private httpClient: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class KeynoteDetailComponent implements OnInit {
       const id = params['id'];
       if (!id) return;
       const backendUrl = 'http://localhost:8080/keynotes/' + id;
-      this.http.get<Keynote>(backendUrl).subscribe(keynoteBackend => {
+      this.httpClient.get<Keynote>(backendUrl).subscribe(keynoteBackend => {
         this.keynote = keynoteBackend;
         console.log(this.keynote);
       });
