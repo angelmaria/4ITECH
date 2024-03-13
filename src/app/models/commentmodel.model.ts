@@ -1,7 +1,7 @@
 import { Keynote } from "./keynote.model";
 import { User } from "./user.model";
 
-export interface Comment {
+export interface CommentModel {
     id: number;
     rating: number; 
     opinion: string;

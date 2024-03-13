@@ -1,7 +1,8 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Comment } from '@angular/compiler';
+import { CommentModel } from '../models/commentmodel.model';
+
 
 @Component({
   selector: 'app-comment-list',
@@ -12,7 +13,7 @@ import { Comment } from '@angular/compiler';
 })
 export class CommentListComponent implements OnInit {
 
-  comments: Comment[] = [];
+  comments: CommentModel[] = [];
 
   constructor(private http: HttpClient) {}
     
@@ -20,7 +21,7 @@ export class CommentListComponent implements OnInit {
 
         // traer una lista de comments del backend: crea y ejecuta una petición HTTP contra un controlador Backend
     const backenUrl = 'http://localhost:8080/comments';
-    this.http.get<Comment[]>(backenUrl).subscribe(commentsBackend => {
+    this.http.get<CommentModel[]>(backenUrl).subscribe(commentsBackend => {
       // guardamos la respuesta del backend en una variable para poder usarla
       this.comments = commentsBackend;
     });
