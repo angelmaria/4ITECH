@@ -1,0 +1,25 @@
+.form-page {
+    display: flex;
+    justify-content: center;
+    min-height: 0vh;
+}
+.my-margin {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.full-screen {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 10vh;
+    font-size: 2em;
+    font-family: 'Urbanist', sans-serif;
+    color: #0b842a;
+}
+.form-page {
+margin-top: 0;
+}
+.small-button {
+    padding: 5px 10px;
+    font-size: 0.8em;
+}

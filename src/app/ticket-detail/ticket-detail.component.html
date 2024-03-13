@@ -1,4 +1,11 @@
+<div class="form-page">
+
+    <div class="row">
+        <div class="col d-flex flex-column justify-content-start align-items-start my-margin">
 
 @if (ticket) {
     <p>{{ticket.id}} {{ticket.title}} {{ticket.username}} {{ticket.price}} {{ticket.maxNum}}</p>
+    <button class="btn btn-success" [routerLink]="['/ticket',ticket.id, '/update']">Editar Ticket</button>
+
+    
 }

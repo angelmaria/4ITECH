@@ -20,9 +20,12 @@ ticketForm = this.fb.group ({
   username:[''],
   price:[0,0],
   maxNum:[0],
+ 
 
 });
-  http: any;
+
+  isUpdate: boolean=false ;
+  //user: User[] = [];
 
 constructor(private fb: FormBuilder,
   private httpClient: HttpClient,
@@ -30,9 +33,11 @@ constructor(private fb: FormBuilder,
   private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void{
+    //
     this.activatedRoute.params.subscribe(params =>{
       const id = params['id'];
       if(!id)return;
+
     this.httpClient.get<Ticket>('http://localhost:8080/tickets/'+ id)
     .subscribe(ticketFromBackend =>{
       //cargar el libro en el formulario ticketbook
@@ -45,38 +50,30 @@ constructor(private fb: FormBuilder,
 
       });
 
+      this.isUpdate = true;
+
       });
     });
 
   }
 
   save() {
-    console.log("Guardando ticket");
 
-    const id = this.ticketForm .get('id')?.value ?? 0;
-    const title = this.ticketForm .get('title')?.value ?? 'titulo por defecto';
-    const username = this.ticketForm .get('username')?.value ?? 'username por defecto';
-    const price = this.ticketForm .get('price')?.value ?? 0.0;
-    const maxNum = this.ticketForm .get('maxNum')?.value ?? 0;
-    
-    const ticketToSave: Ticket = {
-      id: id,
-      title: title,
-      username: username,
-      price: price,
-      maxNum: maxNum,
+    const ticket:Ticket =this.ticketForm.value as Ticket;
+    if (this.isUpdate){
+        const url= 'http://localhost:8080/tickets' + ticket.id;
+        this.httpClient.put<Ticket>(url,ticket).subscribe(ticketFromBackend =>{
+          this.router.navigate(['/tickets', ticketFromBackend.id, 'detail']);
+
+      });
+    }else {
+      const url= 'http://localhost:8080/tickets';
+      this.httpClient.post<Ticket>(url,ticket).subscribe(ticketFromBackend =>{
+        this.router.navigate(['/tickets', ticketFromBackend.id, 'detail']);
+
+      });
     }
-    console.log(ticketToSave);
-
-    const url = 'http://localhost:8080/tickets'
-
-    this.httpClient.post<Ticket>(url,ticketToSave).subscribe({
-      next: ticket=>this.router.navigate(['/tickets', ticket.id, 'detail']),
-      error: error=>window.alert("datos incorrectos"),
-
-    });
-
-
   }
-    
 }
+    
+
