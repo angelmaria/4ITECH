@@ -29,22 +29,15 @@
           </div>
 
           <!-- Selector simple -->
-          <select class="form-select form-select-lg mb-3" formControlName="room">
-            <option selected disabled="false">Número de sala</option>
-            <option value="level1">13</option>
-            <option value="level2">14</option>
-            <option value="level3">15</option>
-          </select>
-
           <div class="form-floating mb-3">
-            <select class="form-select" id="room" formControlName="editorial" [compareWith]="compareObjects">
+            <select class="form-select" id="room" formControlName="room" [compareWith]="compareObjects">
                 <option selected>Elegir una sala</option>
-              <!-- iterar sobre el arrya de rooms mostrando cada uno -->
+              <!-- iterar sobre el array de rooms mostrando cada uno -->
               @for (room of rooms; track room.id) {
-                <option [ngValue]="room">{{room.id}}</option>
+                <option [ngValue]="room">{{room.name}}</option>
               }
             </select>
-            <label for="editorial">Número de sala</label>
+            <label for="room">Sala</label>
           </div>
       
           <div class="form-floating mb-3">

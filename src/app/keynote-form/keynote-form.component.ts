@@ -14,27 +14,6 @@ import { Room } from '../models/room.model';
   styleUrl: './keynote-form.component.css'
 })
 export class KeynoteFormComponent implements OnInit {
-  // keynoteForm = this.fb.group({
-  //   id: [0],
-  //   title: [''], 
-  //   summary: [''],
-  //   description: [''], 
-  //   webinarUrl: [''],
-  //   // one to one
-  //   room: [''],
-  //   maxNumPersons: [0],
-
-  //   // enumerated
-  //   // level: DifficultyLevel;
-  //   durationInMin: [0],
-  //   // many to one
-  //   // speaker: UserRole; 
-  //   // manyToOne
-  //   // tracks: Date;
-
-  //   // ManyToMany
-  //   // attendees: UserRole[]; 
-  // });
 
   keynoteForm = new FormGroup({
     id: new FormControl<number>(0),
@@ -42,7 +21,7 @@ export class KeynoteFormComponent implements OnInit {
     summary: new FormControl<String>(''),
     description: new FormControl<String>(''),
     webinarUrl: new FormControl<String>(''),
-    room: new FormControl<String>(''),
+    room: new FormControl(),
     maxNumPersons: new FormControl<number>(0)
   })
 
@@ -58,7 +37,7 @@ export class KeynoteFormComponent implements OnInit {
 
     ngOnInit(): void {
       // cargar rooms de backend para el selector de rooms en el formulario
-      // this.httpClient.get<Room[]>('http://localhost:8080/rooms').subscribe(rooms => this.rooms = rooms);
+      this.httpClient.get<Room[]>('http://localhost:8080/rooms').subscribe(rooms => this.rooms = rooms);
   
       this.activatedRoute.params.subscribe(params => {
         const id = params['id'];
