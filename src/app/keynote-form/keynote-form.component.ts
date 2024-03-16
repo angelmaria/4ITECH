@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angul
 import { Keynote } from '../models/keynote.model';
 import { DifficultyLevel } from '../models/difficultyLevel.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Room } from '../models/room.model';
 
 @Component({
   selector: 'app-keynote-form',
@@ -46,7 +47,7 @@ export class KeynoteFormComponent implements OnInit {
   })
 
   isUpdate: boolean = false; // por defecto estamos en CREAR no en ACTUALIZAR
-  // rooms: Room[] = []; // array de rooms para asociar una keynote a una sala
+  rooms: Room[] = []; // array de rooms para asociar una keynote a una sala
 
   constructor(private fb: FormBuilder, 
     private httpClient: HttpClient,
