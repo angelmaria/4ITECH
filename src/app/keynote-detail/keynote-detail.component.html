@@ -7,6 +7,8 @@
                 <p>{{keynote.description}}</p>
                 <p>{{keynote.description}}</p>
                 <p>{{keynote.description}}</p>
+
+                <button class="btn btn-success" [routerLink]="['/keynotes', keynote.id, 'update']">Editar Keynote</button>
             }
         </div>
     </div>

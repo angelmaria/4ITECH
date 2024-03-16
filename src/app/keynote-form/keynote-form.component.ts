@@ -22,7 +22,9 @@ export class KeynoteFormComponent implements OnInit {
     description: new FormControl<String>(''),
     webinarUrl: new FormControl<String>(''),
     room: new FormControl(),
-    maxNumPersons: new FormControl<number>(0)
+    maxNumPersons: new FormControl<number>(0),
+    level: new FormControl(),
+    durationInMin: new FormControl<number>(0)
   })
 
   isUpdate: boolean = false; // por defecto estamos en CREAR no en ACTUALIZAR
