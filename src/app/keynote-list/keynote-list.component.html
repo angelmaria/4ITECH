@@ -21,7 +21,9 @@
       </div>
       <!-- End -->
   
-      
+      @if (showDeleteKeynoteMessage) {
+        <ngb-alert type="success" (closed)="hideDeleteKeynoteMessage()">Keynote borrado correctamente</ngb-alert>
+      }
       <div class="row">
         <!-- Gallery item -->
         @for (keynote of keynotes; track keynote.id) {
@@ -34,7 +36,11 @@
                 <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Dificultad</span></p>
                 <div class="badge badge-danger px-3 rounded-pill font-weight-normal">JUNIOR</div>
               </div>
-              <div class="d-grid gap-2"><button [routerLink]="['/keynotes', keynote.id, 'detail']" type="button" class="btn btn-outline-secondary btn-sm mt-3">Más información</button></div>
+              <div class="">
+                <button class="btn btn-info mt-3 me-3" [routerLink]="['/keynotes', keynote.id, 'detail']">Ver</button>
+                <button class="btn btn-success mt-3 ms-3 me-3" [routerLink]="['/keynotes', keynote.id, 'update']">Editar</button>
+                <button class="btn btn-danger ms-3 mt-3" (click)="delete(keynote)">Borrar</button>
+              </div>
             </div>
           </div>
         </div>
