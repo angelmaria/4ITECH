@@ -2,6 +2,7 @@ import { DifficultyLevel } from "./difficultyLevel.model";
 import { UserRole } from "./userRole.model";
 
 export interface Keynote {
+    difficultyLevel: any;
     id: number;
     title: string; 
     summary: string;
