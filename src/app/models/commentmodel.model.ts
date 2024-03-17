@@ -8,6 +8,6 @@ export interface CommentModel {
     // Many to One:  findByUser_id
     user: User;  
     // Many to One:  findByKeynote_id
-    keynote: Keynote [];
+    keynote: Keynote;
 
 }

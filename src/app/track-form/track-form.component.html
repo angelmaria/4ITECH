@@ -3,6 +3,12 @@
 <div class="container">
     <div class="row">
         <div class="col">
+          @if (isUpdate) {
+            <h1 class="mt-5 mb-5">Actualizar Track existente con id: {{trackForm.get('id')?.value}}</h1>
+
+        } @else {
+            <h1 class="mt-5 mb-5">Crea Nuevo Track</h1>
+        }
 
             <form [formGroup]="trackForm" (ngSubmit)="save()">
 

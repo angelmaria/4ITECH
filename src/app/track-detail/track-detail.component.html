@@ -1,1 +1,16 @@
-<p>track-detail works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+
+            <h1 class="mt-5 mb-5">Pantalla de detalle de Track con Id: {{track?.id}}</h1>
+
+            @if (track) {
+            <p>ID: {{track.id}}--Nombre:{{track.name}}--Fecha Inicio:{{track.startDate}}--Fecha Fin:{{track.endDate}}
+            </p>
+
+            <button class="btn btn-success" [routerLink]="['/tracks', track.id, 'update']">Editar Track</button>
+            }
+        </div>
+    </div>
+</div>

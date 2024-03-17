@@ -109,7 +109,7 @@ export const routes: Routes = [
     },
     {
         path: 'tracks/delete',
-        component: TrackFormComponent  // En TrackListComponent ???
+        component: TrackFormComponent  
 
     },
     {
@@ -130,7 +130,7 @@ export const routes: Routes = [
     },
     {
         path: 'comments/delete',
-        component: CommentFormComponent  // CommentListComponent ???
+        component: CommentFormComponent 
     },
     {
         path: 'users', 
