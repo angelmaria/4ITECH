@@ -32,8 +32,14 @@
             <div class="p-4">
               <h5> <a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-dark">{{keynote.title}}</a></h5>
               <p class="small text-muted mb-0">{{keynote.summary}}</p>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Dificultad</span></p>
+              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3 mb-2">
+                <p class="small mb-0"><i class="bi bi-buildings-fill me-2 text-secondary"></i><span class="font-weight-bold">Sala</span></p>
+                <div style="font-weight:500">Hall of Fame</div>
+              </div>
+              <button type="button" class="btn btn-outline-secondary mt-2" data-mdb-ripple-init ><i class="bi bi-people-fill me-2"></i>Capacidad <span class="badge badge-danger ms-2">{{keynote.maxNumPersons}}</span>
+              </button>
+              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3">
+                <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold"><i class="bi bi-bar-chart-fill me-2 text-secondary"></i>Dificultad</span></p>
                 <div class="badge badge-danger px-3 rounded-pill font-weight-normal">JUNIOR</div>
               </div>
               <div style="text-align: center;">

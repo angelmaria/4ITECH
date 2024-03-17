@@ -4,7 +4,7 @@
       @if (isUpdate) {
         <h1 class="mt-5 mb-5 text-secondary">Actualizar Keynote existente con id <span style="border-radius: 0.25rem; color: #fff; background-color: #6c757d; padding:0.25rem 0.4rem; font-size:75%;">{{keynoteForm.get('id')?.value}}</span></h1>
         } @else {
-            <h1 class="mt-5 mb-5">Crear Keynote nueva</h1>    
+            <h1 class="mt-5 mb-5 text-secondary">Crear Keynote nueva</h1>    
         }
       <form [formGroup]="keynoteForm" (ngSubmit)="save()">
 
