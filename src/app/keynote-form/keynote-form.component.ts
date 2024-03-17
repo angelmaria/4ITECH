@@ -55,7 +55,9 @@ export class KeynoteFormComponent implements OnInit {
             description: keynoteFromBackend.description,
             webinarUrl: keynoteFromBackend.webinarUrl,
             room: keynoteFromBackend.room,
-            maxNumPersons: keynoteFromBackend.maxNumPersons 
+            maxNumPersons: keynoteFromBackend.maxNumPersons,
+            level: keynoteFromBackend.level,
+            durationInMin: keynoteFromBackend.durationInMin
           });
   
           // marcar boolean true isUpdate

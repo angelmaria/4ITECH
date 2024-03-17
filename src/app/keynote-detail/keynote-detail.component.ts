@@ -25,8 +25,9 @@ export class KeynoteDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       const id = params['id'];
       if (!id) return;
-      const backendUrl = 'http://localhost:8080/keynotes/' + id;
-      this.httpClient.get<Keynote>(backendUrl).subscribe(keynoteBackend => {
+
+      const url = 'http://localhost:8080/keynotes/' + id;
+      this.httpClient.get<Keynote>(url).subscribe(keynoteBackend => {
         this.keynote = keynoteBackend;
         console.log(this.keynote);
       });

@@ -32,5 +32,11 @@ form.form-inline {
     min-width: 400px;
     float: right;
     margin-top: 65px; 
-
+}
+/* efecto de agrandar las imágenes del grid un 10% */
+img.zoom {
+    transition: 0.4s ease;
+}
+img.zoom:hover {
+    transform: scale(1.1);
 }

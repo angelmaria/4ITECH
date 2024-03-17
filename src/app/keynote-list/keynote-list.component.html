@@ -28,7 +28,7 @@
         <!-- Gallery item -->
         @for (keynote of keynotes; track keynote.id) {
         <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div class="bg-white rounded shadow-sm"><img src="{{keynote.webinarUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']" style="cursor: pointer;" alt="" class="img-fluid card-img-top">
+          <div style="box-shadow: 0px 0px 5px #ccc !important; overflow:hidden;" class="bg-white rounded shadow-sm"><img src="{{keynote.webinarUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']" style="cursor: pointer;" alt="" class="img-fluid card-img-top zoom">
             <div class="p-4">
               <h5> <a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-dark">{{keynote.title}}</a></h5>
               <p class="small text-muted mb-0">{{keynote.summary}}</p>
@@ -36,10 +36,10 @@
                 <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span class="font-weight-bold">Dificultad</span></p>
                 <div class="badge badge-danger px-3 rounded-pill font-weight-normal">JUNIOR</div>
               </div>
-              <div class="">
-                <button class="btn btn-info mt-3 me-3" [routerLink]="['/keynotes', keynote.id, 'detail']">Ver</button>
-                <button class="btn btn-success mt-3 ms-3 me-3" [routerLink]="['/keynotes', keynote.id, 'update']">Editar</button>
-                <button class="btn btn-danger ms-3 mt-3" (click)="delete(keynote)">Borrar</button>
+              <div style="text-align: center;">
+                <button style="font-weight: bold;" class="btn btn-primary btn-sm mt-3 me-3" [routerLink]="['/keynotes', keynote.id, 'detail']">Ver</button>
+                <button style="font-weight: bold;" class="btn btn-success btn-sm mt-3 ms-3 me-3" [routerLink]="['/keynotes', keynote.id, 'update']">Editar</button>
+                <button style="font-weight: bold" class="btn btn-danger btn-sm ms-3 mt-3" (click)="delete(keynote)">Borrar</button>
               </div>
             </div>
           </div>
