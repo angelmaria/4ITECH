@@ -27,11 +27,12 @@ padding-top: 2rem !important;
 padding-bottom: 2rem !important;
 }
 
-/* stilos del search form */
-form.form-inline {
-    min-width: 400px;
+/* estilos del search form */
+.buscador {
+    max-width: 400px;
     float: right;
     margin-top: 65px; 
+    display: block;
 }
 /* efecto de agrandar las imágenes del grid un 10% */
 img.zoom {
