@@ -14,6 +14,8 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './comment-form.component.html',
   styleUrl: './comment-form.component.css'
 })
+
+
 export class CommentFormComponent implements OnInit {
 
   commentForm = new FormGroup({
@@ -30,6 +32,7 @@ export class CommentFormComponent implements OnInit {
  
   keynotes: Keynote[] = [];
 comments: any;
+rating: any;
   
   
 

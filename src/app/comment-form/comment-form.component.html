@@ -17,11 +17,12 @@
             <input type="hidden" formControlName="id">
   
             <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="rating" formControlName="rating" step="0">
-              <label for="rating">Valoración</label>
-              <p>This rating uses customized default values.</p>
+             
+              <p>Valora la Charla</p>
 
-              <ngb-rating [rate]="9" />
+              <ngb-rating [(rate)]="rating" />
+              <hr />
+              <pre>Valoración: <b>{{ rating }}</b></pre>
             </div>
              
            <div class="form-floating mb-3">
