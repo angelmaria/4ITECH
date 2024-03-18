@@ -2,12 +2,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Track } from '../models/track.model';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-track-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule, RouterLink],
+  imports: [ReactiveFormsModule, HttpClientModule],
   templateUrl: './track-form.component.html',
   styleUrl: './track-form.component.css'
 })
@@ -19,12 +19,15 @@ export class TrackFormComponent {
     startDate: new FormControl<Date>(new Date()),
     endDate: new FormControl<Date>(new Date())
   });
+
   isUpdate: boolean = false;
 
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private httpClient: HttpClient,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute) {}
+     
 
   ngOnInit(): void {
 
@@ -35,12 +38,12 @@ export class TrackFormComponent {
 
       this.httpClient.get<Track>('http://localhost:8080/tracks/' + id)
         .subscribe(trackFromBackend => {
-          // Cargar el libro obtenido en el formulario bookForm, previo reset y vuelva al formulario para editar
+          // Cargar el track obtenido en el formulario trackForm, previo reset y vuelva al formulario para editar
           this.trackForm.reset({
             id: trackFromBackend.id,
             name: trackFromBackend.name,
             startDate: trackFromBackend.startDate,
-            endDate: trackFromBackend.endDate,
+            endDate: trackFromBackend.endDate
 
           });
           // marcar boolean true isUpdate

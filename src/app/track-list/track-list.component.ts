@@ -36,8 +36,6 @@ export class TrackListComponent implements OnInit {
       this.showDeletedBookMessage = false;
       }
 
-  
-
   private loadTracks() {
     const backenUrl = 'http://localhost:8080/tracks';
     this.httpClient.get<Track[]>(backenUrl).subscribe(tracks => {

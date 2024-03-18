@@ -1,5 +1,5 @@
-<p>track-form works!</p>
-<hr>
+
+
 <div class="container">
     <div class="row">
         <div class="col">
@@ -11,6 +11,8 @@
         }
 
             <form [formGroup]="trackForm" (ngSubmit)="save()">
+
+                <input type="hidden" formControlName="id">
 
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="name"
@@ -28,9 +30,14 @@
                     <input type="datetime-local" class="form-control" id="endDate"
                       formControlName="endDate"> <!--conexion entre html y TS-->
                     <label for="endDate">Fecha fin del Track</label>
-                </div>   
-            
-                  <button class="btn btn-success" type="submit">Enviar</button>
+                </div>
+                @if (isUpdate) {
+                  <button class="btn btn-success" type="submit">Actualizar</button>
+                } @else {
+                  <button class="btn btn-success" type="submit">Crear</button>
+                }
+         
+      
             </form>
         </div>
     </div>
