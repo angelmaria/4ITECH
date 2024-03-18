@@ -17,7 +17,9 @@
               <th scope="col">Id</th>
               <th scope="col">Nombre</th>
               <th scope="col">Fecha inicio</th>
-              <th scope="col">Fecha fin</th>
+              <th scope="col">Hora inicio</th>
+              <th scope="col">Fecha inicio</th>
+              <th scope="col">Hora fin</th>
               <th scope="col">Acciones</th>
             </tr>
           </thead>
@@ -27,7 +29,10 @@
                 <th scope="row">{{track.id}}</th>
                 <td>{{track.name}}</td>
                 <td>{{track.startDate | date: 'dd/MM/yy'}}</td>
+                <td>{{track.startDate | date: 'hh:mm'}}</td>
                 <td>{{track.endDate | date: 'dd/MM/yy'}}</td>
+                <td>{{track.endDate | date: 'hh:mm'}}</td>
+
 
                 <td>
                   <button class="btn btn-info" [routerLink]="['/tracks', track.id, 'detail']">Ver</button>
