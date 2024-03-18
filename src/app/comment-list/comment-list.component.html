@@ -27,15 +27,14 @@
               <tr>
                 <th scope="row">{{comment.id}}</th>
                 <td>{{comment.rating}}</td>
-                <td>{{comment.opinion}}</td>
-             
+                <td>{{comment.opinion}}</td>  
                 <td>
                   <a class="badge text-bg-secondary text-decoration-none" [routerLink]="['/comments', comment.user.id, 'detail']">
                     {{comment.user.firstName}}
                   </a>
                 </td>
                 <td>
-                  <a class="badge text-bg-warning text-decoration-none" [routerLink]="['/comments', keynote.title.Id, 'detail']">
+                  <a class="badge text-bg-warning text-decoration-none" [routerLink]="['/comments', comment.keynote.id, 'detail']">
                     {{comment.keynote.title}}
                   </a>
                 </td>
