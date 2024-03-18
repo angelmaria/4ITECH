@@ -25,6 +25,7 @@ import { RoomListComponent } from './room-list/room-list.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { RoomFormComponent } from './room-form/room-form.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactComponent } from './contact/contact.component';
 
 export const routes: Routes = [
     {
@@ -173,6 +174,10 @@ export const routes: Routes = [
     {
         path: 'about',
         component: AboutUsComponent
+    },
+    {
+        path: 'contact',
+        component: ContactComponent
     },
     {
         path: 'rooms/:id/update',
