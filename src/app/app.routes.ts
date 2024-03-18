@@ -77,6 +77,10 @@ export const routes: Routes = [
         path: 'tickets/:id/update',
         component: TicketFormComponent
     },
+    { path: 'ticket/:id/delete',
+    component: TicketFormComponent
+    },
+
     {
         path: 'ticketOrderBuys',
         component: TicketOrderBuyListComponent
@@ -92,6 +96,9 @@ export const routes: Routes = [
     {
         path: 'ticketOrderBuys/:id/update',
         component: TicketOrderBuyFormComponent
+    },
+    { path: 'ticket/:id/delete',
+    component: TicketFormComponent
     },
     {
         path: 'tracks',
@@ -137,7 +144,7 @@ export const routes: Routes = [
         component: CommentFormComponent  // CommentListComponent ???
     },
     {
-        path: 'users', 
+        path: 'users',
         component: UserListComponent
     },
     {
@@ -149,7 +156,7 @@ export const routes: Routes = [
         component: UserFormComponent
     },
     {
-        path: 'rooms', 
+        path: 'rooms',
         component: RoomListComponent
     },
     {

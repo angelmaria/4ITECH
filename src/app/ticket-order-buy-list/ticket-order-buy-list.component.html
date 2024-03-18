@@ -1,13 +1,10 @@
-<p>ticket-order-buy-list works!</p>
-<ul>
-    @for (ticketOrderBuy of ticketOrderBuys; track ticketOrderBuy.id) {
-      <li>
-        <a [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'detail']">{{ticketOrderBuy.totalPrice}}</a>
-      </li>
-      <li>
-        <a [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'detail']">{{ticketOrderBuy.paymentMethod}}</a>
-      </li>
-    } @empty {
-      <p>No hay datos.</p>
-    }
-  </ul>
+@for (ticketOrderBuy of ticketOrderBuys; track ticketOrderBuy.id) {
+  <p>
+    {{ticketOrderBuy.id}} {{ticketOrderBuy.date}} {{ticketOrderBuy.discount}} {{ticketOrderBuy.totalPrice}} {{ticketOrderBuy.quantity}}{{ticketOrderBuy.paymentMethod}} {{ticketOrderBuy.channel}} {{ticketOrderBuy.qrUrl}}
+    <button class="btn btn-info" [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'detail']">Ver ticketOrderBuy</button>
+    <button class="btn btn-success" [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'update']">Editar ticketOrderBuy</button>
+    <button class="btn btn-danger">Borrar ticketOrderBuy</button>
+  </p>
+} @empty {
+  <p>No hay ticketOrderBuys.</p>
+}
