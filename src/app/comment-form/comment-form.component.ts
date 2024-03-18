@@ -28,6 +28,7 @@ export class CommentFormComponent implements OnInit {
   isUpdate: boolean = false;
   users: User[] = [];
   keynote: Keynote[] = [];
+comments: any;
 
   constructor(private fb: FormBuilder,
     private httpClient: HttpClient,

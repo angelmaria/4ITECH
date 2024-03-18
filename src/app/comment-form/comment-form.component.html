@@ -24,7 +24,7 @@
               <ngb-rating [rate]="3" />
             </div>
              
-           <!--<div class="form-floating mb-3">
+           <div class="form-floating mb-3">
                 <input type="text" class="form-control"
                 id="isbn" formControlName="isbn">
                 <label for="isbn">ISBN del libro</label>
@@ -34,9 +34,9 @@
               <select class="form-select" id="author" formControlName="author" [compareWith]="compareObjects">
   
   
-                  <!-- iterar sobre el array de authors mostrando cada uno 
-                @for (author of authors; track author.id) {
-                  <option [ngValue]="author">{{author.fullName}}</option>
+                  <!-- iterar sobre el array de authors mostrando cada uno -->
+                @for (comment of comments; track comments.id) {
+                  <option [ngValue]="comment">{{comment.id}}</option>
                 }
   
               </select>
@@ -56,6 +56,6 @@
       </div>
     </div>
   </div>
-  -->
+
 
   
