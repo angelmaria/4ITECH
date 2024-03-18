@@ -24,6 +24,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { RoomListComponent } from './room-list/room-list.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { RoomFormComponent } from './room-form/room-form.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 export const routes: Routes = [
     {
@@ -160,7 +161,10 @@ export const routes: Routes = [
         path: 'rooms/create',
         component: RoomFormComponent
     },
-    
+    {
+        path: 'about',
+        component: AboutUsComponent
+    },
 
 
         // El Enrutado del componente not found 404 siempre hay que dejarlo
