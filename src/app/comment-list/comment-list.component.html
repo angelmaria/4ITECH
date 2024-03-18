@@ -30,7 +30,7 @@
                 <td>{{comment.opinion}}</td>
              
                 <td>
-                  <a class="badge text-bg-secondary text-decoration-none" [routerLink]="['/comments, comment.user.id, 'detail']">
+                  <a class="badge text-bg-secondary text-decoration-none" [routerLink]="['/comments', comment.user.id, 'detail']">
                     {{comment.user.firstName}}
                   </a>
                 </td>
@@ -46,6 +46,7 @@
                 </td>
               </tr>
             
+            }
   
           </tbody>
         </table>
