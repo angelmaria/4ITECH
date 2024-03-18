@@ -21,27 +21,40 @@
               <label for="rating">Valoración</label>
               <p>This rating uses customized default values.</p>
 
-              <ngb-rating [rate]="3" />
+              <ngb-rating [rate]="9" />
             </div>
              
            <div class="form-floating mb-3">
-                <input type="text" class="form-control"
-                id="isbn" formControlName="isbn">
-                <label for="isbn">ISBN del libro</label>
-              </div>
+                <input type="text-area" class="form-control"
+                id="opinion" formControlName="opinion">
+                <label for="opinion">Reseña</label>
+            </div>
   
             <div class="form-floating">
-              <select class="form-select" id="author" formControlName="author" [compareWith]="compareObjects">
+              <select class="form-select" id="keynote" formControlName="keynote" [compareWith]="compareObjects">
   
   
-                  <!-- iterar sobre el array de authors mostrando cada uno -->
-                @for (comment of comments; track comments.id) {
-                  <option [ngValue]="comment">{{comment.id}}</option>
+                  <!-- iterar sobre el array de keynotes mostrando cada uno -->
+                @for (keynote of keynotes; track keynote.id) {
+                  <option [ngValue]="keynote">{{keynote.title}}</option>
                 }
   
               </select>
-              <label for="author">Autor/a del libro</label>
+              <label for="keynote">Charla del comentario</label>
             </div>
+
+            <div class="form-floating">
+              <select class="form-select" id="keynote" formControlName="keynote" [compareWith]="compareObjects">
+  
+  
+                  <!-- iterar sobre el array de users mostrando cada uno -->
+               @for (user of users; track user.id) {
+                  <option [ngValue]="user">{{user.id}}</option>
+                }
+  
+              </select>
+              <label for="user">Usuario del comentario</label>
+            </div>  
   
   
             @if (isUpdate) {

@@ -1,13 +1,13 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommentModel } from '../models/commentmodel.model';
 
 
 @Component({
   selector: 'app-comment-detail',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, RouterLink],
   templateUrl: './comment-detail.component.html',
   styleUrl: './comment-detail.component.css'
 })
