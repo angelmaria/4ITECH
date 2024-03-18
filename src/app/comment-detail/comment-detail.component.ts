@@ -1,7 +1,8 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Comment } from '@angular/compiler';
+import { CommentModel } from '../models/commentmodel.model';
+
 
 @Component({
   selector: 'app-comment-detail',
@@ -12,7 +13,7 @@ import { Comment } from '@angular/compiler';
 })
 export class CommentDetailComponent implements OnInit{
 
-  comment: Comment | undefined;
+  comment: CommentModel | undefined;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -26,7 +27,7 @@ export class CommentDetailComponent implements OnInit{
 
       if (!id) return;
       const backendUrl = 'http://localhost:8080/comments/' + id;
-      this.http.get<Comment>(backendUrl).subscribe(commentBackend => {
+      this.http.get<CommentModel>(backendUrl).subscribe(commentBackend => {
         this.comment = commentBackend;
         console.log(this.comment);
       });

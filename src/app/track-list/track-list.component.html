@@ -1,12 +1,52 @@
-<p>track-list works!</p>
 
-<ul>
-    @for (currentTrack of tracks; track currentTrack.id) {
-      <li>
-        <a [routerLink]="['/tracks', currentTrack.id, 'detail']">{{currentTrack.name}}</a>
-      </li>
-      <li>
-        <a [routerLink]="['/tracks', currentTrack.id, 'detail']">{{currentTrack.startDate}}--{{currentTrack.endDate}}</a>
-      </li>
-    }
-  </ul>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+  
+        <h1 class="mt-5 mb-5">Listado de tracks</h1>
+  
+        @if (showDeletedBookMessage) {
+          <!--<ngb-alert type="success" [dismissible]="false">Libro borrado correctamente</ngb-alert>-->
+          <ngb-alert type="success" (closed)="hideDeletedBookMessage()">Track borrado correctamente.</ngb-alert>
+        }
+  
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Fecha inicio</th>
+              <th scope="col">Hora inicio</th>
+              <th scope="col">Fecha inicio</th>
+              <th scope="col">Hora fin</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (track of tracks; track track.id) {
+              <tr>
+                <th scope="row">{{track.id}}</th>
+                <td>{{track.name}}</td>
+                <td>{{track.startDate | date: 'dd/MM/yy'}}</td>
+                <td>{{track.startDate | date: 'hh:mm'}}</td>
+                <td>{{track.endDate | date: 'dd/MM/yy'}}</td>
+                <td>{{track.endDate | date: 'hh:mm'}}</td>
+
+
+                <td>
+                  <button class="btn btn-info" [routerLink]="['/tracks', track.id, 'detail']">Ver</button>
+                  <button class="btn btn-success ms-2" [routerLink]="['/tracks', track.id, 'update']">Editar</button>
+                  <button class="btn btn-danger ms-2" (click)="delete(track)">Borrar</button>
+                </td>
+              </tr>
+            } @empty {
+                <h5 class="cbadge text-bg-danger text-decoration-none">No hay tracks</h5>
+            }
+  
+          </tbody>
+        </table>
+  
+      </div>
+    </div>
+  </div>
