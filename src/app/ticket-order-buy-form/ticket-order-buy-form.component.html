@@ -7,7 +7,12 @@
             <div class="container-fluid">
                     
                         <form [formGroup]="ticketOrderBuyForm" (ngSubmit)="save()">
-
+                            
+                            <div>@for (ticket of tickets; track ticket.id) {
+                                <option>{{ticket.fullName}}</option>
+                            }
+                            </div>
+                            
                             <div class="mb-3">
                                 <label for="date" class="form-label">Fecha</label>
                                 <input type="date" class="form-control form-input" id="date" formControlName="date">

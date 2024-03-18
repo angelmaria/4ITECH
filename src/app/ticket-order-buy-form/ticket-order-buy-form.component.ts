@@ -25,6 +25,8 @@ export class TicketOrderBuyFormComponent {
     //User: [0],
   });
 isUpdate: boolean = false;
+users: any;
+tickets: any;
 
   constructor(
     private fb: FormBuilder,
@@ -43,19 +45,30 @@ isUpdate: boolean = false;
         .subscribe(ticketOrderBuyFromBackend => {
           // estos puntos para reducir el texto
           this.ticketOrderBuyForm.reset({
-            ...ticketOrderBuyFromBackend
+
+              id: ticketOrderBuyFromBackend.id,
+              date: ticketOrderBuyFromBackend.date || new Date(),
+              discount: ticketOrderBuyFromBackend.discount || 0,
+              totalPrice: ticketOrderBuyFromBackend.totalPrice || 0,
+              quantity: ticketOrderBuyFromBackend.quantity || 0,
+              paymentMethod: ticketOrderBuyFromBackend.paymentMethod || '',
+              channel: ticketOrderBuyFromBackend.channel || '',
+              qrUrl: ticketOrderBuyFromBackend.qrUrl || '',
+              ticket: ticketOrderBuyFromBackend.ticket || {}
+            });
+            
+            this.isUpdate = true;
+          
           });
           
-          this.isUpdate = true;
         });
-    });
+    
   }
-
   save() {
     const ticketOrderBuy: TicketOrderBuy = this.ticketOrderBuyForm.value as TicketOrderBuy;
     if (this.isUpdate) {
       const url = 'http://localhost:8080/ticketOrderBuys/' + ticketOrderBuy.id;
-      this.httpClient.put<TicketOrderBuy>(url, ticketOrderBuy).subscribe(ticketOrderBuyFromBackend => {
+      this.httpClient.put<TicketOrderBuy>(url, ticketOrderBuy).subscribe(ticketOrderBuyFromBackend=> {
         this.router.navigate(['/ticketOrderBuys', ticketOrderBuyFromBackend.id, 'detail']);
       });
     } else {
