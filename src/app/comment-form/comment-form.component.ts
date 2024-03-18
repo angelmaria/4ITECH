@@ -5,11 +5,12 @@ import { User } from '../models/user.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Keynote } from '../models/keynote.model';
 import { CommentModel } from '../models/commentmodel.model';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-comment-form',
   standalone: true,
-  imports: [HttpClientModule, ReactiveFormsModule],
+  imports: [HttpClientModule, ReactiveFormsModule, NgbRatingModule],
   templateUrl: './comment-form.component.html',
   styleUrl: './comment-form.component.css'
 })
