@@ -23,14 +23,12 @@ export class KeynoteFormComponent implements OnInit {
     webinarUrl: new FormControl<String>(''),
     room: new FormControl(),
     maxNumPersons: new FormControl<number>(0),
-    difficultyLevel: new FormControl(),
+    difficultyLevel: new FormControl<DifficultyLevel>(DifficultyLevel.JUNIOR),
     durationInMin: new FormControl<number>(0)
   })
 
   isUpdate: boolean = false; // por defecto estamos en CREAR no en ACTUALIZAR
   rooms: Room[] = []; // array de rooms para asociar una keynote a una sala
-difficultyLevel: any;
-levels: any;
 
   constructor(private fb: FormBuilder, 
     private httpClient: HttpClient,

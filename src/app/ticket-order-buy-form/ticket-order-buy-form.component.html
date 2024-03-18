@@ -1,70 +1,73 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-lg-6">
-      <form [formGroup]="ticketOrderBuyForm" (ngSubmit)="save()">
-        <div class="mb-3">
-          <label for="id" class="form-label">ID</label>
-          <input type="number" class="form-control" id="id" formControlName="id">
-        </div>
-        <div class="mb-3">
-          <label for="date" class="form-label">Fecha</label>
-          <input type="date" class="form-control" id="date" formControlName="date">
-        </div>
-        <div class="mb-3">
-          <label for="discount" class="form-label">Descuento</label>
-          <select class="form-select" id="discount" formControlName="discount">
-            <option selected disabled="true">Selecciona un descuento</option>
-            <option value="20">20%</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="totalPrice" class="form-label">Precio Total</label>
-          <input min="0" type="number" class="form-control" id="totalPrice" formControlName="totalPrice">
-        </div>
-        <div class="mb-3">
-          <label for="quantity" class="form-label">Cantidad</label>
-          <input min="0" type="number" class="form-control" id="quantity" formControlName="quantity">
-        </div>
-        <div class="mb-3">
-          <label for="paymentMethod" class="form-label">Método de Pago</label>
-          <select class="form-select" id="paymentMethod" formControlName="paymentMethod">
-            <option selected disabled="true">Selecciona un método</option>
-            <option value="tarjeta">Tarjeta debito</option>
-            <option value="tarjeta2">Tarjeta credito</option>
-            <option value="paypal">Paypal</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">Método de Compra</label>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="online" formControlName="purchaseMethod" id="online" value="online">
-            <label class="form-check-label" for="online">
-              Compra Online
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="offline" formControlName="purchaseMethod" id="offline" value="offline">
-            <label class="form-check-label" for="offline">
-              Compra Offline
-            </label>
-          </div>
-        </div>
-        
-        
-
-
-
-
-        <div class="mb-3">
-          <label for="qrUrl" class="form-label">URL del QR</label>
-          <input type="text" class="form-control" id="qrUrl" formControlName="qrUrl">
-        </div>
-        <div class="d-flex justify-content-between">
-          <button type="submit" class="btn btn-primary">Comprar</button>
-          <button type="button" class="btn btn-primary">Cancelar</button>
-        </div>
-      </form>
-    </div>
-  </div>
+<hr>
+<div class="full-screen">
+    <p>Bienvenido al formulario de Compra de ticket</p>
 </div>
+    <div class="row">
+        <div class="col d-flex justify-content-center align-items-center">
+            <div class="container-fluid">
+                    
+                        <form [formGroup]="ticketOrderBuyForm" (ngSubmit)="save()">
+                            
+                            <div>@for (ticket of tickets; track ticket.id) {
+                                <option>{{ticket.fullName}}</option>
+                            }
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Fecha</label>
+                                <input type="date" class="form-control form-input" id="date" formControlName="date">
+                            </div>
+                            <div class="mb-3">
+                                <label for="discount" class="form-label">Descuento</label>
+                                <select class="form-select form-input" id="discount" formControlName="discount">
+                                    <option selected disabled="true">Selecciona un descuento</option>
+                                    <option value="20">20%</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="totalPrice" class="form-label">Precio Total</label>
+                                <input min="0" type="number" class="form-control form-input" id="totalPrice" formControlName="totalPrice">
+                            </div>
+                            <div class="mb-3">
+                                <label for="quantity" class="form-label">Cantidad</label>
+                                <input min="0" type="number" class="form-control form-input" id="quantity" formControlName="quantity">
+                            </div>
+                            <div class="mb-3">
+                                <label for="paymentMethod" class="form-label">Método de Pago</label>
+                                <select class="form-select form-input" id="paymentMethod" formControlName="paymentMethod">
+                                    <option selected disabled="true">Selecciona un método</option>
+                                    <option value="tarjeta">Tarjeta debito</option>
+                                    <option value="tarjeta2">Tarjeta credito</option>
+                                    <option value="paypal">Paypal</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Método de Compra</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="online" formControlName="purchaseMethod" id="online" value="online">
+                                    <label class="form-check-label" for="online">
+                                        Compra Online
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="offline" formControlName="purchaseMethod" id="offline" value="offline">
+                                    <label class="form-check-label" for="offline">
+                                        Compra Offline
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="qrUrl" class="form-label">URL del QR</label>
+                                <input type="text" class="form-control form-input" id="qrUrl" formControlName="qrUrl">
+                            </div>
+                            <div class="d-flex button-container justify-content-between">
+                                <button type="submit" class="btn btn-primary">Comprar</button>
+                                <button type="button" class="btn btn-primary">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        
+
+

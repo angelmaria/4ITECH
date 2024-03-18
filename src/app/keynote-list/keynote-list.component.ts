@@ -25,7 +25,7 @@ export class KeynoteListComponent implements OnInit {
 
   delete(keynote: Keynote) {
     // traer una lista de keynotes del backend: crea y ejecuta una petición HTTP contra un controlador Backend
-    const url = 'http://localhost:8080/keynotes';
+    const url = 'http://localhost:8080/keynotes/' + keynote.id;
     this.httpClient.delete(url).subscribe(keynotes => {
       this.loadsKeynotes();
       this.showDeleteKeynoteMessage = true;

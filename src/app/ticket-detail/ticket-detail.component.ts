@@ -1,12 +1,12 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from '../models/ticket.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-ticket-detail',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule,RouterLink],
   templateUrl: './ticket-detail.component.html',
   styleUrl: './ticket-detail.component.css'
 })
@@ -25,11 +25,11 @@ export class TicketDetailComponent implements OnInit {
       const id = params['id'];
       if (!id) return;
       const backendUrl = 'http://localhost:8080/tickets/' + id;
-      console.log(backendUrl)
-      this.http.get<Ticket>(backendUrl).subscribe(ticketBackend => {
-        this.ticket = ticketBackend;
-        console.log(this.ticket);
-      });
+      this.http.get<Ticket>(backendUrl).subscribe(t => this.ticket = t);
+      
+    
+    
+    
 
     });
 

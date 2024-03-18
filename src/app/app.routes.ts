@@ -63,6 +63,10 @@ export const routes: Routes = [
         component: KeynoteFormComponent
     },
     {
+        path: 'keynotes/:id/delete',
+        component: KeynoteFormComponent
+    },
+    {
         path: 'tickets',
         component: TicketListComponent
     },
@@ -77,6 +81,9 @@ export const routes: Routes = [
     {
         path: 'tickets/:id/update',
         component: TicketFormComponent
+    },
+    { path: 'ticket/:id/delete',
+    component: TicketFormComponent
     },
     {
         path: 'ticketOrderBuys',
@@ -94,6 +101,9 @@ export const routes: Routes = [
         path: 'ticketOrderBuys/:id/update',
         component: TicketOrderBuyFormComponent
     },
+    { path: 'ticketOrderBuys/:id/delete',
+    component: TicketOrderBuyFormComponent
+    },
     {
         path: 'tracks',
         component: TrackListComponent
@@ -108,12 +118,12 @@ export const routes: Routes = [
 
     },
     {
-        path: 'tracks/update',
+        path: 'tracks/:id/update',
         component: TrackFormComponent
 
     },
     {
-        path: 'tracks/delete',
+        path: 'tracks/:id/delete',
         component: TrackFormComponent  // En TrackListComponent ???
 
     },
@@ -130,15 +140,15 @@ export const routes: Routes = [
         component: CommentFormComponent
     },
     {
-        path: 'comments/update',
+        path: 'comments/:id/update',
         component: CommentFormComponent
     },
     {
-        path: 'comments/delete',
+        path: 'comments/:id/delete',
         component: CommentFormComponent  // CommentListComponent ???
     },
     {
-        path: 'users', 
+        path: 'users',
         component: UserListComponent
     },
     {
@@ -150,7 +160,15 @@ export const routes: Routes = [
         component: UserFormComponent
     },
     {
-        path: 'rooms', 
+        path: 'users/:id/update',
+        component: UserFormComponent
+    },
+    {
+        path: 'users/:id/delete',
+        component: UserFormComponent
+    },
+    {
+        path: 'rooms',
         component: RoomListComponent
     },
     {
@@ -165,6 +183,13 @@ export const routes: Routes = [
         path: 'about',
         component: AboutUsComponent
     },
+        path: 'rooms/:id/update',
+        component: RoomFormComponent
+    },
+    {
+        path: 'rooms/:id/delete',
+        component: RoomFormComponent
+    },    
 
 
         // El Enrutado del componente not found 404 siempre hay que dejarlo

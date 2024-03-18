@@ -1,13 +1,21 @@
-<p>ticket-list works!</p>
-<ul>
-    @for (ticket of tickets; track ticket.id) {
-      <li>
-        <a [routerLink]="['/tickets', ticket.id, 'detail']">{{ticket.title}}</a>
-      </li>
-      <li>
-        <a [routerLink]="['/ticket', ticket.id, 'detail']">{{ticket.price}}</a>
-      </li>
-    } @empty {
-      <li>No hay datos</li>
-    }
-  </ul>
+<hr>
+
+<div class="full-screen">
+    <p>Bienvenido al listado de tickets</p>
+</div>
+
+@if (showDeletedTicketMessage) {
+  <!--<ngb-alert type="success" [dismissible]="false">Libro borrado correctamente</ngb-alert>-->
+  <ngb-alert type="success" (closed)="hideDeletedTicketMessage()">tikect borrado correctamente</ngb-alert>
+}
+
+@for (ticket of tickets; track ticket.id) {
+  <p class="button-container">
+    {{ticket.id}} {{ticket.title}} {{ticket.username}} {{ticket.maxNum}}
+    <button class="btn btn-info" [routerLink]="['/tickets', ticket.id, 'detail']">Ver detalle ticket</button>
+    <button class="btn btn-success" [routerLink]="['/tickets', ticket.id, 'update']">Editar ticket</button>
+    <button class="btn btn-danger" (click)="delete(ticket)">Borrar ticket</button>
+  </p>
+} @empty {
+  <p>No hay tickets.</p>
+}

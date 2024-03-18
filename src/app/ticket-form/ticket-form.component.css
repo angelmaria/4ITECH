@@ -4,3 +4,17 @@
   align-items: center;
   min-height: 100vh;
 }
+
+    .full-screen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        font-size: 2em;
+        font-family: 'Urbanist', sans-serif;
+        color: #0b842a;
+    }
+    .form-page {
+        margin-top: 0;
+    }
+
