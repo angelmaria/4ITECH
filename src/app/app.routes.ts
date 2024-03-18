@@ -183,6 +183,7 @@ export const routes: Routes = [
         path: 'about',
         component: AboutUsComponent
     },
+    {
         path: 'rooms/:id/update',
         component: RoomFormComponent
     },
