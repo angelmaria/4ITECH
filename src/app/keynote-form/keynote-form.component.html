@@ -33,7 +33,7 @@
           <!-- Selector simple -->
           <div class="form-floating mb-3">
             <select class="form-select" id="room" formControlName="room" [compareWith]="compareObjects">
-                <option selected>Elegir una sala</option>
+                <option selected disabled>Elegir una sala</option>
               <!-- iterar sobre el array de rooms mostrando cada uno -->
               @for (room of rooms; track room.id) {
                 <option [ngValue]="room">{{room.name}}</option>
