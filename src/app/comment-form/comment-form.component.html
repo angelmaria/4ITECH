@@ -8,7 +8,7 @@
         @if (isUpdate) {
           <h1 class="mt-5 mb-5">Actualizar comentario existente con id {{commentForm.get('id')?.value}}</h1>
         } @else {
-          <h1 class="mt-5 mb-5">Crear nuevo comentario</h1>
+          <h1 class="mt-5 mb-5" style="color: green;">Crear nuevo comentario</h1>
         }
   
   
@@ -25,13 +25,13 @@
               <pre>Valoración: <b>{{ rating }}</b></pre>
             </div>
              
-           <div class="form-floating mb-3">
-                <input type="text-area" class="form-control"
-                id="opinion" formControlName="opinion">
-                <label for="opinion">Reseña</label>
+            <div class="form-floating mb-5">
+              
+              <textarea style="height: max-content;" class="form-control" id="opinion" formControlName="opinion" rows="3"></textarea>
+              <label for="opinion" class="form-label">Reseña</label>
             </div>
   
-            <div class="form-floating">
+            <div class="form-floating mb-5" >
               <select class="form-select" id="keynote" formControlName="keynote" [compareWith]="compareObjects">
   
   
@@ -44,7 +44,7 @@
               <label for="keynote">Charla del comentario</label>
             </div>
 
-            <div class="form-floating">
+            <div class="form-floating mb-5" >
               <select class="form-select" id="keynote" formControlName="keynote" [compareWith]="compareObjects">
   
   
