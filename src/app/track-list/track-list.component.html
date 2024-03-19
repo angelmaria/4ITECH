@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col">
   
-        <h1 class="mt-5 mb-5">Listado de tracks</h1>
+        <h1 class="mt-5 mb-5" style="color: green;">Listado de tracks</h1>
   
         @if (showDeletedBookMessage) {
           <!--<ngb-alert type="success" [dismissible]="false">Libro borrado correctamente</ngb-alert>-->
@@ -29,9 +29,9 @@
                 <th scope="row">{{track.id}}</th>
                 <td>{{track.name}}</td>
                 <td>{{track.startDate | date: 'dd/MM/yy'}}</td>
-                <td>{{track.startDate | date: 'hh:mm'}}</td>
+                <td>{{track.startDate | date: 'HH:mm'}}</td>
                 <td>{{track.endDate | date: 'dd/MM/yy'}}</td>
-                <td>{{track.endDate | date: 'hh:mm'}}</td>
+                <td>{{track.endDate | date: 'HH:mm'}}</td>
 
 
                 <td>
