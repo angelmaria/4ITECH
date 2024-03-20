@@ -16,7 +16,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+		<div class="navbar-collapse me-4" [class.collapse]="collapsed" id="navbarContent">
 			<ul class="navbar-nav ms-auto">
 				<li class="nav-item" ngbDropdown>
 					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-mic me-1"></i>Charlas</a>
@@ -85,8 +85,11 @@
 						
 						</div>
 					</li>
+					<li class="nav-item me-3 ms-3">
+						<a class="nav-link border border-primary-subtle rounded border-1 pe-3" tabindex="0" routerLink="/login" (click)="$event.preventDefault()" id="navbarDropdownTicketOrderBuy" role="button"><i class="bi bi-ticketOrderBuy me-1"></i>Iniciar Sesión</a>
+					</li>
 					<li class="nav-item">
-						<a class="nav-link" tabindex="0" routerLink="/login" (click)="$event.preventDefault()" id="navbarDropdownTicketOrderBuy" role="button"><i class="bi bi-ticketOrderBuy me-1"></i>Login</a>
+						<a class="nav-link border border-danger-subtle rounded border-1 pe-3" tabindex="0" routerLink="/login" (click)="$event.preventDefault()" id="navbarDropdownTicketOrderBuy" role="button"><i class="bi bi-ticketOrderBuy me-1"></i>Registrar Cuenta</a>
 					</li>
 
 					
