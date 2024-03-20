@@ -49,14 +49,13 @@
 					</div>
 				</li>
 
-				<li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+				<!-- <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
 					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Dynamic </a>
 					<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
 						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Action</a>
 						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Another action</a>
 						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a>
-					</div>
-
+					</div> -->
 
 					<li class="nav-item" ngbDropdown>
 						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdownTicket" role="button"><i class="bi bi-ticket me-1"></i>Tickets</a>
@@ -64,11 +63,8 @@
 						<div ngbDropdownMenu aria-labelledby="navbarDropdownTicket" class="dropdown-menu">
 							<a ngbDropdownItem routerLink="/tickets" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Tickets</a>
 							<a ngbDropdownItem routerLink="/tickets/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear Ticket</a>
-						
 						</div>
-
 					</li>
-
 
 					<li class="nav-item" ngbDropdown>
 						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdownTicketOrderBuy" role="button"><i class="bi bi-ticketOrderBuy me-1"></i>TicketOrderBuys</a>
@@ -89,13 +85,8 @@
 						
 						</div>
 					</li>
-					<li class="nav-item" ngbDropdown>
-						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdownTicketOrderBuy" role="button"><i class="bi bi-ticketOrderBuy me-1"></i>Login</a>
-							
-						<div ngbDropdownMenu aria-labelledby="navbarDropdownLogin" class="dropdown-menu">
-							<a ngbDropdownItem routerLink="/login" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Login</a>
-						
-						</div>
+					<li class="nav-item">
+						<a class="nav-link" tabindex="0" routerLink="/login" (click)="$event.preventDefault()" id="navbarDropdownTicketOrderBuy" role="button"><i class="bi bi-ticketOrderBuy me-1"></i>Login</a>
 					</li>
 
 					
