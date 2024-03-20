@@ -1,12 +1,19 @@
   <div class="container-fluid">
     <div class="px-lg-5">
-  
+          <!-- Search form -->
+          <div class="sticky-top">
+            <div class="search-form">
+              <div class="form-floating">
+                <input type="text" class="search-click" name="" placeholder="buscar aquí..." />
+                <label for=""><i style="color: #a2a2a2; font-size: large" class="bi bi-search"></i></label>
+              </div>
+            </div>
+          </div>
+      <!-- fin search form -->
       <!-- For demo purpose -->
       <div class="row py-5">
         <div class="col-lg-12 mx-auto">
           <div class="text-white p-5 shadow-sm rounded banner">
-            <!-- Search form -->
-              <input class="buscador form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
             <h1 class="display-4">Charlas recientes en 4iTech</h1>
             <p class="lead">Descubre nuestras charlas y no te piedas detalle.</p>
             <p class="lead">Patrocinado por <a href="https://formacion.adecco.com" class="text-reset"> 
@@ -30,7 +37,7 @@
               <p class="small text-muted mb-0">{{keynote.summary}}</p>
               <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3 mb-2">
                 <p class="small mb-0"><i class="bi bi-buildings-fill me-2 text-secondary"></i><span class="font-weight-bold">Sala</span></p>
-                <div style="font-weight:500">{{keynote.room.name}}</div>
+                <span style="font-size: small; font-weight:400;">{{keynote.room.name}}</span>
               </div>
               <button style="cursor: auto;" type="button" class="btn btn-outline-secondary mt-2" data-mdb-ripple-init ><i class="bi bi-people-fill me-2"></i>Capacidad <span class="badge badge-danger ms-2">{{keynote.maxNumPersons}}</span>
               </button>
