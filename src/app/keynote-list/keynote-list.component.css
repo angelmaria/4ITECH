@@ -11,14 +11,30 @@ h1.display-4 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 500;
 }
-.badge-danger {
-    background-color: #dc3545;
+/* Estiilos para los botones de ver, editar y archivar las keynotes */
+.btn-ver {
+background-color: #62AFFE;
+color: white;
+border: none;
 }
-.badge-primary {
-    background-color: #0d6efd;
+.btn-editar {
+background-color: #49CC90;
+border:none;
 }
-.badge-secondary {
-    background-color: #198754;
+.btn-archivar {
+background-color: #F93E3F;
+border:none;
+}
+
+/* Estilos para los badges según niveles de difucultad */
+.badge-JUNIOR {
+    background-color: #0fb007f1;
+}
+.badge-SENIOR {
+    background-color: #b8310fe0;
+}
+.badge-SEMI_SENIOR {
+    background-color: #1044bd;
 }
 
 /* Reduciendo margen superior e inferior del banner superior de la home de keynotes */
@@ -71,4 +87,8 @@ img.zoom {
 }
 img.zoom:hover {
     transform: scale(1.1);
+}
+/* frenar la velocidad de crecimiento del spinner-grow */
+.spinner-grow {
+  --bs-spinner-animation-speed: 0.99s;
 }
