@@ -17,10 +17,9 @@ export class TicketFormComponent {
 ticketForm = this.fb.group ({
   id: [0],
   title:[''],
-  username:[''],
   price:[0,0],
   maxNum:[0],
- 
+
 
 });
 
@@ -44,7 +43,6 @@ constructor(private fb: FormBuilder,
       this.ticketForm.reset({
         id: ticketFromBackend.id,
         title: ticketFromBackend.title,
-        username: ticketFromBackend.username,
         price: ticketFromBackend.price,
         maxNum: ticketFromBackend.maxNum
 
@@ -76,4 +74,3 @@ constructor(private fb: FormBuilder,
   }
 }
     
-

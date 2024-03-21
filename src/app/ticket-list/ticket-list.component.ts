@@ -7,7 +7,7 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-ticket-list',
   standalone: true,
-  imports: [RouterLink, HttpClientModule,NgbAlertModule],
+  imports: [RouterLink, HttpClientModule,NgbAlertModule,NgbAlertModule],
   templateUrl: './ticket-list.component.html',
   styleUrl: './ticket-list.component.css'
 })

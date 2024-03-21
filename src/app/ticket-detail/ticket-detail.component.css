@@ -19,7 +19,23 @@
 .form-page {
 margin-top: 0;
 }
-.small-button {
-    padding: 5px 10px;
-    font-size: 0.8em;
+
+.badge-line {
+    border: none;
+    text-decoration: underline;
+    padding: 10;
+    cursor: pointer; /* Opcional, agrega un cursor al pasar sobre el badge */
+}
+
+.background-gradient {
+    background: linear-gradient(to bottom, rgb(0, 55, 255), rgba(0, 255, 229, 0.4), rgba(255, 132, 0, 0.4), rgba(255, 0, 0, 0.699));
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
 }

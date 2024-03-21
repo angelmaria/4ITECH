@@ -1,3 +1,5 @@
+
+
 <hr>
 
 <div class="full-screen">
@@ -11,11 +13,15 @@
 
 @for (ticket of tickets; track ticket.id) {
   <p class="button-container">
-    {{ticket.id}} {{ticket.title}} {{ticket.username}} {{ticket.maxNum}}
+    {{ticket.id}} {{ticket.title}} {{ticket.maxNum}}
     <button class="btn btn-info" [routerLink]="['/tickets', ticket.id, 'detail']">Ver detalle ticket</button>
     <button class="btn btn-success" [routerLink]="['/tickets', ticket.id, 'update']">Editar ticket</button>
     <button class="btn btn-danger" (click)="delete(ticket)">Borrar ticket</button>
   </p>
 } @empty {
-  <p>No hay tickets.</p>
+
+  <ngb-alert type="custom" [dismissible]="false"><strong>Whoa!</strong> No hay Tickets</ngb-alert>
+  <div class="icon-container">
+  <i class="bi bi-bag-x"></i>
+</div>
 }

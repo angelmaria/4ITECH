@@ -1,27 +1,22 @@
-.full-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vh;
-    font-size: 2em;
-    font-family: 'Urbanist', sans-serif;
-    color: #001aff;
-}
-
-.form-page {
-    margin-top: 0;
-    text-align: center;
-}
-
 body {
-    text-align: center;
+    margin: 100;
+min-height: 300px;
+padding-left: 150px !important;
+padding-right: 150px !important;
 }
-.button-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+
+.container {
+    max-width: 960px;
 }
-.button-container .btn {
-    margin: 0 5px 0;
+
+section article.text h1[data-v-6dfea62d] {
+        font-size: 8em;
+        margin: 10px 0;
+        font-family: Chakra Petch, sans-serif;
+        font-weight: 600;
+        width: 145%;
+        z-index: 10;
+        position: relative;
+        line-height: 1.05;
+        color: rgba(12, 4, 133, 0.75);
 }
