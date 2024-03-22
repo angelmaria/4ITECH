@@ -33,7 +33,7 @@
         <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
           <div style="box-shadow: 0px 0px 5px #ccc !important; overflow:hidden;" class="bg-white rounded shadow-sm"><img src="{{keynote.webinarUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']" style="cursor: pointer;" alt="" class="img-fluid card-img-top zoom">
             <div class="p-4">
-              <h5 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"> <a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-dark text-secondary">{{keynote.title}}</a></h5>
+              <h5 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"><a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-secondary" style="text-decoration: none; font-weight: 600;">{{keynote.title}}</a></h5>
               <p class="small text-muted mb-0">{{keynote.summary}}</p>
               <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3 mb-2">
                 <p class="small mb-0"><i class="bi bi-easel-fill me-2 text-secondary"></i><span class="font-weight-bold">Sala</span></p>
