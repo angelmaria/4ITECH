@@ -1,72 +1,146 @@
-
-
-<main class="form-signin w-100 m-auto">
-    <form [formGroup]="registerForm" (ngSubmit)="save()">
-      <img class="mb-4" src="/assets/img/Logo_4iTech.png" alt="Logo_4iTech" width="80" height="72">
-      <h1 class="h3 mb-3 fw-normal">Crear nueva cuenta</h1>
-  
-      <div class="form-floating">
-        <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
-        <label for="email">Email address</label>
-        @if (registerForm.controls.email.touched && registerForm.controls.email.errors) {
-            <div>
-                @if (registerForm.controls.email.errors ['required']) {
-                    <small class="text-danger">Email es obligatorio.</small>
-                }
-                @if (registerForm.controls.email.errors ['email']) {
-                    <small class="text-danger">El formato del email introducido es incorrecto.</small>
-                }
-            </div>
-        }
-      </div>
-      <div class="form-floating">
-        <input type="text" class="form-control" id="phone" placeholder="646364524" formControlName="phone">
-        <label for="phone">Teléfono móvil</label>
-        @if (registerForm.controls.phone.touched && registerForm.controls.phone.errors) {
-
-            <div>
-                @if (registerForm.controls.phone.errors ['required']){
-                    <small class="text-danger">Teléfono es Obligatorio</small>
-                }
-                @if (registerForm.controls.phone.errors ['pattern']){
-                    <small class="text-danger">Formato de teléfono incorrecto. Debe tener 9 digitos.</small>
-                }
-            </div>
-        }
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
-        <label for="password">Password</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" id="passwordConfirm" placeholder="Password" formControlName="passwordConfirm">
-        <label for="passwordConfirm">Confirmación password</label>
-
-        <!--  @if (registerForm.controls.passwordConfirm.touched && registerForm.getError('confirmError')) {
-            <div>
-                    <small class="text-danger">Las contraseñas no coinciden</small>
-            </div>
-        } -->
-        @if(registerForm.controls.passwordConfirm.touched && 
-        (
-            registerForm.controls.password.errors ||
-            registerForm.controls.passwordConfirm.errors ||
-            registerForm.getError('confirmError')
-         )) {
-            <small class="text-danger">
-                La contraseña y confirmación son obligatorias, deben coincidir y estar comprendidas entre 8 y 30 caracteres
-
-            </small>
-         }
-       
-        
-      </div>
-  
-  
-      <button class="btn btn-primary w-100 py-2" type="submit" [disabled]="registerForm.invalid">Registrarse</button>
-      @if(registerForm.invalid) {
-        <small class="text-danger">Debes completar los campos correctamente para poder guardar</small>
-      }
-      <p class="mt-5 mb-3 text-body-secondary">© 4iTech company 2023–2024</p>
-    </form>
+<!-- <div class="container-fluid">
+  <main class="form-signin w-auto m-auto" style="max-width: 460px !important;">
+      <form [formGroup]="registerForm" (ngSubmit)="save()">
+        <div class="register px-5 py-3 mt-5">
+          <h1 class="h3 mb-3 fw-normal text-secondary mt-4 fw-bold" style="font-family: 'Libre Franklin';">Crear nueva cuenta</h1>
+          <div class="form-floating">
+            <input type="email" class="form-control mb-3" id="email" placeholder="name@example.com" formControlName="email">
+            <label class="text-secondary" for="email">Email address</label>
+            @if (registerForm.controls.email.touched && registerForm.controls.email.errors) {
+                <div>
+                    @if (registerForm.controls.email.errors ['required']) {
+                        <small class="text-danger">Email es obligatorio.</small>
+                    }
+                    @if (registerForm.controls.email.errors ['email']) {
+                        <small class="text-danger">El formato del email introducido es incorrecto.</small>
+                    }
+                </div>
+            }
+          </div>
+          <div class="form-floating">
+            <input type="text" class="form-control mb-3" id="phone" placeholder="646364524" formControlName="phone">
+            <label class="text-secondary" for="phone">Teléfono móvil</label>
+            @if (registerForm.controls.phone.touched && registerForm.controls.phone.errors) {
+                <div>
+                    @if (registerForm.controls.phone.errors ['required']){
+                        <small class="text-danger">Teléfono es Obligatorio</small>
+                    }
+                    @if (registerForm.controls.phone.errors ['pattern']){
+                        <small class="text-danger">Formato de teléfono incorrecto. Debe tener 9 digitos.</small>
+                    }
+                </div>
+            }
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control mb-3" id="password" placeholder="Password" formControlName="password">
+            <label class="text-secondary" for="password">Contraseña</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control mb-4" id="passwordConfirm" placeholder="Password" formControlName="passwordConfirm">
+            <label class="text-secondary" for="passwordConfirm">Confirmación contraseña</label>
+            @if(registerForm.controls.passwordConfirm.touched &&
+            (
+                registerForm.controls.password.errors ||
+                registerForm.controls.passwordConfirm.errors ||
+                registerForm.getError('confirmError')
+              )) {
+                <small class="text-danger">
+                    La contraseña y confirmación son obligatorias, deben coincidir y estar comprendidas entre 8 y 30 caracteres
+                </small>
+              }
+          </div>
+          <button class="btn btn-primary w-100 py-2" type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+          @if(registerForm.invalid) {
+            <small class="text-danger">Debes completar los campos correctamente para poder guardar</small>
+          }
+        </div>
+        <p class="mt-5 mb-3 text-body-secondary">© 4iTech company 2023–2024</p>
+      </form>
   </main>
+</div> -->
+
+<div class="container-fluid" style="background-color: #eee;">
+  <div class="px-lg-5">
+    <main class="form-signin w-100 m-auto">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <div class="col-lg-6">
+                  <div class="card-body p-x-md-5 mx-md-4">
+    
+                    <form [formGroup]="registerForm" (ngSubmit)="save()">
+                      <div class="px-5 py-3">
+                        <h1 class="h3 mb-3 fw-normal text-secondary mt-4 fw-bold" style="font-family: 'Libre Franklin';">Crear nueva cuenta</h1>
+                        <div class="form-floating">
+                          <input type="email" class="form-control mb-3" id="email" placeholder="name@example.com" formControlName="email">
+                          <label class="text-secondary" for="email">Dirección email</label>
+                          @if (registerForm.controls.email.touched && registerForm.controls.email.errors) {
+                              <div>
+                                  @if (registerForm.controls.email.errors ['required']) {
+                                      <small class="text-danger">Email es obligatorio.</small>
+                                  }
+                                  @if (registerForm.controls.email.errors ['email']) {
+                                      <small class="text-danger">El formato del email introducido es incorrecto.</small>
+                                  }
+                              </div>
+                          }
+                        </div>
+                        <div class="form-floating">
+                          <input type="text" class="form-control mb-3" id="phone" placeholder="646364524" formControlName="phone">
+                          <label class="text-secondary" for="phone">Teléfono móvil</label>
+                          @if (registerForm.controls.phone.touched && registerForm.controls.phone.errors) {
+                              <div>
+                                  @if (registerForm.controls.phone.errors ['required']){
+                                      <small class="text-danger">Teléfono es Obligatorio</small>
+                                  }
+                                  @if (registerForm.controls.phone.errors ['pattern']){
+                                      <small class="text-danger">Formato de teléfono incorrecto. Debe tener 9 digitos.</small>
+                                  }
+                              </div>
+                          }
+                        </div>
+                        <div class="form-floating">
+                          <input type="password" class="form-control mb-3" id="password" placeholder="Password" formControlName="password">
+                          <label class="text-secondary" for="password">Contraseña</label>
+                        </div>
+                        <div class="form-floating">
+                          <input type="password" class="form-control mb-3" id="passwordConfirm" placeholder="Password" formControlName="passwordConfirm">
+                          <label class="text-secondary" for="passwordConfirm">Confirmación contraseña</label>
+                          @if(registerForm.controls.passwordConfirm.touched &&
+                          (
+                              registerForm.controls.password.errors ||
+                              registerForm.controls.passwordConfirm.errors ||
+                              registerForm.getError('confirmError')
+                            )) {
+                              <small class="text-danger">
+                                  La contraseña y confirmación son obligatorias, deben coincidir y estar comprendidas entre 8 y 30 caracteres
+                              </small>
+                            }
+                        </div>
+                        <button class="btn btn-primary w-100 py-2" type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+                        @if(registerForm.invalid) {
+                          <small class="text-danger">Debes completar los campos correctamente para poder guardar</small>
+                        }
+                      </div>
+                    </form>
+    
+                  </div>
+                </div>
+                <div class="col-lg-6 d-flex align-items-center gradient-custom-2 bg-light">
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                    <h4 class="mb-4" style="font-family: 'Libre Franklin';">Vuelve el aprendizaje con 4iTech</h4>
+                    <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
