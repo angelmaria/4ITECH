@@ -1,5 +1,18 @@
+@if (showCreateTicketMessage) {
+    <ngb-alert [type]="'info'" class="alert alert-success centered-alert" role="alert" (closed)="showCreateTicketMessage = false">
+      ¡Ticket creado o actualizado extiosamente!
+    </ngb-alert>
+  }
+  
+  @if (showUpdateTicketMessage) {
+    <ngb-alert [type]="'info'" class="alert alert-success" role="alert" (closed)="showUpdateTicketMessage = false">
+      ¡Ticket actualizado correctamente!
+    </ngb-alert>
+  }
+  
 
 <div class="container py-3 background-gradient">
+    
     <header>
         <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
             <h1 class="display-4 fw-normal text-body-emphasis"><strong>Tickets</strong></h1>
@@ -23,14 +36,17 @@
                                     <span class="badge bg-info" style="font-size: large;">
                                         <i class="fas fa-glass-cheers"></i>
                                     </span>
-                                    <strong>{{ ticket.id }}</strong>
+                                    <label> Ticket: </label>
+                                    <strong> {{ ticket.id }}</strong>
                                     <span class="badge bg-info" style="font-size: large;"></span>
-                                    <strong>{{ ticket.title }}</strong>
+                                    <strong> {{ ticket.title }}  </strong>
                                     <span class="badge bg-info" style="font-size: large;">
-                                        <strong>{{ ticket.price }}€</strong>
+                                        <label> Precio: </label>
+                                        <strong>  {{ ticket.price }} €</strong>
                                     </span>
                                     <span class="badge bg-info" style="font-size: large;"></span>
-                                    <strong>{{ ticket.maxNum }}</strong>
+                                    <label>   Cantidad: </label>
+                                    <strong>   {{ ticket.maxNum }}   </strong>
                                     <span class="badge bg-info" style="font-size: large;"></span>
                                 </p>
                                 <button type="button" class="w-100 btn btn-lg btn-outline-info" [routerLink]="['/tickets', ticket.id, 'update']">Editar Ticket</button>
@@ -54,13 +70,16 @@
                                 <span class="badge bg-primary" style="font-size: large;">
                                     <i class="fas fa-glass-cheers"></i>
                                 </span>
+                                <label> Ticket: </label>
                                 <strong>{{ ticket.id }}</strong>
                                 <span class="badge bg-primary" style="font-size: large;"></span>
-                                <strong>{{ ticket.title }}</strong>
+                                <strong>{{ ticket.title }}  </strong>
                                 <span class="badge bg-primary" style="font-size: large;">
+                                    <label> Precio: </label>
                                     <strong>{{ ticket.price }}€</strong>
                                 </span>
                                 <span class="badge bg-primary" style="font-size: large;"></span>
+                                <label>   Cantidad: </label>
                                 <strong>{{ ticket.maxNum }}</strong>
                                 <span class="badge bg-primary" style="font-size: large;"></span>
                             </p>
@@ -85,13 +104,16 @@
                                     <span class="badge bg-warning" style="font-size: large;">
                                         <i class="fas fa-glass-cheers"></i>
                                     </span>
+                                    <label> Ticket: </label>
                                     <strong>{{ ticket.id }}</strong>
                                     <span class="badge bg-swarning" style="font-size: large;"></span>
-                                    <strong>{{ ticket.title }}</strong>
+                                    <strong>{{ ticket.title }}  </strong>
                                     <span class="badge bg-warning" style="font-size: large;">
+                                        <label> Precio: </label>
                                         <strong>{{ ticket.price }}€</strong>
                                     </span>
                                     <span class="badge bg-warning" style="font-size: large;"></span>
+                                    <label>   Cantidad: </label>
                                     <strong>{{ ticket.maxNum }}</strong>
                                     <span class="badge bg-warning" style="font-size: large;"></span>
                                 </p>
@@ -103,6 +125,7 @@
             </div>
         </div>
     </main>
+    
 </div>
 
 

@@ -3,21 +3,26 @@ import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Ticket } from '../models/ticket.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @Component({
   selector: 'app-ticket-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule, HttpClientModule,NgbAlertModule],
   templateUrl: './ticket-form.component.html',
   styleUrl: './ticket-form.component.css'
 })
 export class TicketFormComponent {
+
+showCreateTicketMessage: boolean = false;
+showUpdateTicketMessage: boolean = false;
+
 ticketForm = this.fb.group ({
   id: [0],
   title:[''],
-  price:[0,0],
+  price:[0],
   maxNum:[0],
 
 
@@ -30,6 +35,8 @@ constructor(private fb: FormBuilder,
   private httpClient: HttpClient,
   private router: Router,
   private activatedRoute: ActivatedRoute) {}
+
+
 
   ngOnInit(): void{
     //
@@ -48,7 +55,7 @@ constructor(private fb: FormBuilder,
 
       });
 
-      this.isUpdate = true;
+      this.isUpdate = false;
 
       });
     });
@@ -62,15 +69,21 @@ constructor(private fb: FormBuilder,
         const url= 'http://localhost:8080/tickets' + ticket.id;
         this.httpClient.put<Ticket>(url,ticket).subscribe(ticketFromBackend =>{
           this.router.navigate(['/tickets', ticketFromBackend.id, 'detail']);
-
+          this.showUpdateTicketMessage = true;
       });
     }else {
       const url= 'http://localhost:8080/tickets';
       this.httpClient.post<Ticket>(url,ticket).subscribe(ticketFromBackend =>{
-        this.router.navigate(['/tickets', ticketFromBackend.id, 'detail']);
-
+        this.router.navigate(['/tickets', ticketFromBackend.id, 'detail',{ created: true }]);
+        this.showCreateTicketMessage = true;
       });
     }
-  }
 }
-    
+hideCreateTicketMessage() {
+  this.showCreateTicketMessage = false;
+}
+
+hideUpdateTicketMessage() {
+  this.showUpdateTicketMessage = false;
+}
+}
