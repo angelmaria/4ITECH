@@ -1,7 +1,7 @@
 <div class="container py-3 background-gradient">
     
     <header>
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <div class="pricing-header p-3 pb-md-5 mx-auto text-center">
             <h1 class="display-4 fw-normal text-body-emphasis text-primary"><strong>Formulario de Tickets</strong></h1>
             <p class="fs-5 text-body-secondary">Edita o actualiza la información de los tickets</p>
         </div>
@@ -12,24 +12,29 @@
     <div class="row">
         <div class="col d-flex justify-content-center align-items-center">
             <form [formGroup]="ticketForm" (ngSubmit)="save()">
+                <label for="text" class="form-label text-primary"><strong>Nombre de Ticket</strong></label>
                 <div class="form-floating mb-1">
                     <input type="text" class="form-control" id="title" placeholder="ticket" formControlName="title">
-                    <label for="title">Ticket de evento</label>
+                    <label for="title">Escribe tu ticket </label>
                 </div>
                 <div class="mb-3">
-                    <label for="price" class="form-label">Precio</label>
+                    <label for="price" class="form-label text-primary"><strong>Precio Ticket</strong></label>
                     <select id="price" class="form-select" formControlName="price">
                         <option value="50">Día 1 - €50</option>
                         <option value="50">Día 2 - €50</option>
                         <option value="100">Día 1 y 2 - €100</option>
                     </select>
                 </div>
+                <label for="price" class="form-label text-primary"><strong>Selecciona el número de tickets</strong></label>
                 <div class="form-floating mb-1">
-                    <input type="number" class="form-control" id="maxNum" placeholder="Número máximo de tickets" formControlName="maxNum" min="1" max="10">
+                    <input type="number" class="form-control" id="maxNum" placeholder="Número máximo de tickets" formControlName="maxNum" min="1" max="15">
                     <label for="maxNum">Número máximo de tickets (15)</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-                <button type="submit" class="btn btn-primary">Actualizar</button>
+                <div class="d-flex">
+                    <button type="submit" class="btn btn-primary p-1 me-5">Crear Ticket</button>
+                    <button type="submit" class="btn btn-info p-1">Actualizar Ticket</button>
+                </div>
+                
             </form>
         </div>
     </div>

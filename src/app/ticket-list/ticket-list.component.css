@@ -33,7 +33,7 @@ section article.text h1[data-v-6dfea62d] {
   
   /* Estilos para las celdas de encabezado */
   .custom-table th {
-    background: linear-gradient(to bottom, rgb(48, 1, 255));
+    background: linear-gradient(to bottom, rgb(30, 0, 255));
     color: #170073; /* Color del texto en las celdas de encabezado */
     font-weight: bold; /* Texto en negrita */
     padding: 10px; /* Espaciado interno */

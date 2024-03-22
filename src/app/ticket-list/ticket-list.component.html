@@ -56,7 +56,7 @@
           
           <div class="d-flex justify-content-between gap-2" style="margin-top: 25px;">
           <button class="btn btn-info" [routerLink]="['/tickets', ticket.id, 'detail']">Ver detalle ticket</button>
-          <button class="btn btn-warning" [routerLink]="['/tickets', ticket.id, 'update']">Editar ticket</button>
+          <button class="btn btn-secondary" [routerLink]="['/tickets', ticket.id, 'update']">Editar ticket</button>
           <button class="btn btn-danger" (click)="delete(ticket)">Borrar ticket</button>
           
           </div>
@@ -64,8 +64,8 @@
       </div>
     </div>
 
-    <div class="container d-flex justify-content-center align-items-center" style="height: 10vh;">
-      <div class="d-flex justify-content-center gap-2">
+    <div class="container d-flex justify-content-center align-items-center" style="height: 20vh;">
+      <div class="d-flex justify-content-center gap-5">
         <button [routerLink]="['/ticketOrderBuys']" class="btn btn-primary btn-lg" (click)="delete(ticket)">Ordenes de Compra</button>
       </div>
     </div>
