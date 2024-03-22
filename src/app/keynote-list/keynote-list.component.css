@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Estilos del banner del keynote-list (gradiente) y del background del body */
 .container-fluid {
     background: #f4f4f4;
   }
@@ -8,8 +11,8 @@
     background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
   }
 h1.display-4 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 500;
+    font-family: 'Libre Franklin', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
 }
 /* Estiilos para los botones de ver, editar y archivar las keynotes */
 .btn-ver {
