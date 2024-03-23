@@ -77,3 +77,10 @@ a.registro:hover:after{
       display: block;
   }
 } */
+
+.bg-navbar {
+  background-color: #F8F9FA !important;
+  padding-right: 3rem !important;
+  padding-left: 3rem !important;
+  border-bottom: 1px solid rgba(218, 218, 218, 0.4);
+}
