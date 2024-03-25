@@ -1,10 +1,28 @@
+<div class="container py-3 background-gradient">
+    
+  <header>
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+          <h1 class="display-4 fw-normal text-body-emphasis"><strong>Listado de Ordenes de Tickets</strong></h1>
+          <p class="fs-5 text-body-secondary">Aquí estan las ordenes de los tickets de tu interés</p>
+      </div>
+  </header>
+
 @for (ticketOrderBuy of ticketOrderBuys; track ticketOrderBuy.id) {
-  <p>
-    {{ticketOrderBuy.id}} {{ticketOrderBuy.date}} {{ticketOrderBuy.discount}} {{ticketOrderBuy.totalPrice}} {{ticketOrderBuy.quantity}}{{ticketOrderBuy.paymentMethod}} {{ticketOrderBuy.channel}} {{ticketOrderBuy.qrUrl}}
+  <p class="button-container">
+    {{ticketOrderBuy.id}}
+    {{ticketOrderBuy.date}}
+    {{ticketOrderBuy.discount}}
+    {{ticketOrderBuy.totalPrice}}
+    {{ticketOrderBuy.quantity}}
+    {{ticketOrderBuy.paymentMethod}}
+    {{ticketOrderBuy.channel}}
+    {{ticketOrderBuy.qrUrl}}
     <button class="btn btn-info" [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'detail']">Ver ticketOrderBuy</button>
     <button class="btn btn-success" [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'update']">Editar ticketOrderBuy</button>
     <button class="btn btn-danger">Borrar ticketOrderBuy</button>
   </p>
 } @empty {
-  <p>No hay ticketOrderBuys.</p>
-}
+  <div class="icon-container bi bi-bag-x"></div>
+  <p><strong>Whoa! No hay ticketOrderBuys.</strong></p>
+  
+  }

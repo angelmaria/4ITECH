@@ -12,6 +12,9 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './ticket-list.component.css'
 })
 export class TicketListComponent implements OnInit {
+handleTableClick() {
+throw new Error('Method not implemented.');
+}
   tickets: Ticket[] = [];
   showDeletedTicketMessage: boolean = false;
 
@@ -26,6 +29,7 @@ export class TicketListComponent implements OnInit {
     const backendUrl = 'http://localhost:8080/tickets/' + ticket.id;
     this.http.delete(backendUrl).subscribe(response => {this.loadTickets()
     this.showDeletedTicketMessage = true;
+    
   });
   }
 
