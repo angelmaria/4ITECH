@@ -1,10 +1,65 @@
 
-@for (user of users; track user.id) {
-  <p> <!-- haré que el user.id sea clicable insertando routerLink + una ruta en forma de String que apunte
+<!-- @for (user of users; track user.id) {
+  <p> // haré que el user.id sea clicable insertando routerLink + una ruta en forma de String que apunte
   a:  users/:id/detail  ...y que me lleve a la pantalla detalle de un usuario.
-  El enrutado lo debo crear en el archivo 'app.routes.ts' -->
+  El enrutado lo debo crear en el archivo 'app.routes.ts' //
     <a [routerLink]="['/users', user.id, 'detail']">{{user.id}}</a> {{user.userName}}
   </p>
 } @empty {
   <p>Oh Gosh! ain't no users.</p>
-}
+} -->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h1 class="mt-5 mb-5" style="color: green;">Listado de usuarios</h1>
+
+      @if (showDeletedUserMessage) {
+        <!--<ngb-alert type="success" [dismissible]="false">Usuario borrado correctamente</ngb-alert>-->
+        <ngb-alert type="success" (closed)="hideDeletedUserMessage()">Usuario borrado correctamente.</ngb-alert>
+      }
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">email</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">User name</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Rol</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of users; track user.id) {
+            <tr>
+              <th scope="row">{{user.id}}</th>
+              <td>{{user.firstName}}</td>
+              <td>{{user.lastName}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.phone}}</td>
+              <td>{{user.userName}}</td>
+              <td>{{user.address}}</td>
+              <td>{{user.userRole}}</td>
+
+
+              <td>
+                <button class="btn btn-info" [routerLink]="['/users', user.id, 'detail']">Ver</button>
+                <button class="btn btn-success ms-2" [routerLink]="['/users', user.id, 'update']">Editar</button>
+                <button class="btn btn-danger ms-2" (click)="delete(user)">Borrar</button>
+              </td>
+            </tr>
+          } @empty {
+              <h5 class="cbadge text-bg-danger text-decoration-none">No hay usuarios!</h5>
+          }
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
