@@ -1,14 +1,4 @@
-<div class="form-page">
 
-    <div class="row">
-        <div class="col d-flex flex-column justify-content-start align-items-start my-margin">
-
-@if (ticket) {
-    <p>{{ticket.id}} {{ticket.title}} <span class="badge bg-secondary" style="font-size: large;">{{ticket.price}}€</span> {{ticket.maxNum}}</p>
-    <button class="btn btn-success" [routerLink]="['/tickets',ticket.id, 'update']">Editar Ticket</button>
-
-    
-}
 @if (showCreateTicketMessage) {
     <ngb-alert [type]="'info'" class="alert alert-success centered-alert" role="alert" (closed)="showCreateTicketMessage = false">
       ¡Ticket creado o actualizado extiosamente!
