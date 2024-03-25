@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { User } from '../models/user.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [RouterLink, HttpClientModule],
+  imports: [RouterLink, HttpClientModule, NgbAlertModule],
   /*
   'RouterLink' permite navegar en este listado de ususarios;
   'HttpClient' permite llamar al controlador del backend y traer los datos.
@@ -17,16 +18,33 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 export class UserListComponent implements OnInit{
   
   users: User[] = []; //variable donde se guarda la respuesta del método 'ngOnInit'.
+  showDeletedUserMessage: boolean = false;
 
   constructor(private httpClient: HttpClient){};
 
   ngOnInit(): void {
-    // Trae una lista de usuarios del backend.
-    const backendUrl = 'http://localhost:8080/users';
-    this.httpClient.get<User[]>(backendUrl).subscribe(users => {
-      console.log(users);
-      this.users = users
-    })
+  
+    this.loadUsers(); // Trae una lista de usuarios del backend ejecutando una petición HTTP contra controlador.
+  }
+  
+  delete (user: User){
+    const url = 'http://localhost:8080/users/' + user.id;
+    this.httpClient.delete(url).subscribe(Response => {
+      this.loadUsers(); // recarga los usuarios después de borrar uno.
+      this.showDeletedUserMessage = true;
+    });  
   }
 
+  hideDeletedUserMessage() { //solo cambia la variable booleana de arriba de true a false
+    this.showDeletedUserMessage = false;
+  }
+  
+  private loadUsers(){
+    const backendUrl = 'http://localhost:8080/users';
+    this.httpClient.get<User[]>(backendUrl).subscribe(users => {
+      this.users = users;
+    });
+  }
 }
+
+
