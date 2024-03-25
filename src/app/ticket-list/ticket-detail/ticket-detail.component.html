@@ -1,0 +1,132 @@
+
+@if (showCreateTicketMessage) {
+    <ngb-alert [type]="'info'" class="alert alert-success centered-alert" role="alert" (closed)="showCreateTicketMessage = false">
+      ¡Ticket creado o actualizado extiosamente!
+    </ngb-alert>
+  }
+  
+  @if (showUpdateTicketMessage) {
+    <ngb-alert [type]="'info'" class="alert alert-success" role="alert" (closed)="showUpdateTicketMessage = false">
+      ¡Ticket actualizado correctamente!
+    </ngb-alert>
+  }
+  
+
+<div class="container py-3 background-gradient">
+    
+    <header>
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal text-body-emphasis"><strong>Tickets</strong></h1>
+            <p class="fs-5 text-body-secondary">Selecciona los tickets de tu interés</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal text-info"><strong><Tbody></Tbody> Premiun Plata</strong></h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title"> Día 1 <small class="text-body-secondary fw-light"> ✺ </small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+
+                            @if (ticket) {
+                                <p>
+                                    <span class="badge bg-info" style="font-size: large;">
+                                        <i class="fas fa-glass-cheers"></i>
+                                    </span>
+                                    <label> Ticket: </label>
+                                    <strong> {{ ticket.id }}</strong>
+                                    <span class="badge bg-info" style="font-size: large;"></span>
+                                    <strong> {{ ticket.title }}  </strong>
+                                    <span class="badge bg-info" style="font-size: large;">
+                                        <label> Precio: </label>
+                                        <strong>  {{ ticket.price }} €</strong>
+                                    </span>
+                                    <span class="badge bg-info" style="font-size: large;"></span>
+                                    <label>   Cantidad: </label>
+                                    <strong>   {{ ticket.maxNum }}   </strong>
+                                    <span class="badge bg-info" style="font-size: large;"></span>
+                                </p>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-info" [routerLink]="['/tickets', ticket.id, 'update']">Editar Ticket</button>
+                                }
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                        <h4 class="my-0 fw-normal text-primary"><strong>Premium Oro</strong></h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title"> Día 2 <small class="text-body-secondary fw-light"> ♔ </small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            @if (ticket) {
+                            <p>
+                                <span class="badge bg-primary" style="font-size: large;">
+                                    <i class="fas fa-glass-cheers"></i>
+                                </span>
+                                <label> Ticket: </label>
+                                <strong>{{ ticket.id }}</strong>
+                                <span class="badge bg-primary" style="font-size: large;"></span>
+                                <strong>{{ ticket.title }}  </strong>
+                                <span class="badge bg-primary" style="font-size: large;">
+                                    <label> Precio: </label>
+                                    <strong>{{ ticket.price }}€</strong>
+                                </span>
+                                <span class="badge bg-primary" style="font-size: large;"></span>
+                                <label>   Cantidad: </label>
+                                <strong>{{ ticket.maxNum }}</strong>
+                                <span class="badge bg-primary" style="font-size: large;"></span>
+                            </p>
+                            <button type="button" class="w-100 btn btn-lg btn-outline-primary" [routerLink]="['/tickets', ticket.id, 'update']">Editar Ticket</button>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-warning">
+                    <div class="card-header py-3 text-bg-Dark border-Dark">
+                        <h4 class="my-0 fw-normal text-warning"><strong>Premium Diamante</strong></h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">Día 1 y 2 <small class="text-body-secondary fw-light">♕</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+
+                            @if (ticket) {
+                                <p>
+                                    <span class="badge bg-warning" style="font-size: large;">
+                                        <i class="fas fa-glass-cheers"></i>
+                                    </span>
+                                    <label> Ticket: </label>
+                                    <strong>{{ ticket.id }}</strong>
+                                    <span class="badge bg-swarning" style="font-size: large;"></span>
+                                    <strong>{{ ticket.title }}  </strong>
+                                    <span class="badge bg-warning" style="font-size: large;">
+                                        <label> Precio: </label>
+                                        <strong>{{ ticket.price }}€</strong>
+                                    </span>
+                                    <span class="badge bg-warning" style="font-size: large;"></span>
+                                    <label>   Cantidad: </label>
+                                    <strong>{{ ticket.maxNum }}</strong>
+                                    <span class="badge bg-warning" style="font-size: large;"></span>
+                                </p>
+                                <button type="button" class="w-100 btn btn-lg btn-outline-warning" [routerLink]="['/tickets', ticket.id, 'update']">Editar Ticket</button>
+                                }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</div>
+
+
