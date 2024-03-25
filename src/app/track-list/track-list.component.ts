@@ -18,7 +18,7 @@ export class TrackListComponent implements OnInit {
   tracks: Track[] = [];
   showDeletedBookMessage: boolean = false;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {};
 
   ngOnInit(): void {
     // traer una lista de tracks del backend: crea y ejecuta una petición HTTP contra un controlador Backend
@@ -44,6 +44,4 @@ export class TrackListComponent implements OnInit {
   }
 }
    
-
-  
 
