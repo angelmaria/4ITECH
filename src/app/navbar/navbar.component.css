@@ -9,7 +9,7 @@ a.inicio:hover, a.registro:hover {
 .inicio, .registro{
   overflow: hidden;
 }
-/* estilos del botón iniciar sesisón */
+/* estilos del botón iniciar sesión */
 a.inicio:before,
 a.inicio:after{
   position: absolute;
