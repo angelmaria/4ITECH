@@ -1,7 +1,8 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Track } from '../models/track.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-track-form',
@@ -11,39 +12,83 @@ import { Track } from '../models/track.model';
   styleUrl: './track-form.component.css'
 })
 export class TrackFormComponent {
-  trackForm = this.fb.group({
-    id: [0],
-    name: [''],
-    startDate: [new Date()],
-    endDate: [new Date()]
+
+  trackForm = new FormGroup({
+    id: new FormControl<number>(0),
+    name: new FormControl<string>(''),
+    startDate: new FormControl<Date>(new Date()),
+    endDate: new FormControl<Date>(new Date())
   });
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {}
+  isUpdate: boolean = false;
 
-  save(){
-    console.log('Guardando track');
-     // Extraer los valores de cada input escritos por el usuario
-     const id =  this.trackForm.get('id')?.value ?? 0;
-     const name = this.trackForm.get('name')?.value ?? 'nombre por defecto';
-     const startDate= this.trackForm.get('startDate')?.value ?? new Date();
-     const endDate= this.trackForm.get('endDate')?.value ?? new Date();
+  constructor(
+    private fb: FormBuilder,
+    private httpClient: HttpClient,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {}
+     
 
-     // Crear un objeto utilizando los valores extraídos
-     const trackToSave: Track = {
-       id: id,
-       name: name,
-       startDate: startDate,
-       endDate: endDate
-     }
-     console.log(trackToSave);
-         // Enviar el objeto a backend utilizando HttpClient
-    const url = 'http://localhost:8080/tracks';
-    this.http.post<Track>(url, trackToSave).subscribe(track => console.log(track));
-
-    this.trackForm.reset();
+  ngOnInit(): void {
 
 
+    this.activatedRoute.params.subscribe(params => {
+      const id = params['id'];
+      if (!id) return;
+
+      this.httpClient.get<Track>('http://localhost:8080/tracks/' + id)
+        .subscribe(trackFromBackend => {
+          // Cargar el track obtenido en el formulario trackForm, previo reset y vuelva al formulario para editar
+          this.trackForm.reset({
+            id: trackFromBackend.id,
+            name: trackFromBackend.name,
+            startDate: trackFromBackend.startDate,
+            endDate: trackFromBackend.endDate
+
+          });
+          // marcar boolean true isUpdate
+          this.isUpdate = true;
+
+        });
+    });
   }
-}
+    
+    save () {
+      const track: Track = this.trackForm.value as Track;
+
+      if (this.isUpdate) {
+        const url = 'http://localhost:8080/tracks/' + track.id;
+        this.httpClient.put<Track>(url, track).subscribe(trackFromBackend => {
+          this.router.navigate(['/tracks', trackFromBackend.id, 'detail']);
+
+        });
+
+      } else {
+        const url = 'http://localhost:8080/tracks';
+        this.httpClient.post<Track>(url, track).subscribe(trackFromBackend => {
+          this.router.navigate(['/tracks', trackFromBackend.id, 'detail']);
+
+        });
+      }
+    }
+  }
+
+
+    
+      
+
+    
+
+
   
+
+
+
+
+
+
+
+function save() {
+  throw new Error('Function not implemented.');
+}
 

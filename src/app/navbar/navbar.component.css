@@ -1,0 +1,86 @@
+/* CSS botones iniciar sesión y registrase */
+a.inicio, a.registro {
+    transition: 0.4s ease;
+}
+a.inicio:hover, a.registro:hover {
+    transform: scale(1.05);
+}
+
+.inicio, .registro{
+  overflow: hidden;
+}
+/* estilos del botón iniciar sesisón */
+a.inicio:before,
+a.inicio:after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  background: #2564c3;
+  z-index: -1;
+  transition: all .35s;
+}
+
+a.inicio:before{
+  opacity: .5;
+}
+
+a.inicio:after{
+  transition-delay: .2s;
+}
+
+a.inicio:hover{
+  color: #fff;
+}
+
+a.inicio:hover:before,
+a.inicio:hover:after{
+  top: 0;
+}
+/* estilos del botón registro */
+a.registro:before,
+a.registro:after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  background: #d8363a;
+  z-index: -1;
+  transition: all .35s;
+}
+
+a.registro:before{
+  opacity: .5;
+}
+
+a.registro:after{
+  transition-delay: .2s;
+}
+
+a.registro:hover{
+  color: #fff;
+}
+
+a.registro:hover:before,
+a.registro:hover:after{
+  top: 0;
+}
+/* fin de los estilos para los botones inicio y registro */
+
+/* Preguntar al equipo si prefieren que el menu del navbar se desplieque automáticamente sin necesidad de hacer click (mejor UX) */
+/* @media (min-width: 992px) {
+  .dropdown:hover .dropdown-menu {
+      display: block;
+  }
+} */
+
+.bg-navbar {
+  background-color: #F8F9FA !important;
+  padding-right: 3rem !important;
+  padding-left: 3rem !important;
+  border-bottom: 1px solid rgba(218, 218, 218, 0.4);
+}

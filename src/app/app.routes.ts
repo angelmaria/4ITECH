@@ -24,6 +24,8 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { RoomListComponent } from './room-list/room-list.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { RoomFormComponent } from './room-form/room-form.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactComponent } from './contact/contact.component';
 
 export const routes: Routes = [
     {
@@ -58,6 +60,14 @@ export const routes: Routes = [
         component: KeynoteFormComponent
     },
     {
+        path: 'keynotes/:id/update',
+        component: KeynoteFormComponent
+    },
+    {
+        path: 'keynotes/:id/delete',
+        component: KeynoteFormComponent
+    },
+    {
         path: 'tickets',
         component: TicketListComponent
     },
@@ -68,6 +78,13 @@ export const routes: Routes = [
     {
         path: 'tickets/create',
         component: TicketFormComponent
+    },
+    {
+        path: 'tickets/:id/update',
+        component: TicketFormComponent
+    },
+    { path: 'ticket/:id/delete',
+    component: TicketFormComponent
     },
     {
         path: 'ticketOrderBuys',
@@ -82,6 +99,13 @@ export const routes: Routes = [
         component: TicketOrderBuyFormComponent
     },
     {
+        path: 'ticketOrderBuys/:id/update',
+        component: TicketOrderBuyFormComponent
+    },
+    { path: 'ticketOrderBuys/:id/delete',
+    component: TicketOrderBuyFormComponent
+    },
+    {
         path: 'tracks',
         component: TrackListComponent
     },
@@ -91,6 +115,11 @@ export const routes: Routes = [
     },
     {
         path: 'tracks/create',
+        component: TrackFormComponent
+
+    },
+    {
+        path: 'tracks/:id/update',
         component: TrackFormComponent
 
     },
@@ -107,7 +136,11 @@ export const routes: Routes = [
         component: CommentFormComponent
     },
     {
-        path: 'users', 
+        path: 'comments/:id/update',
+        component: CommentFormComponent
+    },
+    {
+        path: 'users',
         component: UserListComponent
     },
     {
@@ -119,7 +152,15 @@ export const routes: Routes = [
         component: UserFormComponent
     },
     {
-        path: 'rooms', 
+        path: 'users/:id/update',
+        component: UserFormComponent
+    },
+    {
+        path: 'users/:id/delete',
+        component: UserFormComponent
+    },
+    {
+        path: 'rooms',
         component: RoomListComponent
     },
     {
@@ -130,7 +171,22 @@ export const routes: Routes = [
         path: 'rooms/create',
         component: RoomFormComponent
     },
-    
+    {
+        path: 'about',
+        component: AboutUsComponent
+    },
+    {
+        path: 'contact',
+        component: ContactComponent
+    },
+    {
+        path: 'rooms/:id/update',
+        component: RoomFormComponent
+    },
+    {
+        path: 'rooms/:id/delete',
+        component: RoomFormComponent
+    },    
 
 
         // El Enrutado del componente not found 404 siempre hay que dejarlo

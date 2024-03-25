@@ -1,91 +1,97 @@
-
-
-<nav class="navbar navbar-expand-md navbar-light bg-body-tertiary">
-	<div class="container-fluid">
-		<!--<span class="navbar-brand">Dropdowns in navbar</span>-->
-
-        <a routerLink="/home">
-            <img src="/assets/img/Logo_4iTech.png" alt="logo" style="max-width:80px;">
-        </a>
-		<button
-			class="navbar-toggler"
-			type="button"
-			aria-controls="navbarContent"
-			[attr.aria-expanded]="!collapsed"
-			aria-label="Toggle navigation"
-			(click)="collapsed = !collapsed"
-		>
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
-			<ul class="navbar-nav ms-auto">
-				<li class="nav-item" ngbDropdown>
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-mic me-1"></i>Charlas</a>
-					<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-						<a ngbDropdownItem routerLink="/keynotes" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Keynotes</a>
-
-						<a ngbDropdownItem routerLink="/keynotes/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear Keynote</a>
-					</div>
-
-
-				</li>
-				<li class="nav-item" ngbDropdown>
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-cart4 me-1"></i>Tracks</a>
-					<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-						<a ngbDropdownItem routerLink="/tracks" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Tracks</a>
-
-            
-						<a ngbDropdownItem routerLink="/tracks/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear Track</a>
-					</div>
-				</li>
-
-				<li class="nav-item" ngbDropdown>
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> <i class="bi bi-wrench-adjustable-circle me-1"></i>Comentarios</a>
-
-                        
-					<div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
-						<a ngbDropdownItem routerLink="/comments" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Comentarios</a>
-						<a ngbDropdownItem routerLink="/comments/create" (click)="$event.preventDefault()"><i class="bi bi-wrench-adjustable me-2"></i>Crear Comentario</a>
-						
-					</div>
-				</li>
-
-				<li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
-					<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Dynamic </a>
-					<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
-						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Action</a>
-						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Another action</a>
-						<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a>
-					</div>
-
-
+<div class="bg-navbar">
+	<nav class="navbar navbar-expand-md navbar-light bg-body-tertiary">
+		<div class="container-fluid">
+			<!--<span class="navbar-brand">Dropdowns in navbar</span>-->
+	
+	        <a routerLink="/home">
+	            <img src="/assets/img/Logo_4iTech.png" alt="logo" style="max-width:80px;">
+	        </a>
+			<button
+				class="navbar-toggler"
+				type="button"
+				aria-controls="navbarContent"
+				[attr.aria-expanded]="!collapsed"
+				aria-label="Toggle navigation"
+				(click)="collapsed = !collapsed"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+	
+			<div class="navbar-collapse me-4" [class.collapse]="collapsed" id="navbarContent">
+				<ul class="navbar-nav ms-auto">
 					<li class="nav-item" ngbDropdown>
-						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdownTicket" role="button"><i class="bi bi-ticket me-1"></i>Tickets</a>
-							
-						<div ngbDropdownMenu aria-labelledby="navbarDropdownTicket" class="dropdown-menu">
-							<a ngbDropdownItem routerLink="/tickets" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Tickets</a>
-							<a ngbDropdownItem routerLink="/tickets/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear Ticket</a>
-						
+						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-mic me-1"></i>Charlas</a>
+						<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+							<a ngbDropdownItem routerLink="/keynotes" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Keynotes</a>
+	
+							<a ngbDropdownItem routerLink="/keynotes/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear Keynote</a>
 						</div>
-
+	
+	
 					</li>
-
-
 					<li class="nav-item" ngbDropdown>
-						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdownTicketOrderBuy" role="button"><i class="bi bi-ticketOrderBuy me-1"></i>TicketOrderBuys</a>
-							
-						<div ngbDropdownMenu aria-labelledby="navbarDropdownTicketOrderBuy" class="dropdown-menu">
-							<a ngbDropdownItem routerLink="/ticketOrderBuys" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de TicketOrderBuys</a>
-							<a ngbDropdownItem routerLink="/ticketOrderBuys/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear TicketOrderBuys</a>
-						
+						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-alarm me-1"></i>Tracks</a>
+						<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+							<a ngbDropdownItem routerLink="/tracks" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Tracks</a>
+	
+	
+							<a ngbDropdownItem routerLink="/tracks/create"(click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear Track</a>
 						</div>
 					</li>
-					
-			</ul>
+	
+					<li class="nav-item" ngbDropdown>
+						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> <i class="bi bi-music-note-list me-1"></i>Comentarios</a>
+	
+	
+						<div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+							<a ngbDropdownItem routerLink="/comments" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Comentarios</a>
+							<a ngbDropdownItem routerLink="/comments/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i>Crear Comentario</a>
+	
+						</div>
+					</li>
+	
+					<!-- <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Dynamic </a>
+						<div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
+							<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Action</a>
+							<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Another action</a>
+							<a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a>
+						</div> -->
+	
+						<li class="nav-item" ngbDropdown>
+							<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdownTicket" role="button"><i class="bi bi-ticket me-1"></i>Tickets</a>
+	
+							<div ngbDropdownMenu aria-labelledby="navbarDropdownTicket" class="dropdown-menu">
+								<a ngbDropdownItem routerLink="/tickets" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Tickets</a>
+								<a ngbDropdownItem routerLink="/tickets/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear Ticket</a>
+								<a ngbDropdownItem routerLink="/ticketOrderBuys" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de TicketOrderBuys</a>
+<a ngbDropdownItem routerLink="/ticketOrderBuys/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Crear TicketOrderBuys</a>
+							</div>
+						</li>
+	
+						<li class="nav-item" ngbDropdown>
+							<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdownTicketOrderBuy" role="button"><i class="bi bi-ticketOrderBuy me-1"></i>Información</a>
+	
+							<div ngbDropdownMenu aria-labelledby="navbarDropdownTicketOrderBuy" class="dropdown-menu">
+								<a ngbDropdownItem routerLink="/about" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Sobre nosotros</a>
+								<a ngbDropdownItem routerLink="/contact" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i> Contacto</a>
+	
+							</div>
+						</li>
+	
+						<li class="nav-item me-3 ms-3">
+							<a class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio" routerLink="/login" (click)="$event.preventDefault()" id="" role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Iniciar sesión</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link border border-danger-subtle rounded border-2 pe-3 registro" routerLink="/register" (click)="$event.preventDefault()" id="" role="button"><i class="bi bi-person-fill-add me-2"></i>Registrar cuenta</a>
+						</li>
+	
+	
+				</ul>
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
+</div>
 
 <!--  Ojo esto se pondría al final del body y llamando a la función en un button con onclick="toggleTheme()"
 	<script>

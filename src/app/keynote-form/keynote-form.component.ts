@@ -1,7 +1,10 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Keynote } from '../models/keynote.model';
+import { DifficultyLevel } from '../models/difficultyLevel.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Room } from '../models/room.model';
 
 @Component({
   selector: 'app-keynote-form',
@@ -10,61 +13,82 @@ import { Keynote } from '../models/keynote.model';
   templateUrl: './keynote-form.component.html',
   styleUrl: './keynote-form.component.css'
 })
-export class KeynoteFormComponent {
-  keynoteForm = this.fb.group({
-    id: [0],
-    title: [''], 
-    summary: [''],
-    description: [''], 
-    webinarUrl: [''],
-    // one to one
-    room: [''],
-    maxNumPersons: [0],
+export class KeynoteFormComponent implements OnInit {
 
-    // enumerated
-    // level: DifficultyLevel;
-    durationInMin: [0],
-    // many to one
-    // speaker: UserRole; 
-    // manyToOne
-    // tracks: Date;
+  keynoteForm = new FormGroup({
+    id: new FormControl<number>(0),
+    title: new FormControl<String>(''),
+    summary: new FormControl<String>(''),
+    description: new FormControl<String>(''),
+    webinarUrl: new FormControl<String>(''),
+    room: new FormControl(),
+    maxNumPersons: new FormControl<number>(0),
+    difficultyLevel: new FormControl<DifficultyLevel>(DifficultyLevel.JUNIOR),
+    durationInMin: new FormControl<number>(0)
+  })
 
-    // ManyToMany
-    // attendees: UserRole[]; 
-  });
+  isUpdate: boolean = false; // por defecto estamos en CREAR no en ACTUALIZAR
+  rooms: Room[] = []; // array de rooms para asociar una keynote a una sala
 
-  constructor(private fb: FormBuilder, private httpClient: HttpClient) {}
+  constructor(private fb: FormBuilder, 
+    private httpClient: HttpClient,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
+      
+    }
 
-  save() {
-    console.log("Guardando keynote");
-
-    // Extraer los valores de cada input escritos por el usuario
-    const id = this.keynoteForm.get('id')?.value ?? 0;
-    const title = this.keynoteForm.get('title')?.value ?? 'titulo por defecto';
-    const summary = this.keynoteForm.get('summary')?.value ?? 'summary por defecto';
-    const description = this.keynoteForm.get('description')?.value ?? 'description por defecto';
-    const webinarUrl = this.keynoteForm.get('webinarUrl')?.value ?? 'webinarUrl por defecto';
-    const room = this.keynoteForm.get('room')?.value ?? 'room por defecto';
-    const maxNumPersons = this.keynoteForm.get('maxNumPersons')?.value ?? 0;
-    const durationInMin = this.keynoteForm.get('durationInMin')?.value ?? 0;
-
-    // Crear un objeto utilizando los valores extraídos
-    // const keynoteToSave: Keynote = {
-    //   id: id,
-    //   title: title,
-    //   summary: summary,
-    //   description: description,
-    //   webinarUrl: webinarUrl,
-    //   room: room,
-    //   maxNumPersons: maxNumPersons,
-    //   durationInMin: durationInMin
-    // }
-    // console.log(keynoteToSave);
-
-
-    // Enviar el objeto a backend utilizando HttpClient
-    // const url = 'http://localhost:8080/keynotes';
-    // this.httpClient.post<Keynote>(url, keynoteToSave).subscribe(keynote => console.log(keynote));
-
+    ngOnInit(): void {
+      // cargar rooms de backend para el selector de rooms en el formulario
+      this.httpClient.get<Room[]>('http://localhost:8080/rooms').subscribe(rooms => this.rooms = rooms);
+  
+      this.activatedRoute.params.subscribe(params => {
+        const id = params['id'];
+        if(!id) return;
+  
+        this.httpClient.get<Keynote>('http://localhost:8080/keynotes/' + id)
+        .subscribe(keynoteFromBackend => {
+          // cargar el keynote obtenido en el formulario keynoteForm
+          this.keynoteForm.reset({
+            id: keynoteFromBackend.id,
+            title: keynoteFromBackend.title,
+            summary: keynoteFromBackend.summary,
+            description: keynoteFromBackend.description,
+            webinarUrl: keynoteFromBackend.webinarUrl,
+            room: keynoteFromBackend.room,
+            maxNumPersons: keynoteFromBackend.maxNumPersons,
+            difficultyLevel: keynoteFromBackend.difficultyLevel,
+            durationInMin: keynoteFromBackend.durationInMin
+          });
+  
+          // marcar boolean true isUpdate
+          this.isUpdate = true;
+        });
+      });
+    }
+  
+      save(){
+        const keynote: Keynote = this.keynoteForm.value as Keynote;
+  
+        if (this.isUpdate) {
+          const url ='http://localhost:8080/keynotes/' + keynote.id;
+          this.httpClient.put<Keynote>(url, keynote).subscribe(keynoteFromBackend => {
+            this.router.navigate(['/keynotes', keynoteFromBackend.id, 'detail']);
+          });
+        } else {
+          const url ='http://localhost:8080/keynotes';
+          this.httpClient.post<Keynote>(url, keynote).subscribe(keynoteFromBackend => {
+            this.router.navigate(['/keynotes', keynoteFromBackend.id, 'detail']);
+        });
+      }
+    }
+  
+    compareObjects(o1: any, o2: any): boolean {
+      // console.log("comparando objetos", o1, o2)
+      if(o1 && o2) {
+        return o1.id === o2.id;
+      }
+  
+      return o1 === o2;
+    }
   }
-}
+

@@ -1,1 +1,19 @@
 <p>comment-detail works!</p>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+
+            <h1 class="mt-5 mb-5">Pantalla de detalle de  Comentario con Id: {{comment?.id}}</h1>
+
+            @if (comment) {
+            <p>ID: {{comment.id}}--Valoración:{{comment.rating}}--Reseña:{{comment.opinion}}--Charla:{{comment.keynote.title}}
+            </p>
+
+            <button class="btn btn-success" [routerLink]="['/comments', comment.id, 'update']">Editar comentario</button>
+            }
+        </div>
+    </div>
+</div>

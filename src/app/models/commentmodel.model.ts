@@ -1,13 +1,13 @@
 import { Keynote } from "./keynote.model";
 import { User } from "./user.model";
 
-export interface Comment {
+export interface CommentModel {
     id: number;
     rating: number; 
     opinion: string;
     // Many to One:  findByUser_id
-    user: User;  //  user: User
+    user: User;  
     // Many to One:  findByKeynote_id
-    keynote: Keynote [];
+    keynote: Keynote;
 
 }

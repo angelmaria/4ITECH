@@ -12,8 +12,8 @@ export interface TicketOrderBuy {
     qrUrl: string;
 
     //ManyToOne
-    //user: User; // crear clase
+    user: User; // crear clase
 
     //ManyToOne
-    //ticket: Ticket; // crear clase
+    ticket: Ticket; // crear clase
 }

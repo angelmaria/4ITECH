@@ -2,51 +2,88 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Ticket } from '../models/ticket.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @Component({
   selector: 'app-ticket-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule, HttpClientModule,NgbAlertModule],
   templateUrl: './ticket-form.component.html',
   styleUrl: './ticket-form.component.css'
 })
 export class TicketFormComponent {
+
+showCreateTicketMessage: boolean = false;
+showUpdateTicketMessage: boolean = false;
+
 ticketForm = this.fb.group ({
   id: [0],
   title:[''],
-  username:[''],
-  price:[0,0],
+  price:[0],
   maxNum:[0],
 
-});
-  http: any;
 
-constructor(private fb: FormBuilder, private httpClient: HttpClient) {}
+});
+
+  isUpdate: boolean=false ;
+  //user: User[] = [];
+
+constructor(private fb: FormBuilder,
+  private httpClient: HttpClient,
+  private router: Router,
+  private activatedRoute: ActivatedRoute) {}
+
+
+
+  ngOnInit(): void{
+    //
+    this.activatedRoute.params.subscribe(params =>{
+      const id = params['id'];
+      if(!id)return;
+
+    this.httpClient.get<Ticket>('http://localhost:8080/tickets/'+ id)
+    .subscribe(ticketFromBackend =>{
+      //cargar el libro en el formulario ticketbook
+      this.ticketForm.reset({
+        id: ticketFromBackend.id,
+        title: ticketFromBackend.title,
+        price: ticketFromBackend.price,
+        maxNum: ticketFromBackend.maxNum
+
+      });
+
+      this.isUpdate = false;
+
+      });
+    });
+
+  }
 
   save() {
-    console.log("Guardando ticket");
 
-    const id = this.ticketForm .get('id')?.value ?? 0;
-    const title = this.ticketForm .get('title')?.value ?? 'titulo por defecto';
-    const username = this.ticketForm .get('username')?.value ?? 'username por defecto';
-    const price = this.ticketForm .get('price')?.value ?? 0.0;
-    const maxNum = this.ticketForm .get('maxNum')?.value ?? 0;
-    
-    const ticketToSave: Ticket = {
-      id: id,
-      title: title,
-      username: username,
-      price: price,
-      maxNum: maxNum,
+    const ticket:Ticket =this.ticketForm.value as Ticket;
+    if (this.isUpdate){
+        const url= 'http://localhost:8080/tickets' + ticket.id;
+        this.httpClient.put<Ticket>(url,ticket).subscribe(ticketFromBackend =>{
+          this.router.navigate(['/tickets', ticketFromBackend.id, 'detail']);
+          this.showUpdateTicketMessage = true;
+      });
+    }else {
+      const url= 'http://localhost:8080/tickets';
+      this.httpClient.post<Ticket>(url,ticket).subscribe(ticketFromBackend =>{
+        this.router.navigate(['/tickets', ticketFromBackend.id, 'detail',{ created: true }]);
+        this.showCreateTicketMessage = true;
+      });
     }
-    console.log(ticketToSave);
-  
-    const url = 'http://localhost:8080/ticket';
-    this.http.post(url, ticketToSave).subscribe((ticket: Ticket) => console.log(ticket));
-    
-    
-  }
-    
+}
+hideCreateTicketMessage() {
+  this.showCreateTicketMessage = false;
+}
+
+hideUpdateTicketMessage() {
+  this.showUpdateTicketMessage = false;
+}
 }
