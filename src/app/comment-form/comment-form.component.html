@@ -17,13 +17,16 @@
             <input type="hidden" formControlName="id">
   
             <div class="form-floating mb-3">
-             
-              <p>Valora la Charla</p>
-             
-              <ngb-rating [(rate)]="rating" />
+              <p>Valora la Charla/p>
+              
+              <ngb-rating [(rate)]="rating">
+                <ng-template let-fill="fill" let-index="index">
+                  <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100" [class.low]="index < 3"></i>
+                </ng-template>
+              </ngb-rating>
+              
               <hr />
-              <pre>Valoración: <b>{{ rating }}</b></pre>
-            </div>
+              <pre>Valoración: <b>{{rating}}</b></pre>
              
             <div class="form-floating mb-5">
               

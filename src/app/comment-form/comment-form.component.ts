@@ -30,6 +30,7 @@ export class CommentFormComponent implements OnInit {
   isUpdate: boolean = false;
   users: User[] = [];
   keynotes: Keynote[] = [];
+  rating: any;
 
   
   
