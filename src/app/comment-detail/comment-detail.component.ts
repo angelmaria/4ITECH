@@ -26,10 +26,11 @@ export class CommentDetailComponent implements OnInit{
       const id = params['id'];
 
       if (!id) return;
+
       const backendUrl = 'http://localhost:8080/comments/' + id;
       this.http.get<CommentModel>(backendUrl).subscribe(commentBackend => {
         this.comment = commentBackend;
-        console.log(this.comment);
+        // console.log(this.comment);
       });
     });
    

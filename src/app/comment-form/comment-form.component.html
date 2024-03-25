@@ -17,12 +17,16 @@
             <input type="hidden" formControlName="id">
   
             <div class="form-floating mb-3">
-             
-              <p>Valora la Charla</p>
-
-              <ngb-rating [(rate)]="rating" />
+              <p>Valora la Charla/p>
+              
+              <ngb-rating [(rate)]="rating">
+                <ng-template let-fill="fill" let-index="index">
+                  <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100" [class.low]="index < 3"></i>
+                </ng-template>
+              </ngb-rating>
+              
               <hr />
-              <pre>Valoración: <b>{{ rating }}</b></pre>
+              <pre>Valoración: <b>{{rating}}</b></pre>
             </div>
              
             <div class="form-floating mb-5">
@@ -35,7 +39,7 @@
               <select class="form-select" id="keynote" formControlName="keynote" [compareWith]="compareObjects">
   
   
-                  <!-- iterar sobre el array de keynotes mostrando cada uno -->
+                  <!-- iterar sobre el array de keynotes mostrando cada una -->
                 @for (keynote of keynotes; track keynote.id) {
                   <option [ngValue]="keynote">{{keynote.title}}</option>
                 }
@@ -50,7 +54,7 @@
   
                   <!-- iterar sobre el array de users mostrando cada uno -->
                @for (user of users; track user.id) {
-                  <option [ngValue]="user">{{user.id}}</option>
+                  <option [ngValue]="user">{{user.firstName}}</option>
                 }
   
               </select>
