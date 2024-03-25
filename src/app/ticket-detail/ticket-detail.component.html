@@ -4,7 +4,7 @@
         <div class="col d-flex flex-column justify-content-start align-items-start my-margin">
 
 @if (ticket) {
-    <p>{{ticket.id}} {{ticket.title}} {{ticket.username}} <span class="badge bg-secondary" style="font-size: large;">{{ticket.price}}€</span> {{ticket.maxNum}}</p>
+    <p>{{ticket.id}} {{ticket.title}} <span class="badge bg-secondary" style="font-size: large;">{{ticket.price}}€</span> {{ticket.maxNum}}</p>
     <button class="btn btn-success" [routerLink]="['/tickets',ticket.id, 'update']">Editar Ticket</button>
 
     
