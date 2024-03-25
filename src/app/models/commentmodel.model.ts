@@ -6,7 +6,7 @@ export interface CommentModel {
     rating: number; 
     opinion: string;
     // Many to One:  findByUser_id
-    user: User;  
+    user: User; 
     // Many to One:  findByKeynote_id
     keynote: Keynote;
 
