@@ -1,7 +1,7 @@
-<p>comment-detail works!</p>
 
 
-<div class="container">
+
+<div class="container" style="width: 50%;">
     <div class="row">
         <div class="col">
 
@@ -9,8 +9,16 @@
             <h1 class="mt-5 mb-5">Pantalla de detalle de  Comentario con Id: {{comment?.id}}</h1>
 
             @if (comment) {
-            <p>ID: {{comment.id}}--Valoración:{{comment.rating}}--Reseña:{{comment.opinion}}--Charla:{{comment.keynote.title}}
+            <p>ID: {{comment.id}}--Valoración:--Reseña:--Charla:
             </p>
+            <div class="card border-success mb-3" style="max-width: 50rem; max-height: 50rem; border-radius: 10px;">
+                <div class="card-header">Usuario</div>
+                <div class="card-body text-success">
+                  <h5 class="card-title">{{comment.keynote.title}}</h5>
+                  <p class="card-text">{{comment.opinion}}</p>
+                </div>
+              </div>
+              <p style="border-width: 3px;">Valoracion: {{comment.rating}}</p>
 
             <button class="btn btn-success" [routerLink]="['/comments', comment.id, 'update']">Editar comentario</button>
             }
