@@ -18,7 +18,9 @@
 			<div class="navbar-collapse me-4" [class.collapse]="collapsed" id="navbarContent">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item" ngbDropdown>
-						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-mic me-1"></i>Charlas</a>
+
+					<a class="nav-link border border-danger-subtle rounded border-2 pe-3 registro me-1" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-mic me-1"></i>Charlas</a>
+						<!--DROPDOWN NORMAL <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-mic me-1"></i>Charlas</a>-->
 						<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
 							<a ngbDropdownItem routerLink="/keynotes" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Keynotes</a>
 	
@@ -26,8 +28,8 @@
 						</div>
 					</li>
 					<li class="nav-item" ngbDropdown>
-
-						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-alarm me-1"></i>Tracks</a>
+						<a class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio me-1" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-alarm me-1"></i>Tracks</a>
+						<!--DROPDOWN NORMAL <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-alarm me-1"></i>Tracks</a>-->
 						
 						<div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
 							<a ngbDropdownItem routerLink="/tracks" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Tracks</a>
@@ -37,7 +39,8 @@
 					</li>
 	
 					<li class="nav-item" ngbDropdown>
-						<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-music-note-list me-1"></i>Comentarios</a>
+						<a class="nav-link border border-danger-subtle rounded border-2 pe-3 registro me-1" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-music-note-lits me-1"></i>Comentarios</a>
+						<!--DROPDOWN NORMAL  <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-music-note-lits me-1"></i>Comentarios</a>-->
 	
 						<div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
 							<a ngbDropdownItem routerLink="/comments" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Comentarios</a>
@@ -46,7 +49,8 @@
 						</div>
 					</li>	
 						<li class="nav-item" ngbDropdown>
-							<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-ticket-perforated me-1"></i>Tickets</a>
+							<a class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio me-1" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-ticket-perforated me-1"></i>Tickets</a>
+							<!--DROPDOWN NORMAL  <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-ticket-perforated me-1"></i>Tickets</a>-->
 	
 							<div ngbDropdownMenu aria-labelledby="navbarDropdownTicket" class="dropdown-menu">
 								<a ngbDropdownItem routerLink="/tickets" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Tickets</a>
@@ -57,7 +61,8 @@
 						</li>
 	
 						<li class="nav-item" ngbDropdown>
-							<a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-info-circle me-1"></i>Información</a>
+							<a class="nav-link border border-danger-subtle rounded border-2 pe-3 registro me-1" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-info-circle me-1"></i>Información</a>
+							<!--DROPDOWN NORMAL  <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-info-circle me-1"></i>Información</a>-->
 	
 							<div ngbDropdownMenu aria-labelledby="navbarDropdownTicketOrderBuy" class="dropdown-menu">
 								<a ngbDropdownItem routerLink="/about" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Sobre nosotros</a>
