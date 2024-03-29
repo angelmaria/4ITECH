@@ -9,16 +9,17 @@
             <h1 class="mt-5 mb-5">Pantalla de detalle de  Comentario con Id: {{comment?.id}}</h1>
 
             @if (comment) {
-            <p>ID: {{comment.id}}--Valoración:--Reseña:--Charla:
-            </p>
+            
             <div class="card border-success mb-3" style="max-width: 50rem; max-height: 50rem; border-radius: 10px;">
-                <div class="card-header">Usuario</div>
+                <div class="card-header">Usuario: {{comment.user.firstName}}</div>
                 <div class="card-body text-success">
-                  <h5 class="card-title">{{comment.keynote.title}}</h5>
+                  <h5 class="card-title">Comentario de la charla: {{comment.keynote.title}}</h5> 
                   <p class="card-text">{{comment.opinion}}</p>
                 </div>
+                
+                <p style="border-width: 3px;">Valoracion: {{comment.rating}}</p>
               </div>
-              <p style="border-width: 3px;">Valoracion: {{comment.rating}}</p>
+              
 
             <button class="btn btn-success" [routerLink]="['/comments', comment.id, 'update']">Editar comentario</button>
             }
