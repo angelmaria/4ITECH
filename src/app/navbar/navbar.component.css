@@ -71,12 +71,12 @@ a.registro:hover:after{
 }
 /* fin de los estilos para los botones inicio y registro */
 
-/* Preguntar al equipo si prefieren que el menu del navbar se desplieque automáticamente sin necesidad de hacer click (mejor UX) */
-/* @media (min-width: 992px) {
+/* Preguntar al equipo si prefieren que el menu del navbar no se desplieque automáticamente sin necesidad de hacer click (mejor UX) */
+@media (min-width: 992px) {
   .dropdown:hover .dropdown-menu {
       display: block;
   }
-} */
+}
 
 .bg-navbar {
   background-color: #F8F9FA !important;
