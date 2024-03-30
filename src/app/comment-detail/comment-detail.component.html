@@ -6,18 +6,21 @@
         <div class="col">
 
 
-            <h1 class="mt-5 mb-5">Pantalla de detalle de  Comentario con Id: {{comment?.id}}</h1>
+            <h1 class="mt-5 mb-5" style="color: green;">
+              Pantalla detalle de comentario con Id:
+               <span class="badge text-bg-success text-decoration-none" >{{comment?.id}}</span></h1>
 
             @if (comment) {
             
             <div class="card border-success mb-3" style="max-width: 50rem; max-height: 50rem; border-radius: 10px;">
                 <div class="card-header">Usuario: {{comment.user.firstName}}</div>
                 <div class="card-body text-success">
-                  <h5 class="card-title">Comentario de la charla: {{comment.keynote.title}}</h5> 
+                  <h5 class="card-title">Comentario de la charla: «{{comment.keynote.title}}»</h5> 
                   <p class="card-text">{{comment.opinion}}</p>
                 </div>
+                <hr>
                 
-                <p style="border-width: 3px;">Valoracion: {{comment.rating}}</p>
+                <p style="margin-left: 15px;">Valoración: {{comment.rating}}</p>
               </div>
               
 
