@@ -93,7 +93,7 @@ a.registro:hover:after{
   color: #e5e5e5;
   font-size: 2.26rem;
   font-family: 'Libre Franklin';
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
   /* height: 100vh; */
   display: flex;
   align-items: center;
@@ -101,7 +101,7 @@ a.registro:hover:after{
 }
 
 .animation {
-  height:60px;
+  height:55px;
   overflow:hidden;
   /* margin-left: 1rem; */
 }
