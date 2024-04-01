@@ -1,0 +1,12 @@
+.background-gradient {
+    background: linear-gradient(to right, #3d7adc, #7595f4, #75aaef, #65e2f5);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+}

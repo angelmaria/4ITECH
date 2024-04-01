@@ -23,7 +23,7 @@ section article.text h1[data-v-6dfea62d] {
 .custom-table {
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid #007bff;
+    border: 2px solid #8197b0;
     border-radius: 20px; 
   }
   .custom-table {
@@ -50,6 +50,7 @@ section article.text h1[data-v-6dfea62d] {
     font-size: 2.9rem; /* Tamaño de fuente más grande */
     padding: 50px 30px;
   }
+
 
 
 

@@ -28,14 +28,14 @@ margin-top: 0;
 }
 
 .background-gradient {
-    background: linear-gradient(to bottom, rgb(0, 55, 255), rgba(0, 255, 229, 0.4), rgba(255, 132, 0, 0.4), rgba(255, 0, 0, 0.699));
+    background: linear-gradient(to right, #2f5fab, #4b70e1, #5498f2, #31b4c8);
     border-radius: 20px;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
-    width: 90%;
+    height: 500px;
+    width: 80%;
     margin: auto;
     margin-top: 50px;
 }
