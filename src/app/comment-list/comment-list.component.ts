@@ -17,6 +17,7 @@ export class CommentListComponent implements OnInit {
   comments: CommentModel[] = [];
   showDeletedCommentMessage: boolean = false;
   keynote: any;
+user: any;
 
   constructor(private http: HttpClient) {}
     

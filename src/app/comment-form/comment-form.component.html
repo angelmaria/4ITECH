@@ -21,7 +21,7 @@
               
               <ngb-rating [(rate)]="rating" formControlName="rating">
                 <ng-template let-fill="fill" let-index="index">
-                  <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100" [class.low]="index < 3" style="color: blue; margin: 4px;"></i>
+                  <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100" [class.low]="index < 3" style="color: rgb(222, 191, 39); margin: 4px;"></i>
                 </ng-template>
               </ngb-rating>
               
