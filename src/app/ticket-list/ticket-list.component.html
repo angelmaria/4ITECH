@@ -11,7 +11,7 @@
 <hr>
 <div class="position-fixed bottom-0 start-0 p-5">
   <a [routerLink]="['/ticketOrderBuys']" style="display: block;">
-    <img src="/src/assets/img/compras.gif" style="width: 80px; height: 80px;" alt="GIF">
+    <img src="/src/assets/Ticket/img/ticketcompra.png" style="width: 80px; height: 80px;" alt="GIF">
   </a>
 </div>
 
@@ -74,8 +74,8 @@
   
 } @empty {
 
-  <ngb-alert type="custom" [dismissible]="false"><strong>Whoa!</strong> No hay Tickets</ngb-alert>
+  <ngb-alert type="custom" class="container d-flex justify-content-center align-items-center"[dismissible]="false"><strong>Whoa!</strong> No hay Tickets</ngb-alert>
   <div class="icon-container">
-  <i class="bi bi-bag-x"></i>
+  <i class="bi bi-bag-x container d-flex justify-content-center align-items-center"></i>
 </div>
 }

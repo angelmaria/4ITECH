@@ -1,6 +1,4 @@
-
 <div class="container py-3 background-gradient">
-    
     <header>
         <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
             <h1 class="display-4 fw-normal text-body-emphasis"><strong>Tickets Order Buys</strong></h1>
@@ -8,35 +6,52 @@
         </div>
     </header>
 
+    <div class="row">
+        <div class="col-md-4">
+            <img src="/src/assets/Ticket/img/tob.png" alt="tu ticket Aquí" class="img-fluid">
+        </div>
 
-    <main>
-        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-            <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm">
-                    <div class="card-header py-3">
-                        <h4 class="my-0 fw-normal text-info"><strong><Tbody></Tbody> Orden de compra</strong></h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title"> {{ticketOrderBuy?.id}}<small class="text-body-secondary fw-light"> ✍ </small></h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            @if (ticketOrderBuy) {
-                                <p>
+        <div class="col-md-8">
+            <main>
+                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                    <div class="col">
+                        <div class="card mb-4 rounded-3 shadow-sm">
+                            <div class="card-header py-3">
+                                <h4 class="my-0 fw-normal text-info"><strong><Tbody></Tbody> Orden de compra</strong></h4>
+                            </div>
+                            <div class="card-body">
+                                <p style="margin-left: 10px;">
                                     <span class="badge bg-primary" style="font-size: large;">
                                         <i class="fas fa-glass-cheers"></i>
                                     </span>
-                            <label><strong>Fecha:</strong>  {{ticketOrderBuy.date}} </label>
-                            <label><strong>Descuento:</strong>  {{ticketOrderBuy.discount}} </label>
-                            <label><strong>Precio Toltal:</strong>  {{ticketOrderBuy.totalPrice}}</label>
-                            <label><strong>Metodo de pago:</strong>  {{ticketOrderBuy.paymentMethod}} </label>
-                            <label><strong>Cantidad:</strong>  {{ticketOrderBuy.quantity}} </label>
-                            <label><strong>Medio de compra:</strong>  {{ticketOrderBuy.channel}}</label>
-                            <label><strong>Código QR:</strong>  {{ticketOrderBuy.qrUrl}} </label>
-                            <span class="badge bg-primary" style="font-size: large;"></span>
-                        </p>
-                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Editar Ticket</button>
-                    }
-                </ul>
-            </div>
+                                </p>
+                                <h1 class="card-title pricing-card-title"> {{ticketOrderBuy?.id}}<small class="text-body-secondary fw-light"> ✍ </small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    @if (ticketOrderBuy) {
+                                        <p>
+                                            <p style="margin-left: 10px;">
+                                                <span class="badge bg-primary" style="font-size: large;">
+                                                    <i class="fas fa-glass-cheers"></i>
+                                                </span>
+                                            </p>
+                                            <label><strong>Fecha:</strong>  {{ticketOrderBuy.date}} </label>
+                                            <label><strong>Descuento:</strong>  {{ticketOrderBuy.discount}} </label>
+                                            <label><strong>Precio Toltal:</strong>  {{ticketOrderBuy.totalPrice}}</label>
+                                            <label><strong>Metodo de pago:</strong>  {{ticketOrderBuy.paymentMethod}} </label>
+                                            <label><strong>Cantidad:</strong>  {{ticketOrderBuy.quantity}} </label>
+                                            <label><strong>Medio de compra:</strong>  {{ticketOrderBuy.channel}}</label>
+                                            <label><strong>Código QR:</strong>  {{ticketOrderBuy.qrUrl}} </label>
+                                            <span class="badge bg-primary" style="font-size: large;"></span>
+                                       
+                                            <a [routerLink]="['/ticketOrderBuys/create']" class="w-100 btn btn-lg btn-outline-primary" style="display: block;">Editar Ticket</a>
+
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
-
+</div>
