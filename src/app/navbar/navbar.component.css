@@ -150,7 +150,7 @@ nav a:hover {
 /* Test para el título del logo en el navbar */
 .navegador {
   color: #e5e5e5;
-  font-size: 2.26rem;
+  /* font-size: 2.26rem; */
   font-family: 'Libre Franklin';
   text-transform: uppercase;
   /* height: 100vh; */
