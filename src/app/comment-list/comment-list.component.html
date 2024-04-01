@@ -29,19 +29,19 @@
                 <td>{{comment.rating}}</td>
                 <td>{{comment.opinion}}</td>  
                 <td>
-                  <a class="badge text-bg-secondary text-decoration-none" [routerLink]="['/comments', comment.user.id, 'detail']">
+                  <a class="badge text-bg-secondary text-decoration-none" [routerLink]="['/users', comment.user.id, 'detail']">
                     {{comment.user.firstName}}
                   </a>
                 </td>
                 <td>
-                  <a class="badge text-bg-warning text-decoration-none" [routerLink]="['/comments', comment.keynote.id, 'detail']">
+                  <a class="badge text-bg-warning text-decoration-none" [routerLink]="['/keynotes', comment.keynote.id, 'detail']">
                     {{comment.keynote.title}}
                   </a>
                 </td>
                 <td>
-                  <button class="btn btn-info" [routerLink]="['/comments', comment.id, 'detail']">Ver comentario</button>
-                  <button class="btn btn-success ms-2" [routerLink]="['/comments', comment.id, 'update']">Editar comentario</button>
-                  <button class="btn btn-danger ms-2" (click)="delete(comment)">Borrar comentario</button>
+                  <button class="btn btn-info mb-1" [routerLink]="['/comments', comment.id, 'detail']">Ver</button>
+                  <button class="btn btn-success mb-1" [routerLink]="['/comments', comment.id, 'update']">Editar</button>
+                  <button class="btn btn-danger " (click)="delete(comment)">Borrar</button>
                 </td>
               </tr>
             

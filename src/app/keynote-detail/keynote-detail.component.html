@@ -2,8 +2,32 @@
     <div class="row">
         <div class="col mt-3">
             @if (keynote) {
-                <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{keynote.title}}</h1>
+                <div class="d-flex">
+                    <h1 class="text-secondary fw-bold mt-4" style="font-family: 'Libre Franklin', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{keynote.title}}</h1>
+                    <p class="small rounded-pill bg-light p-md-2 ms-3 me-2 mt-4"><i class="bi bi-easel-fill me-2 text-secondary"></i><span class="font-weight-bold me-2">Sala</span>
+                        <span class="mx-1 text-secondary" style="font-size: small; font-weight:500;">{{keynote.room.name}}</span>
+                    </p>
+                    <p class="small rounded-pill bg-light p-md-2 me-2 mt-4"><i class="bi bi-bar-chart-fill me-2 text-secondary"></i><span class="font-weight-bold me-2">Dificultad</span>
+                        <span class="badge rounded-pill mx-1" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.difficultyLevel}}</span>
+                    </p>
+                    <p class="small rounded-pill bg-light p-md-2 mt-4"><i class="bi bi-hourglass-split text-secondary me-2"></i><span class="font-weight-bold me-2">Duración</span>
+                        <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.durationInMin}}</span>
+                    </p>
+                </div>
                 <img src="{{keynote.webinarUrl}}" style="max-width: 400px; float:left;" class="img-thumbnail me-3">
+
+                <div class="d-flex">
+                    <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-calendar-date-fill text-secondary me-2"></i><span class="font-weight-bold me-2">Fecha</span>
+                        <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.tracks.startDate | date:'dd/MM/yy'}}</span>
+                    </p>
+                    <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-alarm me-2 text-secondary"></i><span class="font-weight-bold me-2">Hora inicio</span>
+                        <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.tracks.startDate | date:'HH:mm'}}</span></p>
+                    <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-alarm me-2 text-secondary"></i><span class="font-weight-bold me-2">Hora fin</span>
+                        <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.tracks.endDate| date:'HH:mm'}}</span>
+                    </p>
+                </div>
+                
+
                 <p>{{keynote.description}}</p>
                 <button class="btn btn-success" [routerLink]="['/keynotes', keynote.id, 'update']">Editar Keynote</button>
             }

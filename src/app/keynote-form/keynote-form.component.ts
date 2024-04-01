@@ -79,7 +79,7 @@ export class KeynoteFormComponent implements OnInit {
           this.httpClient.post<Keynote>(url, keynote).subscribe(keynoteFromBackend => {
             this.router.navigate(['/keynotes', keynoteFromBackend.id, 'detail']);
         });
-      }    
+      }
     }
   
     compareObjects(o1: any, o2: any): boolean {
@@ -91,5 +91,4 @@ export class KeynoteFormComponent implements OnInit {
       return o1 === o2;
     }
   }
-
 

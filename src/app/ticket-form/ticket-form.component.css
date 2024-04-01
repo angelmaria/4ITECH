@@ -1,20 +1,12 @@
-.form-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+.background-gradient {
+    background: linear-gradient(to right, #3d7adc, #7595f4, #75aaef, #65e2f5);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
 }
-
-    .full-screen {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 10vh;
-        font-size: 2em;
-        font-family: 'Urbanist', sans-serif;
-        color: #0b842a;
-    }
-    .form-page {
-        margin-top: 0;
-    }
-

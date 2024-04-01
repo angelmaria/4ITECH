@@ -39,13 +39,7 @@ export class TrackFormComponent {
       this.httpClient.get<Track>('http://localhost:8080/tracks/' + id)
         .subscribe(trackFromBackend => {
           // Cargar el track obtenido en el formulario trackForm, previo reset y vuelva al formulario para editar
-          this.trackForm.reset({
-            id: trackFromBackend.id,
-            name: trackFromBackend.name,
-            startDate: trackFromBackend.startDate,
-            endDate: trackFromBackend.endDate
-
-          });
+          this.trackForm.reset(trackFromBackend);
           // marcar boolean true isUpdate
           this.isUpdate = true;
 

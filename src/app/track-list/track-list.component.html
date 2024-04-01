@@ -1,6 +1,6 @@
 
 
-  <div class="container">
+  <div class="container" style = "width: 70%;">
     <div class="row">
       <div class="col">
   
@@ -18,7 +18,7 @@
               <th scope="col">Nombre</th>
               <th scope="col">Fecha inicio</th>
               <th scope="col">Hora inicio</th>
-              <th scope="col">Fecha inicio</th>
+              <th scope="col">Fecha fin</th>
               <th scope="col">Hora fin</th>
               <th scope="col">Acciones</th>
             </tr>
@@ -28,9 +28,9 @@
               <tr>
                 <th scope="row">{{track.id}}</th>
                 <td>{{track.name}}</td>
-                <td>{{track.startDate | date: 'dd/MM/yy'}}</td>
+                <td>{{track.startDate | date: 'dd/MM/yyyy'}}</td>
                 <td>{{track.startDate | date: 'HH:mm'}}</td>
-                <td>{{track.endDate | date: 'dd/MM/yy'}}</td>
+                <td>{{track.endDate | date: 'dd/MM/yyyy'}}</td>
                 <td>{{track.endDate | date: 'HH:mm'}}</td>
 
 

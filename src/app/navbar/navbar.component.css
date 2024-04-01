@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CSS botones iniciar sesión y registrase */
+a.inicio, a.registro {
+    transition: 0.4s ease;
+}
+a.inicio:hover, a.registro:hover {
+    transform: scale(1.05);
+}
+
+.inicio, .registro{
+  overflow: hidden;
+}
+
+/* Estilos del botón iniciar sesión */
+a.inicio:before,
+a.inicio:after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  background: #2564c3;
+  z-index: -1;
+  transition: all .35s;
+}
+
+a.inicio:before{
+  opacity: .5;
+}
+
+a.inicio:after{
+  transition-delay: .2s;
+}
+
+a.inicio:hover{
+  color: #fff;
+}
+
+a.inicio:hover:before,
+a.inicio:hover:after{
+  top: 0;
+}
+
+/* Estilos del botón registro */
+a.registro:before,
+a.registro:after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  background: #d8363a;
+  z-index: -1;
+  transition: all .35s;
+}
+
+a.registro:before{
+  opacity: .5;
+}
+
+a.registro:after{
+  transition-delay: .2s;
+}
+
+a.registro:hover{
+  color: #fff;
+}
+
+a.registro:hover:before,
+a.registro:hover:after{
+  top: 0;
+}
+
+/* estilos del resto de botones de la barra de navegación */
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+nav li {
+  position: relative;
+}
+
+.resto a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #0231bd6e;
+
+  position: absolute;
+  bottom: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+.resto a:hover::before {
+  width: 85%;
+}
+/* fin de los estilos para los botones inicio, registro y resto */
+
+/* Media query para que el menu del navbar se desplieque automáticamente sin necesidad de hacer click (mejor UX) */
+@media (min-width: 992px) {
+  .dropdown:hover .dropdown-menu {
+      display: block;
+  }
+}
+/* Media query para que los botones de acceso y registro no interfieran con el navbar */
+@media (max-width: 1249px) {
+   .d-flex i {
+    display: none;
+   }
+}
+
+/* Media query para que los estilos de los botones de acceso y registron no interfieran en pantallas inferiores a los 1075px de ancho */
+@media (max-width: 1070px) {
+  a.inicio:after, a.registro:after {
+    background: #F8F9FA;
+  }
+  a.inicio:hover{
+    color: #6b6b6b;
+  }
+  a.registro:hover{
+    color: #6b6b6b;
+  }
+}
+
+.bg-navbar {
+  background-color: #F8F9FA !important;
+  padding-right: 3rem !important;
+  padding-left: 3rem !important;
+  border-bottom: 1px solid rgba(218, 218, 218, 0.4);
+}
+
+
+/* Estilos para el título al lado del logo en el navbar con gradiente */
+.navegador {
+  color: #e5e5e5;
+  /* font-size: 2.26rem; */
+  font-family: 'Libre Franklin';
+  text-transform: uppercase;
+  /* height: 100vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animation {
+  height:45px;
+  overflow:hidden;
+  /* margin-left: 1rem; */
+}
+
+.animation > div > div {
+  /* padding: 0.25rem 0.75rem; */
+  height:2.81rem;
+  margin-bottom: 2.81rem;
+  display:inline-block;
+}
+
+.animation div:first-child {
+  animation: text-animation 28s infinite;
+}
+
+.first div {
+      /* fallback for old browsers */
+      background: #1e5be8;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+.second div {
+      /* fallback for old browsers */
+      background: #c48b45;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+.third div {
+      /* fallback for old browsers */
+      background: #0f3faf;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+
+
+@keyframes text-animation {
+  0% {margin-top: 0;}
+  10% {margin-top: 0;}
+  20% {margin-top: -5.62rem;}
+  30% {margin-top: -5.62rem;}
+  40% {margin-top: -11.24rem;}
+  60% {margin-top: -11.24rem;}
+  70% {margin-top: -5.62rem;}
+  80% {margin-top: -5.62rem;}
+  90% {margin-top: 0;}
+  100% {margin-top: 0;}
+}
+
+/* .hit-the-floor {
+  color: #fff;
+  font-size: 12em;
+  font-weight: bold;
+  font-family: Helvetica;
+  text-shadow: 
+    0 1px 0 #ccc, 
+    0 2px 0 #c9c9c9, 
+    0 3px 0 #bbb, 
+    0 4px 0 #b9b9b9, 
+    0 5px 0 #aaa, 
+    0 6px 1px rgba(0,0,0,.1), 
+    0 0 5px rgba(0,0,0,.1), 
+    0 1px 3px rgba(0,0,0,.3), 
+    0 3px 5px rgba(0,0,0,.2), 
+    0 5px 10px rgba(240,240,240,.25), 
+    0 10px 10px rgba(240,240,240,.2), 
+    0 20px 20px rgba(240,240,240,.15);
+} */

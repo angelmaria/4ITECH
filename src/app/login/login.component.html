@@ -8,33 +8,28 @@
               <div class="row g-0">
                 <div class="col-lg-6">
                   <div class="card-body p-md-5 mx-md-4">
-                    <div class="text-center">
-                      <img src="/assets/img/Logo_4iTech.png"
-                        style="width: 125px;" alt="logo">
-                      <h4 class="mt-1 mb-5 pb-1 text-secondary">Regístrate en 4iTech</h4>
-                    </div>
     
                     <form [formGroup]="loginForm" (ngSubmit)="save()">
-                      <p>Haz login en tu cuenta</p>
+                      <h1 class="h3 mb-3 fw-normal text-secondary mt-4 fw-bold" style="font-family: 'Libre Franklin';">Acceder a tu cuenta</h1>
     
-                      <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
-                        <label for="email">Email address</label>
+                      <div class="form-floating">
+                        <input type="email" class="form-control mb-3" id="email" placeholder="name@example.com" formControlName="email">
+                        <label class="text-secondary" for="email">Email address</label>
                       </div>
     
-                      <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
-                        <label for="password">Password</label>
+                      <div class="form-floating">
+                        <input type="password" class="form-control mb-3" id="password" placeholder="Password" formControlName="password">
+                        <label class="text-secondary" for="password">Password</label>
                       </div>
     
                       <div class="text-center pt-1 mb-5 pb-1">
-                        <button class="btn btn-primary w-100 py-2 gradient-custom-2" type="submit">Iniciar Sesión</button>
+                        <button class="btn btn-primary w-100 py-2 gradient-custom-2 mb-2 fw-bold" type="submit">Iniciar sesión</button>
                         <a class="text-muted" href="#!">¿Olvidaste la contraseña?</a>
                       </div>
     
                       <div class="d-flex align-items-center justify-content-center pb-4">
-                        <p class="mb-0 me-2">¿No tienes cuenta en 4iTech?</p>
-                        <button type="button" class="btn btn-outline-danger">Crear cuenta</button>
+                        <p class="mb-0 me-2 text-secondary">¿No tienes cuenta en &commat;4iTech?</p>
+                        <button type="button" class="btn btn-sm text-bg-info text-light fw-semibold" routerLink="/register" (click)="$event.preventDefault()">Crear cuenta</button>
                       </div>
     
                     </form>
@@ -43,7 +38,7 @@
                 </div>
                 <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                   <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                    <h4 class="mb-4">We are more than just a company</h4>
+                    <h4 class="mb-4" style="font-family: 'Libre Franklin';">Vuelve el aprendizaje con &commat;4iTech</h4>
                     <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                       exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>

@@ -30,8 +30,8 @@ export class CommentFormComponent implements OnInit {
   isUpdate: boolean = false;
   users: User[] = [];
   keynotes: Keynote[] = [];
-  comments: any;
-  rating: any;
+  rating = 0;
+
   
   
 
@@ -56,7 +56,7 @@ export class CommentFormComponent implements OnInit {
 
       this.httpClient.get<CommentModel>('http://localhost:8080/comments/' + id)
         .subscribe(commentFromBackend => {
-          // cargar el comentario obtenido en el formulario commentForm
+          // cargar el comentario obtenido en el formulario commentForm, previo reset
           this.commentForm.reset({
             id: commentFromBackend.id,
             rating: commentFromBackend.rating,
@@ -72,7 +72,7 @@ export class CommentFormComponent implements OnInit {
   }
   save() {
     const comment: CommentModel = this.commentForm.value as CommentModel;
-      console.log(comment);
+      //console.log(comment);
 
       if (this.isUpdate) {
         const url = 'http://localhost:8080/comments/' + comment.id;

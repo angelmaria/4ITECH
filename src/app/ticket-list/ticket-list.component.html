@@ -1,21 +1,83 @@
-<hr>
 
-<div class="full-screen">
-    <p>Bienvenido al listado de tickets</p>
+
+
+
+  <header>
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+          <h1 class="display-4 fw-normal text-body-emphasis"><strong>Tickets</strong></h1>
+          <p class="fs-5 text-body-secondary">Listado de tickets</p>
+      </div>
+  </header>
+<hr>
+<div class="position-fixed bottom-0 start-0 p-5">
+  <a [routerLink]="['/ticketOrderBuys']" style="display: block;">
+    <img src="/src/assets/Ticket/img/ticketcompra.png" style="width: 80px; height: 80px;" alt="GIF">
+  </a>
 </div>
 
+<div class="position-fixed bottom-0 end-0 p-5">
+  <a [routerLink]="['/ticketOrderBuys/create']" style="display: block;">
+    <button class="btn btn-lg btn-primary custom-button">Comprar ticket</button>
+  </a>
+</div>
+
+
 @if (showDeletedTicketMessage) {
-  <!--<ngb-alert type="success" [dismissible]="false">Libro borrado correctamente</ngb-alert>-->
+
+  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
   <ngb-alert type="success" (closed)="hideDeletedTicketMessage()">tikect borrado correctamente</ngb-alert>
 }
-
 @for (ticket of tickets; track ticket.id) {
   <p class="button-container">
-    {{ticket.id}} {{ticket.title}} {{ticket.username}} {{ticket.maxNum}}
-    <button class="btn btn-info" [routerLink]="['/tickets', ticket.id, 'detail']">Ver detalle ticket</button>
-    <button class="btn btn-success" [routerLink]="['/tickets', ticket.id, 'update']">Editar ticket</button>
-    <button class="btn btn-danger" (click)="delete(ticket)">Borrar ticket</button>
-  </p>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <table class="table table-bordered table-hover table-info custom-table" (click)="handleTableClick()">
+            <tbody>
+              <tr class="table-primary">
+                <th class="text-center align-middle"><strong>Nombre</strong></th>
+                <th class="text-center align-middle"><strong>Datos</strong></th>
+              </tr>
+              <tr>
+              <tr class="table-secondary text center align-middle">
+                <th>ID</th>
+                <td>{{ticket.id}}</td>
+              </tr>
+              <tr class="table-secondary">
+                <th >Título</th>
+                <td>{{ticket.title}}</td>
+              </tr>
+              <tr class="table-secondary">
+                <th>Número Máximo</th>
+                <td>{{ticket.maxNum}}</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div class="d-flex justify-content-between gap-2" style="margin-top: 25px;">
+          <button class="w-100 btn btn-lg btn-outline-info  p-1 me-3" style="display: block;"[routerLink]="['/tickets', ticket.id, 'detail']">Ver detalle </button>
+          <button class="w-100 btn btn-lg btn-outline-info p-1 me-3" style="display: block;" [routerLink]="['/tickets', ticket.id, 'update']">Editar </button>
+          <button class="w-100 btn btn-lg btn-outline-danger p-1 me-3" style="display: block;" (click)="delete(ticket)">Borrar </button>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: center;  height: 10vh;">
+      <button [routerLink]="['/ticketOrderBuys']" class="btn btn-lg btn-outline-primary p-2" style="text-align: center;">
+        Ordenes de Compra
+      </button>
+    </div>
+    
+    
+    
+    
+  
 } @empty {
-  <p>No hay tickets.</p>
+
+  <ngb-alert type="custom" class="container d-flex justify-content-center align-items-center"[dismissible]="false"><strong>Whoa!</strong> No hay Tickets</ngb-alert>
+  <div class="icon-container">
+  <i class="bi bi-bag-x container d-flex justify-content-center align-items-center"></i>
+</div>
 }
