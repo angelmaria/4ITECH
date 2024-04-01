@@ -33,7 +33,7 @@
         <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
           <div style="box-shadow: 0px 0px 5px #ccc !important; overflow:hidden;" class="bg-white rounded shadow-sm"><img src="{{keynote.webinarUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']" style="cursor: pointer;" alt="" class="img-fluid card-img-top zoom">
             <div class="p-4">
-              <h5 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"><a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-secondary" style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a></h5>
+              <h5><a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-secondary" style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a></h5>
               <p class="small text-muted mb-0">{{keynote.summary}}</p>
               <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3 mb-2">
                 <p class="small mb-0"><i class="bi bi-easel-fill me-2 text-secondary"></i><span class="font-weight-bold">Sala</span></p>
@@ -49,7 +49,7 @@
                 <span class="font-weight-bold small me-1"><i class="bi bi-alarm me-2 text-secondary"></i>Duración</span><p class="spinner-grow text-light mb-0"><span class="ms-1 fs-6 text-success fw-bold">{{keynote.durationInMin}}</span></p><span class="font-weight-bold small ms-1">min</span>
               </div>
               <div style="text-align: center;">
-                <button style="font-weight: bold;" class="btn btn-ver btn-sm mt-3 me-3" [routerLink]="['/keynotes', keynote.id, 'detail']"><i class="bi bi-eye-fill"></i></button>
+                <button  data-bs-toggle="tooltip" data-bs-title="Ver" style="font-weight: bold;" class="btn btn-ver btn-sm mt-3 me-3" [routerLink]="['/keynotes', keynote.id, 'detail']"><i class="bi bi-eye-fill"></i></button>
                 <button style="font-weight: bold;" class="btn btn-editar btn-success btn-sm mt-3 ms-3 me-3" [routerLink]="['/keynotes', keynote.id, 'update']"><i class="bi bi-pencil-square"></i></button>
                 <button style="font-weight: bold" class="btn btn-archivar btn-danger btn-sm ms-3 mt-3" (click)="archive(keynote)"><i class="bi bi-archive-fill"></i></button>
               </div>

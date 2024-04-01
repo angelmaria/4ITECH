@@ -15,6 +15,7 @@
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
   }
+  
 h1.display-4 {
     font-family: 'Libre Franklin', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;

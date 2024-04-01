@@ -11,7 +11,8 @@ a.inicio:hover, a.registro:hover {
 .inicio, .registro{
   overflow: hidden;
 }
-/* estilos del botón iniciar sesión */
+
+/* Estilos del botón iniciar sesión */
 a.inicio:before,
 a.inicio:after{
   position: absolute;
@@ -41,7 +42,8 @@ a.inicio:hover:before,
 a.inicio:hover:after{
   top: 0;
 }
-/* estilos del botón registro */
+
+/* Estilos del botón registro */
 a.registro:before,
 a.registro:after{
   position: absolute;
@@ -71,6 +73,7 @@ a.registro:hover:before,
 a.registro:hover:after{
   top: 0;
 }
+
 /* estilos del resto de botones de la barra de navegación */
 header::after {
   content: '';
@@ -78,38 +81,8 @@ header::after {
   clear: both;
 }
 
-/* .logo {
-  float: left;
-  padding: 10px 0;
-} */
-
-/* nav {
-  float: right;
-} */
-
-/* nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-} */
-
 nav li {
-  /* display: inline-block;
-  margin-left: 70px;
-  padding-top: 23px; */
-
   position: relative;
-}
-
-nav a {
-  /* color: #444;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 14px; */
-}
-
-nav a:hover {
-  /* color: #0231bd; */
 }
 
 .resto a::before {
@@ -128,14 +101,31 @@ nav a:hover {
 .resto a:hover::before {
   width: 85%;
 }
-
-
 /* fin de los estilos para los botones inicio, registro y resto */
 
-/* Preguntar al equipo si prefieren que el menu del navbar no se desplieque automáticamente sin necesidad de hacer click (mejor UX) */
+/* Media query para que el menu del navbar se desplieque automáticamente sin necesidad de hacer click (mejor UX) */
 @media (min-width: 992px) {
   .dropdown:hover .dropdown-menu {
       display: block;
+  }
+}
+/* Media query para que los botones de acceso y registro no interfieran con el navbar */
+@media (max-width: 1249px) {
+   .d-flex i {
+    display: none;
+   }
+}
+
+/* Media query para que los estilos de los botones de acceso y registron no interfieran en pantallas inferiores a los 1075px de ancho */
+@media (max-width: 1070px) {
+  a.inicio:after, a.registro:after {
+    background: #F8F9FA;
+  }
+  a.inicio:hover{
+    color: #6b6b6b;
+  }
+  a.registro:hover{
+    color: #6b6b6b;
   }
 }
 
@@ -147,7 +137,7 @@ nav a:hover {
 }
 
 
-/* Test para el título del logo en el navbar */
+/* Estilos para el título al lado del logo en el navbar con gradiente */
 .navegador {
   color: #e5e5e5;
   /* font-size: 2.26rem; */
