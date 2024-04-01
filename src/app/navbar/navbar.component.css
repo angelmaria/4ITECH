@@ -185,6 +185,50 @@ nav a:hover {
 .third div {
   background-color:#c10528;
 } */
+.first div {
+      /* fallback for old browsers */
+      background: #1e5be8;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    
+    
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+.second div {
+      /* fallback for old browsers */
+      background: #c48b45;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+.third div {
+        /* fallback for old browsers */
+        color: #0e41b9;
+    
+        /* Chrome 10-25, Safari 5.1-6 */
+        color: -webkit-linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
+        
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
+}
+
 
 @keyframes text-animation {
   0% {margin-top: 0;}
@@ -199,11 +243,11 @@ nav a:hover {
   100% {margin-top: 0;}
 }
 
-.hit-the-floor {
+/* .hit-the-floor {
   color: #fff;
-  /* font-size: 12em; */
-  /* font-weight: bold;
-  font-family: Helvetica; */
+  font-size: 12em;
+  font-weight: bold;
+  font-family: Helvetica;
   text-shadow: 
     0 1px 0 #ccc, 
     0 2px 0 #c9c9c9, 
@@ -217,4 +261,4 @@ nav a:hover {
     0 5px 10px rgba(240,240,240,.25), 
     0 10px 10px rgba(240,240,240,.2), 
     0 20px 20px rgba(240,240,240,.15);
-}
+} */

@@ -49,9 +49,9 @@
                 <span class="font-weight-bold small me-1"><i class="bi bi-alarm me-2 text-secondary"></i>Duración</span><p class="spinner-grow text-light mb-0"><span class="ms-1 fs-6 text-success fw-bold">{{keynote.durationInMin}}</span></p><span class="font-weight-bold small ms-1">min</span>
               </div>
               <div style="text-align: center;">
-                <button style="font-weight: bold;" class="btn btn-ver btn-sm mt-3 me-3" [routerLink]="['/keynotes', keynote.id, 'detail']">Ver</button>
-                <button style="font-weight: bold;" class="btn btn-editar btn-success btn-sm mt-3 ms-3 me-3" [routerLink]="['/keynotes', keynote.id, 'update']">Editar</button>
-                <button style="font-weight: bold" class="btn btn-archivar btn-danger btn-sm ms-3 mt-3" (click)="archive(keynote)">Archivar</button>
+                <button style="font-weight: bold;" class="btn btn-ver btn-sm mt-3 me-3" [routerLink]="['/keynotes', keynote.id, 'detail']"><i class="bi bi-eye-fill"></i></button>
+                <button style="font-weight: bold;" class="btn btn-editar btn-success btn-sm mt-3 ms-3 me-3" [routerLink]="['/keynotes', keynote.id, 'update']"><i class="bi bi-pencil-square"></i></button>
+                <button style="font-weight: bold" class="btn btn-archivar btn-danger btn-sm ms-3 mt-3" (click)="archive(keynote)"><i class="bi bi-archive-fill"></i></button>
               </div>
             </div>
           </div>
