@@ -220,13 +220,13 @@ nav a:hover {
 }
 .third div {
         /* fallback for old browsers */
-        color: #0e41b9;
+        background: #0e41b9;
     
         /* Chrome 10-25, Safari 5.1-6 */
-        color: -webkit-linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
+        background: -webkit-linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
         
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        color: linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
+        background: linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
 }
 
 
