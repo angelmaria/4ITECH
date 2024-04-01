@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { TicketOrderBuy } from '../models/ticketOrderBuy.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Ticket } from '../models/ticket.model';
 
 @Component({
   selector: 'app-ticketOrderBuy-form',
@@ -13,7 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TicketOrderBuyFormComponent {
   ticketOrderBuyForm = this.fb.group({
-    id: [0],
+    
+    id: [],
     date: [new Date()],
     discount: [0],
     totalPrice: [0],
@@ -26,9 +28,10 @@ export class TicketOrderBuyFormComponent {
   });
 isUpdate: boolean = false;
 users: any;
-tickets: any;
+tickets: Ticket | undefined;
 
   constructor(
+
     private fb: FormBuilder,
     private httpClient: HttpClient,
     private router: Router,
@@ -46,7 +49,7 @@ tickets: any;
           // estos puntos para reducir el texto
           this.ticketOrderBuyForm.reset({
 
-              id: ticketOrderBuyFromBackend.id,
+              id: ticketOrderBuyFromBackend.id!,
               date: ticketOrderBuyFromBackend.date || new Date(),
               discount: ticketOrderBuyFromBackend.discount || 0,
               totalPrice: ticketOrderBuyFromBackend.totalPrice || 0,
@@ -54,7 +57,7 @@ tickets: any;
               paymentMethod: ticketOrderBuyFromBackend.paymentMethod || '',
               channel: ticketOrderBuyFromBackend.channel || '',
               qrUrl: ticketOrderBuyFromBackend.qrUrl || '',
-              ticket: ticketOrderBuyFromBackend.ticket || {}
+              //ticket: ticketOrderBuyFromBackend.ticket || {}
             });
             
             this.isUpdate = true;
@@ -64,18 +67,32 @@ tickets: any;
         });
     
   }
+
   save() {
-    const ticketOrderBuy: TicketOrderBuy = this.ticketOrderBuyForm.value as TicketOrderBuy;
-    if (this.isUpdate) {
-      const url = 'http://localhost:8080/ticketOrderBuys/' + ticketOrderBuy.id;
-      this.httpClient.put<TicketOrderBuy>(url, ticketOrderBuy).subscribe(ticketOrderBuyFromBackend=> {
+    const ticketOrderBuy: TicketOrderBuy = {
+      id: this.ticketOrderBuyForm.value.id!,
+      date: this.ticketOrderBuyForm.value.date!,
+      discount: this.ticketOrderBuyForm.value.discount!,
+      totalPrice: this.ticketOrderBuyForm.value.totalPrice!,
+      quantity: this.ticketOrderBuyForm.value.quantity!,
+      paymentMethod: this.ticketOrderBuyForm.value.paymentMethod!,
+      channel: this.ticketOrderBuyForm.value.channel!,
+      qrUrl: this.ticketOrderBuyForm.value.qrUrl!,
+     // ticket: this.ticketOrderBuyForm.value.ticket!
+    };
+  
+    const url = this.isUpdate ? 'http://localhost:8080/ticketOrderBuys/' + ticketOrderBuy.id : 'http://localhost:8080/ticketOrderBuys';
+  
+    const request = this.isUpdate ? this.httpClient.put<TicketOrderBuy>(url, ticketOrderBuy) : this.httpClient.post<TicketOrderBuy>(url, ticketOrderBuy);
+  
+    request.subscribe(
+      ticketOrderBuyFromBackend => {
         this.router.navigate(['/ticketOrderBuys', ticketOrderBuyFromBackend.id, 'detail']);
-      });
-    } else {
-      const url = 'http://localhost:8080/ticketOrderBuys';
-      this.httpClient.post<TicketOrderBuy>(url, ticketOrderBuy).subscribe(ticketOrderBuyFromBackend => {
-        this.router.navigate(['/ticketOrderBuys', ticketOrderBuyFromBackend.id, 'detail']);
-      });
-    }
+      },
+      error => {
+        console.error('Error:', error);
+      }
+    );
   }
+
 }
