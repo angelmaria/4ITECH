@@ -1,5 +1,6 @@
 import { DifficultyLevel } from "./difficultyLevel.model";
 import { Room } from "./room.model";
+import { Track } from "./track.model";
 import { UserRole } from "./userRole.model";
 
 export interface Keynote {
@@ -19,7 +20,7 @@ export interface Keynote {
     // many to one
     speaker: UserRole; // crear clase
     // manyToOne
-    tracks: Date;
+    tracks: Track;
 
     // ManyToMany
     attendees: UserRole[]; // ??

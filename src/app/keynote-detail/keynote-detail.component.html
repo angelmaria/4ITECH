@@ -12,6 +12,15 @@
 
                     <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-alarm me-2 text-secondary"></i><span class="font-weight-bold me-2">Duración</span>
                     <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.durationInMin}}</span></p>
+
+                    <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-alarm me-2 text-secondary"></i><span class="font-weight-bold me-2">Fecha</span>
+                        <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.tracks.startDate | date:'dd/MM/yy'}}</span></p>
+
+                        <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-alarm me-2 text-secondary"></i><span class="font-weight-bold me-2">Hora inicio</span>
+                            <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.tracks.startDate | date:'HH:mm'}}</span></p>
+
+                            <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-alarm me-2 text-secondary"></i><span class="font-weight-bold me-2">Hora fin</span>
+                                <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.tracks.endDate| date:'HH:mm'}}</span></p>
                 </div>
 
                 <p>{{keynote.description}}</p>

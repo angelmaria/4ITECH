@@ -29,12 +29,12 @@
                 <td>{{comment.rating}}</td>
                 <td>{{comment.opinion}}</td>  
                 <td>
-                  <a class="badge text-bg-secondary text-decoration-none" [routerLink]="['/comments', comment.user.id, 'detail']">
+                  <a class="badge text-bg-secondary text-decoration-none" [routerLink]="['/users', comment.user.id, 'detail']">
                     {{comment.user.firstName}}
                   </a>
                 </td>
                 <td>
-                  <a class="badge text-bg-warning text-decoration-none" [routerLink]="['/comments', comment.keynote.id, 'detail']">
+                  <a class="badge text-bg-warning text-decoration-none" [routerLink]="['/keynotes', comment.keynote.id, 'detail']">
                     {{comment.keynote.title}}
                   </a>
                 </td>

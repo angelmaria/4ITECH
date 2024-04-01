@@ -34,6 +34,11 @@ export class KeynoteListComponent implements OnInit {
   hideDeleteKeynoteMessage() {
     this.showDeleteKeynoteMessage = false;
   }
+  archive(keynote: Keynote){
+    //keynote.published = false;
+    //this.httpClient.put<Keynote>(url, keynote). subscribe
+     //   this.loadsKeynotes
+  }
   private loadsKeynotes() {
     const url = 'http://localhost:8080/keynotes';
     this.httpClient.get<Keynote[]>(url).subscribe(keynotes => this.keynotes = keynotes);

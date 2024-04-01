@@ -26,7 +26,7 @@
               </ngb-rating>
               
               <hr />
-              <pre>Valoración: <b>{{rating}}</b></pre>
+              <pre>Valoración: <b>{{commentForm.get('rating')?.value ?? 0}}</b></pre>
             </div>
              
             <div class="form-floating mb-5">
@@ -49,7 +49,7 @@
             </div>
 
             <div class="form-floating mb-5" >
-              <select class="form-select" id="keynote" formControlName="keynote" [compareWith]="compareObjects">
+              <select class="form-select" id="user" formControlName="user" [compareWith]="compareObjects">
   
   
                   <!-- iterar sobre el array de users mostrando cada uno -->

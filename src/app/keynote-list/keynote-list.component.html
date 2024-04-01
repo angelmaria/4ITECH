@@ -51,7 +51,7 @@
               <div style="text-align: center;">
                 <button style="font-weight: bold;" class="btn btn-ver btn-sm mt-3 me-3" [routerLink]="['/keynotes', keynote.id, 'detail']">Ver</button>
                 <button style="font-weight: bold;" class="btn btn-editar btn-success btn-sm mt-3 ms-3 me-3" [routerLink]="['/keynotes', keynote.id, 'update']">Editar</button>
-                <button style="font-weight: bold" class="btn btn-archivar btn-danger btn-sm ms-3 mt-3" (click)="delete(keynote)">Archivar</button>
+                <button style="font-weight: bold" class="btn btn-archivar btn-danger btn-sm ms-3 mt-3" (click)="archive(keynote)">Archivar</button>
               </div>
             </div>
           </div>
