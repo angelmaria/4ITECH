@@ -81,6 +81,7 @@ tickets: Ticket | undefined;
      // ticket: this.ticketOrderBuyForm.value.ticket!
     };
   
+    
     const url = this.isUpdate ? 'http://localhost:8080/ticketOrderBuys/' + ticketOrderBuy.id : 'http://localhost:8080/ticketOrderBuys';
   
     const request = this.isUpdate ? this.httpClient.put<TicketOrderBuy>(url, ticketOrderBuy) : this.httpClient.post<TicketOrderBuy>(url, ticketOrderBuy);
@@ -93,6 +94,7 @@ tickets: Ticket | undefined;
         console.error('Error:', error);
       }
     );
+    
   }
 
 }
