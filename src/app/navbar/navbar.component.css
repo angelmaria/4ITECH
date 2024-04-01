@@ -160,7 +160,7 @@ nav a:hover {
 }
 
 .animation {
-  height:55px;
+  height:45px;
   overflow:hidden;
   /* margin-left: 1rem; */
 }
@@ -176,21 +176,11 @@ nav a:hover {
   animation: text-animation 28s infinite;
 }
 
-/* .first div {
-  background-color:#20a7d8;
-}
-.second div {
-  background-color:#CD921E;
-}
-.third div {
-  background-color:#c10528;
-} */
 .first div {
       /* fallback for old browsers */
       background: #1e5be8;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-    
     
       /* Chrome 10-25, Safari 5.1-6 */
       background: -webkit-linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
@@ -219,20 +209,20 @@ nav a:hover {
       -webkit-text-fill-color: transparent;
 }
 .third div {
-        /* fallback for old browsers */
-        background: #0e41b9;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+      /* fallback for old browsers */
+      background: #0f3faf;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: -webkit-linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        background: linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to right, #6531c8, #3131c8, #3172c8, #31b4c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
 }
 
 
