@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-sm-8 mb-4 rounded mt-4 vid-container video-cover">
             <!-- <h1 class="display-4 fst-italic text-light fw-bold">&commat;4iTech</h1> -->
-              <video  autoplay loop muted>
+              <video autoplay loop muted style="border-radius: 5px;">
                 <source src="assets/videos/4itech_v1.mp4" type="video/mp4">
               </video>
         </div>
@@ -47,7 +47,7 @@
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <img src="assets/img/ticket.jpeg" alt="">
         </div>
-        <button class="btn btn-primary w-100 py-2 gradient-custom-2 mb-2 fw-bold" type="submit">Comprar ticket</button>
+        <button class="btn btn-primary w-100 py-2 gradient-custom-2 mb-2 fw-bold"  type="submit" routerLink="/tickets" (click)="$event.preventDefault()" >Comprar ticket</button>
       </div>
     </div>
   

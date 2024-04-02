@@ -22,6 +22,7 @@ export class NgbdCarouselConfig {
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
+ticket: any;
 
   constructor(private httpClient: HttpClient) {}
 
