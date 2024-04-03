@@ -3,12 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommentModel } from '../models/commentmodel.model';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-comment-list',
   standalone: true,
-  imports: [RouterLink, HttpClientModule, NgbAlertModule],
+  imports: [RouterLink, HttpClientModule, NgbAlertModule, DatePipe],
   templateUrl: './comment-list.component.html',
   styleUrl: './comment-list.component.css'
 })

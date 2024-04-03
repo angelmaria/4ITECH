@@ -16,22 +16,27 @@
   
             <input type="hidden" formControlName="id">
   
-            <div class="form-floating mb-3">
-              <p>Valora la Charla</p>
+            <div class="form-floating mb-4">
+              <p><strong>Valora la Charla:</strong></p>
               
-              <ngb-rating [(rate)]="rating" formControlName="rating">
+              <ngb-rating [(rate)]="rating"  [max]="10" formControlName="rating">
                 <ng-template let-fill="fill" let-index="index">
-                  <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100" [class.low]="index < 3" style="color: rgb(222, 191, 39); margin: 4px;"></i>
+                  <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-0.9"  style="color: rgb(222, 191, 39); margin: 4px;"></i>
                 </ng-template>
               </ngb-rating>
               
               <hr />
               <pre>Valoración: <b>{{commentForm.get('rating')?.value ?? 0}}</b></pre>
             </div>
+
+            <div class="form-floating mb-5">
+              <input type="datetime-local" class="form-control" id="dateTime" formControlName="dateTime">
+              <label for="dateTime">Fecha de creación del comentario</label>
+            </div>
              
             <div class="form-floating mb-5">
               
-              <textarea style="height: max-content;" class="form-control" id="opinion" formControlName="opinion" rows="3"></textarea>
+              <textarea style="height: 150px;;" class="form-control" id="opinion" formControlName="opinion" rows="3"></textarea>
               <label for="opinion" class="form-label">Reseña</label>
             </div>
   

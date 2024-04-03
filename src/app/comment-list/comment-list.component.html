@@ -15,6 +15,7 @@
           <thead>
             <tr>
               <th scope="col">Id</th>
+              <th scope="col">Fecha</th>
               <th scope="col">Valoración</th>
               <th scope="col">Reseña</th>
               <th scope="col">Usuario</th>
@@ -26,6 +27,7 @@
             @for (comment of comments; track comment.id) {
               <tr>
                 <th scope="row">{{comment.id}}</th>
+                <td>{{comment.dateTime | date:'dd/MM/yyyy'}}<br>{{comment.dateTime | date: 'HH:mm:ss'}}</td>
                 <td>{{comment.rating}}</td>
                 <td>{{comment.opinion}}</td>  
                 <td>

@@ -6,11 +6,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Keynote } from '../models/keynote.model';
 import { CommentModel } from '../models/commentmodel.model';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-comment-form',
   standalone: true,
-  imports: [HttpClientModule, ReactiveFormsModule, NgbRatingModule],
+  imports: [HttpClientModule, ReactiveFormsModule, NgbRatingModule, DatePipe],
   templateUrl: './comment-form.component.html',
   styleUrl: './comment-form.component.css'
 })
@@ -22,6 +23,7 @@ export class CommentFormComponent implements OnInit {
     id: new FormControl<number>(0),
     rating: new FormControl<number>(0),
     opinion: new FormControl<string>(''),
+    dateTime: new FormControl<Date>(new Date()),
     user: new FormControl(),
     keynote: new FormControl()
 
@@ -61,6 +63,7 @@ export class CommentFormComponent implements OnInit {
             id: commentFromBackend.id,
             rating: commentFromBackend.rating,
             opinion: commentFromBackend.opinion,
+            dateTime: commentFromBackend.dateTime,
             user: commentFromBackend.user, // carga un user en el selector
             keynote: commentFromBackend.keynote
           });

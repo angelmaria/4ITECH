@@ -15,7 +15,11 @@
             <div class="card border-success mb-3" style="max-width: 50rem; max-height: 50rem; border-radius: 10px;">
                 
               @if (comment.user) {
-                <div class="card-header">Usuario: {{comment.user.firstName}}</div>
+                <div class="card-header">Usuario: {{comment.user.firstName}} 
+                  <span class="badge text-bg-warning text-decoration-none ms-5 me-5" >
+                    Día: {{comment.dateTime | date: 'dd/MM/yyyy'}}</span>
+                   <span class="badge text-bg-success text-decoration-none ms-5">Hora: {{comment.dateTime | date: 'HH:mm:ss'}}</span>
+                </div>
               } @else {
                 <div class="card-header">Usuario anónimo</div>
 
@@ -27,11 +31,12 @@
                 <hr>
                 
                 <!-- nbgratinng-->
-                <p style="margin-left: 15px;">Valoración: {{comment.rating}}</p>
+                <p style="margin-left: 15px;">Valoración: {{comment.rating}} </p>
+                
                 <div class=" mb-3 text-center" >
-                  <ngb-rating [(rate)]="comment.rating" formControlName="rating">
+                  <ngb-rating [(rate)]="comment.rating"  [max]="10" [readonly]="true" formControlName="rating">
                     <ng-template let-fill="fill" let-index="index">
-                      <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" [class.filled]="fill === 100" [class.low]="index < 3" style="color: rgb(222, 191, 39); margin: 4px;"></i>
+                      <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-0.9" style="color: rgb(222, 191, 39); margin: 4px;"></i>
                     </ng-template>
                   </ngb-rating>
 

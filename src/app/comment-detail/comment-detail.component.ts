@@ -3,12 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommentModel } from '../models/commentmodel.model';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-comment-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink, NgbRatingModule],
+  imports: [HttpClientModule, RouterLink, NgbRatingModule, DatePipe],
   templateUrl: './comment-detail.component.html',
   styleUrl: './comment-detail.component.css'
 })
