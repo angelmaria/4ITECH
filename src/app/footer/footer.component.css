@@ -1,0 +1,24 @@
+.marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .marquee__inner {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    width: 20%; /* ancho  */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold; 
+    color: #585858; /* Color gris para el texto */
+  }
+  
+  
+  
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    50% { transform: translateX(-100%); }
+  }
+  
+  
