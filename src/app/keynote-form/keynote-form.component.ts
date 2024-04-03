@@ -5,12 +5,12 @@ import { Keynote } from '../models/keynote.model';
 import { DifficultyLevel } from '../models/difficultyLevel.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Room } from '../models/room.model';
-import { EditorModule } from '@tinymce/tinymce-angular';
+
 
 @Component({
   selector: 'app-keynote-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule, EditorModule],
+  imports: [ReactiveFormsModule, HttpClientModule],
   templateUrl: './keynote-form.component.html',
   styleUrl: './keynote-form.component.css'
 })
