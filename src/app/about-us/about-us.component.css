@@ -1,0 +1,15 @@
+video {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .vid-container {
+    position: relative;
+    width: 840px;
+    height: 272px;
+    overflow: hidden;
+  }
+  
+  .video-cover video {
+    object-fit: cover;
+  }
