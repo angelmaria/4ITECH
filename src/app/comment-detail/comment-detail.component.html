@@ -1,5 +1,58 @@
 
-
+<!--<div class="container" style="width: 50%;">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">
+            @if (comment) {
+           
+              <div class="card border-success mb-3" style="max-width: 50rem; max-height: 50rem; border-radius: 10px;">
+                  
+                @if (comment.user) {
+                  <div class="card-header">Usuario: {{comment.user.firstName}} 
+                    <span class="badge text-bg-warning text-decoration-none ms-5 me-5" >
+                      Día: {{comment.dateTime | date: 'dd/MM/yyyy'}}</span>
+                     <span class="badge text-bg-success text-decoration-none ms-5">Hora: {{comment.dateTime | date: 'HH:mm:ss'}}</span>
+                  </div>
+                } @else {
+                  <div class="card-header">Usuario anónimo</div>
+  
+                }
+                  <div class="card-body text-success">
+                    <h5 class="card-title">Comentario de la charla: «{{comment.keynote.title}}»</h5> 
+                    <p class="card-text">{{comment.opinion}}</p>
+                  </div>
+                  <hr>
+                  
+                  
+                  <p style="margin-left: 15px;">Valoración: {{comment.rating}} </p>
+                  
+                  <div class=" mb-3 text-center" >
+                    <ngb-rating [(rate)]="comment.rating"  [max]="10" [readonly]="true" formControlName="rating">
+                      <ng-template let-fill="fill" let-index="index">
+                        <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-0.9" style="color: rgb(222, 191, 39); margin: 4px;"></i>
+                      </ng-template>
+                    </ngb-rating>
+  
+                  </div>
+                  
+                  
+                </div>
+                
+  
+              <button class="btn btn-success" style= "background-color:#14995db3" [routerLink]="['/comments', comment.id, 'update']">Editar comentario</button>
+              }
+            <h1></h1>
+          </div>
+          <div class="card-back">
+            <h1></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
 
 <div class="container" style="width: 50%;">
     <div class="row">
@@ -46,7 +99,7 @@
               </div>
               
 
-            <button class="btn btn-success" [routerLink]="['/comments', comment.id, 'update']">Editar comentario</button>
+            <button class="btn btn-success" style= "background-color:#14995db3" [routerLink]="['/comments', comment.id, 'update']">Editar comentario</button>
             }
         </div>
     </div>

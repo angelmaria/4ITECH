@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Estilos del banner del keynote-list (gradiente) y del background del body */
+.container-fluid {
+    background: #f4f4f4;
+  }
+
+.banner {
+    /* fallback for old browsers */
+    background: #1e5be8;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #4f8cef, #4b70e1, #5498f2, #31b4c8);
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #4f8cef, #4b70e1, #5498f2, #31b4c8);
+  }
+  
+h1.display-4 {
+    font-family: 'Libre Franklin', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+/* Estilos para los botones de ver, editar y archivar comments */
+.btn-ver {
+background-color: #62AFFE;
+color: white;
+border: none;
+}
+.btn-editar {
+background-color: #49CC90;
+border:none;
+}
+.btn-archivar {
+background-color: #F93E3F;
+border:none;
+}
+
+/*
+.card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.card-back {
+  background-color: #555;
+  color: white;
+  transform: rotateY(180deg);
+}
+*/
