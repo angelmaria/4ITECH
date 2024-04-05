@@ -19,9 +19,9 @@
             <div class="form-floating mb-4">
               <p><strong>Valora la Charla:</strong></p>
               
-              <ngb-rating [(rate)]="rating"  [max]="10" formControlName="rating">
+              <ngb-rating [(rate)]="rating"  [max]="5" formControlName="rating">
                 <ng-template let-fill="fill" let-index="index">
-                  <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-0.9"  style="color: rgb(222, 191, 39); margin: 4px;"></i>
+                  <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-1"  style="color: rgb(222, 191, 39); margin: 4px;"></i>
                 </ng-template>
               </ngb-rating>
               
@@ -68,9 +68,9 @@
   
   
             @if (isUpdate) {
-              <button class="btn btn-success" type="submit">Actualizar</button>
+              <button class="w-100 btn btn-lg btn-outline-success  p-1 me-3 mb-5" style="display: block;" type="submit">Actualizar</button>
             } @else {
-              <button class="btn btn-success" type="submit">Crear</button>
+              <button class="w-100 btn btn-lg btn-outline-success  p-1 me-3 mb-5" style="display: block;" type="submit">Crear</button>
             }
   
   
