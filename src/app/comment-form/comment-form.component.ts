@@ -33,6 +33,7 @@ export class CommentFormComponent implements OnInit {
   users: User[] = [];
   keynotes: Keynote[] = [];
   rating = 0;
+  dateTime = new Date();
 
   
   
@@ -73,6 +74,7 @@ export class CommentFormComponent implements OnInit {
         });
     });
   }
+  
   save() {
     const comment: CommentModel = this.commentForm.value as CommentModel;
       //console.log(comment);
@@ -81,7 +83,10 @@ export class CommentFormComponent implements OnInit {
         const url = 'http://localhost:8080/comments/' + comment.id;
         this.httpClient.put<CommentModel>(url, comment).subscribe(commentFromBackend => {
           this.router.navigate(['/comments', commentFromBackend.id, 'detail']);
+          
         });
+        
+        
 
       } else {
         const url = 'http://localhost:8080/comments';

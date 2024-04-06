@@ -29,18 +29,21 @@
               <pre>Valoración: <b>{{commentForm.get('rating')?.value ?? 0}}</b></pre>
             </div>
 
-            <div class="form-floating mb-5">
-              <input type="datetime-local" class="form-control" id="dateTime" formControlName="dateTime">
+            <div class="form-floating mb-3">
+              <!--[(ngModel)]="commentForm.dateTime" readonly>-->
+              <input type="datetime-local" class="form-control" id="dateTime" formControlName="dateTime"
+              [ngModel]="dateTime | date:'yyyy-MM-ddTHH:mm'" [readonly]="true">
+             
               <label for="dateTime">Fecha de creación del comentario</label>
             </div>
              
-            <div class="form-floating mb-5">
+            <div class="form-floating mb-3">
               
-              <textarea style="height: 150px;;" class="form-control" id="opinion" formControlName="opinion" rows="3"></textarea>
+              <textarea style="height: 120px;;" class="form-control" id="opinion" formControlName="opinion"  rows="3" ></textarea>
               <label for="opinion" class="form-label">Reseña</label>
             </div>
   
-            <div class="form-floating mb-5" >
+            <div class="form-floating mb-3" >
               <select class="form-select" id="keynote" formControlName="keynote" [compareWith]="compareObjects">
   
   
