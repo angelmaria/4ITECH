@@ -41,9 +41,9 @@
                   </a>
                 </td>
                 <td>
-                  <button class="btn btn-info mb-1" [routerLink]="['/comments', comment.id, 'detail']">Ver</button>
-                  <button class="btn btn-success mb-1" [routerLink]="['/comments', comment.id, 'update']">Editar</button>
-                  <button class="btn btn-danger " (click)="delete(comment)">Borrar</button>
+                  <button class="btn btn-info mb-1" style="background-color: #62AFFE;" [routerLink]="['/comments', comment.id, 'detail']"><i class="bi bi-eye me-1"></i>Ver</button>
+                  <button class="btn btn-success mb-1" style="background-color: #49CC90;" [routerLink]="['/comments', comment.id, 'update']"><i class="bi bi-pencil-square me-1"></i>Editar</button>
+                  <button class="btn btn-danger " style="background-color: #F93E3F;" (click)="delete(comment)"><i class="bi bi-trash me-1"></i>Borrar</button>
                 </td>
               </tr>
             

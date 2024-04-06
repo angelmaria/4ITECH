@@ -59,9 +59,9 @@
         <div class="col">
 
 
-            <h1 class="mt-5 mb-5" style="color: green;">
+            <h1 class="mt-5 mb-5" style="color: rgb(28, 158, 28);">
               Comentario con Id:
-               <span class="badge text-bg-success text-decoration-none" >{{comment?.id}}</span></h1>
+               <span class="circular-span">{{comment?.id}}</span></h1>
 
             @if (comment) {
            
@@ -79,7 +79,7 @@
 
               }
                 <div class="card-body text-success">
-                  <h5 class="card-title">Comentario de la charla: «{{comment.keynote.title}}»</h5> 
+                  <h4 class="card-title" style="color: rgb(28, 158, 28);">Charla🗣️: «{{comment.keynote.title}}»</h4> 
                   <p class="card-text text-dark">{{comment.opinion}}</p>
                 </div>
                 <hr>
@@ -100,7 +100,7 @@
               </div>
               
 
-            <button class="w-100 btn btn-lg btn-outline-success  p-1 me-3 mb-5" style="display: block;" [routerLink]="['/comments', comment.id, 'update']">Editar comentario</button>
+            <button class="w-100 btn btn-lg btn-outline-success  p-1 me-3 mb-5" style="display: block; background-color: #49CC90;" [routerLink]="['/comments', comment.id, 'update']">Editar comentario</button>
             }
         </div>
     </div>

@@ -34,7 +34,12 @@ border:none;
 background-color: #F93E3F;
 border:none;
 }
-
+.circular-span {
+  background-color: rgb(28, 158, 28); /* Cambia a tu color preferido */
+  border-radius: 30%; /* Hace que el span sea circular */
+  padding: 10px; /* Espacio alrededor del texto */
+  color: white; /* Color del texto */
+}
 /*
 .card {
   background-color: transparent;
