@@ -58,12 +58,12 @@ export class UserFormComponent implements OnInit{
     if (this.isUpdate) { // establezco la url de update:
       const url = 'http://localhost:8080/users/' + user.id;
       this.httpClient.put<User>(url, user).subscribe(userFromBackend => {
-        this.router.navigate(['/users', userFromBackend.id, 'detail']);
+        this.router.navigate(['/users']);
       });
     } else { // establezco la url de create:
       const url = 'http://localhost:8080/users';
       this.httpClient.post<User>(url, user).subscribe(userFromBackend => {
-        this.router.navigate(['/users', userFromBackend.id, 'detail']);
+        this.router.navigate(['/users']);
       });
     }
   }
