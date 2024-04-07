@@ -1,0 +1,58 @@
+
+.circular-span {
+    background-color: rgb(28, 158, 28); /* Cambia a tu color preferido */
+    border-radius: 50%; /* Hace que el span sea circular */
+    padding: 5px; /* Espacio alrededor del texto */
+    color: white; /* Color del texto */
+  }
+  .border-form-ppal {
+    background: linear-gradient(to right, #41f072, #75e386, #a2e9b0, #6fd0df);
+    padding: 20px;
+    border-radius: 25px;
+    border-width: 2px;
+    border-style: ridge;
+    border-color: rgb(57, 188, 57);
+    
+  }
+  .border-form {
+    padding: 20px;
+    border-radius: 25px;
+    border-width: 2px;
+    border-style: ridge;
+    border-color: rgb(57, 188, 57);
+    background-color: rgb(162, 205, 231);
+    font-size: larger;
+
+  }
+  .option-int {
+   
+    border-radius: 3px;
+    border-style: ridge;
+    background-color: rgb(185, 223, 245);
+    font-size: large;
+
+  }
+  .carta-box {
+    width: 200px;
+    height: 250px;
+    position: relative;
+    perspective: 1000px;
+  }
+
+  .carta-box:hover .carta {
+    transform: rotateY(180deg);
+  }
+
+  .carta {
+    transform-style: preserve-3d;
+    transition: all 1s linear;
+  }
+
+  .cara {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+
+  .cara.detras {
+    transform: rotateY(180deg);
+  }

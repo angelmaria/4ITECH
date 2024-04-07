@@ -1,23 +1,23 @@
 
 
 
-<div class="container" style = "width: 50%;">
+<div class="container" style = "width: 60%;">
     <div class="row">
       <div class="col">
   ,
         @if (isUpdate) {
-          <h1 class="mt-5 mb-5" style="color: rgb(28, 158, 28);" >Actualizar comentario existente con id {{commentForm.get('id')?.value}}</h1>
+          <h1 class="mt-5 mb-3" style="color: rgb(28, 158, 28);" >Actualizar comentario con id: <span class="circular-span">{{commentForm.get('id')?.value}}</span></h1>
         } @else {
-          <h1 class="mt-5 mb-5" style="color: rgb(28, 158, 28);" >Crear nuevo comentario</h1>
+          <h1 class="mt-5 mb-3" style="color: rgb(28, 158, 28);" >Crear nuevo comentario</h1>
         }
   
-  
-          <form [formGroup]="commentForm" (ngSubmit)="save()">
+          <div class="mb-5">
+            <form class="border-form-ppal" [formGroup]="commentForm" (ngSubmit)="save()">
   
             <input type="hidden" formControlName="id">
   
             <div class="form-floating mb-4">
-              <p><strong>Valora la Charla:</strong></p>
+              <p><strong style="color: rgb(28, 158, 28); font-size: x-large;">Valora la Charla:</strong></p>
               
               <ngb-rating [(rate)]="rating"  [max]="5" formControlName="rating">
                 <ng-template let-fill="fill" let-index="index">
@@ -26,12 +26,12 @@
               </ngb-rating>
               
               <hr />
-              <pre>Valoración: <b>{{commentForm.get('rating')?.value ?? 0}}</b></pre>
+              <pre style="font-size: larger; border-radius:5px;"><span class="badge text-bg-primary ms-1 me-3">Valoración: <b>{{commentForm.get('rating')?.value ?? 0}}</b></span></pre>
             </div>
 
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-3 border-form">
               <!--[(ngModel)]="commentForm.dateTime" readonly>-->
-              <input type="datetime-local" class="form-control" id="dateTime" formControlName="dateTime"
+              <input type="datetime-local" class="form-control option-int" id="dateTime" formControlName="dateTime"
               [ngModel]="dateTime | date:'yyyy-MM-ddTHH:mm'" [readonly]="true">
              
               <label for="dateTime">Fecha de creación del comentario</label>
@@ -39,12 +39,12 @@
              
             <div class="form-floating mb-3">
               
-              <textarea style="height: 120px;;" class="form-control" id="opinion" formControlName="opinion"  rows="3" ></textarea>
-              <label for="opinion" class="form-label">Reseña</label>
+              <textarea style="height: 150px;" class="form-control border-form"  id="opinion" formControlName="opinion"  rows="3" ></textarea>
+              <label for="opinion" class="form-label "style="font-size:larger">Reseña</label>
             </div>
   
-            <div class="form-floating mb-3" >
-              <select class="form-select" id="keynote" formControlName="keynote" [compareWith]="compareObjects">
+            <div class="form-floating mb-3 border-form" >
+              <select class="form-select option-int"  id="keynote" formControlName="keynote" [compareWith]="compareObjects">
   
   
                   <!-- iterar sobre el array de keynotes mostrando cada una -->
@@ -56,8 +56,8 @@
               <label for="keynote">Charla del comentario</label>
             </div>
 
-            <div class="form-floating mb-5" >
-              <select class="form-select" id="user" formControlName="user" [compareWith]="compareObjects">
+            <div class="form-floating mb-5 border-form">
+              <select class="form-select option-int"  id="user" formControlName="user" [compareWith]="compareObjects">
   
   
                   <!-- iterar sobre el array de users mostrando cada uno -->
@@ -71,13 +71,16 @@
   
   
             @if (isUpdate) {
-              <button class="w-100 btn btn-lg btn-outline-success  p-1 me-3 mb-5" style="display: block;background-color: #49CC90;" type="submit">Actualizar</button>
+              <button class="w-100 btn btn-lg btn-outline-warning  p-1 me-3 mb-3" style="display: block;background-color: #3782b4;" type="submit"><i class="bi bi-wrench-adjustable me-2"></i>Actualizar</button>
             } @else {
-              <button class="w-100 btn btn-lg btn-outline-success  p-1 me-3 mb-5" style="display: block; background-color: #49CC90;" type="submit">🛠️Crear</button>
+              <button class="w-100 btn btn-lg btn-outline-primary  p-1 me-3 mb-3" style="display: block; background-color: #49CC90;" type="submit">🪄 Crear</button>
             }
   
   
           </form>
+
+          </div>
+          
   
       </div>
     </div>

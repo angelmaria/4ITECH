@@ -28,7 +28,11 @@
               <tr>
                 <th scope="row">{{comment.id}}</th>
                 <td>{{comment.dateTime | date:'dd/MM/yyyy'}}<br>{{comment.dateTime | date: 'HH:mm:ss'}}</td>
-                <td>{{comment.rating}}</td>
+                <td><ngb-rating [(rate)]="comment.rating"  [max]="5" [readonly]="true" formControlName="rating">
+                  <ng-template let-fill="fill" let-index="index">
+                    <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" style="color: rgb(222, 191, 39); margin: 4px;"></i>
+                  </ng-template>
+                </ngb-rating></td>
                 <td>{{comment.opinion}}</td>  
                 <td>
                   <a class="badge text-bg-secondary text-decoration-none" [routerLink]="['/users', comment.user.id, 'detail']">

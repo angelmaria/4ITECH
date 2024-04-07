@@ -36,10 +36,11 @@ border:none;
 }
 .circular-span {
   background-color: rgb(28, 158, 28); /* Cambia a tu color preferido */
-  border-radius: 30%; /* Hace que el span sea circular */
-  padding: 10px; /* Espacio alrededor del texto */
+  border-radius: 50%; /* Hace que el span sea circular */
+  padding: 5px; /* Espacio alrededor del texto */
   color: white; /* Color del texto */
 }
+
 /*
 .card {
   background-color: transparent;
@@ -88,4 +89,18 @@ border:none;
   height: 4px;
   background-color: #ff9900; /* Color del círculo */
   border-radius: 50%; /* Forma circular */
+}
+.border-detail {
+  padding: 20px;
+  border-radius: 25px;
+  border-width: 2px;
+  border-style: ridge;
+  border-color: rgb(57, 188, 57);
+}
+.card-detail {
+  background: linear-gradient(to right, #d8dfeb, #a5b6e7, #80b0ee, #4cd7ed);
+  max-width: 50rem; 
+  max-height: 50rem;
+  border-radius: 10px; 
+  border-width: 2px;
 }

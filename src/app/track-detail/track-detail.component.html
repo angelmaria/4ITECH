@@ -3,7 +3,7 @@
         <div class="col">
 
 
-            <h1 class="mt-5 mb-5" style="color: rgb(28, 158, 28);" >Pantalla detalle de Track con Id: <span class="circular-span">{{track?.id}}</span></h1>
+            <h1 class="mt-5 mb-5 text-gradiente">Detalle de Track con Id: <span class="circular-span">{{track?.id}}</span></h1>
 
             @if (track) {
             <div class="card mb-5" style="border-radius: 30px;">
@@ -11,21 +11,25 @@
                     <strong style="color: aqua;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <ins>Inicio:</ins></strong>
                     <span class="badge text-bg-warning text-decoration-none ms-3 me-3" >
+                        <i class="bi bi-calendar3 me-2"></i>
                         Día 
                         {{track.startDate | date: 'dd/MM/yyyy'}}</span>
                     <span class="badge text-bg-info text-decoration-none ms-1 me-4" >
+                        <i class="bi-alarm me-2" style="font-size: 1rem; color: white;"></i>
                         Hora {{track.startDate | date: 'HH:mm'}}</span>
                     <strong style="color: aqua;">&nbsp;&nbsp;<ins>Fin:</ins></strong>
 
                     <span class="badge text-bg-warning text-decoration-none ms-3 me-3" >
+                        <i class="bi bi-calendar3 me-2"></i>
                         Día {{track.startDate | date: 'dd/MM/yyyy'}}</span>
                     <span class="badge text-bg-info text-decoration-none ms-1">
+                        <i class="bi-alarm me-2" style="font-size: 1rem; color: white;"></i>
                         Hora {{track.endDate | date: 'HH:mm'}}</span>
                    
                 </p>
             </div>
 
-            <button class="w-100 btn btn-lg btn-outline-success  p-1 me-3 mb-5" style="display: block; background-color: #49CC90;" [routerLink]="['/tracks', track.id, 'update']">Editar Track</button>
+            <button class="w-100 btn btn-lg btn-outline-warning  p-1 me-3 mb-5" style="display: block; background-color: #de2c5b;" [routerLink]="['/tracks', track.id, 'update']">Editar Track</button>
             
             }
         </div>

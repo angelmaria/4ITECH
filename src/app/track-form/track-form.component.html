@@ -1,13 +1,13 @@
 
 
-<div class="container style = width: 50%;">
+<div class="container" style = "width: 40%;">
     <div class="row">
         <div class="col">
           @if (isUpdate) {
-            <h1 class="mt-5 mb-5">Actualizar Track existente con id: {{trackForm.get('id')?.value}}</h1>
+            <h1 class="mt-5 mb-5" style="color: rgb(28, 158, 28);" >Actualizar Track existente con id: {{trackForm.get('id')?.value}}</h1>
 
         } @else {
-            <h1 class="mt-5 mb-5">Crea Nuevo Track</h1>
+            <h1 class="mt-5 mb-5" style="color: rgb(28, 158, 28);" >Crea Nuevo Track</h1>
         }
 
             <form [formGroup]="trackForm" (ngSubmit)="save()">
@@ -23,7 +23,7 @@
                
                   <div class="form-floating mb-3">
                     <input type="datetime-local" class="form-control" id="startDate"
-                      formControlName="startDate"> <!--conexion entre html y TS-->
+                      formControlName="startDate" > <!--conexion entre html y TS-->
                     <label for="startDate">Fecha inicio del Track</label>
                 </div>
                 <div class="form-floating mb-3">

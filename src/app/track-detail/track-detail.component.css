@@ -1,7 +1,7 @@
 .card {
     width: 950px;
     height: 70px;
-    background: linear-gradient(to bottom, #065f06, #029e02, #02c702, hsl(120, 87%, 50%));
+    background: linear-gradient(to right, #e3c9b6, #d8363a, #dd3675, #b44593);
     border: 1px solid #000;
     padding: 20px;
     box-sizing: border-box;
@@ -13,9 +13,15 @@
     transform: rotateX(180deg);
   }
   .circular-span {
-    background-color: rgb(28, 158, 28); /* Cambia a tu color preferido */
-    border-radius: 30%; /* Hace que el span sea circular */
-    padding: 10px; /* Espacio alrededor del texto */
-    color: white; /* Color del texto */
+    background-color: rgb(194, 69, 38); /* Cambia a tu color preferido */
+    border-radius: 50%; /* Hace que el span sea circular */
+    padding: 5px; /* Espacio alrededor del texto */
+    color: black; /* Color del texto */
   }
+  .text-gradiente {
+
+    background: linear-gradient(to right, #e3c9b6, #d8363a, #dd3675, #b44593);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
   
