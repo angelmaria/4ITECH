@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Track } from '../models/track.model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-track-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink],
+  imports: [HttpClientModule, RouterLink, DatePipe],
   templateUrl: './track-detail.component.html',
   styleUrl: './track-detail.component.css'
 })

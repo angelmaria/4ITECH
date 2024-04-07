@@ -1,0 +1,21 @@
+.card {
+    width: 950px;
+    height: 70px;
+    background: linear-gradient(to bottom, #065f06, #029e02, #02c702, hsl(120, 87%, 50%));
+    border: 1px solid #000;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 2s;
+    transform-style: preserve-3d;
+  }
+  
+  .card:hover {
+    transform: rotateX(180deg);
+  }
+  .circular-span {
+    background-color: rgb(28, 158, 28); /* Cambia a tu color preferido */
+    border-radius: 30%; /* Hace que el span sea circular */
+    padding: 10px; /* Espacio alrededor del texto */
+    color: white; /* Color del texto */
+  }
+  

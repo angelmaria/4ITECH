@@ -3,14 +3,41 @@
         <div class="col">
 
 
-            <h1 class="mt-5 mb-5" style="color:green">Pantalla de detalle de Track con Id: {{track?.id}}</h1>
+            <h1 class="mt-5 mb-5" style="color: rgb(28, 158, 28);" >Pantalla detalle de Track con Id: <span class="circular-span">{{track?.id}}</span></h1>
 
             @if (track) {
-            <p>ID: {{track.id}}--Nombre:{{track.name}}--Fecha Inicio:{{track.startDate}}--Fecha Fin:{{track.endDate}}
-            </p>
+            <div class="card mb-5" style="border-radius: 30px;">
+                <p style="font-size: large;"><strong style="color: rgb(240, 242, 247);">{{track.name}}</strong>
+                    <strong style="color: aqua;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <ins>Inicio:</ins></strong>
+                    <span class="badge text-bg-warning text-decoration-none ms-3 me-3" >
+                        Día 
+                        {{track.startDate | date: 'dd/MM/yyyy'}}</span>
+                    <span class="badge text-bg-info text-decoration-none ms-1 me-4" >
+                        Hora {{track.startDate | date: 'HH:mm'}}</span>
+                    <strong style="color: aqua;">&nbsp;&nbsp;<ins>Fin:</ins></strong>
 
-            <button class="btn btn-success" [routerLink]="['/tracks', track.id, 'update']">Editar Track</button>
+                    <span class="badge text-bg-warning text-decoration-none ms-3 me-3" >
+                        Día {{track.startDate | date: 'dd/MM/yyyy'}}</span>
+                    <span class="badge text-bg-info text-decoration-none ms-1">
+                        Hora {{track.endDate | date: 'HH:mm'}}</span>
+                   
+                </p>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-outline-success  p-1 me-3 mb-5" style="display: block; background-color: #49CC90;" [routerLink]="['/tracks', track.id, 'update']">Editar Track</button>
+            
             }
         </div>
     </div>
 </div>
+
+<!--
+    <p id="diaSemana"></p>
+
+    <script>
+                var fecha = new Date();
+                var dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+                document.getElementById('diaSemana').innerHTML = dias[fecha.getDay()];
+                </script>
+-->

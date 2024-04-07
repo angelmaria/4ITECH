@@ -1,10 +1,10 @@
 
 
-  <div class="container" style = "width: 70%;">
+  <div class="container" style = "width: 80%;">
     <div class="row">
       <div class="col">
   
-        <h1 class="mt-5 mb-5" style="color: green;">Listado de tracks</h1>
+        <h1 class="mt-5 mb-5" style="color: rgb(28, 158, 28);">Listado de tracks</h1>
   
         @if (showDeletedBookMessage) {
           <!--<ngb-alert type="success" [dismissible]="false">Libro borrado correctamente</ngb-alert>-->
@@ -35,9 +35,9 @@
 
 
                 <td>
-                  <button class="btn btn-info" [routerLink]="['/tracks', track.id, 'detail']">Ver</button>
-                  <button class="btn btn-success ms-2" [routerLink]="['/tracks', track.id, 'update']">Editar</button>
-                  <button class="btn btn-danger ms-2" (click)="delete(track)">Borrar</button>
+                  <button class="btn btn-info" style="background-color: #62AFFE;" [routerLink]="['/tracks', track.id, 'detail']"><i class="bi bi-eye me-1"></i>Ver</button>
+                  <button class="btn btn-success ms-2" style="background-color: #49CC90;" [routerLink]="['/tracks', track.id, 'update']"><i class="bi bi-pencil-square me-1"></i>Editar</button>
+                  <button class="btn btn-danger ms-2" style="background-color: #F93E3F;" (click)="delete(track)"><i class="bi bi-trash me-1"></i>Borrar</button>
                 </td>
               </tr>
             } @empty {
