@@ -1,4 +1,3 @@
-
 <!--<div class="container" style="width: 50%;">
   <div class="row">
     <div class="col">
@@ -55,54 +54,54 @@
 </div> -->
 
 <div class="container" style="width: 60%;">
-    <div class="row">
-        <div class="col">
+  <div class="row">
+      <div class="col">
 
 
-            <h1 class="mt-5 mb-5 text-gradiente">
-              Comentario con Id:  {{comment?.id}}</h1>
+          <h1 class="mt-5 mb-5 text-gradiente">
+            Comentario con Id:  {{comment?.id}}</h1>
 
-            @if (comment) {
-           
-            <div class="card border-success mb-3 card-detail">
-                
-              @if (comment.user) {
-                <div class="card-header" style="font-size: large;"><strong>Usuario:</strong> {{comment.user.firstName}}
-                  
-                  <span class="badge text-bg-warning text-decoration-none ms-5 me-3" >
-                    <i class="bi bi-calendar3 me-2"></i>
-                    Día: {{comment.dateTime | date: 'dd/MM/yyyy'}}</span>
-                   <span class="badge text-bg-success text-decoration-none ms-5">
-                    <i class="bi-alarm me-2" style="font-size: 1rem; color: white;"></i>
-                    Hora: {{comment.dateTime | date: 'HH:mm'}}</span>
-                </div>
-              } @else {
-                <div class="card-header">Usuario anónimo</div>
-
-              }
-                <div class="card-body text-success">
-                  <h3 class="card-title" style="color: rgb(28, 158, 28);">Charla🗣️:<strong style="color: rgb(80, 118, 230); padding: 15px;" >«{{comment.keynote.title}}»</strong></h3> 
-                  <br>
-                  <p class="card-text text-dark" style="font-size: large;">{{comment.opinion}}</p>
-                </div>
-                <hr>
-                
-                <!-- nbgratinng-->
-                <p class="text-success" style="margin-left: 15px;font-size: large;"><strong>Valoración: </strong> {{comment.rating}} </p>
-                
-                <div class=" mb-3 text-center " >
-                  <ngb-rating [(rate)]="comment.rating"  [max]="5" [readonly]="true" formControlName="rating">
-                    <ng-template let-fill="fill" let-index="index">
-                      <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-1" style="color: rgb(222, 191, 39); margin: 4px;"></i>
-                    </ng-template>
-                  </ngb-rating>
-
-                </div>
-       
-              </div>
+          @if (comment) {
+         
+          <div class="card border-success mb-3 card-detail">
               
-            <button class="w-100 btn btn-lg btn-outline-primary  p-1 me-3 mb-5" style="display: block; background-color: #49CC90;" [routerLink]="['/comments', comment.id, 'update']"><i class="bi bi-wrench-adjustable me-2"></i>Editar comentario</button>
+            @if (comment.user) {
+              <div class="card-header" style="font-size: large; color: antiquewhite;">Usuario/a:&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{comment.user.firstName}}</strong>
+                
+                <span class="badge text-bg-warning text-decoration-none ms-5 me-3 mb-2" >
+                  <i class="bi bi-calendar3 me-2"></i>
+                  Día: {{comment.dateTime | date: 'dd/MM/yyyy'}}</span>
+                 <span class="badge text-bg-success text-decoration-none ms-5 me-3 mt-1">
+                  <i class="bi-alarm me-2" style="font-size: 1rem; color: white;"></i>
+                  Hora: {{comment.dateTime | date: 'HH:mm'}}</span>
+              </div>
+            } @else {
+              <div class="card-header">Usuario anónimo</div>
+
             }
-        </div>
-    </div>
+              <div class="card-body text-success">
+                <h3 class="card-title" style="color: #debf27;">Charla🗣️:<strong style="color: rgb(238, 240, 244); padding: 15px;" >«{{comment.keynote.title}}»</strong></h3> 
+                <br>
+                <p class="card-text text-dark" style="font-size: large;">{{comment.opinion}}</p>
+              </div>
+              <hr>
+              
+              <!-- nbgratinng-->
+              <p style="margin-left: 15px;font-size: large;color: #debf27;"><strong>Valoración: </strong> {{comment.rating}} </p>
+              
+              <div class=" mb-3 text-center " >
+                <ngb-rating [(rate)]="comment.rating"  [max]="5" [readonly]="true" formControlName="rating">
+                  <ng-template let-fill="fill" let-index="index">
+                    <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-1" style="color: #debf27; margin: 4px;"></i>
+                  </ng-template>
+                </ngb-rating>
+
+              </div>
+     
+            </div>
+            
+          <button class="w-100 btn btn-lg btn-outline-primary  p-1 me-3 mb-5" style="display: block; background-color: #debf27;" [routerLink]="['/comments', comment.id, 'update']"><i class="bi bi-wrench-adjustable me-2"></i>Editar comentario</button>
+          }
+      </div>
+  </div>
 </div>
