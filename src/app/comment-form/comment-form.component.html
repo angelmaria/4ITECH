@@ -32,7 +32,8 @@
             <div class="form-floating mb-3 border-form">
               <!--[(ngModel)]="commentForm.dateTime" readonly>-->
               <input type="datetime-local" class="form-control option-int" id="dateTime" formControlName="dateTime"
-              [ngModel]="dateTime | date:'yyyy-MM-ddTHH:mm'" [readonly]="true">
+             [readonly]="true"
+             [value]="commentForm.get('dateTime').value | date:'dd/MM/yyyy HH:mm'">
              
               <label for="dateTime">Fecha de creación del comentario</label>
             </div>

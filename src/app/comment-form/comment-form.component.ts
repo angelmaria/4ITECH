@@ -33,7 +33,6 @@ export class CommentFormComponent implements OnInit {
   users: User[] = [];
   keynotes: Keynote[] = [];
   rating = 0;
-  dateTime = new Date();
 
   
   
@@ -76,8 +75,13 @@ export class CommentFormComponent implements OnInit {
   }
   
   save() {
+    console.log('saving');
+    
     const comment: CommentModel = this.commentForm.value as CommentModel;
       //console.log(comment);
+      comment.dateTime = new Date();
+      console.log(comment);
+      
 
       if (this.isUpdate) {
         const url = 'http://localhost:8080/comments/' + comment.id;

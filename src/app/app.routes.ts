@@ -60,6 +60,10 @@ export const routes: Routes = [
         component: KeynoteFormComponent
     },
     {
+        path: 'keynotes/:id/update',
+        component: KeynoteFormComponent
+    },
+    {
         path: 'tickets',
         component: TicketListComponent
     },
