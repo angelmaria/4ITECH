@@ -14,7 +14,7 @@ export class RegisterComponent {
    // no necesita el formBuilder
    registerForm = new FormGroup({
     email: new FormControl ('', [Validators.required, Validators.email]), // hacerlo el campo obligatorio y que lleve @ y .com .es o similar
-    phone: new FormControl ('', [Validators.required, Validators.pattern('^[0-9]{9}$')]),  // valores de 0 a 9 y que sean 9 números
+    // phone: new FormControl ('', [Validators.required, Validators.pattern('^[0-9]{9}$')]),  // valores de 0 a 9 y que sean 9 números
     password: new FormControl ('', [Validators.required, Validators.minLength(8), Validators.maxLength(30)]),
     passwordConfirm: new FormControl ('')
   },
@@ -38,15 +38,16 @@ export class RegisterComponent {
   save() {
     const register: Register = {
       email: this.registerForm.get('email')?.value ??'',
-      phone: this.registerForm.get('phone')?.value ??'',
+      // phone: this.registerForm.get('phone')?.value ??'',
       password: this.registerForm.get('password')?.value ??''
 
     }
     console.log(register);
-
-    // Limpiar el formulario una vez enviados los registros al backend o redirigir a pantalla de login
-    this.registerForm.reset();  // no hay validacion solo limpia los valores del formulario al dar al boton
-    // validaciones:
+    this.httpClient.post('http://localhost:8080/users/register', register)
+    .subscribe(response => {
+      // navegar a login
+      this.registerForm.reset(); 
+    }); 
 
 
   }
