@@ -1,9 +1,9 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { TicketOrderBuy } from '../models/ticketOrderBuy.model';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Ticket } from '../models/ticket.model';
+import { TicketOrderBuy } from '../models/ticketOrderBuy.model';
 
 @Component({
   selector: 'app-ticketOrderBuy-form',
@@ -12,89 +12,84 @@ import { Ticket } from '../models/ticket.model';
   templateUrl: './ticket-order-buy-form.component.html',
   styleUrl: './ticket-order-buy-form.component.css'
 })
-export class TicketOrderBuyFormComponent {
-  ticketOrderBuyForm = this.fb.group({
-    
-    id: [],
-    date: [new Date()],
-    discount: [0],
-    totalPrice: [0],
-    quantity: [0],
-    paymentMethod: [''],
-    channel: [''],
-    qrUrl: [''],
-    ticket: this.fb.group({}) // objeto
-    //User: [0],
-  });
-isUpdate: boolean = false;
-users: any;
-tickets: Ticket | undefined;
+
+
+export class TicketOrderBuyFormComponent implements OnInit {
+  ticketOrderBuyForm: FormGroup;
+  isUpdate: boolean = false;
+  showCreateTicketOrderBuyMessage: boolean = false;
+  showUpdateTicketOrderBuyMessage: boolean = false;
+  hideDeletedTicketOrderBuyMessage: boolean = false;
 
   constructor(
-
     private fb: FormBuilder,
     private httpClient: HttpClient,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) {}
-
+  ) {
+    this.ticketOrderBuyForm = this.fb.group({
+      id: [],
+      date: [new Date()],
+      discount: [0],
+      totalPrice: [0],
+      quantity: [0],
+      paymentMethod: [''],
+      channel: [''],
+      qrUrl: [''],
+      ticket: this.fb.group({}) // objeto
+    });
+  }
 
   ngOnInit(): void {
-    // ...
     this.activatedRoute.params.subscribe((params) => {
       const id = params['id'];
       if (!id) return;
-      this.httpClient.get<TicketOrderBuy>('http://localhost:8080/ticketOrderBuys/' + id)
-        .subscribe(ticketOrderBuyFromBackend => {
-          // estos puntos para reducir el texto
-          this.ticketOrderBuyForm.reset({
 
-              id: ticketOrderBuyFromBackend.id!,
-              date: ticketOrderBuyFromBackend.date || new Date(),
-              discount: ticketOrderBuyFromBackend.discount || 0,
-              totalPrice: ticketOrderBuyFromBackend.totalPrice || 0,
-              quantity: ticketOrderBuyFromBackend.quantity || 0,
-              paymentMethod: ticketOrderBuyFromBackend.paymentMethod || '',
-              channel: ticketOrderBuyFromBackend.channel || '',
-              qrUrl: ticketOrderBuyFromBackend.qrUrl || '',
-              //ticket: ticketOrderBuyFromBackend.ticket || {}
-            });
-            
-            this.isUpdate = true;
-          
-          });
-          
+      this.httpClient
+        .get<TicketOrderBuy>('http://localhost:8080/ticketOrderBuys/' + id)
+        .subscribe((ticketOrderBuyFromBackend) => {
+          this.ticketOrderBuyForm.patchValue(ticketOrderBuyFromBackend);
+          this.isUpdate = true;
         });
-    
+    });
   }
 
   save() {
-    const ticketOrderBuy: TicketOrderBuy = {
-      id: this.ticketOrderBuyForm.value.id!,
-      date: this.ticketOrderBuyForm.value.date!,
-      discount: this.ticketOrderBuyForm.value.discount!,
-      totalPrice: this.ticketOrderBuyForm.value.totalPrice!,
-      quantity: this.ticketOrderBuyForm.value.quantity!,
-      paymentMethod: this.ticketOrderBuyForm.value.paymentMethod!,
-      channel: this.ticketOrderBuyForm.value.channel!,
-      qrUrl: this.ticketOrderBuyForm.value.qrUrl!,
-     // ticket: this.ticketOrderBuyForm.value.ticket!
-    };
-  
-    
-    const url = this.isUpdate ? 'http://localhost:8080/ticketOrderBuys/' + ticketOrderBuy.id : 'http://localhost:8080/ticketOrderBuys';
-  
-    const request = this.isUpdate ? this.httpClient.put<TicketOrderBuy>(url, ticketOrderBuy) : this.httpClient.post<TicketOrderBuy>(url, ticketOrderBuy);
-  
-    request.subscribe(
-      ticketOrderBuyFromBackend => {
-        this.router.navigate(['/ticketOrderBuys', ticketOrderBuyFromBackend.id, 'detail']);
+    const ticketOrderBuy: TicketOrderBuy = this.ticketOrderBuyForm.value as TicketOrderBuy;
+    const url = this.isUpdate
+      ? 'http://localhost:8080/ticketOrderBuys/' + ticketOrderBuy.id
+      : 'http://localhost:8080/ticketOrderBuys';
+
+    const httpMethod = this.isUpdate ? 'put' : 'post';
+
+    this.httpClient[httpMethod](url, ticketOrderBuy).subscribe( // Eliminar <TicketOrderBuy>
+      (ticketOrderBuyFromBackend) => {
+        const messageId = this.isUpdate ? 'update' : 'create';
+        this.router.navigate(['/ticketOrderBuys', 'ticketOrderBuyFromBackend.id', 'detail'], { // Cambiar 'ticketOrderBuyFromBackend.Id' a 'ticketOrderBuyFromBackend.id'
+          queryParams: { [messageId]: true }
+        });
+        this.showCreateTicketOrderBuyMessage = true;
       },
-      error => {
-        console.error('Error:', error);
+      (error) => {
+        console.error('An error occurred while saving the ticket order buy:', error);
       }
     );
-    
+  }
+
+  hideCreateTicketOrderBuyMessage() {
+    this.showCreateTicketOrderBuyMessage = false;
+  }
+
+  delete(ticketOrderBuy: TicketOrderBuy) {
+    const backendUrl = 'http://localhost:8080/ticketOrderBuys/' + ticketOrderBuy.id;
+    this.httpClient.delete(backendUrl).subscribe(response => {
+        this.loadTicketOrderBuys();
+        this.hideDeletedTicketOrderBuyMessage = false;
+    });
+}
+
+  loadTicketOrderBuys() {
+    throw new Error('Method not implemented.');
   }
 
 }

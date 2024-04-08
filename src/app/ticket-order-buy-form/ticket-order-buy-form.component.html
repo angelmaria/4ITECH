@@ -1,72 +1,72 @@
 <div class="container py-3 background-gradient">
     
-    <header>
-        <div class="pricing-header p-3 pb-md-5 mx-auto text-center">
-            <h1 class="display-4 fw-normal text-body-emphasis text-primary"><strong>Aquí esta tu orden de compra</strong></h1>
-            <p class="fs-5 text-body-secondary">Edita o actualiza la información de las ordenes de compra</p>
-        </div>
-    </header>
+  <header>
+      <div class="pricing-header p-3 pb-md-5 mx-auto text-center">
+          <h1 class="display-4 fw-normal text-body-emphasis text-primary"><strong>Aquí esta tu orden de compra</strong></h1>
+          <p class="fs-5 text-body-secondary">Edita o actualiza la información de las ordenes de compra</p>
+      </div>
+  </header>
 
-    <div class="row justify-content-center align-items-center">
-        <div class="col-md-6">
-            <form [formGroup]="ticketOrderBuyForm" (ngSubmit)="save()" class="form">
-                <div class="mb-3">
-                    <label for="id" class="form-label">ID</label>
-                    <input type="text" id="id" class="form-control form-input" formControlName="id">
-                </div>
-                <div class="mb-3">
-                    <label for="date" class="form-label">Fecha</label>
-                    <input type="date" class="form-control form-input" id="date" formControlName="date">
-                </div>
-                <div class="mb-3">
-                    <label for="discount" class="form-label">Descuento</label>
-                    <select class="form-select form-input" id="discount" formControlName="discount">
-                        <option selected disabled>Selecciona un descuento</option>
-                        <option value="20">20%</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="totalPrice" class="form-label">Precio Total</label>
-                    <select class="form-select form-input" id="totalPrice" formControlName="totalPrice">
-                        <option value="50">50 euros</option>
-                        <option value="100">100 euros</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="quantity" class="form-label">Cantidad</label>
-                    <input min="1" max="15" type="number" class="form-control form-input" id="quantity" formControlName="quantity">
-                    <small class="form-text text-muted">Máximo 15 tickets por compra.</small>
-                </div>
-                <div class="mb-3">
-                    <label for="paymentMethod" class="form-label">Método de Pago</label>
-                    <select class="form-select form-input" id="paymentMethod" formControlName="paymentMethod">
-                        <option selected disabled>Selecciona un método</option>
-                        <option value="tarjeta">Tarjeta débito</option>
-                        <option value="tarjeta2">Tarjeta crédito</option>
-                        <option value="paypal">Paypal</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Método de Compra</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="online" formControlName="paymentMethod" value="online">
-                        <label class="form-check-label" for="online">Compra Online</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="offline" formControlName="paymentMethod" value="offline">
-                        <label class="form-check-label" for="offline">Compra Offline</label>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="qrUrl" class="form-label">URL del QR</label>
-                    <input type="text" class="form-control form-input" id="qrUrl" formControlName="qrUrl">
-                </div>
-                <div class="button-container">
-                    <button type="submit" class="btn btn-primary p-1 me-5">Comprar</button>
-                    <button type="submit" class="btn btn-info p-1 me-5">Actualizar Ticket</button>
-                    <button type="button" class="btn btn-danger p-1 me-5">Cancelar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    
+  <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+          <form [formGroup]="ticketOrderBuyForm" (ngSubmit)="save()" class="form">
+              <div class="mb-3">
+                  <label for="id" class="form-label">ID</label>
+                  <input type="text" id="id" class="form-control form-input" formControlName="id">
+              </div>
+              <div class="mb-3">
+                  <label for="date" class="form-label">Fecha</label>
+                  <input type="date" class="form-control form-input" id="date" formControlName="date">
+              </div>
+              <div class="mb-3">
+                  <label for="discount" class="form-label">Descuento</label>
+                  <select class="form-select form-input" id="discount" formControlName="discount">
+                      <option selected disabled>Selecciona un descuento</option>
+                      <option value="20">20%</option>
+                  </select>
+              </div>
+              <div class="mb-3">
+                  <label for="totalPrice" class="form-label">Precio Total</label>
+                  <select class="form-select form-input" id="totalPrice" formControlName="totalPrice">
+                      <option value="50">50 euros</option>
+                      <option value="100">100 euros</option>
+                  </select>
+              </div>
+              <div class="mb-3">
+                  <label for="quantity" class="form-label">Cantidad</label>
+                  <input min="1" max="15" type="number" class="form-control form-input" id="quantity" formControlName="quantity">
+                  <small class="form-text text-muted">Máximo 15 tickets por compra.</small>
+              </div>
+              <div class="mb-3">
+                  <label for="paymentMethod" class="form-label">Método de Pago</label>
+                  <select class="form-select form-input" id="paymentMethod" formControlName="paymentMethod">
+                      <option selected disabled>Selecciona un método</option>
+                      <option value="tarjeta">Tarjeta débito</option>
+                      <option value="tarjeta2">Tarjeta crédito</option>
+                      <option value="paypal">Paypal</option>
+                  </select>
+              </div>
+              <div class="mb-3">
+                  <label class="form-label">Método de Compra</label>
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" id="online" formControlName="paymentMethod" value="online">
+                      <label class="form-check-label" for="online">Compra Online</label>
+                  </div>
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" id="offline" formControlName="paymentMethod" value="offline">
+                      <label class="form-check-label" for="offline">Compra Offline</label>
+                  </div>
+              </div>
+              <div class="mb-3">
+                  <label for="qrUrl" class="form-label">URL del QR</label>
+                  <input type="text" class="form-control form-input" id="qrUrl" formControlName="qrUrl">
+              </div>
+              <div class="button-container">
+                  <button type="submit" class="w-100 btn btn-lg btn-outline-info  p-1 me-5" style="display: block;" >Comprar</button>
+                  <button type="submit" class="w-100 btn btn-lg btn-outline-primary  p-1 me-5" style="display: block;">Actualizar Ticket</button>
+                  <button type="button" class="w-100 btn btn-lg btn-outline-danger  p-1 me-5" style="display: block;">Cancelar</button>
+              </div>
+          </form>
+      </div>
+  </div>
+  

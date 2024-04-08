@@ -34,7 +34,8 @@
                                                     <i class="fas fa-glass-cheers"></i>
                                                 </span>
                                             </p>
-                                            <label><strong>Fecha:</strong>  {{ticketOrderBuy.date}} </label>
+                                            <label><strong>Fecha:</strong>  {{ticketOrderBuy.date | date: 'dd/MM/yyyy'}} {{ticketOrderBuy.date | date: 'HH:mm'}}</label>
+                                            <label><strong>Hora:</strong>  {{ticketOrderBuy.date | date: 'HH:mm'}}</label>
                                             <label><strong>Descuento:</strong>  {{ticketOrderBuy.discount}} </label>
                                             <label><strong>Precio Toltal:</strong>  {{ticketOrderBuy.totalPrice}}</label>
                                             <label><strong>Metodo de pago:</strong>  {{ticketOrderBuy.paymentMethod}} </label>
@@ -43,7 +44,7 @@
                                             <label><strong>Código QR:</strong>  {{ticketOrderBuy.qrUrl}} </label>
                                             <span class="badge bg-primary" style="font-size: large;"></span>
 
-                                            <a [routerLink]="['/ticketOrderBuys/create']" class="w-100 btn btn-lg btn-outline-primary" style="display: block;">Editar Ticket</a>
+                                            <a class="w-100 btn btn-lg btn-outline-info  p-1 me-3" style="display: block;" [routerLink]="['/ticketOrderBuys/create']" class="w-100 btn btn-lg btn-outline-primary" style="display: block;">Editar Ticket</a>
 
                                     }
                                 </ul>

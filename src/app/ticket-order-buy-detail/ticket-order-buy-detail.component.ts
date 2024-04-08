@@ -4,11 +4,12 @@ import { TicketOrderBuy } from '../models/ticketOrderBuy.model';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-ticket-order-buy-detail',
   standalone: true,
-  imports: [HttpClientModule,RouterLink,NgbAlert],
+  imports: [HttpClientModule,RouterLink,NgbAlert,DatePipe],
   templateUrl: './ticket-order-buy-detail.component.html',
   styleUrl: './ticket-order-buy-detail.component.css'
 })
