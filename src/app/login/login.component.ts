@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Login } from '../models/login.dto';
 import { RouterLink } from '@angular/router';
+import { Token } from '../models/token.dto';
 
 @Component({
   selector: 'app-login',
@@ -25,8 +26,13 @@ export class LoginComponent {
       password: this.loginForm.get('password')?.value ?? '',
     }
     console.log(login);
-    const url = 'http://localhost:8080/auth/login';
-    this.httpClient.post<any>(url,login).subscribe(response => console.log(response));
+    const url = 'http://localhost:8080/users/login';
+    this.httpClient.post<Token>(url,login).subscribe(response => {
+      console.log(response.token);
+      // this.authService.saveToken(response.token);
+      // this.router.navigate(['/books']);
+    });
+
   }
     // ojo inacabado??...post<any>??? console.log(response) ??
 }
