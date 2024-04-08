@@ -39,3 +39,4 @@ export class TicketOrderBuyListComponent implements OnInit {
     this.http.get<TicketOrderBuy[]>(url).subscribe(ticketOrderBuys => this.ticketOrderBuys = ticketOrderBuys);
   }
 }
+

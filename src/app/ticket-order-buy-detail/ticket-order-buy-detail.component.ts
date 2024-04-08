@@ -75,3 +75,4 @@ export class TicketOrderBuyDetailComponent implements OnInit {
   
 }
 
+

@@ -6,17 +6,25 @@
         </div>
     </header>
 
+    <div class="row">
+        <div class="col-md-4">
+            <img src="/src/assets/Ticket/img/tob.png" alt="tu ticket Aquí" class="img-fluid">
+        </div>
 
         <div class="col-md-8">
             <main>
-                <div class="row row-cols-1 text-center">
+                <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
                     <div class="col">
                         <div class="card mb-4 rounded-3 shadow-sm">
                             <div class="card-header py-3">
                                 <h4 class="my-0 fw-normal text-info"><strong><Tbody></Tbody> Orden de compra</strong></h4>
                             </div>
                             <div class="card-body">
-        
+                                <p style="margin-left: 10px;">
+                                    <span class="badge bg-primary" style="font-size: large;">
+                                        <i class="fas fa-glass-cheers"></i>
+                                    </span>
+                                </p>
                                 <h1 class="card-title pricing-card-title"> {{ticketOrderBuy?.id}}<small class="text-body-secondary fw-light"> ✍ </small></h1>
                                 <ul class="list-unstyled mt-3 mb-4">
                                     @if (ticketOrderBuy) {
@@ -26,16 +34,16 @@
                                                     <i class="fas fa-glass-cheers"></i>
                                                 </span>
                                             </p>
-                                            <label><strong>Fecha:</strong>{{ticketOrderBuy.date}}</label>
-                                                <label><strong>Descuento:</strong>{{ticketOrderBuy.discount}}</label>
-                                            <label><strong>Precio Toltal:</strong>{{ticketOrderBuy.totalPrice}}</label>
-                                                <label><strong>Metodo de pago:</strong> {{ticketOrderBuy.paymentMethod}}</label>
-                                            <label><strong>Cantidad:</strong> {{ticketOrderBuy.quantity}}</label>
-                                                <label><strong>Medio de compra:</strong>  {{ticketOrderBuy.channel}}</label>
-                                            <label><strong>Código QR:</strong> {{ticketOrderBuy.qrUrl}}</label>
+                                            <label><strong>Fecha:</strong>  {{ticketOrderBuy.date}} </label>
+                                            <label><strong>Descuento:</strong>  {{ticketOrderBuy.discount}} </label>
+                                            <label><strong>Precio Toltal:</strong>  {{ticketOrderBuy.totalPrice}}</label>
+                                            <label><strong>Metodo de pago:</strong>  {{ticketOrderBuy.paymentMethod}} </label>
+                                            <label><strong>Cantidad:</strong>  {{ticketOrderBuy.quantity}} </label>
+                                            <label><strong>Medio de compra:</strong>  {{ticketOrderBuy.channel}}</label>
+                                            <label><strong>Código QR:</strong>  {{ticketOrderBuy.qrUrl}} </label>
                                             <span class="badge bg-primary" style="font-size: large;"></span>
 
-                                            <a [routerLink]="['/ticketOrderBuys/create']" class="w-100 btn btn-lg btn-outline-primary  p-1 me-3" style="display: block;">Editar Ticket</a>
+                                            <a [routerLink]="['/ticketOrderBuys/create']" class="w-100 btn btn-lg btn-outline-primary" style="display: block;">Editar Ticket</a>
 
                                     }
                                 </ul>
@@ -46,9 +54,5 @@
             </main>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <img src="/src/assets/Ticket/img/tob.png" alt="tu ticket Aquí" class="img-fluid">
-        </div>
+</div>
 

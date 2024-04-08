@@ -38,23 +38,23 @@
                 <th>Descuento</th>
                 <td>{{ticketOrderBuy.discount}}</td>
               </tr>
-		<tr class="table-secondary">
+    <tr class="table-secondary">
                 <th>Precio Total</th>
                 <td>{{ticketOrderBuy.totalPrice}}</td>
               </tr>
-		<tr class="table-secondary">
+    <tr class="table-secondary">
                 <th>Número Máximo</th>
                 <td>{{ticketOrderBuy.quantity}}</td>
               </tr>
-		<tr class="table-secondary">
+    <tr class="table-secondary">
                 <th>Metodo de pago</th>
                 <td>{{ticketOrderBuy.paymentMethod}}</td>
               </tr>
-		<tr class="table-secondary">
+    <tr class="table-secondary">
                 <th>Medio de compra</th>
                 <td>{{ticketOrderBuy.channel}}</td>
               </tr>
-		<tr class="table-secondary">
+    <tr class="table-secondary">
                 <th>Código Qr</th>
                 <td>{{ticketOrderBuy.qrUrl}}</td>
               </tr>
@@ -65,12 +65,13 @@
       </div>
     </div>
     <div class="d-flex justify-content-center">
-    <button class="w-100 btn btn-lg btn-outline-primary p-1 me-3" style="display: block;"[routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'detail']">Ver </button>
-    <button class="w-100 btn btn-lg btn-outline-primary  p-1 me-3" style="display: block;" [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'update']">Editar </button>
-    <button class="w-100 btn btn-lg btn-outline-danger  p-1 me-3" style="display: block;">Borrar </button>
+    <button class="btn btn-info container mx-2" [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'detail']">Ver ticketOrderBuy</button>
+    <button class="btn btn-success container mx-2" [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'update']">Editar ticketOrderBuy</button>
+    <button class="btn btn-danger container mx-2">Borrar ticketOrderBuy</button>
     </div>
 } @empty {
   <div class="icon-container bi bi-bag-x container d-flex justify-content-center align-items-center"></div>
   <p class="container d-flex justify-content-center align-items-center"><strong>Whoa! No hay ticketOrderBuys.</strong></p>
   
   }
+
