@@ -60,14 +60,6 @@ export const routes: Routes = [
         component: KeynoteFormComponent
     },
     {
-        path: 'keynotes/:id/update',
-        component: KeynoteFormComponent
-    },
-    {
-        path: 'keynotes/:id/delete',
-        component: KeynoteFormComponent
-    },
-    {
         path: 'tickets',
         component: TicketListComponent
     },
@@ -83,9 +75,7 @@ export const routes: Routes = [
         path: 'tickets/:id/update',
         component: TicketFormComponent
     },
-    { path: 'ticket/:id/delete',
-    component: TicketFormComponent
-    },
+   
     {
         path: 'ticketOrderBuys',
         component: TicketOrderBuyListComponent
@@ -101,9 +91,6 @@ export const routes: Routes = [
     {
         path: 'ticketOrderBuys/:id/update',
         component: TicketOrderBuyFormComponent
-    },
-    { path: 'ticketOrderBuys/:id/delete',
-    component: TicketOrderBuyFormComponent
     },
     {
         path: 'tracks',
@@ -155,10 +142,7 @@ export const routes: Routes = [
         path: 'users/:id/update',
         component: UserFormComponent
     },
-    {
-        path: 'users/:id/delete',
-        component: UserFormComponent
-    },
+ 
     {
         path: 'rooms',
         component: RoomListComponent
@@ -183,10 +167,7 @@ export const routes: Routes = [
         path: 'rooms/:id/update',
         component: RoomFormComponent
     },
-    {
-        path: 'rooms/:id/delete',
-        component: RoomFormComponent
-    },    
+     
 
 
         // El Enrutado del componente not found 404 siempre hay que dejarlo
