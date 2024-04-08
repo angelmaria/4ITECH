@@ -74,7 +74,7 @@
 						</li>
 	@if (isLoggedIn) {
 		<li class="nav-item me-3 ms-3">
-			<a class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio"  routerLink="/login" (click)="$event.preventDefault()" id="" role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Cerrar sesión</a>
+			<a class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio"  routerLink="/login" (click)="logout()" id="" role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Cerrar sesión</a>
 		</li>
 	} @else {
 		<div class="d-flex">

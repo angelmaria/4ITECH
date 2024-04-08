@@ -22,10 +22,10 @@ export class NavbarComponent {
       // this.authService.userEmail.subscribe(userEmail => this.userEmail = userEmail);
       // this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
   }
-  // logout() {
-  //   this.authService.removeToken();
-  //   this.router.navigate(['/login']);
-  // }
+  logout() {
+    this.authService.removeToken();
+    this.router.navigate(['/login']);
+  }
 
 }
 
