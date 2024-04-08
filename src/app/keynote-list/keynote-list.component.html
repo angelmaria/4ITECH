@@ -54,8 +54,10 @@
               </div>
               <div style="text-align: center;">
                 <button  data-bs-toggle="tooltip" data-bs-title="Ver" style="font-weight: bold;" class="btn btn-ver btn-sm mt-3 me-3" [routerLink]="['/keynotes', keynote.id, 'detail']"><i class="bi bi-eye-fill"></i></button>
+                @if (isAdmin) {
                 <button style="font-weight: bold;" class="btn btn-editar btn-success btn-sm mt-3 ms-3 me-3" [routerLink]="['/keynotes', keynote.id, 'update']"><i class="bi bi-pencil-square"></i></button>
                 <button style="font-weight: bold" class="btn btn-archivar btn-danger btn-sm ms-3 mt-3" (click)="archive(keynote)"><i class="bi bi-archive-fill"></i></button>
+                }
               </div>
             </div>
           </div>
