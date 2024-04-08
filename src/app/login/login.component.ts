@@ -1,7 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { Login } from '../models/login.model';
+import { Login } from '../models/login.dto';
 import { RouterLink } from '@angular/router';
 
 @Component({
