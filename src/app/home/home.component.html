@@ -1,14 +1,34 @@
-<main class="container">
+
+    
+      <div class="video-cover vid-container">
+        <!-- <h1 class="display-4 fst-italic text-light fw-bold">&commat;4iTech</h1> -->
+          <video autoplay loop muted>
+            <source src="assets/videos/4itech_v2.mp4" type="video/mp4">
+          </video>
+      </div>
+    
+  
+
+    <!-- <div class="bg-dark text-secondary px-4 py-5 text-center">
+      <div class="py-5">
+        <h1 class="display-5 fw-bold text-white">Dark color hero</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="fs-5 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+          
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom button</button>
+            <button type="button" class="btn btn-outline-light btn-lg px-4">Secondary</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+<main class="container mt-4">
+
     <div class="container">
       <div class="row">
-        <div class="col-sm-8 mb-4 rounded mt-4 vid-container video-cover">
-            <!-- <h1 class="display-4 fst-italic text-light fw-bold">&commat;4iTech</h1> -->
-              <video autoplay loop muted style="border-radius: 5px;">
-                <source src="assets/videos/4itech_v1.mp4" type="video/mp4">
-              </video>
-        </div>
         
-        <div class="col-sm-4 mb-4 mt-4">
+        <!-- <div class="col-sm-4 mb-4 mt-4">
           <ngb-carousel>
             @for (keynote of keynotes; track keynote.id) {
             <ng-template ngbSlide>
@@ -21,7 +41,7 @@
             </ng-template>
           }
           </ngb-carousel>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -41,7 +61,7 @@
           <hr>
           <!-- sección tecnologías usadas -->
           <div class="text-emphasys px-4 py-5 text-center">
-            <h2 class="fw-bold text-secondary mb-4" style="font-family: 'Libre Franklin';">Tecnologias Utilizadas para el desarrollo de &commat;4iTECH</h2>
+            <h3 class="fw-bold text-secondary mb-4" style="font-family: 'Libre Franklin';">Tecnologias Utilizadas para el desarrollo de &commat;4iTECH</h3>
             <img src="assets/img/Tecnologias.png" class="img-fluid" alt="Imagen de tecnologias">
             <div class="py-2">
               <div class=>
@@ -102,10 +122,23 @@
   
       <div class="col-md-4">
         <div class="position-sticky" style="top: 2rem;">
-          <div class="p-4 mb-3 bg-body-tertiary rounded">
-            <h4 class="fst-italic">Sobre Nosotros</h4>
-            <p class="mb-0">Somos estudiantes del curso de Desarrollo de web de la FUNDACION ADECCO impartido por el profesor Alan Sastre</p>
+          <div class="p-3 mb-3 bg-body-tertiary rounded">  
+            <h2 class="text-secondary fw-bold" style="font-family: 'Libre Franklin'">Charlas recientes</h2>
+            <!-- <p class="mb-0">Somos estudiantes del curso de Desarrollo de web de la FUNDACION ADECCO impartido por el profesor Alan Sastre</p> -->
           </div>
+
+          <ngb-carousel>
+            @for (keynote of keynotes; track keynote.id) {
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img src="{{keynote.webinarUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']"  class="img-fluid card-img-top zoom">
+              </div>
+              <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius:10px;">
+                <h3><a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-light" style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a></h3>
+              </div>
+            </ng-template>
+          }
+          </ngb-carousel>
 
           <div class="p-4">
             <h4 class="fst-italic">¡No esperes más para unirte a la conversación sobre el futuro de la tecnología!</h4>
