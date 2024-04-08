@@ -4,14 +4,14 @@
     <div class="row">
       <div class="col">
   
-        <h1 class="mt-5 mb-5" style="color: rgb(28, 158, 28);" >Listado de Comentarios</h1>
+        <h1 class="mt-5 mb-5 text-gradiente">Listado de Comentarios</h1>
   
         @if (showDeletedCommentMessage) {
           <!--<ngb-alert type="success" [dismissible]="false">Comentario borrado correctamente</ngb-alert>-->
           <ngb-alert type="success" (closed)="hideDeletedCommentMessage()">Comentario borrado correctamente.</ngb-alert>
         }
   
-        <table class="table">
+        <table class="table mb-5" style="border-collapse: collapse;" >
           <thead>
             <tr>
               <th scope="col">Id</th>
@@ -45,9 +45,9 @@
                   </a>
                 </td>
                 <td>
-                  <button class="btn btn-info mb-1" style="background-color: #62AFFE;" [routerLink]="['/comments', comment.id, 'detail']"><i class="bi bi-eye me-1"></i>Ver</button>
-                  <button class="btn btn-success mb-1" style="background-color: #49CC90;" [routerLink]="['/comments', comment.id, 'update']"><i class="bi bi-pencil-square me-1"></i>Editar</button>
-                  <button class="btn btn-danger " style="background-color: #F93E3F;" (click)="delete(comment)"><i class="bi bi-trash me-1"></i>Borrar</button>
+                  <button class="btn btn-info mb-1 me-1" style="background-color: #62AFFE;" [routerLink]="['/comments', comment.id, 'detail']"><i class="bi bi-eye me-1"></i>Ver</button>
+                  <button class="btn btn-success mb-1 me-1" style="background-color: #49CC90;" [routerLink]="['/comments', comment.id, 'update']"><i class="bi bi-pencil-square me-1"></i>Editar</button>
+                  <button class="btn btn-danger mb-1 " style="background-color: #F93E3F;" (click)="delete(comment)"><i class="bi bi-trash me-1"></i>Borrar</button>
                 </td>
               </tr>
             

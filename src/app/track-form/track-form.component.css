@@ -1,0 +1,40 @@
+
+.circular-span {
+    background-color: rgb(224, 109, 8); /* Cambia a tu color preferido */
+    border-radius: 50%; /* Hace que el span sea circular */
+    padding: 5px; /* Espacio alrededor del texto */
+    color: white; /* Color del texto */
+  }
+  .border-form-ppal {
+    background: linear-gradient(to right, #e3c9b6, #d8363a, #dd3675, #b44593);
+    padding: 20px;
+    border-radius: 25px;
+    border-width: 2px;
+    border-style: ridge;
+    border-color: rgb(224, 109, 27);
+    
+  }
+  .border-form {
+    padding: 20px;
+    border-radius: 25px;
+    border-width: 2px;
+    border-style: ridge;
+    border-color: rgb(224, 88, 20);
+    background-color: rgb(246, 188, 108);
+    font-size: large;
+
+  }
+  .option-int {
+   
+    border-radius: 3px;
+    border-style: ridge;
+    background-color: rgb(236, 192, 127);
+    font-size: large;
+
+  }
+  .text-gradiente {
+
+    background: linear-gradient(to right, #e3c9b6, #d8363a, #dd3675, #b44593);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -4,9 +4,9 @@
     <div class="row">
       <div class="col">
   
-        <h1 class="mt-5 mb-5 text-gradiente" >Listado de tracks</h1>
+        <h1 class="mt-5 mb-4 text-gradiente" >Listado de tracks</h1>
         <marquee style="font-size: larger; color: #f65803;" width="400" scrollamount="200" scrolldelay="2000">
-          🥳🤔😁😀🫣Puedes obtener todos los cronogramas que necesites...
+          🥳🤔😁😀🫣 Puedes observar todos los cronogramas existentes...
         </marquee>
   
         @if (showDeletedBookMessage) {
@@ -14,7 +14,7 @@
           <ngb-alert type="success" (closed)="hideDeletedBookMessage()">Track borrado correctamente.</ngb-alert>
         }
   
-        <table class="table">
+        <table class="table mb-5" style="border-collapse: collapse;">
           <thead>
             <tr>
               <th scope="col">Id</th>

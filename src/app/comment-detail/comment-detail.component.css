@@ -104,3 +104,9 @@ border:none;
   border-radius: 10px; 
   border-width: 2px;
 }
+.text-gradiente {
+
+  background: linear-gradient(to right, #1fa746, #6feb82, #7890e9, #10a3b9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

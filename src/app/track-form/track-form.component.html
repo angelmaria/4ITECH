@@ -4,42 +4,43 @@
     <div class="row">
         <div class="col">
           @if (isUpdate) {
-            <h1 class="mt-5 mb-5" style="color: rgb(28, 158, 28);" >Actualizar Track existente con id: {{trackForm.get('id')?.value}}</h1>
-
+            <h1 class="mt-5 mb-3 text-gradiente">Actualizar Track existente con id:  {{trackForm.get('id')?.value}}</h1>
+         
         } @else {
-            <h1 class="mt-5 mb-5" style="color: rgb(28, 158, 28);" >Crea Nuevo Track</h1>
+            <h1 class="mt-5 mb-3 text-gradiente" >Crea Nuevo Track</h1>
         }
 
-            <form [formGroup]="trackForm" (ngSubmit)="save()">
+        <div class="mb-5">
+            <form class="border-form-ppal" [formGroup]="trackForm" (ngSubmit)="save()">
 
                 <input type="hidden" formControlName="id">
 
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="name"
+                <div class="form-floating mb-3 border-form">
+                    <input type="text" class="form-control option-int" id="name"
                      placeholder="Nombre por defecto Track" formControlName="name"> <!--conexion entre html y TS-->
-                    <label for="name">Nombre del Track</label>
+                    <label class="ms-3"  for="name">Nombre del Track</label>
                 </div>
                 
                
-                  <div class="form-floating mb-3">
-                    <input type="datetime-local" class="form-control" id="startDate"
+                  <div class="form-floating mb-3 border-form">
+                    <input type="datetime-local" class="form-control option-int" id="startDate"
                       formControlName="startDate" > <!--conexion entre html y TS-->
                     <label for="startDate">Fecha inicio del Track</label>
                 </div>
-                <div class="form-floating mb-3">
-                    <input type="datetime-local" class="form-control" id="endDate"
+                <div class="form-floating mb-3 border-form">
+                    <input type="datetime-local" class="form-control option-int" id="endDate"
                       formControlName="endDate"> <!--conexion entre html y TS-->
                     <label for="endDate">Fecha fin del Track</label>
                 </div>
                 @if (isUpdate) {
-                  <button class="btn btn-success" type="submit">Actualizar</button>
+                  <button class="w-100 btn btn-lg btn-outline-warning  p-1 me-3 mb-3" style="display: block;background-color: #d56d0c;" type="submit"><i class="bi bi-wrench-adjustable me-2"></i>Actualizar</button>
                 } @else {
-                  <button class="btn btn-success" type="submit">Crear</button>
+                  <button class="w-100 btn btn-lg btn-outline-info  p-1 me-3 mb-3" style="display: block; background-color: #106db9;" type="submit">🪄 Crear</button>
                 }
          
       
             </form>
         </div>
     </div>
+  </div>
 </div>
-<hr/>

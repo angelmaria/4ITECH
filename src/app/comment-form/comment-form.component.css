@@ -6,7 +6,7 @@
     color: white; /* Color del texto */
   }
   .border-form-ppal {
-    background: linear-gradient(to right, #41f072, #75e386, #a2e9b0, #6fd0df);
+    background: linear-gradient(to right, #1fa746, #6feb82, #7890e9, #10a3b9);
     padding: 20px;
     border-radius: 25px;
     border-width: 2px;
@@ -32,6 +32,13 @@
     font-size: large;
 
   }
+  .text-gradiente {
+
+    background: linear-gradient(to right, #1fa746, #6feb82, #7890e9, #10a3b9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+  /*
   .carta-box {
     width: 200px;
     height: 250px;
@@ -56,3 +63,5 @@
   .cara.detras {
     transform: rotateY(180deg);
   }
+  */
+  
