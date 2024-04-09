@@ -32,7 +32,7 @@ export class LoginComponent {
       email: this.loginForm.get('email')?.value ?? '',
       password: this.loginForm.get('password')?.value ?? '',
     }
-    console.log(login);
+    // console.log(login);
     const url = 'http://localhost:8080/users/login';
     this.httpClient.post<Token>(url,login).subscribe(response => {
       console.log(response.token)
