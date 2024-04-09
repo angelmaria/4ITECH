@@ -26,6 +26,7 @@ import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { RoomFormComponent } from './room-form/room-form.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
+import { userRoleGuard } from './authentication/user-role.guard';
 
 export const routes: Routes = [
     {
@@ -57,11 +58,13 @@ export const routes: Routes = [
     },
     {
         path: 'keynotes/create',
-        component: KeynoteFormComponent
+        component: KeynoteFormComponent,
+        canActivate: [userRoleGuard]
     },
     {
         path: 'keynotes/:id/update',
-        component: KeynoteFormComponent
+        component: KeynoteFormComponent,
+        canActivate: [userRoleGuard]
     },
     {
         path: 'tickets',
@@ -73,11 +76,13 @@ export const routes: Routes = [
     },
     {
         path: 'tickets/create',
-        component: TicketFormComponent
+        component: TicketFormComponent,
+        canActivate: [userRoleGuard]
     },
     {
         path: 'tickets/:id/update',
-        component: TicketFormComponent
+        component: TicketFormComponent,
+        canActivate: [userRoleGuard]
     },
    
     {
@@ -90,11 +95,13 @@ export const routes: Routes = [
     },
     {
         path: 'ticketOrderBuys/create',
-        component: TicketOrderBuyFormComponent
+        component: TicketOrderBuyFormComponent,
+        canActivate: [userRoleGuard]
     },
     {
         path: 'ticketOrderBuys/:id/update',
-        component: TicketOrderBuyFormComponent
+        component: TicketOrderBuyFormComponent,
+        canActivate: [userRoleGuard]
     },
     {
         path: 'tracks',
@@ -106,12 +113,14 @@ export const routes: Routes = [
     },
     {
         path: 'tracks/create',
-        component: TrackFormComponent
+        component: TrackFormComponent,
+        canActivate: [userRoleGuard]
 
     },
     {
         path: 'tracks/:id/update',
-        component: TrackFormComponent
+        component: TrackFormComponent,
+        canActivate: [userRoleGuard]
 
     },
     {
@@ -124,11 +133,13 @@ export const routes: Routes = [
     },
     {
         path: 'comments/create',
-        component: CommentFormComponent
+        component: CommentFormComponent,
+        canActivate: [userRoleGuard]
     },
     {
         path: 'comments/:id/update',
-        component: CommentFormComponent
+        component: CommentFormComponent,
+        canActivate: [userRoleGuard]
     },
     {
         path: 'users',
@@ -140,11 +151,13 @@ export const routes: Routes = [
     },
     {
         path: 'users/create',
-        component: UserFormComponent
+        component: UserFormComponent,
+        canActivate: [userRoleGuard]
     },
     {
         path: 'users/:id/update',
-        component: UserFormComponent
+        component: UserFormComponent,
+        canActivate: [userRoleGuard]
     },
  
     {
@@ -157,7 +170,8 @@ export const routes: Routes = [
     },
     {
         path: 'rooms/create',
-        component: RoomFormComponent
+        component: RoomFormComponent,
+        canActivate: [userRoleGuard]
     },
     {
         path: 'about',
