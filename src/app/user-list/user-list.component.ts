@@ -35,7 +35,7 @@ export class UserListComponent implements OnInit{
     });  
   }
 
-  hideDeletedUserMessage() { //solo cambia la variable booleana de arriba de true a false
+  hideDeletedUserMessage() { //método que solo cambia la variable booleana de arriba de true a false
     this.showDeletedUserMessage = false;
   }
   

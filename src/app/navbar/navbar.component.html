@@ -70,6 +70,22 @@
 	}
 							</div>
 						</li>
+
+						<li class="nav-item" ngbDropdown>
+							<a style="cursor: default;" class="nav-link me-2" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-chat-right-text me-1"></i>Usuarios</a>
+							<div style="margin-top: -1px;" ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu resto">
+								<a ngbDropdownItem routerLink="/users" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Usuarios</a>
+								<a ngbDropdownItem routerLink="/users/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i>Crear Usuario/a</a>
+							</div>
+						</li>
+
+						<li class="nav-item" ngbDropdown>
+							<a style="cursor: default;" class="nav-link me-2" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"><i class="bi bi-chat-right-text me-1"></i>Auditorios</a>
+							<div style="margin-top: -1px;" ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu resto">
+								<a ngbDropdownItem routerLink="/rooms" (click)="$event.preventDefault()"><i class="bi bi-card-checklist me-1"></i>Listado de Auditorios</a>
+								<a ngbDropdownItem routerLink="/rooms/create" (click)="$event.preventDefault()"><i class="bi bi-file-earmark-plus me-1"></i>Crear Auditorio</a>
+							</div>
+						</li>
 	
 	@if (userEmail) {
 		<li class="nav-item me-3 ms-3">
@@ -91,10 +107,6 @@
 		</div>
 	}
 
-						<li class="nav-item">
-							<a class="nav-link text-secondary ms-2" routerLink="/users" (click)="$event.preventDefault()" id="" role="button"><i class="bi bi-door-open-fill"></i></a>
-						</li>
-	
 				</ul>
 			</div>
 		</div>
