@@ -12,7 +12,7 @@ import { Track } from '../models/track.model';
 @Component({
   selector: 'app-keynote-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './keynote-form.component.html',
   styleUrl: './keynote-form.component.css'
 })

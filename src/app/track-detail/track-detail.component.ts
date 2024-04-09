@@ -7,7 +7,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-track-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe],
   templateUrl: './track-detail.component.html',
   styleUrl: './track-detail.component.css'
 })

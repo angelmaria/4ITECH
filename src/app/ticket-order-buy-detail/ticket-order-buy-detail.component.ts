@@ -9,7 +9,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-ticket-order-buy-detail',
   standalone: true,
-  imports: [HttpClientModule,RouterLink,NgbAlert,DatePipe],
+  imports: [RouterLink,NgbAlert,DatePipe],
   templateUrl: './ticket-order-buy-detail.component.html',
   styleUrl: './ticket-order-buy-detail.component.css'
 })

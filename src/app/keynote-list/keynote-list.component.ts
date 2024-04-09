@@ -9,7 +9,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
 @Component({
   selector: 'app-keynote-list',
   standalone: true,
-  imports: [RouterLink, HttpClientModule, NgbAlertModule, DatePipe],
+  imports: [RouterLink, NgbAlertModule, DatePipe],
   templateUrl: './keynote-list.component.html',
   styleUrl: './keynote-list.component.css'
 })

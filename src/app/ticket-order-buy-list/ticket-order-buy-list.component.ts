@@ -8,7 +8,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
 @Component({
   selector: 'app-ticket-order-buy-list',
   standalone: true,
-  imports: [RouterLink, HttpClientModule,NgbAlertModule],
+  imports: [RouterLink, NgbAlertModule],
   templateUrl: './ticket-order-buy-list.component.html',
   styleUrl: './ticket-order-buy-list.component.css'
 })

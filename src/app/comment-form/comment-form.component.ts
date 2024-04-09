@@ -11,7 +11,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-comment-form',
   standalone: true,
-  imports: [HttpClientModule, ReactiveFormsModule, NgbRatingModule, DatePipe],
+  imports: [ReactiveFormsModule, NgbRatingModule, DatePipe],
   templateUrl: './comment-form.component.html',
   styleUrl: './comment-form.component.css'
 })

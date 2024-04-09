@@ -8,7 +8,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-track-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule, DatePipe],
+  imports: [ReactiveFormsModule, DatePipe],
   templateUrl: './track-form.component.html',
   styleUrl: './track-form.component.css'
 })

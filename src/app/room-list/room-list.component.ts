@@ -7,7 +7,7 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-room-list',
   standalone: true,
-  imports: [RouterLink, HttpClientModule, NgbAlertModule],
+  imports: [RouterLink, NgbAlertModule],
   /*
   'RouterLink' permite navegar en este listado de salas;
   'HttpClient' permite llamar al controlador del backend y traer los datos.

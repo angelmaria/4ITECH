@@ -9,7 +9,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-comment-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink, NgbRatingModule, DatePipe],
+  imports: [RouterLink, NgbRatingModule, DatePipe],
   templateUrl: './comment-detail.component.html',
   styleUrl: './comment-detail.component.css'
 })

@@ -8,7 +8,7 @@ import { TicketOrderBuy } from '../models/ticketOrderBuy.model';
 @Component({
   selector: 'app-ticketOrderBuy-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './ticket-order-buy-form.component.html',
   styleUrl: './ticket-order-buy-form.component.css'
 })
