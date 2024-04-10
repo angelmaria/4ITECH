@@ -7,7 +7,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-keynote-detail',
   standalone: true,
-  imports: [HttpClientModule, RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe],
   templateUrl: './keynote-detail.component.html',
   styleUrl: './keynote-detail.component.css'
 })

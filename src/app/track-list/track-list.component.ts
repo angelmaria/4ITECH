@@ -9,7 +9,7 @@ import { Track } from '../models/track.model';
 @Component({
   selector: 'app-track-list',
   standalone: true,
-  imports: [RouterLink, HttpClientModule, NgbAlertModule, DatePipe],
+  imports: [RouterLink, NgbAlertModule, DatePipe],
   templateUrl: './track-list.component.html',
   styleUrl: './track-list.component.css'
 })

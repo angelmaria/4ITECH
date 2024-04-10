@@ -4,20 +4,26 @@ import { RouterLink } from '@angular/router';
 import { Keynote } from '../models/keynote.model';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-keynote-list',
   standalone: true,
-  imports: [RouterLink, HttpClientModule, NgbAlertModule, DatePipe],
+  imports: [RouterLink, NgbAlertModule, DatePipe],
   templateUrl: './keynote-list.component.html',
   styleUrl: './keynote-list.component.css'
 })
 export class KeynoteListComponent implements OnInit {
   
   keynotes: Keynote[] = [];
-  showDeleteKeynoteMessage: boolean = false
+  showDeleteKeynoteMessage: boolean = false;
+  isAdmin = false;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private authService: AuthenticationService) {
+      this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+    }
 
   ngOnInit(): void {
     this.loadsKeynotes();

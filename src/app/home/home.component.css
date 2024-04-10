@@ -43,8 +43,9 @@
   
   .vid-container {
     position: relative;
-    width: 840px;
-    height: 272px;
+    /* width: 840px; */
+    /* height: 272px; */
+    height: 440px;
     overflow: hidden;
   }
   
@@ -62,3 +63,5 @@
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, #4f8cef, #4b70e1, #5498f2, #31b4c8);
     }
+
+    

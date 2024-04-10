@@ -1,6 +1,7 @@
 import { DifficultyLevel } from "./difficultyLevel.model";
 import { Room } from "./room.model";
 import { Track } from "./track.model";
+import { User } from "./user.model";
 import { UserRole } from "./userRole.model";
 
 export interface Keynote {
@@ -13,15 +14,16 @@ export interface Keynote {
     // one to one
     room: Room;
     maxNumPersons: number;
+    // active boolean --> cambiar de true a false para archivar
 
     // enumerated
     difficultyLevel: DifficultyLevel; // crear clase
     durationInMin: number;
     // many to one
-    speaker: UserRole; // crear clase
+    speaker: User; // crear clase
     // manyToOne
-    tracks: Track;
+    track: Track;
 
     // ManyToMany
-    attendees: UserRole[]; // ??
+    attendees: User[]; // ??
 }

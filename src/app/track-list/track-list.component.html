@@ -1,55 +1,53 @@
+<div class="container" style = "width: 80%;">
+  <div class="row">
+    <div class="col">
 
+      <h1 class="mt-5 mb-4 text-gradiente" >Listado de tracks</h1>
+      <marquee style="font-size: larger; color: #f65803;" width="400" scrollamount="200" scrolldelay="2000">
+        🥳🤔😁😀🫣 Puedes observar todos los cronogramas existentes...
+      </marquee>
 
-  <div class="container" style = "width: 80%;">
-    <div class="row">
-      <div class="col">
-  
-        <h1 class="mt-5 mb-4 text-gradiente" >Listado de tracks</h1>
-        <marquee style="font-size: larger; color: #f65803;" width="400" scrollamount="200" scrolldelay="2000">
-          🥳🤔😁😀🫣 Puedes observar todos los cronogramas existentes...
-        </marquee>
-  
-        @if (showDeletedBookMessage) {
-          <!--<ngb-alert type="success" [dismissible]="false">Libro borrado correctamente</ngb-alert>-->
-          <ngb-alert type="success" (closed)="hideDeletedBookMessage()">Track borrado correctamente.</ngb-alert>
-        }
-  
-        <table class="table mb-5" style="border-collapse: collapse;">
-          <thead>
+      @if (showDeletedBookMessage) {
+        <!--<ngb-alert type="success" [dismissible]="false">Libro borrado correctamente</ngb-alert>-->
+        <ngb-alert type="success" (closed)="hideDeletedBookMessage()">Track borrado correctamente.</ngb-alert>
+      }
+      
+      <table class="table mb-5">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center-bg-primary">Id</th>
+            <th scope="col" class="text-bg-secondary">Nombre</th>
+            <th scope="col" class="text-bg-primary">Fecha inicio</th>
+            <th scope="col" class="text-bg-primary">Hora inicio</th>
+            <th scope="col" class="text-bg-primary">Fecha fin</th>
+            <th scope="col" class="text-bg-primary">Hora fin</th>
+            <th scope="col" class="text-bg-primary">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (track of tracks; track track.id) {
             <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Fecha inicio</th>
-              <th scope="col">Hora inicio</th>
-              <th scope="col">Fecha fin</th>
-              <th scope="col">Hora fin</th>
-              <th scope="col">Acciones</th>
+              <th scope="row">{{track.id}}</th>
+              <td>{{track.name}}</td>
+              <td>{{track.startDate | date: 'dd/MM/yyyy'}}</td>
+              <td>{{track.startDate | date: 'HH:mm'}}</td>
+              <td>{{track.endDate | date: 'dd/MM/yyyy'}}</td>
+              <td>{{track.endDate | date: 'HH:mm'}}</td>
+
+
+              <td>
+                <button class="btn btn-info" style="background-color: #62AFFE;" [routerLink]="['/tracks', track.id, 'detail']"><i class="bi bi-eye me-1"></i>Ver</button>
+                <button class="btn btn-success ms-2" style="background-color: #49CC90;" [routerLink]="['/tracks', track.id, 'update']"><i class="bi bi-pencil-square me-1"></i>Editar</button>
+                <button class="btn btn-danger ms-2" style="background-color: #F93E3F;" (click)="delete(track)"><i class="bi bi-trash me-1"></i>Borrar</button>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            @for (track of tracks; track track.id) {
-              <tr>
-                <th scope="row">{{track.id}}</th>
-                <td>{{track.name}}</td>
-                <td>{{track.startDate | date: 'dd/MM/yyyy'}}</td>
-                <td>{{track.startDate | date: 'HH:mm'}}</td>
-                <td>{{track.endDate | date: 'dd/MM/yyyy'}}</td>
-                <td>{{track.endDate | date: 'HH:mm'}}</td>
+          } @empty {
+              <h5 class="cbadge text-bg-danger text-decoration-none">No hay tracks</h5>
+          }
 
+        </tbody>
+      </table>
 
-                <td>
-                  <button class="btn btn-info" style="background-color: #62AFFE;" [routerLink]="['/tracks', track.id, 'detail']"><i class="bi bi-eye me-1"></i>Ver</button>
-                  <button class="btn btn-success ms-2" style="background-color: #49CC90;" [routerLink]="['/tracks', track.id, 'update']"><i class="bi bi-pencil-square me-1"></i>Editar</button>
-                  <button class="btn btn-danger ms-2" style="background-color: #F93E3F;" (click)="delete(track)"><i class="bi bi-trash me-1"></i>Borrar</button>
-                </td>
-              </tr>
-            } @empty {
-                <h5 class="cbadge text-bg-danger text-decoration-none">No hay tracks</h5>
-            }
-  
-          </tbody>
-        </table>
-  
-      </div>
     </div>
   </div>
+</div>

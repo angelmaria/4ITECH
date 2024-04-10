@@ -2,13 +2,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserRole } from '../models/userRole.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-user-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.css'
 })
@@ -23,7 +23,7 @@ export class UserFormComponent implements OnInit{
     userName: new FormControl<string>(''),
     password: new FormControl<string>(''),
     address: new FormControl<string>(''),
-    userRole: new FormControl<UserRole>(UserRole.ATTENDEE)
+    userRole: new FormControl<UserRole>(UserRole.USER)
   });
 
   isUpdate: boolean = false; // por defecto estoy en CREAR, no en ACTUALIZAR.
@@ -44,18 +44,7 @@ export class UserFormComponent implements OnInit{
       this.httpClient.get<User>('http://localhost:8080/users/' + id)
       .subscribe(userFromBackend => {
         // cargar el usuario obtenido en el formulario userForm.
-        this.userForm.reset({
-          id: userFromBackend.id,
-          firstName: userFromBackend.firstName,
-          lastName: userFromBackend.lastName,
-          email: userFromBackend.email,
-          phone: userFromBackend.phone,
-          userName: userFromBackend.userName,
-          password: userFromBackend.password,
-          address: userFromBackend.address,
-          userRole: userFromBackend.userRole
-        });
-
+        this.userForm.reset(userFromBackend);
         // marcar boolean isUpdate true
         this.isUpdate = true;
       });
@@ -69,12 +58,12 @@ export class UserFormComponent implements OnInit{
     if (this.isUpdate) { // establezco la url de update:
       const url = 'http://localhost:8080/users/' + user.id;
       this.httpClient.put<User>(url, user).subscribe(userFromBackend => {
-        this.router.navigate(['/users', userFromBackend.id, 'detail']);
+        this.router.navigate(['/users']);
       });
     } else { // establezco la url de create:
       const url = 'http://localhost:8080/users';
       this.httpClient.post<User>(url, user).subscribe(userFromBackend => {
-        this.router.navigate(['/users', userFromBackend.id, 'detail']);
+        this.router.navigate(['/users']);
       });
     }
   }

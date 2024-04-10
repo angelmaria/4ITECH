@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TicketOrderBuy } from '../models/ticketOrderBuy.model';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-ticket-order-buy-list',
   standalone: true,
-  imports: [RouterLink, HttpClientModule,NgbAlertModule],
+  imports: [RouterLink, NgbAlertModule],
   templateUrl: './ticket-order-buy-list.component.html',
   styleUrl: './ticket-order-buy-list.component.css'
 })
@@ -15,8 +16,13 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 export class TicketOrderBuyListComponent implements OnInit {
   ticketOrderBuys: TicketOrderBuy[] = [];
   showDeletedTicketOrderBuyMessage: boolean = false;
+  isAdmin = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthenticationService) {
+      this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+    }
 
   ngOnInit(): void {
     this.loadTicketOrderBuys();
@@ -39,3 +45,4 @@ export class TicketOrderBuyListComponent implements OnInit {
     this.http.get<TicketOrderBuy[]>(url).subscribe(ticketOrderBuys => this.ticketOrderBuys = ticketOrderBuys);
   }
 }
+

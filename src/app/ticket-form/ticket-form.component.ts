@@ -10,7 +10,7 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-ticket-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule,NgbAlertModule],
+  imports: [ReactiveFormsModule,NgbAlertModule],
   templateUrl: './ticket-form.component.html',
   styleUrl: './ticket-form.component.css'
 })

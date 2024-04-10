@@ -1,70 +1,49 @@
-<main class="container">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 mb-4 rounded mt-4 vid-container video-cover">
-            <!-- <h1 class="display-4 fst-italic text-light fw-bold">&commat;4iTech</h1> -->
-              <video autoplay loop muted style="border-radius: 5px;">
-                <source src="assets/videos/4itech_v1.mp4" type="video/mp4">
-              </video>
-        </div>
-        
-        <div class="col-sm-4 mb-4 mt-4">
-          <ngb-carousel>
-            @for (keynote of keynotes; track keynote.id) {
-            <ng-template ngbSlide>
-              <div class="picsum-img-wrapper">
-                <img src="{{keynote.webinarUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']"  class="img-fluid card-img-top zoom">
-              </div>
-              <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius:10px;">
-                <h3><a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-light" style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a></h3>
-              </div>
-            </ng-template>
-          }
-          </ngb-carousel>
+<div class="video-cover vid-container">
+    <video autoplay loop muted>
+      <source src="assets/videos/4itech_v1.mp4" type="video/mp4">
+    </video>
+</div>
+    
+    <!-- <div class="bg-dark text-secondary px-4 py-5 text-center">
+      <div class="py-5">
+        <h1 class="display-5 fw-bold text-white">Dark color hero</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="fs-5 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+          
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom button</button>
+            <button type="button" class="btn btn-outline-light btn-lg px-4">Secondary</button>
+          </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-<div class="row mb-2">
-      <div class="col-md-6">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary-emphasis">Hola Mundo!</strong>
-            <h3 class="mb-0">¡El futuro está aquí, en &commat;4itech!</h3>
-            <div class="mb-1 text-body-secondary">Mayo 8</div>
-            <p class="card-text mb-auto">Desarrollo e implicaciones de la IA en nuestra sociedad</p>
-            <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
-              Continuar leyendo
-              <svg class="bi"><use xlink:href="/keynotes"/></svg>
-            </a>
-          </div>
-          <div class="col-auto d-none d-lg-block">
-            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>4itech</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <img src="assets/img/ticket.jpeg" alt="">
-        </div>
-        <button class="btn btn-primary w-100 py-2 gradient-custom-2 mb-2 fw-bold"  type="submit" routerLink="/tickets" (click)="$event.preventDefault()" >Compra tu ticket Aquí</button>
-      </div>
-    </div>
+<main class="container mt-4">
   
    <div class="row g-5">
       <div class="col-md-8">
-        <h3 class="pb-4 mb-4 fst-italic border-bottom">
-         Donde la innovación y el conocimiento se fusionan en un evento único de charlas tecnológicas.
-        </h3>
-  
+    <!-- sección ticket        -->
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <img src="assets/img/ticket.jpeg" alt="">
+          </div>
+          <button class="btn btn-primary w-100 py-2 gradient-custom-2 mb-2 fw-bold"  type="submit" routerLink="/tickets" (click)="$event.preventDefault()" >Compra tu ticket Aquí</button>
+    <!-- fin sección ticket -->
+        
         <article class="blog-post">
-          <h2 class="display-5 link-body-emphasis mb-1">Descubre las últimas tendencias y avances en el campo de la tecnología</h2>
-          <p class="blog-post-meta">¡Prepárate para ampliar tus horizontes y desafiar tu mente!</p>
-          <p>Nuestro programa de charlas está diseñado para inspirar, educar y entusiasmar a todos los apasionados por la innovación y el progreso.
-          </p>
-          <a href="/keynotes">ver charlas</a>
+      
           <hr>
-
+          <!-- sección tecnologías usadas -->
+          <div class="text-emphasys px-4 py-5 text-center">
+            <h3 class="fw-bold text-secondary mb-4" style="font-family: 'Libre Franklin';">Tecnologias Utilizadas para el desarrollo de &commat;4iTECH</h3>
+            <img src="assets/img/Tecnologias.png" class="img-fluid" alt="Imagen de tecnologias">
+            <div class="py-2">
+              <div class=>
+                <div class=>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- fin sección tecnolgías usadas -->
           <p>Desde inteligencia artificial hasta blockchain, pasando por la realidad aumentada y más allá, en &commat;4itech encontrarás un amplio abanico de temas que explorar y discutir. </p>
           <h3 Class="text-primary">¡Prepárate para ampliar tus horizontes y desafiar tu mente!</h3>
           <p>¡Prepárate para ampliar tus horizontes y desafiar tu mente!</p>
@@ -98,6 +77,8 @@
           <p>Te garantizamos que te sentirás inspirado y motivado para unirte a nosotros en nuestro próximo evento.<a href="/comments">ver reseñas</a>.</p>
  
         </article>
+
+
   
         <article class="blog-post">
 
@@ -114,10 +95,23 @@
   
       <div class="col-md-4">
         <div class="position-sticky" style="top: 2rem;">
-          <div class="p-4 mb-3 bg-body-tertiary rounded">
-            <h4 class="fst-italic">Sobre Nosotros</h4>
-            <p class="mb-0">Somos estudiantes del curso de Desarrollo de web de la FUNDACION ADECCO impartido por el profesor Alan Sastre</p>
+          <div class="p-3 mb-3 bg-body-tertiary rounded">  
+            <h2 class="text-secondary fw-bold" style="font-family: 'Libre Franklin'">Charlas recientes</h2>
+            <!-- <p class="mb-0">Somos estudiantes del curso de Desarrollo de web de la FUNDACION ADECCO impartido por el profesor Alan Sastre</p> -->
           </div>
+
+          <ngb-carousel>
+            @for (keynote of keynotes; track keynote.id) {
+            <ng-template ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img src="{{keynote.webinarUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']"  class="img-fluid card-img-top zoom">
+              </div>
+              <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius:10px;">
+                <h3><a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-light" style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a></h3>
+              </div>
+            </ng-template>
+          }
+          </ngb-carousel>
 
           <div class="p-4">
             <h4 class="fst-italic">¡No esperes más para unirte a la conversación sobre el futuro de la tecnología!</h4>
@@ -144,4 +138,44 @@
       </div>
     </div>
   
+                <!-- Sección sobre nosotros -->
+                <div class="row mb-4" style="justify-content: center;">
+                  <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
+            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'">
+                    <img class="rounded-circle mt-2" src="assets/nosotros/Johana.png" alt="Generic placeholder image" width="140" height="140">
+                    <h3 class="text-secondary mt-3">Johana Macías</h3>
+                    <p class="text-secondary">Desarrolladora Full Stack Java Spring Boot</p>
+                    <p><a class="btn btn-secondary" href="#" role="button">Contacto »</a></p>
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
+            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'">
+                    <img class="rounded-circle mt-2" src="assets/nosotros/Silvia.png" alt="Generic placeholder image" width="140" height="140">
+                    <h3 class="text-secondary mt-3">Silvia Sánchez</h3>
+                    <p class="text-secondary">Desarrolladora Full Stack Java Spring Boot</p>
+                    <p><a class="btn btn-secondary" href="#" role="button">Contacto »</a></p>
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
+            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'">
+                    <img class="rounded-circle mt-2" src="assets/nosotros/Aitor_v1.png" alt="Generic placeholder image" width="140" height="140">
+                    <h3 class="text-secondary mt-3">Aitor Pérez</h3>
+                    <p class="text-secondary">Desarrollador Full Stack Java Spring Boot</p>
+                    <p><a class="btn btn-secondary" href="#" role="button">Contacto »</a></p>
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
+            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'">
+                    <img class="rounded-circle mt-2" src="assets/nosotros/Javier.png" alt="Generic placeholder image" width="140" height="140">
+                    <h3 class="text-secondary mt-3">Javier Baeza</h3>
+                    <p class="text-secondary">Desarrollador Full Stack Java Spring Boot</p>
+                    <p><a class="btn btn-secondary" href="#" role="button">Contacto »</a></p>
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-2" style="box-shadow: 0 0 4px #ccc; padding: 10px;
+            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'">
+                    <img class="rounded-circle mt-2" src="assets/nosotros/Angel.png" alt="Generic placeholder image" width="140" height="140">
+                    <h3 class="text-secondary mt-3">Angel Martínez</h3>
+                    <p class="text-secondary">Desarrollador Full Stack Java Spring Boot</p>
+                    <p><a class="btn btn-secondary" href="#" role="button">Contacto »</a></p>
+                  </div><!-- /.col-lg-4 -->
+                 
+                </div>
+                <!-- fin sección sobre nosotros -->
   </main>

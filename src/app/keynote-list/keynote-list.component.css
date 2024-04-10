@@ -88,7 +88,12 @@ padding-bottom: 2rem !important;
     right: 4rem;
     top: 8rem;
  }
- 
+::placeholder {
+  color: #a5a5a5;
+  font-size: 1.2rem;
+  font-family: 'Libre Franklin';
+} 
+
 
 /* efecto de agrandar las imágenes del grid un 10% */
 img.zoom {

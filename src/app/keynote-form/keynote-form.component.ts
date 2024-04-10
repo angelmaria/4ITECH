@@ -5,12 +5,14 @@ import { Keynote } from '../models/keynote.model';
 import { DifficultyLevel } from '../models/difficultyLevel.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Room } from '../models/room.model';
+import { User } from '../models/user.model';
+import { Track } from '../models/track.model';
 
 
 @Component({
   selector: 'app-keynote-form',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './keynote-form.component.html',
   styleUrl: './keynote-form.component.css'
 })
@@ -25,11 +27,17 @@ export class KeynoteFormComponent implements OnInit {
     room: new FormControl(),
     maxNumPersons: new FormControl<number>(0),
     difficultyLevel: new FormControl<DifficultyLevel>(DifficultyLevel.JUNIOR),
-    durationInMin: new FormControl<number>(0)
+    durationInMin: new FormControl<number>(0),
+    speaker: new FormControl(),
+    track: new FormControl(),
+    attendees: new FormControl()
   })
 
   isUpdate: boolean = false; // por defecto estamos en CREAR no en ACTUALIZAR
   rooms: Room[] = []; // array de rooms para asociar una keynote a una sala
+  speakers: User[] = []; // array de rooms para asociar una keynote a una sala
+  attendees: User[] = []; // array de rooms para asociar una keynote a una sala
+  tracks: Track[] = []; // array de rooms para asociar una keynote a una sala
 
   constructor(private fb: FormBuilder, 
     private httpClient: HttpClient,
@@ -41,7 +49,11 @@ export class KeynoteFormComponent implements OnInit {
     ngOnInit(): void {
       // cargar rooms de backend para el selector de rooms en el formulario
       this.httpClient.get<Room[]>('http://localhost:8080/rooms').subscribe(rooms => this.rooms = rooms);
-  
+      this.httpClient.get<User[]>('http://localhost:8080/users').subscribe(speakers => this.speakers = speakers);
+      this.httpClient.get<User[]>('http://localhost:8080/users').subscribe(attendees => this.attendees = attendees);
+      this.httpClient.get<Track[]>('http://localhost:8080/tracks').subscribe(tracks => this.tracks = tracks);
+
+
       this.activatedRoute.params.subscribe(params => {
         const id = params['id'];
         if(!id) return;
@@ -49,17 +61,7 @@ export class KeynoteFormComponent implements OnInit {
         this.httpClient.get<Keynote>('http://localhost:8080/keynotes/' + id)
         .subscribe(keynoteFromBackend => {
           // cargar el keynote obtenido en el formulario keynoteForm
-          this.keynoteForm.reset({
-            id: keynoteFromBackend.id,
-            title: keynoteFromBackend.title,
-            summary: keynoteFromBackend.summary,
-            description: keynoteFromBackend.description,
-            webinarUrl: keynoteFromBackend.webinarUrl,
-            room: keynoteFromBackend.room,
-            maxNumPersons: keynoteFromBackend.maxNumPersons,
-            difficultyLevel: keynoteFromBackend.difficultyLevel,
-            durationInMin: keynoteFromBackend.durationInMin
-          });
+          this.keynoteForm.reset(keynoteFromBackend);
   
           // marcar boolean true isUpdate
           this.isUpdate = true;
