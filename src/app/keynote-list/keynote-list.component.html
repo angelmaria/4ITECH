@@ -27,6 +27,7 @@
       @if (showDeleteKeynoteMessage) {
         <ngb-alert type="success" (closed)="hideDeleteKeynoteMessage()">Keynote borrado correctamente</ngb-alert>
       }
+      @if (isLoggedIn) {
       <div class="row">
         <!-- Gallery item -->
         @for (keynote of keynotes; track keynote.id) {
@@ -70,6 +71,11 @@
         }
         <!-- End -->
       </div>
+      } @else {
+        <div class="container">
+          <p>Para acceder al listado de charlas debes logarte previamente <button class="btn me-3 ms-3"><a class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio "  routerLink="/login" (click)="$event.preventDefault()" id="" role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Acceder</a></button></p>
+        </div>
+      }
         
       <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase">Mostrar más</a></div>
     </div>

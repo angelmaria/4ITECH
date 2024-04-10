@@ -18,11 +18,13 @@ export class KeynoteListComponent implements OnInit {
   keynotes: Keynote[] = [];
   showDeleteKeynoteMessage: boolean = false;
   isAdmin = false;
+  isLoggedIn = false;
 
   constructor(
     private httpClient: HttpClient,
     private authService: AuthenticationService) {
       this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+      this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
     }
 
   ngOnInit(): void {

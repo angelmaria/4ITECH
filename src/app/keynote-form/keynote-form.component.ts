@@ -23,6 +23,7 @@ export class KeynoteFormComponent implements OnInit {
     title: new FormControl<String>(''),
     summary: new FormControl<String>(''),
     description: new FormControl<String>(''),
+    photoUrl : new FormControl<String>(''),
     webinarUrl: new FormControl<String>(''),
     room: new FormControl(),
     maxNumPersons: new FormControl<number>(0),
@@ -38,13 +39,14 @@ export class KeynoteFormComponent implements OnInit {
   speakers: User[] = []; // array de rooms para asociar una keynote a una sala
   attendees: User[] = []; // array de rooms para asociar una keynote a una sala
   tracks: Track[] = []; // array de rooms para asociar una keynote a una sala
+  photoFile: File | undefined;
+  photoPreview: string | undefined;
 
   constructor(private fb: FormBuilder, 
     private httpClient: HttpClient,
     private router: Router,
-    private activatedRoute: ActivatedRoute) {
-      
-    }
+    private activatedRoute: ActivatedRoute
+  ) {}
 
     ngOnInit(): void {
       // cargar rooms de backend para el selector de rooms en el formulario
