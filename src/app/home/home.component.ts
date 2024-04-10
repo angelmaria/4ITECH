@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { Keynote } from '../models/keynote.model';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 export class NgbdCarouselConfig {
 
@@ -17,7 +17,7 @@ export class NgbdCarouselConfig {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgbCarouselModule, RouterLink, HttpClientModule],
+  imports: [NgbCarouselModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Track } from '../models/track.model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 
 @Component({

@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommentModel } from '../models/commentmodel.model';
@@ -9,7 +9,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-comment-list',
   standalone: true,
-  imports: [RouterLink, HttpClientModule, NgbAlertModule, DatePipe, NgbRatingModule],
+  imports: [RouterLink, NgbAlertModule, DatePipe, NgbRatingModule],
   templateUrl: './comment-list.component.html',
   styleUrl: './comment-list.component.css'
 })

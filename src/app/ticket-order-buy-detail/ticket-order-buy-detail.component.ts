@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TicketOrderBuy } from '../models/ticketOrderBuy.model';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
