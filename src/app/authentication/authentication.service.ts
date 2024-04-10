@@ -15,6 +15,7 @@ export class AuthenticationService {
   isLoggedIn = new BehaviorSubject<boolean>(this.existsToken());
   userEmail = new BehaviorSubject<string>(this.getUserEmail());
   isAdmin = new BehaviorSubject<boolean>(this.getIsAdmin());
+  userRole: any;
 
   constructor() { }
 

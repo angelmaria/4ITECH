@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* CSS botones iniciar sesión y registrase */
+/* CSS botones iniciar sesión, registrase e email al logarse */
 a.inicio, a.registro {
     transition: 0.4s ease;
 }

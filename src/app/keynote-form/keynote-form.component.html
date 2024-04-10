@@ -70,6 +70,29 @@
             <input type="number" class="form-control" id="durationInMin" formControlName="durationInMin">
             <label for="durationInMin">Duración de la charla (min)</label>
           </div>
+
+          <!-- Selector simple -->
+          <div class="form-floating mb-3">
+            <select class="form-select" id="speaker" formControlName="speaker" [compareWith]="compareObjects">
+                <option selected disabled>Elegir un ponente</option>
+              <!-- iterar sobre el array de speakers mostrando cada uno -->
+              @for (speaker of speakers; track speaker.id) {
+                <option [ngValue]="speaker">{{speaker}}</option>
+              }
+            </select>
+            <label for="speaker">Ponente</label>
+          </div>
+
+          <!-- Selector simple -->
+          <!-- <div class="form-floating mb-3">
+            <select class="form-select" id="track" formControlName="track" [compareWith]="compareObjects">
+                <option selected disabled>Elegir un track</option>
+              @for (track of tracks; track ???.id) {
+                <option [ngValue]="track">{{track}}</option>
+              }
+            </select>
+            <label for="track">track</label>
+          </div> -->
     
           @if (isUpdate) {
             <button class="btn btn-success" type="submit">Actualizar</button>
