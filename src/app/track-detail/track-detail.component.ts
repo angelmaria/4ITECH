@@ -3,6 +3,7 @@ import { Track } from '../models/track.model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { Keynote } from '../models/keynote.model';
 
 @Component({
   selector: 'app-track-detail',
@@ -14,6 +15,7 @@ import { DatePipe } from '@angular/common';
 export class TrackDetailComponent implements OnInit {
 
   track: Track | undefined;
+  keynotes: Keynote[] = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -25,11 +27,17 @@ export class TrackDetailComponent implements OnInit {
     // traer el track de backend utilizando petición HTTP GET
     this.activatedRoute.params.subscribe(params => {
       const id = params['id'];
-      if (!id) return;
+      if (!id) { 
+        return;
+      }
       const backendUrl = 'http://localhost:8080/tracks/' + id;
       this.http.get<Track>(backendUrl).subscribe(trackBackend => {
         this.track = trackBackend;
         console.log(this.track);
+
+       // traer las keynotes del track
+       this.http.get<Keynote[]>('http://localhost:8080/keynotes/filter-by-track/' + id)
+       .subscribe(keynotes => this.keynotes = keynotes);
       });
 
     });

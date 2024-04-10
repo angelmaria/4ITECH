@@ -14,6 +14,7 @@ import { DatePipe } from '@angular/common';
 export class KeynoteDetailComponent implements OnInit {
 
   keynote: Keynote | undefined;
+  
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -31,6 +32,7 @@ export class KeynoteDetailComponent implements OnInit {
       this.httpClient.get<Keynote>(url).subscribe(keynoteBackend => {
         this.keynote = keynoteBackend;
         console.log(this.keynote);
+        
       });
 
       // a mayores, se podría llamar a otros controladores y traer más datos
