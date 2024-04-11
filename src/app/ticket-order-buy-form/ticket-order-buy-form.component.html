@@ -1,72 +1,192 @@
-<div class="container py-3 background-gradient">
-    
+<div class="container py-3 background-gradient" style="max-width:960px; margin-bottom: 80px !important;">
   <header>
-      <div class="pricing-header p-3 pb-md-5 mx-auto text-center">
-          <h1 class="display-4 fw-normal text-body-emphasis text-primary"><strong>Aquí esta tu orden de compra</strong></h1>
-          <p class="fs-5 text-body-secondary">Edita o actualiza la información de las ordenes de compra</p>
-      </div>
+    <div class="pricing-header p-3 pb-md-5 mx-auto text-center">
+
+
+
+      @if (ticket) {
+      <h2>Compra tu ticket {{ticket.id}} </h2>
+    }@else {
+      <h1 class="display-4 fw-normal text-body-emphasis text-primary"><strong>Aquí esta tu orden de compra</strong></h1>
+    }
+      <p class="lead fs-5 text-body-secondary">Edita o actualiza la información de las ordenes de compra</p>
+      <img class="d-block mx-auto mb-4" src="/assets/Ticket/img/compras.gif" alt="" width="72" height="57">
+    </div>
   </header>
 
-  <div class="row justify-content-center align-items-center">
-      <div class="col-md-6">
-          <form [formGroup]="ticketOrderBuyForm" (ngSubmit)="save()" class="form">
-              <div class="mb-3">
-                  <label for="id" class="form-label">ID</label>
-                  <input type="text" id="id" class="form-control form-input" formControlName="id">
-              </div>
-              <div class="mb-3">
-                  <label for="date" class="form-label">Fecha</label>
-                  <input type="date" class="form-control form-input" id="date" formControlName="date">
-              </div>
-              <div class="mb-3">
-                  <label for="discount" class="form-label">Descuento</label>
-                  <select class="form-select form-input" id="discount" formControlName="discount">
-                      <option selected disabled>Selecciona un descuento</option>
-                      <option value="20">20%</option>
-                  </select>
-              </div>
-              <div class="mb-3">
-                  <label for="totalPrice" class="form-label">Precio Total</label>
-                  <select class="form-select form-input" id="totalPrice" formControlName="totalPrice">
-                      <option value="50">50 euros</option>
-                      <option value="100">100 euros</option>
-                  </select>
-              </div>
-              <div class="mb-3">
-                  <label for="quantity" class="form-label">Cantidad</label>
-                  <input min="1" max="15" type="number" class="form-control form-input" id="quantity" formControlName="quantity">
-                  <small class="form-text text-muted">Máximo 15 tickets por compra.</small>
-              </div>
-              <div class="mb-3">
-                  <label for="paymentMethod" class="form-label">Método de Pago</label>
-                  <select class="form-select form-input" id="paymentMethod" formControlName="paymentMethod">
-                      <option selected disabled>Selecciona un método</option>
-                      <option value="tarjeta">Tarjeta débito</option>
-                      <option value="tarjeta2">Tarjeta crédito</option>
-                      <option value="paypal">Paypal</option>
-                  </select>
-              </div>
-              <div class="mb-3">
-                  <label class="form-label">Método de Compra</label>
-                  <div class="form-check">
-                      <input class="form-check-input" type="radio" id="online" formControlName="paymentMethod" value="online">
-                      <label class="form-check-label" for="online">Compra Online</label>
-                  </div>
-                  <div class="form-check">
-                      <input class="form-check-input" type="radio" id="offline" formControlName="paymentMethod" value="offline">
-                      <label class="form-check-label" for="offline">Compra Offline</label>
-                  </div>
-              </div>
-              <div class="mb-3">
-                  <label for="qrUrl" class="form-label">URL del QR</label>
-                  <input type="text" class="form-control form-input" id="qrUrl" formControlName="qrUrl">
-              </div>
-              <div class="button-container">
-                  <button type="submit" class="w-100 btn btn-lg btn-outline-info  p-1 me-5" style="display: block;" >Comprar</button>
-                  <button type="submit" class="w-100 btn btn-lg btn-outline-primary  p-1 me-5" style="display: block;">Actualizar Ticket</button>
-                  <button type="button" class="w-100 btn btn-lg btn-outline-danger  p-1 me-5" style="display: block;">Cancelar</button>
-              </div>
-          </form>
+
+    
+  <main>
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3 text-start">
+          <span class="text-primary">Precios</span>
+          <span class="badge bg-primary rounded-pill">1 día</span>
+        </h4>
+        
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Precio por día</h6>
+              <small class="text-body-secondary">1 x 50 EUR</small>
+            </div>
+            <span class="text-body-secondary">50 EUR</span>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Compra Online</h6>
+              <small class="text-body-secondary">Obten el 20 % de descuento comprando online</small>
+            </div>
+            <span class="text-body-secondary">-10 EUR</span>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>Soy4itech</small>
+            </div>
+            <span class="text-success">40 EUR</span>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (EUR)</span>
+            <strong>40 EUR</strong>
+          </li>
+        </ul>
+
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </form>
+
+        <hr class="my-4">
       </div>
-  </div>
+
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3 text-start">Datos de la compra</h4>
+        <hr class="my-4">
+        <form class="needs-validation" novalidate=" ">
+
+
+          <!-- aqui fecha  de charlas -->
+        <ul class="list-group mb-3">
+            <li class="list-group-item lh-sm ">
+
+          <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="startDate"
+            formControlName="startDate" placeholder="yyyy-mm-dd" (change)="calculatePrice()">
+            <label for="startDate">Fecha Día 1</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="finishDate"
+            formControlName= "finishDate" placeholder="yyyy-mm-dd" (change)="calculatePrice()">
+            <label for="finishDate">Fecha Día 2</label>
+          </div>
+
+          <ul class="list-group mb-3">
+          @if (ticketPrice > 0) {
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                  <h6 class="my-0">Precio por día</h6>
+                  <small class="text-body-secondary">{{Quantity}} + {{ticket?.price}}</small>
+              </div>
+              <span class="text-body-secondary">{{ticketPrice | currency:'EUR':'symbol':'1.2-2'}}</span>
+          </li>
+          }
+          <strong>{{totalPrice | currency:'EUR':'symbol':'1.2-2'}}</strong>
+
+
+          <hr class="my-4">
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="isPremiumShip"
+            formControlName="isPremiumShip" (change)="calculatePrice()">
+            <label class="form-check-label" for="isPremiumShip">
+              Eres estudiante adecco.
+            </label>
+          </div>
+
+
+          <hr class="my-4">
+
+              @if(ticketOrderBuyForm.get('isPremiumShip')?.value) {
+              <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                      <h6 class="my-0">Ticket dos días</h6>
+                      <small class="text-body-secondary">ticket diamante</small>
+                  </div>
+              <span class="text-body-secondary">{{totalPrice}}</span>
+            </li>
+            }
+
+            @if(extraPrice > 0) {
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0">ticket un solo día</h6>
+                <small class="text-body-secondary">ticket plata</small>
+              </div>
+              <span class="text-body-secondary">{{extraPrice}}</span>
+            </li>
+            }
+          </ul>
+
+
+          <div class="mb-3">
+              <label for="quantity" class="form-label"><strong>Cantidad de tickets a comprar</strong></label>
+              <input min="1" max="15" type="number" class="form-control form-input" id="quantity" name="quantity" [(ngModel)]="Quantity" (change)="calculatePrice()">
+              <small class="form-text text-muted">Máximo 15 tickets por compra.</small>
+            </div>
   
+          <div class="mb-3">
+            <label for="paymentMethod" class="form-label"> <strong>Método de Pago</strong></label>
+            <select class="form-select form-input" id="paymentMethod">
+              <option selected disabled>Selecciona un método</option>
+              <option value="tarjeta">Tarjeta débito</option>
+              <option value="tarjeta2">Tarjeta crédito</option>
+              <option value="paypal">Paypal</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label"> <strong>Método de Compra</strong></label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="online">
+              <label class="form-check-label" for="online">Compra Online</label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" id="offline">
+              <label class="form-check-label" for="offline">Compra Offline </label>
+            </div>
+          </div>
+
+          <div class="form-floating mb-3">
+            <select class="form-select" id="codigoqrUrl">
+              <option >4itechUrl</option>
+            </select>
+
+          </div>
+          <div class="button-container">
+          </div>
+            </li>
+          </ul>
+        </form>
+
+        <div class="button-container">
+          <button type="submit" class="btn btn-lg btn-outline-primary p-1 me-3">Comprar</button>
+          <button type="submit" class="btn btn-lg btn-outline-info p-1 me-3">Actualizar Ticket</button>
+          <button type="button" class="btn btn-lg btn-outline-danger p-1 me-3" [routerLink]="['/tickets', ticket?.id]">Cancelar</button>
+        </div>
+        
+      </div>
+      </div>
+  </main>
+</div>
+
+
+
+

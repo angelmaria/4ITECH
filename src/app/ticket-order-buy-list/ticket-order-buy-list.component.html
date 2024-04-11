@@ -31,12 +31,12 @@
                 <td>{{ticketOrderBuy.id}}</td>
               </tr>
               <tr class="table-secondary">
-                <th >Fecha</th>
-                <td>{{ticketOrderBuy.date}}</td>
+                <th >Fecha - Hora</th>
+                <td> {{ticketOrderBuy.startDate| date: 'dd/MM/yyyy'}} </td>
               </tr>
               <tr class="table-secondary">
                 <th>Descuento</th>
-                <td>{{ticketOrderBuy.discount}}</td>
+                <td>{{ticketOrderBuy.discount}}%</td>
               </tr>
     <tr class="table-secondary">
                 <th>Precio Total</th>

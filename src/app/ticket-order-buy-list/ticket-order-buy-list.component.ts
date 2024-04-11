@@ -4,11 +4,12 @@ import { RouterLink } from '@angular/router';
 import { TicketOrderBuy } from '../models/ticketOrderBuy.model';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthenticationService } from '../authentication/authentication.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-ticket-order-buy-list',
   standalone: true,
-  imports: [RouterLink, NgbAlertModule],
+  imports: [RouterLink, NgbAlertModule, CommonModule],
   templateUrl: './ticket-order-buy-list.component.html',
   styleUrl: './ticket-order-buy-list.component.css'
 })

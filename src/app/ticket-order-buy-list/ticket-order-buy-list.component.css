@@ -18,12 +18,12 @@ section article.text h1[data-v-6dfea62d] {
         z-index: 10;
         position: relative;
         line-height: 1.05;
-        color: rgba(12, 4, 133, 0.75);
+        color: #0d0485f9;
 }
 .custom-table {
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid #8197b0;
+    border: 2px solid #a1cdfe;
     border-radius: 20px; 
   }
   .custom-table {
@@ -33,7 +33,7 @@ section article.text h1[data-v-6dfea62d] {
   
   /* Estilos para las celdas de encabezado */
   .custom-table th {
-    background: linear-gradient(to bottom, rgb(30, 0, 255));
+    background: linear-gradient(to bottom, #1e00ff);
     color: #170073; /* Color del texto en las celdas de encabezado */
     font-weight: bold; /* Texto en negrita */
     padding: 10px; /* Espaciado interno */
