@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Keynote } from '../models/keynote.model';
 import { DifficultyLevel } from '../models/difficultyLevel.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Room } from '../models/room.model';
 import { User } from '../models/user.model';
 import { Track } from '../models/track.model';
@@ -12,7 +12,7 @@ import { Track } from '../models/track.model';
 @Component({
   selector: 'app-keynote-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './keynote-form.component.html',
   styleUrl: './keynote-form.component.css'
 })
@@ -36,9 +36,9 @@ export class KeynoteFormComponent implements OnInit {
 
   isUpdate: boolean = false; // por defecto estamos en CREAR no en ACTUALIZAR
   rooms: Room[] = []; // array de rooms para asociar una keynote a una sala
-  speakers: User[] = []; // array de rooms para asociar una keynote a una sala
-  attendees: User[] = []; // array de rooms para asociar una keynote a una sala
-  tracks: Track[] = []; // array de rooms para asociar una keynote a una sala
+  speakers: User[] = []; // array de speakers para asociar una keynote a un ponente
+  attendees: User[] = []; // array de antendees para asociar un usuario a una keynote
+  tracks: Track[] = []; // array de tracks para asociar una keynote a un track
   photoFile: File | undefined;
   photoPreview: string | undefined;
 
@@ -69,6 +69,22 @@ export class KeynoteFormComponent implements OnInit {
           this.isUpdate = true;
         });
       });
+    }
+
+    onFileChange(event: Event) {
+      console.log(event);
+      let target = event.target as HTMLInputElement;
+
+      if(target.files === null || target.files.length == 0) {
+        return; // no se procesa ningún archivo
+      }
+
+      this.photoFile = target.files[0]; // guardar el archivo para enviarlo luego en el save()
+
+    // OPCIONAL: PREVISUALIZAR LA IMAGEN POR PANTALLA
+    let reader = new FileReader();
+    reader.onload = event => this.photoPreview = reader.result as string;
+    reader.readAsDataURL(this.photoFile);
     }
   
       save(){

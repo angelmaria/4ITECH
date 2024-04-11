@@ -9,7 +9,8 @@ export interface Keynote {
     id: number;
     title: string; 
     summary: string;
-    description: string; 
+    description: string;
+    photoUrl: string; 
     webinarUrl: string;
     // one to one
     room: Room;
