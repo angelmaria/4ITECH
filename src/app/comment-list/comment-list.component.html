@@ -1,63 +1,84 @@
-
-
 <div class="container">
-    <div class="row">
-      <div class="col">
-  
-        <h1 class="mt-5 mb-5 text-gradiente">Listado de Comentarios</h1>
-  
-        @if (showDeletedCommentMessage) {
-          <!--<ngb-alert type="success" [dismissible]="false">Comentario borrado correctamente</ngb-alert>-->
-          <ngb-alert type="success" (closed)="hideDeletedCommentMessage()">Comentario borrado correctamente.</ngb-alert>
-        }
-  
-        <table class="table mb-5" style="border-collapse: collapse;" >
-          <thead>
-            <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Fecha</th>
-              <th scope="col">Valoración</th>
-              <th scope="col">Reseña</th>
-              <th scope="col">Usuario</th>
-              <th scope="col">Charla</th>
-              <th scope="col">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            @for (comment of comments; track comment.id) {
-              <tr>
-                <th scope="row">{{comment.id}}</th>
-                <td>{{comment.dateTime | date:'dd/MM/yyyy'}}<br>{{comment.dateTime | date: 'HH:mm:ss'}}</td>
-                <td><ngb-rating [(rate)]="comment.rating"  [max]="5" [readonly]="true" formControlName="rating">
-                  <ng-template let-fill="fill" let-index="index">
-                    <i class="bi-star{{ fill === 100 ? '-fill' : '' }}" style="color: rgb(222, 191, 39); margin: 4px;"></i>
-                  </ng-template>
-                </ngb-rating></td>
-                <td>{{comment.opinion}}</td>  
-                <td>
-                  <a class="badge text-bg-secondary text-decoration-none" [routerLink]="['/users', comment.user.id, 'detail']">
-                    {{comment.user.firstName}}
-                  </a>
-                </td>
-                <td>
-                  <a class="badge text-bg-warning text-decoration-none" [routerLink]="['/keynotes', comment.keynote.id, 'detail']">
-                    {{comment.keynote.title}}
-                  </a>
-                </td>
-                <td>
-                  <button class="btn btn-info mb-1 me-1" style="background-color: #62AFFE;" [routerLink]="['/comments', comment.id, 'detail']"><i class="bi bi-eye me-1"></i>Ver</button>
-                  <button class="btn btn-success mb-1 me-1" style="background-color: #49CC90;" [routerLink]="['/comments', comment.id, 'update']"><i class="bi bi-pencil-square me-1"></i>Editar</button>
-                  <button class="btn btn-danger mb-1 " style="background-color: #F93E3F;" (click)="delete(comment)"><i class="bi bi-trash me-1"></i>Borrar</button>
-                </td>
-              </tr>
-            
-            }
-  
-          </tbody>
-        </table>
-  
+  <div class="row">
+    <div class="col">
+
+      <h1 class="mt-5 mb-5 text-gradiente">Listado de Comentarios</h1>
+
+      @if (showDeletedCommentMessage) {
+      <!--<ngb-alert type="success" [dismissible]="false">Comentario borrado correctamente</ngb-alert>-->
+      <ngb-alert type="success" (closed)="hideDeletedCommentMessage()">Comentario borrado correctamente.</ngb-alert>
+      }
+      @if (isLoggedIn) {
+      <table class="table mb-5" style="border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th scope="col" class="text-center-bg-primary"></th>
+
+            <th scope="col" class="text-center-bg-primary">Id</th>
+            <th scope="col" class="text-bg-secondary">Fecha</th>
+            <th scope="col" class="text-bg-primary">Valoración</th>
+            <th scope="col" class="text-bg-secondary">Reseña</th>
+            <th scope="col" class="text-bg-primary">Usuario</th>
+            <th scope="col" class="text-bg-secondary">Charla</th>
+            <th scope="col" class="text-bg-primary">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (comment of comments; track comment.id) {
+          <tr>
+            <th scope="row" class="text-center-bg-primary"></th>
+
+            <td scope="row" class="text-center-bg-primary"><strong>{{comment.id}}</strong></td>
+            <td>{{comment.dateTime | date:'dd/MM/yyyy'}}<br>{{comment.dateTime | date: 'HH:mm:ss'}}</td>
+            <td><ngb-rating [(rate)]="comment.rating" [max]="5" [readonly]="true" formControlName="rating">
+                <ng-template let-fill="fill" let-index="index">
+                  <i class="bi-star{{ fill === 100 ? '-fill' : '' }}"
+                    style="color: rgb(222, 191, 39); margin: 4px;"></i>
+                </ng-template>
+              </ngb-rating></td>
+            <td>{{comment.opinion}}</td>
+            <td>
+              <a class="badge text-bg-secondary text-decoration-none"
+                [routerLink]="['/users', comment.user.id, 'detail']">
+                {{comment.user.firstName}}
+              </a>
+            </td>
+            <td>
+              <a class="badge text-bg-warning text-decoration-none"
+                [routerLink]="['/keynotes', comment.keynote.id, 'detail']">
+                {{comment.keynote.title}}
+              </a>
+            </td>
+            <td>
+              <button class="btn btn-info mb-1 me-1" style="background-color: #62AFFE;"
+                [routerLink]="['/comments', comment.id, 'detail']"><i class="bi bi-eye me-1"></i>Ver</button>
+              @if (isAdmin) {
+              <button class="btn btn-success mb-1 me-1" style="background-color: #49CC90;"
+                [routerLink]="['/comments', comment.id, 'update']"><i
+                  class="bi bi-pencil-square me-1"></i>Editar</button>
+              <button class="btn btn-danger mb-1 " style="background-color: #F93E3F;" (click)="delete(comment)"><i
+                  class="bi bi-trash me-1"></i>Borrar</button>
+
+              }
+            </td>
+          </tr>
+
+          }
+
+        </tbody>
+      </table>
+
+      } @else {
+      <div class="container">
+        <p><strong>Para ver listado de comentarios debes acceder como usuario registrado</strong><button class="btn me-3 ms-3"><a
+              class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio " routerLink="/register"
+              (click)="$event.preventDefault()" id="" role="button"><i
+                class="bi bi-box-arrow-in-right me-2"></i>Acceder</a></button></p>
       </div>
+      }
+
+
+
     </div>
   </div>
-  
-  
+</div>

@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { Track } from '../models/track.model';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 
 @Component({
@@ -18,7 +19,16 @@ export class TrackListComponent implements OnInit {
   tracks: Track[] = [];
   showDeletedBookMessage: boolean = false;
 
-  constructor(private httpClient: HttpClient) {};
+  isAdmin = false;
+  isLoggedIn = false;
+
+  constructor(private httpClient: HttpClient,
+              private authService: AuthenticationService
+  ) {
+    this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+    this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+
+  };
 
   ngOnInit(): void {
     // traer una lista de tracks del backend: crea y ejecuta una petición HTTP contra un controlador Backend

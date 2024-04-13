@@ -1,11 +1,11 @@
 table {
-    background-color: rgb(211, 244, 208); /* Color de fondo para toda la tabla */
+    background-color:  #a7c9f5; /* Color de fondo para toda la tabla */
 }
 tr:nth-child(even) {
-    background-color: #62ed6c; /* Color de fondo para filas alternas */
+    background-color: #2f6ac9; /* Color de fondo para filas alternas */
 }
 td {
-    background-color: #e6fcd3; /* Color de fondo para celdas */
+    background-color: #c3d7f1; /* Color de fondo para celdas */
 }
 td {
     box-shadow: 2px 2px 5px rgba(93, 221, 172, 0.2); /* Sombra en las celdas */
@@ -15,7 +15,7 @@ td {
 }
 .text-gradiente {
 
-    background: linear-gradient(to right, #1fa746, #6feb82, #7890e9, #10a3b9);
+    background: linear-gradient(to right, #104ba8, #2f6ac9, #4184da, #69a8f9);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { CommentModel } from '../models/commentmodel.model';
 import { NgbAlertModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 
 @Component({
@@ -20,7 +21,14 @@ export class CommentListComponent implements OnInit {
   keynote: any;
   user: any;
 
-  constructor(private http: HttpClient) {}
+  isAdmin = false;
+  isLoggedIn = false;
+  constructor(private http: HttpClient,
+              private authService:AuthenticationService
+  ) {this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+    this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+
+  }
     
   ngOnInit(): void {
 

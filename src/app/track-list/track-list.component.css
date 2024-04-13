@@ -4,33 +4,21 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-/*
+
 table {
-    background-color: grey; /* Color de fondo para toda la tabla 
+    background-color: #e3c9b6; /* Color de fondo para toda la tabla  */
+
+
 }
 tr:nth-child(even) {
-    background-color: #a69f99; /* Color de fondo para filas alternas 
+    background-color: #5890ea; /* Color de fondo para filas alternas */
 }
 td {
-    background-color: #f3f0e8; /* Color de fondo para celdas 
+    background-color: #eaccb6; /* Color de fondo para celdas */
 }
 td {
-    box-shadow: 2px 2px 5px rgba(106, 5, 5, 0.2); /* Sombra en las celdas 
-    border: 1px solid #f4b8b8; /* Borde en las celdas 
-}
-*/
-
-table {
-    border-collapse: collapse;
-    background-color: #d38484;
-  }
-  
-  table, th, td {
-    border: 1px solid rgb(133, 88, 88);
-  }
-  td {
-    box-shadow: 2px 2px 5px rgba(183, 74, 74, 0.2); 
-    border: 1px solid #f4b8b8; 
+    box-shadow: 2px 2px 5px #e66cc1; /* Sombra en las celdas */
+    border: 1px solid #dd3675; /* Borde en las celdas */
     border-radius: 10px;
+    border-style: ridge;
 }
-

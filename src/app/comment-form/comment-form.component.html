@@ -7,6 +7,7 @@
       } @else {
         <h1 class="mt-5 mb-3 text-gradiente">Escribe tu comentario</h1>
       }
+      @if (isLoggedIn) {
 
         <div class="mb-5">
           <form class="border-form-ppal" [formGroup]="commentForm" (ngSubmit)="save()">
@@ -80,6 +81,19 @@
         </div>
         
 
+        
+
+      } @else {
+      <div class="container">
+        <p><strong>Para crear comentarios debes acceder como usuario registrado</strong>
+        <button class="btn me-3 ms-3"><a
+              class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio " routerLink="/register"
+              (click)="$event.preventDefault()" id="" role="button"><i
+                class="bi bi-box-arrow-in-right me-2"></i>Acceder</a></button></p>
+      </div>
+      }
+
+       
     </div>
   </div>
 </div>

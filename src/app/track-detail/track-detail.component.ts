@@ -4,6 +4,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { Keynote } from '../models/keynote.model';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-track-detail',
@@ -16,11 +17,14 @@ export class TrackDetailComponent implements OnInit {
 
   track: Track | undefined;
   keynotes: Keynote[] = [];
+  isAdmin = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private authService: AuthenticationService
+  ) {      this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+  }
 
   ngOnInit(): void {
     // extraer el id de la url
