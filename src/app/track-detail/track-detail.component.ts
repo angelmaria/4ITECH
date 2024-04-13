@@ -33,7 +33,7 @@ export class TrackDetailComponent implements OnInit {
       const backendUrl = 'http://localhost:8080/tracks/' + id;
       this.http.get<Track>(backendUrl).subscribe(trackBackend => {
         this.track = trackBackend;
-        console.log(this.track);
+        //console.log(this.track);
 
        // traer las keynotes del track
        this.http.get<Keynote[]>('http://localhost:8080/keynotes/filter-by-track/' + id)

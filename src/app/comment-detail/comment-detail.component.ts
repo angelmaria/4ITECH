@@ -17,7 +17,6 @@ export class CommentDetailComponent implements OnInit{
 
   comment: CommentModel | undefined;
   rating = 0;
-commentForm: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,

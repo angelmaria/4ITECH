@@ -33,6 +33,7 @@ export class CommentFormComponent implements OnInit {
   users: User[] = [];
   keynotes: Keynote[] = [];
   rating = 0;
+  dateTime = new Date();
 
   
   
