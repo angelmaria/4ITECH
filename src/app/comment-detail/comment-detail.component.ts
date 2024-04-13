@@ -4,6 +4,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommentModel } from '../models/commentmodel.model';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 
 @Component({
@@ -17,12 +18,15 @@ export class CommentDetailComponent implements OnInit{
 
   comment: CommentModel | undefined;
   rating = 0;
-commentForm: any;
+  isAdmin = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private authService: AuthenticationService
+  ) {this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+
+  }
 
   ngOnInit(): void {
 

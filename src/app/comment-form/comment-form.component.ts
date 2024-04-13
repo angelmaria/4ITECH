@@ -7,6 +7,7 @@ import { Keynote } from '../models/keynote.model';
 import { CommentModel } from '../models/commentmodel.model';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-comment-form',
@@ -33,16 +34,28 @@ export class CommentFormComponent implements OnInit {
   users: User[] = [];
   keynotes: Keynote[] = [];
   rating = 0;
+  dateTime = new Date();
 
-  
+  isAdmin = false;
+  isLoggedIn = false;
+
   
 
   constructor(private fb: FormBuilder,
     private httpClient: HttpClient,
     private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthenticationService) {
+      this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+      this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
 
-  }
+      
+    }
+
+    
+    
+
+  
 
   ngOnInit(): void {
 
@@ -75,12 +88,12 @@ export class CommentFormComponent implements OnInit {
   }
   
   save() {
-    console.log('saving');
+    //console.log('saving');
     
     const comment: CommentModel = this.commentForm.value as CommentModel;
       //console.log(comment);
       comment.dateTime = new Date();
-      console.log(comment);
+      //console.log(comment);
       
 
       if (this.isUpdate) {

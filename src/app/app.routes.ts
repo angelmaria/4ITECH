@@ -133,13 +133,11 @@ export const routes: Routes = [
     },
     {
         path: 'comments/create',
-        component: CommentFormComponent,
-        canActivate: [userRoleGuard]
+        component: CommentFormComponent
     },
     {
         path: 'comments/:id/update',
-        component: CommentFormComponent,
-        canActivate: [userRoleGuard]
+        component: CommentFormComponent
     },
     {
         path: 'users',
@@ -183,7 +181,9 @@ export const routes: Routes = [
     },
     {
         path: 'rooms/:id/update',
-        component: RoomFormComponent
+        component: RoomFormComponent,
+        canActivate: [userRoleGuard]
+
     },
      
 

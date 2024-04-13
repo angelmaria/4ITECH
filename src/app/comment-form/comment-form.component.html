@@ -5,8 +5,9 @@
       @if (isUpdate) {
         <h1 class="mt-5 mb-3 text-gradiente">Actualizar comentario con id:  {{commentForm.get('id')?.value}}</h1>
       } @else {
-        <h1 class="mt-5 mb-3 text-gradiente">Crear nuevo comentario</h1>
+        <h1 class="mt-5 mb-3 text-gradiente">Escribe tu comentario</h1>
       }
+      @if (isLoggedIn) {
 
         <div class="mb-5">
           <form class="border-form-ppal" [formGroup]="commentForm" (ngSubmit)="save()">
@@ -26,20 +27,6 @@
             <pre style="font-size: larger; border-radius:5px;"><span class="badge text-bg-primary ms-1 me-3">Valoración: <b>{{commentForm.get('rating')?.value ?? 0}}</b></span></pre>
           </div>
 
-          <div class="form-floating mb-3 border-form">
-            <!--[(ngModel)]="commentForm.dateTime" readonly>-->
-            <!--<input type="datetime-local" class="form-control option-int" id="dateTime" formControlName="dateTime"
-            [ngModel]="dateTime | date:'yyyy-MM-ddTHH:mm'" [readonly]="true"> -->
-           
-            <label for="dateTime">Fecha de creación del comentario</label>
-          </div>
-           
-          <div class="form-floating mb-3">
-            
-            <textarea style="height: 150px;" class="form-control border-form"  id="opinion" formControlName="opinion"  rows="3" ></textarea>
-            <label for="opinion" class="form-label "style="font-size:larger">Reseña</label>
-          </div>
-
           <div class="form-floating mb-3 border-form" >
             <select class="form-select option-int"  id="keynote" formControlName="keynote" [compareWith]="compareObjects">
 
@@ -53,6 +40,21 @@
             <label for="keynote">Charla del comentario</label>
           </div>
 
+          <div class="form-floating mb-3">
+            
+            <textarea style="height: 150px;" class="form-control border-form"  id="opinion" formControlName="opinion"  rows="3" ></textarea>
+            <label for="opinion" class="form-label "style="font-size:larger">Reseña</label>
+          </div>
+
+          <div class="form-floating mb-3 border-form">
+            <!--[(ngModel)]="commentForm.dateTime" readonly>-->
+            <input type="datetime-local" class="form-control option-int" id="dateTime" formControlName="dateTime"
+            [ngModel]="dateTime | date:'yyyy-MM-ddTHH:mm'" [readonly]="true">
+           
+            <label for="dateTime">Fecha de creación del comentario</label>
+          </div>
+           
+      
           <div class="form-floating mb-5 border-form">
             <select class="form-select option-int"  id="user" formControlName="user" [compareWith]="compareObjects">
 
@@ -68,9 +70,9 @@
 
 
           @if (isUpdate) {
-            <button class="w-100 btn btn-lg btn-outline-light  p-1 me-3 mb-3" style="display: block;background-color: #150e79;" type="submit"><i class="bi bi-wrench-adjustable me-2"></i>Actualizar</button>
+            <button class="w-100 btn btn-lg btn-outline-light  p-1 me-3 mb-3" style="display: block;background-color: #1a119a;" type="submit"><i class="bi bi-wrench-adjustable me-2"></i>Actualizar comentario</button>
           } @else {
-            <button class="w-100 btn btn-lg btn-outline-primary  p-1 me-3 mb-3" style="display: block; background-color: #49CC90;" type="submit">🪄 Crear</button>
+            <button class="w-100 btn btn-lg btn-outline-light p-1 me-3 mb-3" style="display: block; background-color: #1a119a;" type="submit">🪄 Crear comentario</button>
           }
 
 
@@ -79,6 +81,19 @@
         </div>
         
 
+        
+
+      } @else {
+      <div class="container">
+        <p><strong>Para crear comentarios debes acceder como usuario registrado</strong>
+        <button class="btn me-3 ms-3"><a
+              class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio " routerLink="/register"
+              (click)="$event.preventDefault()" id="" role="button"><i
+                class="bi bi-box-arrow-in-right me-2"></i>Acceder</a></button></p>
+      </div>
+      }
+
+       
     </div>
   </div>
 </div>
