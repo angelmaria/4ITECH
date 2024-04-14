@@ -41,6 +41,7 @@ export class KeynoteFormComponent implements OnInit {
   tracks: Track[] = []; // array de tracks para asociar una keynote a un track
   photoFile: File | undefined;
   photoPreview: string | undefined;
+  keynote: Keynote | undefined;
 
   constructor(private fb: FormBuilder, 
     private httpClient: HttpClient,
@@ -49,7 +50,7 @@ export class KeynoteFormComponent implements OnInit {
   ) {}
 
     ngOnInit(): void {
-      // cargar rooms de backend para el selector de rooms en el formulario
+      // cargar rooms, speakers, atendeeds y tracks de backend para el selector correspondiente en el formulario
       this.httpClient.get<Room[]>('http://localhost:8080/rooms').subscribe(rooms => this.rooms = rooms);
       this.httpClient.get<User[]>('http://localhost:8080/users').subscribe(speakers => this.speakers = speakers);
       this.httpClient.get<User[]>('http://localhost:8080/users').subscribe(attendees => this.attendees = attendees);
@@ -64,9 +65,10 @@ export class KeynoteFormComponent implements OnInit {
         .subscribe(keynoteFromBackend => {
           // cargar el keynote obtenido en el formulario keynoteForm
           this.keynoteForm.reset(keynoteFromBackend);
-  
+      
           // marcar boolean true isUpdate
           this.isUpdate = true;
+          this.keynote = keynoteFromBackend; // es necesario??
         });
       });
     }
@@ -88,6 +90,13 @@ export class KeynoteFormComponent implements OnInit {
     }
   
       save(){
+
+        let formData = new FormData();
+
+        if(this.photoFile) {
+          formData.append("photo", this.photoFile);
+        }
+
         const keynote: Keynote = this.keynoteForm.value as Keynote;
   
         if (this.isUpdate) {
@@ -101,6 +110,7 @@ export class KeynoteFormComponent implements OnInit {
             this.router.navigate(['/keynotes', keynoteFromBackend.id, 'detail']);
         });
       }
+      
     }
   
     compareObjects(o1: any, o2: any): boolean {
