@@ -44,8 +44,62 @@
             </div>
           </div>
           <!-- fin sección tecnolgías usadas -->
-          <p>Desde inteligencia artificial hasta blockchain, pasando por la realidad aumentada y más allá, en &commat;4itech encontrarás un amplio abanico de temas que explorar y discutir. </p>
-          <h3 Class="text-primary">¡Prepárate para ampliar tus horizontes y desafiar tu mente!</h3>
+
+          <ul ngbNav #nav="ngbNav" class="nav-tabs">
+            
+            <li [ngbNavItem]="1">
+              <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(1, 107, 238, 0.748);">Inteligencia Artificial</button>
+              <ng-template ngbNavContent>
+                <p>
+                  La inteligencia artificial (IA) ha experimentado un desarrollo exponencial en las últimas décadas. Los avances en algoritmos, hardware y la disponibilidad de grandes cantidades de datos han impulsado su crecimiento.
+                </p>
+                <p>
+                  <img src="assets/keynotes/AI.jpeg" class="img-fluid float-start me-3 rounded shadow-sm" style="max-width: 140px;" alt="">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+                  master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
+                  keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
+                  salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+                </p>
+                <p>
+                  Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+                  master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
+                  keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
+                  salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+                </p>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+              <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(255, 176, 5, 0.748);">La Era Digital</button>
+              <ng-template ngbNavContent>
+                <p>
+                  Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+                  farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+                  ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+                  helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
+                  8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+                  stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+                </p>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="3">
+              <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(238, 1, 56, 0.748);border-left: 1px solid #dee2e6;border-right:1px solid #dee2e6;">El mejor Fronted con Angular</button>
+              <ng-template ngbNavContent>
+                <p>
+                  Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
+                  Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
+                  Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna,
+                  egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec
+                  tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
+                  magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget
+                  neque. Phasellus nec tortor vel tellus pulvinar feugiat.
+                </p>
+              </ng-template>
+            </li>
+          
+          </ul>
+          
+          <div [ngbNavOutlet]="nav" class="p-3 border-1" style="border-right:1px solid #dee2e6;border-bottom:1px solid #dee2e6;border-left:1px solid #dee2e6;border-top:none;"></div>
+
+          <h3 Class="text-secondary mt-4">¡Prepárate para ampliar tus horizontes y desafiar tu mente!</h3>
           <p>¡Prepárate para ampliar tus horizontes y desafiar tu mente!</p>
           <ul>
             <li>Introducción a Java con el experto Alan Sastre</li>
@@ -99,12 +153,12 @@
             <h2 class="text-secondary fw-bold" style="font-family: 'Libre Franklin'">Charlas recientes</h2>
             <!-- <p class="mb-0">Somos estudiantes del curso de Desarrollo de web de la FUNDACION ADECCO impartido por el profesor Alan Sastre</p> -->
           </div>
-
+@if (isLoggedIn) {
           <ngb-carousel>
             @for (keynote of keynotes; track keynote.id) {
             <ng-template ngbSlide>
               <div class="picsum-img-wrapper">
-                <img src="{{keynote.webinarUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']"  class="img-fluid card-img-top zoom">
+                <img src="{{keynote.photoUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']"  class="img-fluid card-img-top zoom">
               </div>
               <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius:10px;">
                 <h3><a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-light" style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a></h3>
@@ -112,6 +166,11 @@
             </ng-template>
           }
           </ngb-carousel>
+        } @else {
+          <div class="container">
+            <h5 class="text-secondary" style="font-family: 'Libre Franklin';"><strong>Para acceder al listado de charlas debes logarte previamente </strong><button class="btn me-3 ms-3"><a class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio "  routerLink="/login" (click)="$event.preventDefault()" id="" role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Acceder</a></button></h5>
+          </div>
+        }
 
           <div class="p-4">
             <h4 class="fst-italic">¡No esperes más para unirte a la conversación sobre el futuro de la tecnología!</h4>
@@ -139,37 +198,37 @@
     </div>
   
                 <!-- Sección sobre nosotros -->
-                <div class="row mb-4" style="justify-content: center;">
+                <div class="row mb-4 mt-3" style="justify-content: center;">
                   <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
-            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'">
+            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'; border-top: 6px solid #4284DB;">
                     <img class="rounded-circle mt-2" src="assets/nosotros/Johana.png" alt="Generic placeholder image" width="140" height="140">
                     <h3 class="text-secondary mt-3">Johana Macías</h3>
                     <p class="text-secondary">Desarrolladora Full Stack Java Spring Boot</p>
                     <p><a class="btn btn-secondary" href="#" role="button">Contacto »</a></p>
                   </div><!-- /.col-lg-4 -->
                   <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
-            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'">
+            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'; border-top: 6px solid rgba(255, 176, 5, 0.748);">
                     <img class="rounded-circle mt-2" src="assets/nosotros/Silvia.png" alt="Generic placeholder image" width="140" height="140">
                     <h3 class="text-secondary mt-3">Silvia Sánchez</h3>
                     <p class="text-secondary">Desarrolladora Full Stack Java Spring Boot</p>
                     <p><a class="btn btn-secondary" href="#" role="button">Contacto »</a></p>
                   </div><!-- /.col-lg-4 -->
                   <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
-            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'">
+            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'; border-top: 6px solid #4284DB;">
                     <img class="rounded-circle mt-2" src="assets/nosotros/Aitor_v1.png" alt="Generic placeholder image" width="140" height="140">
                     <h3 class="text-secondary mt-3">Aitor Pérez</h3>
                     <p class="text-secondary">Desarrollador Full Stack Java Spring Boot</p>
                     <p><a class="btn btn-secondary" href="#" role="button">Contacto »</a></p>
                   </div><!-- /.col-lg-4 -->
                   <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
-            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'">
+            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'; border-top: 6px solid rgba(255, 176, 5, 0.748);">
                     <img class="rounded-circle mt-2" src="assets/nosotros/Javier.png" alt="Generic placeholder image" width="140" height="140">
                     <h3 class="text-secondary mt-3">Javier Baeza</h3>
                     <p class="text-secondary">Desarrollador Full Stack Java Spring Boot</p>
                     <p><a class="btn btn-secondary" href="#" role="button">Contacto »</a></p>
                   </div><!-- /.col-lg-4 -->
                   <div class="col-lg-2" style="box-shadow: 0 0 4px #ccc; padding: 10px;
-            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'">
+            border-radius: 10px; text-align: center; font-family: 'Libre Franklin'; border-top: 6px solid #4284DB;">
                     <img class="rounded-circle mt-2" src="assets/nosotros/Angel.png" alt="Generic placeholder image" width="140" height="140">
                     <h3 class="text-secondary mt-3">Angel Martínez</h3>
                     <p class="text-secondary">Desarrollador Full Stack Java Spring Boot</p>

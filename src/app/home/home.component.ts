@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgbCarouselConfig, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig, NgbCarouselModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { Keynote } from '../models/keynote.model';
 import { HttpClient } from '@angular/common/http';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 export class NgbdCarouselConfig {
 
@@ -14,17 +15,24 @@ export class NgbdCarouselConfig {
 		config.pauseOnHover = false;
 	}
 }
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgbCarouselModule, RouterLink],
+  imports: [NgbCarouselModule, RouterLink, NgbNavModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+
+
 export class HomeComponent implements OnInit {
 ticket: any;
+isLoggedIn = false;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private authService: AuthenticationService) {
+      this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);}
 
   keynotes: Keynote[] = [];
 
@@ -37,4 +45,8 @@ private loadsKeynotes() {
   this.httpClient.get<Keynote[]>(url).subscribe(keynotes => this.keynotes = keynotes);
 }
 
+}
+
+export class NgbdNavBasic {
+	active = 1;
 }
