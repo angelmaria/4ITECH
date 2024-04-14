@@ -32,7 +32,7 @@
         <!-- Gallery item -->
         @for (keynote of keynotes; track keynote.id) {
         <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div style="box-shadow: 0px 0px 5px #ccc !important; overflow:hidden;" class="bg-white rounded shadow-sm"><img src="{{keynote.webinarUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']" style="cursor: pointer;" alt="" class="img-fluid card-img-top zoom">
+          <div style="box-shadow: 0px 0px 5px #ccc !important; overflow:hidden;" class="bg-white rounded shadow-sm"><img src="{{keynote.photoUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']" style="cursor: pointer;" alt="" class="img-fluid card-img-top zoom">
             <div class="p-4">
               <h5><a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-secondary" style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a></h5>
               <p class="small text-muted mb-0">{{keynote.summary}}</p>
@@ -55,8 +55,8 @@
                   <div class="badge text-bg-secondary">{{keynote.track.startDate | date: 'dd/MM/yy'}}</div>
                 </div>
               }
-              <div style="cursor: auto;" class="btn mt-2" ><i class="bi bi-person-video3 me-2 text-secondary"></i><span class="small text-secondary">Ponente</span><span class="badge text-bg-danger ms-2">{{keynote.speaker}}</span>
-              </div>
+              <!-- <div style="cursor: auto;" class="btn mt-2" ><i class="bi bi-person-video3 me-2 text-secondary"></i><span class="small text-secondary">Ponente</span><span class="badge text-bg-danger ms-2">{{keynote.speaker}}</span>
+              </div> -->
 
               <div style="text-align: center;">
                 <button  data-bs-toggle="tooltip" data-bs-title="Ver" style="font-weight: bold;" class="btn btn-ver btn-sm mt-3 me-3" [routerLink]="['/keynotes', keynote.id, 'detail']"><i class="bi bi-eye-fill"></i></button>

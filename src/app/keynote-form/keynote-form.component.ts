@@ -20,15 +20,15 @@ export class KeynoteFormComponent implements OnInit {
 
   keynoteForm = new FormGroup({
     id: new FormControl<number>(0),
-    title: new FormControl<String>(''),
-    summary: new FormControl<String>(''),
-    description: new FormControl<String>(''),
-    photoUrl : new FormControl<String>(''),
-    webinarUrl: new FormControl<String>(''),
+    title: new FormControl(''),
+    summary: new FormControl(''),
+    description: new FormControl(''),
+    photoUrl : new FormControl(''),
+    webinarUrl: new FormControl(''),
     room: new FormControl(),
-    maxNumPersons: new FormControl<number>(0),
-    difficultyLevel: new FormControl<DifficultyLevel>(DifficultyLevel.JUNIOR),
-    durationInMin: new FormControl<number>(0),
+    maxNumPersons: new FormControl(0),
+    difficultyLevel: new FormControl(DifficultyLevel.JUNIOR),
+    durationInMin: new FormControl(0),
     speaker: new FormControl(),
     track: new FormControl(),
     attendees: new FormControl()
@@ -43,7 +43,8 @@ export class KeynoteFormComponent implements OnInit {
   photoPreview: string | undefined;
   keynote: Keynote | undefined;
 
-  constructor(private fb: FormBuilder, 
+  constructor(
+    // private fb: FormBuilder, 
     private httpClient: HttpClient,
     private router: Router,
     private activatedRoute: ActivatedRoute
@@ -111,7 +112,35 @@ export class KeynoteFormComponent implements OnInit {
         });
       }
       
+
+      // let formData = new FormData();
+      // formData.append('id', this.keynoteForm.get('id')?.value?.toString() ?? '0');
+      // formData.append('title', this.keynoteForm.get('title')?.value ?? '');
+      // formData.append('summary', this.keynoteForm.get('summary')?.value ?? '');
+      // formData.append('description', this.keynoteForm.get('description')?.value ?? '');
+      // formData.append('photoUrl', this.keynoteForm.get('photoUrl')?.value ?? '');
+      // formData.append('room', this.keynoteForm.get('room')?.value ?? '');
+      // formData.append('maxNumPersons', this.keynoteForm.get('maxNumPersons')?.value?.toString() ?? '0');
+      // formData.append('difficultyLevel', this.keynoteForm.get('difficultyLevel')?.value ?? '');
+      // formData.append('durationInMin', this.keynoteForm.get('durationInMin')?.value?.toString() ?? '0');
+  
+      // if(this.photoFile) {
+      //   formData.append("photo", this.photoFile);
+      // }
+  
+      // if (this.isUpdate) {
+      //     this.httpClient.put<Keynote>('http://localhost:8080/keynotes/' + this.keynote?.id, formData)
+      //   .subscribe(author => this.navigateToList());
+      // } else {
+      //   this.httpClient.post<Keynote>('http://localhost:8080/keynotes', formData)
+      //   .subscribe(author => this.navigateToList());
+      // }
+      
     }
+    private navigateToList() {
+      this.router.navigate(['/keynotes']);
+  
+   }
   
     compareObjects(o1: any, o2: any): boolean {
       // console.log("comparando objetos", o1, o2)
