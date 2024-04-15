@@ -52,9 +52,6 @@ export class CommentFormComponent implements OnInit {
       
     }
 
-    
-    
-
   
 
   ngOnInit(): void {
@@ -88,13 +85,14 @@ export class CommentFormComponent implements OnInit {
   }
   
   save() {
-    //console.log('saving');
+    
     
     const comment: CommentModel = this.commentForm.value as CommentModel;
-      //console.log(comment);
-      comment.dateTime = new Date();
-      //console.log(comment);
+      let fechaActual = new Date();
+      fechaActual.setHours(fechaActual.getHours() + 2);
+      comment.dateTime = fechaActual;
       
+  
 
       if (this.isUpdate) {
         const url = 'http://localhost:8080/comments/' + comment.id;
