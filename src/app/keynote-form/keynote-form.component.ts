@@ -92,49 +92,55 @@ export class KeynoteFormComponent implements OnInit {
   
       save(){
 
-        let formData = new FormData();
+      //   let formData = new FormData();
 
-        if(this.photoFile) {
-          formData.append("photo", this.photoFile);
-        }
+      //   if(this.photoFile) {
+      //     formData.append("photo", this.photoFile);
+      //   }
 
-        const keynote: Keynote = this.keynoteForm.value as Keynote;
+      //   const keynote: Keynote = this.keynoteForm.value as Keynote;
   
-        if (this.isUpdate) {
-          const url ='http://localhost:8080/keynotes/' + keynote.id;
-          this.httpClient.put<Keynote>(url, keynote).subscribe(keynoteFromBackend => {
-            this.router.navigate(['/keynotes', keynoteFromBackend.id, 'detail']);
-          });
-        } else {
-          const url ='http://localhost:8080/keynotes';
-          this.httpClient.post<Keynote>(url, keynote).subscribe(keynoteFromBackend => {
-            this.router.navigate(['/keynotes', keynoteFromBackend.id, 'detail']);
-        });
-      }
+        
+      //   if (this.isUpdate) {
+      //     const url ='http://localhost:8080/keynotes/' + keynote.id;
+      //     this.httpClient.put<Keynote>(url, keynote).subscribe(keynoteFromBackend => {
+      //       this.router.navigate(['/keynotes', keynoteFromBackend.id, 'detail']);
+      //     });
+      //   } else {
+      //     const url ='http://localhost:8080/keynotes';
+      //     this.httpClient.post<Keynote>(url, keynote).subscribe(keynoteFromBackend => {
+      //       this.router.navigate(['/keynotes', keynoteFromBackend.id, 'detail']);
+      //   });
+      // }
       
 
-      // let formData = new FormData();
-      // formData.append('id', this.keynoteForm.get('id')?.value?.toString() ?? '0');
-      // formData.append('title', this.keynoteForm.get('title')?.value ?? '');
-      // formData.append('summary', this.keynoteForm.get('summary')?.value ?? '');
-      // formData.append('description', this.keynoteForm.get('description')?.value ?? '');
-      // formData.append('photoUrl', this.keynoteForm.get('photoUrl')?.value ?? '');
-      // formData.append('room', this.keynoteForm.get('room')?.value ?? '');
-      // formData.append('maxNumPersons', this.keynoteForm.get('maxNumPersons')?.value?.toString() ?? '0');
-      // formData.append('difficultyLevel', this.keynoteForm.get('difficultyLevel')?.value ?? '');
-      // formData.append('durationInMin', this.keynoteForm.get('durationInMin')?.value?.toString() ?? '0');
+      let formData = new FormData();
+      console.log(this.keynoteForm.get('room')?.value);
+      
+      formData.append('id', this.keynoteForm.get('id')?.value?.toString() ?? '0');
+      formData.append('title', this.keynoteForm.get('title')?.value ?? '');
+      formData.append('summary', this.keynoteForm.get('summary')?.value ?? '');
+      formData.append('description', this.keynoteForm.get('description')?.value ?? '');
+      formData.append('photoUrl', this.keynoteForm.get('photoUrl')?.value ?? '');
+      //formData.append('room', this.keynoteForm.get('room')?.value);
+      formData.append('maxNumPersons', this.keynoteForm.get('maxNumPersons')?.value?.toString() ?? '0');
+      formData.append('difficultyLevel', this.keynoteForm.get('difficultyLevel')?.value ?? '');
+      formData.append('durationInMin', this.keynoteForm.get('durationInMin')?.value?.toString() ?? '0');
   
-      // if(this.photoFile) {
-      //   formData.append("photo", this.photoFile);
-      // }
+      if (this.keynoteForm.get('room')?.value) {
+        formData.append('room', JSON.stringify(this.keynoteForm.get('room')?.value));
+      }
+      if(this.photoFile) {
+        formData.append("photo", this.photoFile);
+      }
   
-      // if (this.isUpdate) {
-      //     this.httpClient.put<Keynote>('http://localhost:8080/keynotes/' + this.keynote?.id, formData)
-      //   .subscribe(author => this.navigateToList());
-      // } else {
-      //   this.httpClient.post<Keynote>('http://localhost:8080/keynotes', formData)
-      //   .subscribe(author => this.navigateToList());
-      // }
+      if (this.isUpdate) {
+          this.httpClient.put<Keynote>('http://localhost:8080/keynotes/' + this.keynote?.id, formData)
+        .subscribe(author => this.navigateToList());
+      } else {
+        this.httpClient.post<Keynote>('http://localhost:8080/keynotes', formData)
+        .subscribe(author => this.navigateToList());
+      }
       
     }
     private navigateToList() {
