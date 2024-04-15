@@ -2,6 +2,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Register } from '../models/register.dto';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +23,11 @@ export class RegisterComponent {
    {validators: this.passwordConfirmValidator}  // validacion personalizada que comprueba que los dos campos sean iguales
   );
 
-  constructor(private httpClient: HttpClient){}
+  constructor(
+    private httpClient: HttpClient,
+    private authService: AuthenticationService,
+    private router: Router
+  ){}
 
   passwordConfirmValidator(control: AbstractControl) {
 
@@ -46,7 +52,8 @@ export class RegisterComponent {
     this.httpClient.post('http://localhost:8080/users/register', register)
     .subscribe(response => {
       // navegar a login
-      this.registerForm.reset(); 
+      // this.registerForm.reset(); 
+      this.router.navigate(['/login']);
     }); 
 
 
