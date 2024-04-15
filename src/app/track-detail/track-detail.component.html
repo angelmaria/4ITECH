@@ -44,23 +44,15 @@
                
                 <div class="container-fluid">
                     <div class="px-lg-5">
-                        <!-- Search form -->
-                        <div class="sticky-top">
-                            <div class="search-form">
-                                <div class="form-floating">
-                                
-                               
-                                </div>
-                            </div>
-                        </div>
-                    
+                       
+
                      
                         <div class="row">
                             <!-- Gallery item -->
                             @for (keynote of keynotes; track keynote.id) {
                             <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
                                 <div style="box-shadow: 0px 0px 5px #ccc !important; overflow:hidden;"
-                                    class="bg-white rounded shadow-sm"><img src="{{keynote.webinarUrl}}"
+                                    class="bg-white rounded shadow-sm"><img src="{{keynote.photoUrl}}"
                                         [routerLink]="['/keynotes', keynote.id, 'detail']" style="cursor: pointer;"
                                         alt="" class="img-fluid card-img-top zoom">
                                     <div class="p-4">
