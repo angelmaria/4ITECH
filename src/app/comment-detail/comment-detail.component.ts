@@ -19,12 +19,14 @@ export class CommentDetailComponent implements OnInit{
   comment: CommentModel | undefined;
   rating = 0;
   isAdmin = false;
+  isLoggedIn = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
     private authService: AuthenticationService
   ) {this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+     this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
 
   }
 
