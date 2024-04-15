@@ -27,13 +27,15 @@ export class TicketOrderBuyFormComponent implements OnInit {
     startDate: new FormControl(new Date()),
     finishDate: new FormControl(new Date()),
     isPremiumShip: new FormControl<boolean>(false),
-    extraService: new FormControl<string>('0')
+    extraService: new FormControl<string>('0'),
+    quantity: new FormControl(1),
+    isStudent: new FormControl(false)
   });
   
 
 totalPrice = 0;
 ticketPrice= 0;
-Quantity= 0;
+
 extraPrice= 0; // no
 numDays = 0;
 shipPrice= 0; // no
@@ -58,16 +60,14 @@ showFinishMessage= false;
   }
 
   calculatePrice() {
-
-    // Descuento del 20% para estudiantes Adecco
-    if (this.ticketOrderBuyForm.get('isAdeccoStudent')?.value) {
-      this.totalPrice -= this.totalPrice * 0.2;
-    }
+ 
 
     // 1. Obtener fecha inicio y fecha fin
     let startDate = this.ticketOrderBuyForm.get('startDate')?.value;
     let finishDate = this.ticketOrderBuyForm.get('finishDate')?.value;
 
+    console.log(startDate);
+    
     if (!startDate || !finishDate || !this.ticket || !this.ticket.price) {
       return; // si no hay fechas o tickets no calculamos nada, nos vamos
     }
@@ -75,33 +75,42 @@ showFinishMessage= false;
     // 2. Calcular la diferencia de días entre fechas.
     startDate = new Date(startDate);
     finishDate = new Date(finishDate);
-
+    console.log(startDate);
+    console.log(finishDate);
     const diffMilliseconds = finishDate.getTime() - startDate.getTime();
     if (diffMilliseconds <= 0) {
       this.ticketPrice = 0;
       this.numDays = 0;
       this.totalPrice = 0;
+      console.log('error con las fechas');
+      
       return; // fechas incorrectas
     }
 
-    const numDays = Math.round(diffMilliseconds / (1000 * 60 * 60 * 24));
-    if (numDays <= 0) {
+    this.numDays = Math.round(diffMilliseconds / (1000 * 60 * 60 * 24));
+    console.log('Numero de dias calculado ', this.numDays);
+
+    if (this.numDays <= 0) {
       this.ticketPrice = 0;
       this.numDays = 0;
       this.totalPrice = 0;
+      console.log('error con las fechas');
+
       return;
     }
 
+    console.log('Numero de dias calculado ', this.numDays);
+    
     // 3. Calcular precio de compra con base al número de días
     this.ticketPrice = this.numDays * this.ticket.price;
     this.totalPrice = this.ticketPrice;
+    console.log('Total price en base a dias ', this.totalPrice);
+    console.log(this.numDays);
+    console.log(this.ticket);
 
     // 4. Gastos de envío
-    if (this.ticketOrderBuyForm.get('isPremiumShip')?.value) {
-      this.totalPrice = 50.0;
-    this.totalPrice += this.shipPrice;
-  } else {
-    this.shipPrice = 0;
+    if (this.ticketOrderBuyForm.get('isStudent')?.value) {
+    this.totalPrice *= 0.90; // descuento 10 %
   }
     
     // 5. Gastos de servicios extra / pack extra
@@ -111,6 +120,9 @@ showFinishMessage= false;
     console.log(typeof Number(extra)); // number
     this.extraPrice = Number(extra);
     this.totalPrice += this.extraPrice;
+    this.totalPrice *= this.ticketOrderBuyForm.get('quantity')?.value ?? 1;
+    console.log("Precio calculado: ", this.totalPrice);
+    
   }
 
   save() {
@@ -120,13 +132,15 @@ showFinishMessage= false;
       return; // si faltan fechas o ticket no se guarda
     }
 
+    console.log(this.totalPrice);
+    
     const ticketOrderBuy: TicketOrderBuy = {
       id: 0,
       startDate: startDate,
       finishDate: finishDate,
-      discount: 0.2,
+      discount: 0.1,
       totalPrice: this.totalPrice,
-      quantity: 0,
+      quantity: this.ticketOrderBuyForm.get('quantity')?.value ?? 1,
       paymentMethod: '',
       channel: '',
       qrUrl: '',

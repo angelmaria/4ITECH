@@ -44,9 +44,9 @@
           </div>
           <hr class="my-4">
           <div class="col-md-7 col-lg-8">
-            <input type="checkbox" class="form-check-input" id="isPremiumShip"
-            formControlName="isPremiumShip" (change)="calculatePrice()">
-            <label class="form-check-label" for="isPremiumShip">
+            <input type="checkbox" class="form-check-input" id="isStudent"
+            formControlName="isStudent" (change)="calculatePrice()">
+            <label class="form-check-label" for="isStudent">
               Soy Estudiante adecco
             </label>
           </div>
@@ -63,7 +63,7 @@
           </div>
           <div class="py-3 text-center">
             <label for="quantity" class="form-label"><strong>Cantidad de tickets a comprar</strong></label>
-            <input min="1" max="15" type="number" class="form-control form-input" id="quantity" name="quantity" [(ngModel)]="Quantity" (change)="calculatePrice()">
+            <input min="1" max="15" type="number" class="form-control form-input" id="quantity" name="quantity" formControlName="quantity" (change)="calculatePrice()">
             <small class="form-text text-muted">Máximo 15 tickets por compra.</small>
           </div>
           <div class="py-3 text-center">
@@ -113,7 +113,7 @@
                     <li class="list-group-item justify-content-between lh-sm">
                         <div>
                             <h6 class="my-0">Precio por día</h6>
-                            <small class="text-body-secondary">{{Quantity}} + {{ticket?.price}}</small>
+                            <small class="text-body-secondary"> {{ticket?.price}}</small>
                         </div>
                         <span class="text-body-secondary">{{ticketPrice | currency:'EUR':'symbol':'1.2-2'}}</span>
                     </li>

@@ -58,7 +58,8 @@
           <button class="w-100 btn btn-lg btn-outline-info  p-1 me-3" style="display: block;"[routerLink]="['/tickets', ticket.id, 'detail']">Ver detalle </button>
           <button class="w-100 btn btn-lg btn-outline-info p-1 me-3" style="display: block;" [routerLink]="['/tickets', ticket.id, 'update']">Editar </button>
           <button class="w-100 btn btn-lg btn-outline-danger p-1 me-3" style="display: block;" (click)="delete(ticket)">Borrar </button>
-          
+          <button class="w-100 btn btn-lg btn-outline-info p-1 me-3" style="display: block;" [routerLink]="['/tickets', ticket.id, 'buy']">Comprar </button>
+
           </div>
         </div>
       </div>
