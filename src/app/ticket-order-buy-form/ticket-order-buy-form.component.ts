@@ -34,10 +34,10 @@ export class TicketOrderBuyFormComponent implements OnInit {
 totalPrice = 0;
 ticketPrice= 0;
 Quantity= 0;
-extraPrice= 0;
+extraPrice= 0; // no
 numDays = 0;
-shipPrice= 0;
-showFinishMessage: boolean | undefined;
+shipPrice= 0; // no
+showFinishMessage= false;
   
   constructor(
   
@@ -93,12 +93,12 @@ showFinishMessage: boolean | undefined;
     }
 
     // 3. Calcular precio de compra con base al número de días
-    this.totalPrice = numDays * this.ticket.price;
+    this.ticketPrice = this.numDays * this.ticket.price;
     this.totalPrice = this.ticketPrice;
 
     // 4. Gastos de envío
     if (this.ticketOrderBuyForm.get('isPremiumShip')?.value) {
-      this.totalPrice += 50;
+      this.totalPrice = 50.0;
     this.totalPrice += this.shipPrice;
   } else {
     this.shipPrice = 0;
@@ -121,17 +121,17 @@ showFinishMessage: boolean | undefined;
     }
 
     const ticketOrderBuy: TicketOrderBuy = {
-      id: 0, 
-      startDate,
-      finishDate,
-      discount: 0.2, 
+      id: 0,
+      startDate: startDate,
+      finishDate: finishDate,
+      discount: 0.2,
       totalPrice: this.totalPrice,
-      quantity: 0, 
+      quantity: 0,
       paymentMethod: '',
       channel: '',
       qrUrl: '',
       //user: this.user,
-      ticket: this.ticket
+      ticket: this.ticket,
     };
 
     // enviar a backend con httpclient post
