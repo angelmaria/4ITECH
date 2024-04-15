@@ -1,1 +1,68 @@
-<p>room-form works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      @if (isUpdate) {
+        <h1 class="mt-5 mb-5">Vas a editar la sala esxistente con Id: {{roomForm.get('id')?.value}}</h1>
+      } @else {
+        <h1 class="mt-5 mb-5">Vas a crear una nueva sala</h1>
+      }
+
+        <form [formGroup]="roomForm" (ngSubmit)="save()">
+
+          <input type="hidden" formController="id">
+
+          @if (isUpdate) {
+            <div class="form-floating mb-3">
+              <input class="form-control" formControlName="name" readonly>
+              <label for="name">Nombre de la sala</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="capacity" formControlName="capacity">
+              <label for="capacity">Aforo máximo</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input class="form-control" formControlName="hasSockets" readonly>
+              <label for="hasSockets">Tomas de corriente disponibles</label>
+            </div>
+
+            <!--<div class="form-floating mb-3">
+              <input class="form-control" formControlName="photoUrl" readonly>
+              <label for="photoUrl">Imágenes</label>
+            </div> -->
+
+          } @else {
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="name" formControlName="name">
+              <label for="name">Nombre de la sala</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="capacity" formControlName="capacity">
+              <label for="capacity">Aforo máximo</label>
+            </div>
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="hasSockets" formControlName="hasSockets">
+              <label class="form-check-label" for="hasSockets">
+                Tomas de corriente disponibles
+              </label>
+            </div>
+            
+            <!--<div class="form-floating mb-3">
+              <input type="text" class="form-control" id="photoUrl" formControlName="photoUrl">
+              <label for="photoUrl">Imágenes</label>
+            </div> -->
+          }
+
+          @if (isUpdate) {
+            <button class="btn btn-success" type="submit">Actualizar</button>
+          } @else {
+            <button class="btn btn-success" type="submit">Crear</button>
+          }
+        </form>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,9 @@
 <div class="container px-4 py-5" id="custom-cards">
-  <h2 class="pb-2 border-bottom" style="color: green;">Listado de Auditorios</h2>
+  <h2 class="pb-2 border-bottom" style="color: green;">Listado de Salas</h2>
 
     <div class="row">
       @if (showDeletedRoomMessage) {
-        <ngb-alert type="success" (closed)="hideDeletedRoomMessage()">Auditorio eliminado de la lista correctamente.</ngb-alert>
+        <ngb-alert type="success" (closed)="hideDeletedRoomMessage()">Sala eliminada de la lista correctamente.</ngb-alert>
       }
     </div>
     <div class="row row-cols-1 row-cols-lg-3 align-itmes-stretch g-4 py-5">
