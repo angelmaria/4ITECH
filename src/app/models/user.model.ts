@@ -10,4 +10,6 @@ export interface User {
     password: string;
     address: string;
     userRole: UserRole;
+    photoUrl: string;
+
 }

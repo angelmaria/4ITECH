@@ -1,0 +1,42 @@
+
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+  
+        <h1 class="my-5">
+          Mi perfil
+          <button class="btn btn-success" routerLink="avatar">
+            Cambiar avatar
+          </button>
+        </h1>
+  
+        <form [formGroup]="userForm" (ngSubmit)="save()">
+  
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control"
+            id="firstName" formControlName="firstName">
+            <label for="firstName">Nombre</label>
+          </div>
+  
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control"
+            id="lastName" formControlName="lastName">
+            <label for="lastName">Apellido</label>
+          </div>
+  
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control"
+            id="address" formControlName="address" placeholder="Calle Falsa 1, 5D, Barcelona">
+            <label for="address">Dirección</label>
+          </div>
+  
+          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" type="submit">Actualizar</button>
+  
+        </form>
+  
+      </div>
+    </div>
+  </div>
+  
