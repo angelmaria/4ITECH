@@ -10,7 +10,7 @@
 
           @if (comment) {
          
-          <div class="card border-success mb-3 card-detail">
+          <div class="card border-success mb-3 card-detail" style="max-width: none !important;">
               
             @if (comment.user) {
               <div class="card-header" style="font-size: large; color: antiquewhite;">Usuario/a:&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{comment.user.firstName}}</strong>
@@ -29,7 +29,7 @@
               <div class="card-body text-success">
                 <h3 class="card-title" style="color: #debf27;">Charla🗣️:<strong style="color: rgb(238, 240, 244); padding: 15px;" >«{{comment.keynote.title}}»</strong></h3> 
                 <br>
-                <p class="card-text text-dark" style="font-size: large;">{{comment.opinion}}</p>
+                <p class="card-text text-light" style="font-size: large;">{{comment.opinion}}</p>
               </div>
               <hr>
               
