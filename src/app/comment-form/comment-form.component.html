@@ -84,16 +84,22 @@
         
 
       } @else {
-      <div class="container">
-        <p><strong>Para crear comentarios debes acceder como usuario registrado</strong>
-        <button class="btn me-3 ms-3"><a
-              class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio " routerLink="/register"
-              (click)="$event.preventDefault()" id="" role="button"><i
-                class="bi bi-box-arrow-in-right me-2"></i>Acceder</a></button></p>
-      </div>
+        <div class="container">
+          <h3 class="text-secondary" style="font-family: 'Libre Franklin'">
+            <strong>Para crear comentarios debes acceder como usuario registrado </strong><button class="btn me-3 ms-3">
+              <a
+                class="nav-link border border-warning rounded border-2 p-1"
+                routerLink="/register"
+                (click)="$event.preventDefault()"
+                id=""
+                role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Registrarse</a>
+            </button>
+          </h3>
+        </div>
       }
 
        
     </div>
   </div>
 </div>
+
