@@ -27,6 +27,8 @@ import { RoomFormComponent } from './room-form/room-form.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { userRoleGuard } from './authentication/user-role.guard';
+import { AccountFormComponent } from './account-form/account-form.component';
+import { AvatarFormComponent } from './avatar-form/avatar-form.component';
 
 export const routes: Routes = [
     {
@@ -188,6 +190,14 @@ export const routes: Routes = [
         component: RoomFormComponent,
         canActivate: [userRoleGuard]
 
+    },
+    {
+        path: 'users/account',
+        component: AccountFormComponent
+    },
+    {
+        path: 'users/account/avatar',
+        component: AvatarFormComponent
     },
      
 
