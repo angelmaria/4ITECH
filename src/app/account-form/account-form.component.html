@@ -10,7 +10,13 @@
           <button class="btn btn-success" routerLink="avatar">
             Cambiar avatar
           </button>
-        </h1>
+          <img class="d-block mx-auto mb-4 rounded-circle"
+          [src]="'http://localhost:8080/files/' + user?.photoUrl" alt="avatar de userLogado" style="max-width: 150px;">
+      </h1>
+      
+    
+      
+        
   
         <form [formGroup]="userForm" (ngSubmit)="save()">
   
@@ -38,7 +44,7 @@
             <label for="address">Dirección</label>
           </div>
   
-          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" type="submit">Actualizar</button>
+          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" type="submit" routerLink="/users">Actualizar</button>
   
         </form>
   
