@@ -5,46 +5,48 @@
   @if (room) {
     <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
       <div class="col d-flex flex-column align-items-start gap-2">
+        <img [src]="'http://localhost:8080/files/' + room.photoUrl" alt="room" class="img-fluid">
         <h2 class="fw-bold text-body-emphasis">{{room.name}}</h2>
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-         height="500" xmlns="'http://localhost:8080/files/' + room.photoUrl" role="img" aria-label="Placeholder: 500x500" 
-         preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
-        <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-        <a href="#" class="btn btn-primary btn-lg" [routerLink]="['/rooms', room.id, 'update']">Editar Sala</a>
+        <p class="text-body-secondary">Pequeña descripción de esta maravillosa sala donde celebrar ponencias tecnológicas, equipada con las mejores butacas, ideales para no perder detalle o para echar un sueñecito.</p>
+        <a href="#" class="btn btn-primary btn-lg" [routerLink]="['http://localhost:8080/rooms/', room.id, 'update']">Editar Sala</a>
       </div>
-  
+
       <div class="col">
         <div class="row row-cols-1 row-cols-sm-2 g-4">
           <div class="col d-flex flex-column gap-2">
             <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#collection"></use>
-              </svg>
+              <i class="bi bi-people-fill fs-2"></i>
             </div>
-            <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
-            <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
+            <h4 class="fw-semibold mb-0 text-body-emphasis">Aforo máximo</h4>
+            <p class="text-body-secondary">{{room.capacity}} personas.</p>
           </div>
-  
+
           <div class="col d-flex flex-column gap-2">
             <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#gear-fill"></use>
-              </svg>
+              @if (room.hasSockets) {
+                <i class="bi bi-lightning-charge-fill text-success"></i>
+              } @else {
+                <i class="bi bi-lightning-charge-fill text-danger"></i>
+              }
             </div>
             <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
-            <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
+            <p class="text-body-secondary">
+               @if (room.hasSockets) {
+                Instalación con enchufes.
+               } @else {
+                Instalación sin enchufes.
+               }
+            </p>
           </div>
-  
+
           <div class="col d-flex flex-column gap-2">
             <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
-              <svg class="bi" width="1em" height="1em">
-                <use xlink:href="#speedometer"></use>
-              </svg>
+              <i class="bi bi-people-fill"></i>
             </div>
             <h4 class="fw-semibold mb-0 text-body-emphasis">Featured title</h4>
             <p class="text-body-secondary">Paragraph of text beneath the heading to explain the heading.</p>
           </div>
-  
+
           <div class="col d-flex flex-column gap-2">
             <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
               <svg class="bi" width="1em" height="1em">
