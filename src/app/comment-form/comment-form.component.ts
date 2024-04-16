@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { User } from '../models/user.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Keynote } from '../models/keynote.model';
 import { CommentModel } from '../models/commentmodel.model';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
@@ -12,7 +12,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
 @Component({
   selector: 'app-comment-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgbRatingModule, DatePipe],
+  imports: [ReactiveFormsModule, NgbRatingModule, DatePipe, RouterLink],
   templateUrl: './comment-form.component.html',
   styleUrl: './comment-form.component.css'
 })
