@@ -33,12 +33,12 @@
             }
         </div>
 
-<!-- Listado de comentarios sobre la charla -->
-            
-            
+<!-- Listado de comentarios sobre la charla --> 
                 <div class="row d-flex mb-2">
                     <h3 class="text-secondary fw-bold mt-3" style="font-family:'Libre Franklin';">Valoraciones</h3>
-                    @for (comment of comments; track comment.id) {
+                    @if (comment) {
+                        @if (comment.user) {
+                    <!-- @for (comment of comments; track comment.id) { -->
                     <div class="col-md-8 col-lg-8 mb-3">
                       <div class="card shadow-0 border" style="background-color: #f0f2f5;">
                         <div class="card-body p-4">
@@ -74,6 +74,8 @@ style="color: rgb(222, 191, 39); margin: 4px;"></i>
                       </div>
                     </div>
                 }
+            }
+            <!-- } -->
                 </div>
 <!-- fin sección de listado de comentarios -->
     </div>

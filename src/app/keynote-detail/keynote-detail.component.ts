@@ -17,6 +17,7 @@ export class KeynoteDetailComponent implements OnInit {
 
   keynote: Keynote | undefined;
   comments: CommentModel[] = [];
+  comment: CommentModel | undefined;
   
 
   constructor(
@@ -39,6 +40,21 @@ export class KeynoteDetailComponent implements OnInit {
         console.log(this.keynote);
       });
 
+      const backendUrl = 'http://localhost:8080/comments/' + id;
+      this.httpClient.get<CommentModel>(backendUrl).subscribe(commentBackend => {
+        this.comment = commentBackend;
+        
+        // console.log(this.comment);
+      });
+    });
+
+  }
+  private loadComments() {
+    const backenUrl = 'http://localhost:8080/comments';
+    this.httpClient.get<CommentModel[]>(backenUrl).subscribe(commentsBackend => {
+      this.comments = commentsBackend;
+    });
+
       // a mayores, se podría llamar a otros controladores y traer más datos
 
       // traer todos los capítulos de un libro
@@ -52,14 +68,5 @@ export class KeynoteDetailComponent implements OnInit {
 
       // traer el autor del libro
       // /author/fiter-by-book/id
-
-    });
-
-  }
-  private loadComments() {
-    const backenUrl = 'http://localhost:8080/comments';
-    this.httpClient.get<CommentModel[]>(backenUrl).subscribe(commentsBackend => {
-      this.comments = commentsBackend;
-    });
   }
 }
