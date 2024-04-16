@@ -2,7 +2,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { User } from '../model/user.model';
+import { User } from '../models/user.model';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
@@ -20,7 +20,11 @@ export class AccountFormComponent implements OnInit {
   userForm = new FormGroup({
     firstName: new FormControl(),
     lastName: new FormControl(),
+    phone: new FormControl(),
+    userName: new FormControl(),
+    password: new FormControl(),
     address: new FormControl(),
+
   });
 
   constructor(private httpClient: HttpClient) {}
@@ -37,9 +41,12 @@ export class AccountFormComponent implements OnInit {
     if (!this.user) {
       return;
     }
-    this.user.name = this.userForm.get('name')?.value;
+    this.user.firstName = this.userForm.get('firstName')?.value;
     this.user.lastName = this.userForm.get('lastName')?.value;
-    this.user.street = this.userForm.get('street')?.value;
+    this.user.phone = this.userForm.get('phone')?.value;
+    this.user.userName = this.userForm.get('userName')?.value;
+    this.user.address = this.userForm.get('address')?.value;
+
     this.httpClient.put<User>('http://localhost:8080/users/account', this.user)
     .subscribe(user => this.user = user);
   }
