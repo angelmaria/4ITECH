@@ -158,7 +158,7 @@
             @for (keynote of keynotes; track keynote.id) {
             <ng-template ngbSlide>
               <div class="picsum-img-wrapper">
-                <img src="{{keynote.photoUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']"  class="img-fluid card-img-top zoom">
+                <img [src]="'http://localhost:8080/files/' + keynote?.photoUrl" [routerLink]="['/keynotes', keynote.id, 'detail']"  class="img-fluid card-img-top zoom">
               </div>
               <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius:10px;">
                 <h3><a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-light" style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a></h3>
