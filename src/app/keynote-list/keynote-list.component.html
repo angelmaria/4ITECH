@@ -58,7 +58,7 @@
           class="bg-white rounded shadow-sm"
         >
           <img
-            [src]="'http://localhost:8080/files/' +  keynote.photoUrl"
+            src=""
             [routerLink]="['/keynotes', keynote.id, 'detail']"
             style="cursor: pointer"
             alt=""
@@ -176,19 +176,12 @@
     } @else {
     <div class="container">
       <h2 class="text-secondary" style="font-family: 'Libre Franklin'">
-<<<<<<< HEAD
-        <strong
-          >Para acceder al listado de charlas debes logarte previamente </strong
-        ><button class="btn me-3 ms-3 p-1">
-=======
         <strong>Para acceder al listado de charlas debes logarte previamente </strong><button class="btn me-3 ms-3">
->>>>>>> 0a9646a79ff4921bc19a9b78d41c734329cddc64
           <a
             class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio"
             routerLink="/login"
             (click)="$event.preventDefault()"
             id=""
-            role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Acceder</a>
             role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Acceder</a>
         </button>
       </h2>
