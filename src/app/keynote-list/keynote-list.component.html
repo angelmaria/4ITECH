@@ -58,7 +58,7 @@
           class="bg-white rounded shadow-sm"
         >
           <img
-            src=""
+          [src]="'http://localhost:8080/files/' + keynote.photoUrl"
             [routerLink]="['/keynotes', keynote.id, 'detail']"
             style="cursor: pointer"
             alt=""
