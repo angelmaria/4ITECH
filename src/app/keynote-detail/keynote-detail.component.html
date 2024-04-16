@@ -36,9 +36,8 @@
 <!-- Listado de comentarios sobre la charla --> 
                 <div class="row d-flex mb-2">
                     <h3 class="text-secondary fw-bold mt-3" style="font-family:'Libre Franklin';">Valoraciones</h3>
-                    @if (comment) {
-                        @if (comment.user) {
-                    <!-- @for (comment of comments; track comment.id) { -->
+                   
+                     @for (comment of comments; track comment.id) {
                     <div class="col-md-8 col-lg-8 mb-3">
                       <div class="card shadow-0 border" style="background-color: #f0f2f5;">
                         <div class="card-body p-4">
@@ -58,12 +57,12 @@
                                   <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i>
                                   <p class="small text-muted mb-0">
 
-<ngb-rating [(rate)]="comment.rating" [max]="5" [readonly]="true" formControlName="rating">
-<ng-template let-fill="fill" let-index="index">
-<i class="bi-star{{ fill === 100 ? '-fill' : '' }}"
-style="color: rgb(222, 191, 39); margin: 4px;"></i>
-</ng-template>
-</ngb-rating>
+                                        <ngb-rating [(rate)]="comment.rating" [max]="5" [readonly]="true" formControlName="rating">
+                                        <ng-template let-fill="fill" let-index="index">
+                                        <i class="bi-star{{ fill === 100 ? '-fill' : '' }}"
+                                        style="color: rgb(222, 191, 39); margin: 4px;"></i>
+                                        </ng-template>
+                                        </ngb-rating>
 
                                   </p>
                                 </div>
@@ -74,8 +73,7 @@ style="color: rgb(222, 191, 39); margin: 4px;"></i>
                       </div>
                     </div>
                 }
-            }
-            <!-- } -->
+           
                 </div>
 <!-- fin sección de listado de comentarios -->
     </div>

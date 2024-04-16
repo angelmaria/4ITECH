@@ -1,82 +1,199 @@
-  <div class="container-fluid">
-    <div class="px-lg-5">
-          <!-- Search form -->
-          <div class="sticky-top">
-            <div class="search-form">
-              <div class="form-floating">
-                <input type="text" class="search-click" name="" placeholder="buscar charlas..." />
-                <label style="margin-top: -3px; margin-left: 3px;" for=""><i style="color: #a2a2a2; font-size: large" class="bi bi-search"></i></label>
-              </div>
-            </div>
-          </div>
-      <!-- fin search form -->
-      <!-- For demo purpose -->
-      <div class="row py-5">
-        <div class="col-lg-12 mx-auto">
-          <div class="text-white p-5 shadow-sm rounded banner">
-            <h1 class="display-4">Charlas recientes en &commat;4iTech</h1>
-            <p class="lead">Descubre nuestras charlas y no te piedas detalle.</p>
-            <p class="lead">Patrocinado por <a href="https://fundacionadecco.org" target="_blank" class="text-reset"> 
-                          Adecco</a>, en colaboración con <a href="https://certidevs.com" target="_blank" class="text-reset">Certidevs</a>.
-            </p>
-          </div>
+<div class="container-fluid">
+  <div class="px-lg-5">
+    <!-- Search form -->
+    <div class="sticky-top">
+      <div class="search-form">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="search-click"
+            name=""
+            placeholder="buscar charlas..."
+          />
+          <label style="margin-top: -3px; margin-left: 3px" for=""
+            ><i
+              style="color: #a2a2a2; font-size: large"
+              class="bi bi-search"
+            ></i
+          ></label>
         </div>
       </div>
-      <!-- End -->
-  
-      @if (showDeleteKeynoteMessage) {
-        <ngb-alert type="success" (closed)="hideDeleteKeynoteMessage()">Keynote borrado correctamente</ngb-alert>
-      }
-      @if (isLoggedIn) {
-      <div class="row">
-        <!-- Gallery item -->
-        @for (keynote of keynotes; track keynote.id) {
-        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-          <div style="box-shadow: 0px 0px 5px #ccc !important; overflow:hidden;" class="bg-white rounded shadow-sm"><img src="{{keynote.photoUrl}}" [routerLink]="['/keynotes', keynote.id, 'detail']" style="cursor: pointer;" alt="" class="img-fluid card-img-top zoom">
-            <div class="p-4">
-              <h5><a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-secondary" style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a></h5>
-              <p class="small text-muted mb-0">{{keynote.summary}}</p>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3 mb-2">
-                <p class="small mb-0"><i class="bi bi-easel-fill me-2 text-secondary"></i><span class="font-weight-bold">Sala</span></p>
-                <span style="font-size: small; font-weight:400;">{{keynote.room.name}}</span>
+    </div>
+    <!-- fin search form -->
+    <!-- For demo purpose -->
+    <div class="row py-5">
+      <div class="col-lg-12 mx-auto">
+        <div class="text-white p-5 shadow-sm rounded banner">
+          <h1 class="display-4">Charlas recientes en &commat;4iTech</h1>
+          <p class="lead">Descubre nuestras charlas y no te piedas detalle.</p>
+          <p class="lead">
+            Patrocinado por
+            <a
+              href="https://fundacionadecco.org"
+              target="_blank"
+              class="text-reset"
+            >
+              Adecco</a
+            >, en colaboración con
+            <a href="https://certidevs.com" target="_blank" class="text-reset"
+              >Certidevs</a
+            >.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- End -->
+
+    @if (showDeleteKeynoteMessage) {
+    <ngb-alert type="success" (closed)="hideDeleteKeynoteMessage()"
+      >Keynote borrado correctamente</ngb-alert
+    >
+    } @if (isLoggedIn) {
+    <div class="row">
+      <!-- Gallery item -->
+      @for (keynote of keynotes; track keynote.id) {
+      <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+        <div
+          style="box-shadow: 0px 0px 5px #ccc !important; overflow: hidden"
+          class="bg-white rounded shadow-sm"
+        >
+          <img
+            [src]="'http://localhost:8080/files/' +  keynote.photoUrl"
+            [routerLink]="['/keynotes', keynote.id, 'detail']"
+            style="cursor: pointer"
+            alt=""
+            class="img-fluid card-img-top zoom"
+          />
+          <div class="p-4">
+            <h5>
+              <a
+                [routerLink]="['/keynotes', keynote.id, 'detail']"
+                class="text-secondary"
+                style="
+                  text-decoration: none;
+                  font-weight: bold;
+                  font-family: 'Libre Franklin';
+                "
+                >{{ keynote.title }}</a
+              >
+            </h5>
+            <p class="small text-muted mb-0">{{ keynote.summary }}</p>
+            <div
+              class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3 mb-2"
+            >
+              <p class="small mb-0">
+                <i class="bi bi-easel-fill me-2 text-secondary"></i
+                ><span class="font-weight-bold">Sala</span>
+              </p>
+              <span style="font-size: small; font-weight: 400">{{
+                keynote.room.name
+              }}</span>
+            </div>
+            <div style="cursor: auto" class="btn mt-2">
+              <i class="bi bi-people-fill me-2 text-secondary"></i
+              ><span class="small text-secondary">Capacidad</span
+              ><span class="badge text-bg-danger ms-2">{{
+                keynote.maxNumPersons
+              }}</span>
+            </div>
+            <div
+              class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3"
+            >
+              <p class="small mb-0">
+                <i class="bi bi-bar-chart-fill me-2 text-secondary"></i
+                >Dificultad
+              </p>
+              <div
+                class="badge badge-{{
+                  keynote.difficultyLevel
+                }} px-3 rounded-pill font-weight-normal"
+              >
+                {{ keynote.difficultyLevel }}
               </div>
-              <div style="cursor: auto;" class="btn mt-2" ><i class="bi bi-people-fill me-2 text-secondary"></i><span class="small text-secondary">Capacidad</span><span class="badge text-bg-danger ms-2">{{keynote.maxNumPersons}}</span>
+            </div>
+            <div
+              class="d-flex align-items-center justify-content-start px-3 py-2 mt-3"
+            >
+              <span class="font-weight-bold small me-1 text-secondary"
+                ><i class="bi bi-alarm me-2 text-secondary"></i>Duración</span
+              >
+              <p class="spinner-grow text-light mb-0">
+                <span class="ms-1 fs-6 text-success fw-bold">{{
+                  keynote.durationInMin
+                }}</span>
+              </p>
+              <span class="font-weight-bold small ms-1">min</span>
+            </div>
+            @if(keynote.track) {
+            <div
+              class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3"
+            >
+              <p class="small mb-0">
+                <i class="bi bi-calendar-date-fill text-secondary me-2"></i
+                >Fecha
+              </p>
+              <div class="badge text-bg-secondary">
+                {{ keynote.track.startDate | date : "dd/MM/yy" }}
               </div>
-              <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3">
-                <p class="small mb-0"><i class="bi bi-bar-chart-fill me-2 text-secondary"></i>Dificultad</p>
-                <div class="badge badge-{{keynote.difficultyLevel}} px-3 rounded-pill font-weight-normal">{{keynote.difficultyLevel}}</div>
-              </div>
-              <div class="d-flex align-items-center justify-content-start px-3 py-2 mt-3">
-                <span class="font-weight-bold small me-1 text-secondary"><i class="bi bi-alarm me-2 text-secondary"></i>Duración</span><p class="spinner-grow text-light mb-0"><span class="ms-1 fs-6 text-success fw-bold">{{keynote.durationInMin}}</span></p><span class="font-weight-bold small ms-1">min</span>
-              </div>
-              @if(keynote.track) {
-                <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3">
-                  <p class="small mb-0"><i class="bi bi-calendar-date-fill text-secondary me-2"></i>Fecha</p>
-                  <div class="badge text-bg-secondary">{{keynote.track.startDate | date: 'dd/MM/yy'}}</div>
-                </div>
-              }
-              <!-- <div style="cursor: auto;" class="btn mt-2" ><i class="bi bi-person-video3 me-2 text-secondary"></i><span class="small text-secondary">Ponente</span><span class="badge text-bg-danger ms-2">{{keynote.speaker}}</span>
+            </div>
+            }
+            <!-- <div style="cursor: auto;" class="btn mt-2" ><i class="bi bi-person-video3 me-2 text-secondary"></i><span class="small text-secondary">Ponente</span><span class="badge text-bg-danger ms-2">{{keynote.speaker}}</span>
               </div> -->
 
-              <div style="text-align: center;">
-                <button  data-bs-toggle="tooltip" data-bs-title="Ver" style="font-weight: bold;" class="btn btn-ver btn-sm mt-3 me-3" [routerLink]="['/keynotes', keynote.id, 'detail']"><i class="bi bi-eye-fill"></i></button>
-                @if (isAdmin) {
-                <button style="font-weight: bold;" class="btn btn-editar btn-success btn-sm mt-3 ms-3 me-3" [routerLink]="['/keynotes', keynote.id, 'update']"><i class="bi bi-pencil-square"></i></button>
-                <button style="font-weight: bold" class="btn btn-archivar btn-danger btn-sm ms-3 mt-3" (click)="archive(keynote)"><i class="bi bi-archive-fill"></i></button>
-                }
-              </div>
+            <div style="text-align: center">
+              <button
+                data-bs-toggle="tooltip"
+                data-bs-title="Ver"
+                style="font-weight: bold"
+                class="btn btn-ver btn-sm mt-3 me-3"
+                [routerLink]="['/keynotes', keynote.id, 'detail']"
+              >
+                <i class="bi bi-eye-fill"></i>
+              </button>
+              @if (isAdmin) {
+              <button
+                style="font-weight: bold"
+                class="btn btn-editar btn-success btn-sm mt-3 ms-3 me-3"
+                [routerLink]="['/keynotes', keynote.id, 'update']"
+              >
+                <i class="bi bi-pencil-square"></i>
+              </button>
+              <button
+                style="font-weight: bold"
+                class="btn btn-archivar btn-danger btn-sm ms-3 mt-3"
+                (click)="archive(keynote)"
+              >
+                <i class="bi bi-archive-fill"></i>
+              </button>
+              }
             </div>
           </div>
         </div>
-        }
-        <!-- End -->
       </div>
-      } @else {
-        <div class="container">
-          <h2 class="text-secondary" style="font-family: 'Libre Franklin';"><strong>Para acceder al listado de charlas debes logarte previamente </strong><button class="btn me-3 ms-3"><a class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio "  routerLink="/login" (click)="$event.preventDefault()" id="" role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Acceder</a></button></h2>
-        </div>
       }
-        
-      <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase">Mostrar más</a></div>
+      <!-- End -->
+    </div>
+    } @else {
+    <div class="container">
+      <h2 class="text-secondary" style="font-family: 'Libre Franklin'">
+        <strong
+          >Para acceder al listado de charlas debes logarte previamente </strong
+        ><button class="btn me-3 ms-3">
+          <a
+            class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio"
+            routerLink="/login"
+            (click)="$event.preventDefault()"
+            id=""
+            role="button"
+            ><i class="bi bi-box-arrow-in-right me-2"></i>Acceder</a
+          >
+        </button>
+      </h2>
+    </div>
+    }
+
+    <div class="py-5 text-right">
+      <a href="#" class="btn btn-dark px-5 py-3 text-uppercase">Mostrar más</a>
     </div>
   </div>
+</div>

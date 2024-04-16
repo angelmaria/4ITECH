@@ -17,7 +17,7 @@ export class KeynoteDetailComponent implements OnInit {
 
   keynote: Keynote | undefined;
   comments: CommentModel[] = [];
-  comment: CommentModel | undefined;
+  //comments: CommentModel | undefined;
   
 
   constructor(
@@ -27,7 +27,7 @@ export class KeynoteDetailComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.loadComments();
+    //this.loadComments();
     // extraer el id de la url
     // traer el keynote de backend utilizando petición HTTP GET
     this.activatedRoute.params.subscribe(params => {
@@ -40,33 +40,34 @@ export class KeynoteDetailComponent implements OnInit {
         console.log(this.keynote);
       });
 
-      const backendUrl = 'http://localhost:8080/comments/' + id;
-      this.httpClient.get<CommentModel>(backendUrl).subscribe(commentBackend => {
-        this.comment = commentBackend;
+      const backendUrl = 'http://localhost:8080/comments/filter-by-keynote/' + id;
+      this.httpClient.get<CommentModel[]>(backendUrl).subscribe(commentBackend => {
+        this.comments = commentBackend;
         
         // console.log(this.comment);
       });
     });
 
   }
-  private loadComments() {
-    const backenUrl = 'http://localhost:8080/comments';
-    this.httpClient.get<CommentModel[]>(backenUrl).subscribe(commentsBackend => {
-      this.comments = commentsBackend;
-    });
 
-      // a mayores, se podría llamar a otros controladores y traer más datos
+  // private loadComments() {
+  //   const backenUrl = 'http://localhost:8080/comments';
+  //   this.httpClient.get<CommentModel[]>(backenUrl).subscribe(commentsBackend => {
+  //     this.comments = commentsBackend;
+  //   });
 
-      // traer todos los capítulos de un libro
-      // /chapters/filter-by-book/id
+  //     // a mayores, se podría llamar a otros controladores y traer más datos
 
-      // traer todos los comments de un libro
-      // /comments/filter-by-book/id 
+  //     // traer todos los capítulos de un libro
+  //     // /chapters/filter-by-book/id
 
-      // traer todas las categorías de un libro
-      // /categories/filter-by-book/id
+  //     // traer todos los comments de un libro
+  //     // /comments/filter-by-book/id 
 
-      // traer el autor del libro
-      // /author/fiter-by-book/id
-  }
+  //     // traer todas las categorías de un libro
+  //     // /categories/filter-by-book/id
+
+  //     // traer el autor del libro
+  //     // /author/fiter-by-book/id
+  // }
 }
