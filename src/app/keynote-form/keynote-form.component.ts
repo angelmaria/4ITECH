@@ -136,10 +136,10 @@ export class KeynoteFormComponent implements OnInit {
   
       if (this.isUpdate) {
           this.httpClient.put<Keynote>('http://localhost:8080/keynotes/' + this.keynote?.id, formData)
-        .subscribe(author => this.navigateToList());
+        .subscribe(keynote => this.navigateToList());
       } else {
         this.httpClient.post<Keynote>('http://localhost:8080/keynotes', formData)
-        .subscribe(author => this.navigateToList());
+        .subscribe(keynote => this.navigateToList());
       }
       
     }

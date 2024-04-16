@@ -3,17 +3,20 @@ import { Component, OnInit } from '@angular/core';
 import { Keynote } from '../models/keynote.model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { CommentModel } from '../models/commentmodel.model';
+import { NgbAlertModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-keynote-detail',
   standalone: true,
-  imports: [RouterLink, DatePipe],
+  imports: [RouterLink, DatePipe, NgbAlertModule, NgbRatingModule],
   templateUrl: './keynote-detail.component.html',
   styleUrl: './keynote-detail.component.css'
 })
 export class KeynoteDetailComponent implements OnInit {
 
   keynote: Keynote | undefined;
+  comments: CommentModel[] = [];
   
 
   constructor(
@@ -22,6 +25,8 @@ export class KeynoteDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
+    this.loadComments();
     // extraer el id de la url
     // traer el keynote de backend utilizando petición HTTP GET
     this.activatedRoute.params.subscribe(params => {
@@ -32,7 +37,6 @@ export class KeynoteDetailComponent implements OnInit {
       this.httpClient.get<Keynote>(url).subscribe(keynoteBackend => {
         this.keynote = keynoteBackend;
         console.log(this.keynote);
-        
       });
 
       // a mayores, se podría llamar a otros controladores y traer más datos
@@ -51,5 +55,11 @@ export class KeynoteDetailComponent implements OnInit {
 
     });
 
+  }
+  private loadComments() {
+    const backenUrl = 'http://localhost:8080/comments';
+    this.httpClient.get<CommentModel[]>(backenUrl).subscribe(commentsBackend => {
+      this.comments = commentsBackend;
+    });
   }
 }
