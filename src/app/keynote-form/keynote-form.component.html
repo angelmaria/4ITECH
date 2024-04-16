@@ -124,7 +124,7 @@
       }
       @if (!photoPreview && keynote?.photoUrl) {
         <h2 class="my-5 text-secondary mt-5 fw-bold" style="font-family: 'Libre Franklin';">Previsualización foto</h2>
-        <img class="img-fluid" [src]="'' + keynote?.photoUrl">
+        <img class="img-fluid" [src]="'http://localhost:8080/files/' + keynote?.photoUrl">
       }
     </div>
   </div>
