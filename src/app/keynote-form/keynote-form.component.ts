@@ -7,12 +7,13 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Room } from '../models/room.model';
 import { User } from '../models/user.model';
 import { Track } from '../models/track.model';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 
 
 @Component({
   selector: 'app-keynote-form',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, EditorModule],
   templateUrl: './keynote-form.component.html',
   styleUrl: './keynote-form.component.css'
 })

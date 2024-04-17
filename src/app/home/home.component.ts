@@ -4,8 +4,11 @@ import { NgbCarouselConfig, NgbCarouselModule, NgbNavModule } from '@ng-bootstra
 import { Keynote } from '../models/keynote.model';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from '../authentication/authentication.service';
+import { CommentModel } from '../models/commentmodel.model';
 
 export class NgbdCarouselConfig {
+
+  comments: CommentModel[] = [];
 
 	constructor(config: NgbCarouselConfig) {
 		// customize default values of carousels used by this component tree
@@ -44,6 +47,7 @@ private loadsKeynotes() {
   const url = 'http://localhost:8080/keynotes';
   this.httpClient.get<Keynote[]>(url).subscribe(keynotes => this.keynotes = keynotes);
 }
+
 
 }
 
