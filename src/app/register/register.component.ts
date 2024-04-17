@@ -1,7 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Register } from '../models/register.dto';
+import { Register } from '../authentication/register.dto';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication/authentication.service';
 

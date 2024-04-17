@@ -29,6 +29,7 @@ import { ContactComponent } from './contact/contact.component';
 import { userRoleGuard } from './authentication/user-role.guard';
 import { AccountFormComponent } from './account-form/account-form.component';
 import { AvatarFormComponent } from './avatar-form/avatar-form.component';
+import { userLoggedInGuard } from './authentication/user-logged-in.guard';
 
 export const routes: Routes = [
     {
@@ -50,14 +51,18 @@ export const routes: Routes = [
         path: 'register',
         component: RegisterComponent
     },
+    // Listado de keynotes accesible para todo el mundo
     {
         path: 'keynotes',
         component: KeynoteListComponent
     },
+    // Detalle de keynote accesible solo para usuarios autenticados
     {
         path: 'keynotes/:id/detail',
-        component: KeynoteDetailComponent
+        component: KeynoteDetailComponent,
+        canActivate: [userLoggedInGuard]
     },
+    // Creación y actualización de keynotes accesible solo para usuarios con rol ADMIN
     {
         path: 'keynotes/create',
         component: KeynoteFormComponent,
