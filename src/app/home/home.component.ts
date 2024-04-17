@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgbCarouselConfig, NgbCarouselModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig, NgbCarouselModule, NgbNavModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { Keynote } from '../models/keynote.model';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { CommentModel } from '../models/commentmodel.model';
+import { DatePipe } from '@angular/common';
 
 export class NgbdCarouselConfig {
 
-  comments: CommentModel[] = [];
-
 	constructor(config: NgbCarouselConfig) {
 		// customize default values of carousels used by this component tree
-		config.interval = 20000;
+		config.interval = 30000;
 		config.wrap = false;
 		config.keyboard = false;
 		config.pauseOnHover = false;
@@ -22,7 +21,7 @@ export class NgbdCarouselConfig {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgbCarouselModule, RouterLink, NgbNavModule],
+  imports: [NgbCarouselModule, RouterLink, NgbNavModule, NgbRatingModule, DatePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -31,6 +30,7 @@ export class NgbdCarouselConfig {
 export class HomeComponent implements OnInit {
 ticket: any;
 isLoggedIn = false;
+comments: CommentModel[] = [];
 
   constructor(
     private httpClient: HttpClient,
@@ -40,6 +40,9 @@ isLoggedIn = false;
   keynotes: Keynote[] = [];
 
 ngOnInit(): void {
+
+  this.loadComments();
+
   this.loadsKeynotes();
 }
 
@@ -48,6 +51,12 @@ private loadsKeynotes() {
   this.httpClient.get<Keynote[]>(url).subscribe(keynotes => this.keynotes = keynotes);
 }
 
+private loadComments() {
+  const backendUrl = 'http://localhost:8080/comments/filter-by-keynote/' + 'id';
+  this.httpClient.get<CommentModel[]>(backendUrl).subscribe(commentBackend => {
+    this.comments = commentBackend;
+  });
+}
 
 }
 

@@ -6,213 +6,297 @@
 
 <main class="container mt-4">
   
-   <div class="row g-5">
-      <div class="col-md-8">
+<div class="row g-5">
+  <div class="col-md-8">
 
-
-
-    <!-- sección ticket        -->
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <img src="assets/img/ticket.jpeg" alt="">
-          </div>
-          <button class="btn btn-primary w-100 py-2 gradient-custom-2 mb-2 fw-bold"  type="submit" routerLink="/tickets" (click)="$event.preventDefault()" >Compra tu ticket Aquí</button>
-    <!-- fin sección ticket -->
-        
-        <article class="blog-post">
-      
-          <hr>
-          <!-- sección tecnologías usadas -->
-          <div class="text-emphasys px-4 py-5 text-center">
-            <h3 class="fw-bold text-secondary mb-4" style="font-family: 'Libre Franklin';">Tecnologias Utilizadas para el desarrollo de &commat;4iTECH</h3>
-            <img src="assets/img/Tecnologias.png" class="img-fluid" alt="Imagen de tecnologias">
-            <div class="py-2">
-              <div class=>
-                <div class=>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- fin sección tecnolgías usadas -->
-
-          <ul ngbNav #nav="ngbNav" class="nav-tabs">
-            
-            <li [ngbNavItem]="1">
-              <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(1, 107, 238, 0.748);">Inteligencia Artificial</button>
-              <ng-template ngbNavContent>
-                <p>
-                  La inteligencia artificial (IA) ha experimentado un desarrollo exponencial en las últimas décadas. Los avances en algoritmos, hardware y la disponibilidad de grandes cantidades de datos han impulsado su crecimiento.
-                </p>
-                <p>
-                  <img src="assets/keynotes/AI.jpeg" class="img-fluid float-start me-3 rounded shadow-sm" style="max-width: 140px;" alt="">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
-                  master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
-                  keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
-                  salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-                </p>
-                <p>
-                  Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
-                  master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
-                  keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
-                  salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-                </p>
-              </ng-template>
-            </li>
-            <li [ngbNavItem]="2">
-              <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(255, 176, 5, 0.748);">La Era Digital</button>
-              <ng-template ngbNavContent>
-                <p>
-                  Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
-                  farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-                  ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-                  helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
-                  8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
-                  stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
-                </p>
-              </ng-template>
-            </li>
-            <li [ngbNavItem]="3">
-              <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(238, 1, 56, 0.748);border-left: 1px solid #dee2e6;border-right:1px solid #dee2e6;">El mejor Fronted con Angular</button>
-              <ng-template ngbNavContent>
-                <p>
-                  Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
-                  Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
-                  Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna,
-                  egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec
-                  tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
-                  magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget
-                  neque. Phasellus nec tortor vel tellus pulvinar feugiat.
-                </p>
-              </ng-template>
-            </li>
-          
-          </ul>
-          
-          <div [ngbNavOutlet]="nav" class="p-3 border-1" style="border-right:1px solid #dee2e6;border-bottom:1px solid #dee2e6;border-left:1px solid #dee2e6;border-top:none;"></div>
-
-          <h3 Class="text-secondary mt-4">¡Prepárate para ampliar tus horizontes y desafiar tu mente!</h3>
-          <p>¡Prepárate para ampliar tus horizontes y desafiar tu mente!</p>
-          <ul>
-            <li>Introducción a Java con el experto Alan Sastre</li>
-            <li>Profundizando en Angular con la experta María López</li>
-            <li>Explorando las últimas novedades en Python con el especialista Carlos García</li>
-            <li>Construyendo aplicaciones escalables con Node.js con la experta Laura Martínez</li>
-          </ul>
-          <p>Aquí algunos de los contenidos</p>
-          <ol>
-            <li>Introducción a Java con el experto Alan Sastre</li>
-            <li>Profundizando en Angular con la experta María López</li>
-            <li>Explorando las últimas novedades en Python con el especialista Carlos García</li>
-            <li>Construyendo aplicaciones escalables con Node.js con la experta Laura Martínez</li>
-          </ol>
-          <p>Distintos lenguajes en programación</p>
-          <dl>
-            <dt>Java</dt>
-            <dd>Un lenguaje de programación de propósito general y orientado a objetos, ampliamente utilizado en el desarrollo de aplicaciones empresariales.</dd>
-            <dt>Angular</dt>
-            <dd>Un framework de desarrollo de aplicaciones web desarrollado y mantenido por Google que permite construir aplicaciones web dinámicas y de una sola página.</dd>
-            <dt>Python</dt>
-            <dd>Un lenguaje de programación interpretado y de alto nivel, conocido por su sintaxis simple y legible, ampliamente utilizado en el desarrollo web, científico y de software en general.</dd>
-            <dt>Node.js</dt>
-            <dd>Un entorno de ejecución de JavaScript del lado del servidor que permite construir aplicaciones web escalables y rápidas.</dd>
-          </dl>
-          
-
-          <h2 class="text-primary">Echa un vistazo a nuestras reseñas y descubre lo que la comunidad tecnológica está diciendo sobre &commat;4itech. </h2>
-          <p>Te garantizamos que te sentirás inspirado y motivado para unirte a nosotros en nuestro próximo evento.<a href="/comments">ver reseñas</a>.</p>
- 
-        </article>
-
-       
-  
-      </div>
-  
-      <div class="col-md-4">
-        <div class="position-sticky" style="top: 2rem;">
-          <div class="p-3 mb-3 bg-body-tertiary rounded">  
-            <h2 class="text-secondary fw-bold" style="font-family: 'Libre Franklin'">Charlas recientes</h2>
-            <!-- <p class="mb-0">Somos estudiantes del curso de Desarrollo de web de la FUNDACION ADECCO impartido por el profesor Alan Sastre</p> -->
-          </div>
-        @if (isLoggedIn) {
-          <ngb-carousel>
-            @for (keynote of keynotes; track keynote.id) {
-            <ng-template ngbSlide>
-              <div class="picsum-img-wrapper">
-                <img [src]="'http://localhost:8080/files/' + keynote?.photoUrl" [routerLink]="['/keynotes', keynote.id, 'detail']"  class="img-fluid card-img-top zoom">
-              </div>
-              <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius:10px;">
-                <h3><a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-light" style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a></h3>
-              </div>
-            </ng-template>
-          }
-          </ngb-carousel>
-        } @else {
-          <div class="container">
-            <h5 class="text-secondary" style="font-family: 'Libre Franklin';"><strong>Para acceder al listado de charlas debes logarte previamente </strong><button class="btn me-3 ms-3"><a class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio "  routerLink="/login" (click)="$event.preventDefault()" id="" role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Acceder</a></button></h5>
-          </div>
-        }
-
-          <div class="p-4">
-            <h4 class="fst-italic">¡No esperes más para unirte a la conversación sobre el futuro de la tecnología!</h4>
-            <ol class="list-unstyled mb-0">
-              <li><a href="/keynotes">Charlas</a></li>
-              <li><a href="/tracks">Tracks</a></li>
-              <li><a href="/tickets">Tickets</a></li>
-              <li><a href="/ticketOrderBuys">Orden de compra</a></li>
-              <li><a href="/comments">Reseñas</a></li>
-              <li><a href="/register">Registrate</a></li>
-              <li><a href="/login">Inicia sesión</a></li>
-            </ol>
-          </div>
-  
-          <div class="p-4">
-            <h4 class="fst-italic">Encuentranos</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">GitHub</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_nav-header-signin">Linkedin</a></li>
-            </ol>
-          </div>
-        </div>
-      </div>
+    <!-- sección carrousel -->
+    <!-- <div class="col-lg-12">
+    <ngb-carousel>
+    <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+    <img src="assets/keynotes/AI.png" class="border border-5 border-light-subtle rounded img-fluid card-img-top object-fit-cover zoom" alt="Random first slide" />
     </div>
+    <div class="carousel-caption">
+    <h3></h3>
+    </div>
+    </ng-template>
+    <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+    <img src="assets/keynotes/big_data.png" class="border border-5 border-light-subtle rounded img-fluid card-img-top object-fit-cover zoom" alt="Random second slide" />
+    </div>
+    <div class="carousel-caption">
+    <h3></h3>
+    </div>
+    </ng-template>
+    <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+    <img src="assets/keynotes/UX.png" class="border border-5 border-light-subtle rounded img-fluid card-img-top object-fit-cover zoom" alt="Random third slide" />
+    </div>
+    <div class="carousel-caption">
+    <h3></h3>
+    </div>
+    </ng-template>
+    <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+    <img src="assets/keynotes/cibersecurity.png" class="border border-5 border-light-subtle rounded img-fluid card-img-top object-fit-cover zoom" alt="Random fourth slide" />
+    </div>
+    <div class="carousel-caption">
+    <h3></h3>
+    </div>
+    </ng-template>
+    <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+    <img src="assets/keynotes/blockchain.png" class="border border-5 border-light-subtle rounded img-fluid card-img-top object-fit-cover zoom" alt="Random fourth slide" />
+    </div>
+    <div class="carousel-caption">
+    <h3></h3>
+    </div>
+    </ng-template>
+    </ngb-carousel>
+    </div> -->
+    <!-- fin carrousel -->
+
+    <article class="blog-post">
+
+    <!-- sección tecnologías usadas -->
+    <div class="text-emphasys">
+    <h3 class="fw-bold text-secondary mb-4" style="font-family: 'Libre Franklin';">Tecnologias Utilizadas para el desarrollo de &commat;4iTECH</h3>
+    <img src="assets/img/Tecnologias.png" class="img-fluid" alt="Imagen de tecnologias">
+    <div class="py-2">
+    <div class=>
+    <div class=>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- fin sección tecnolgías usadas -->
+
+    <hr class="text-body-tertiary mb-4">
+
+    <!-- sección navbar -->
+    <ul ngbNav #nav="ngbNav" class="nav-tabs mt-3">
+
+    <li [ngbNavItem]="1">
+    <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(1, 107, 238, 0.748);">Inteligencia Artificial</button>
+    <ng-template ngbNavContent>
+    <p>
+    La inteligencia artificial (IA) ha experimentado un desarrollo exponencial en las últimas décadas. Los avances en algoritmos, hardware y la disponibilidad de grandes cantidades de datos han impulsado su crecimiento.
+    </p>
+    <div class="col-lg-6 float-end">
+      <ngb-carousel>
+      <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+      <img src="assets/keynotes/AI.png" class="border border-5 border-light-subtle rounded img-fluid card-img-top object-fit-cover zoom" alt="Random first slide" />
+      </div>
+      <div class="carousel-caption">
+      <h3></h3>
+      </div>
+      </ng-template>
+      <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+      <img src="assets/keynotes/big_data.png" class="border border-5 border-light-subtle rounded img-fluid card-img-top object-fit-cover zoom" alt="Random second slide" />
+      </div>
+      <div class="carousel-caption">
+      <h3></h3>
+      </div>
+      </ng-template>
+      <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+      <img src="assets/keynotes/UX.png" class="border border-5 border-light-subtle rounded img-fluid card-img-top object-fit-cover zoom" alt="Random third slide" />
+      </div>
+      <div class="carousel-caption">
+      <h3></h3>
+      </div>
+      </ng-template>
+      <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+      <img src="assets/keynotes/cibersecurity.png" class="border border-5 border-light-subtle rounded img-fluid card-img-top object-fit-cover zoom" alt="Random fourth slide" />
+      </div>
+      <div class="carousel-caption">
+      <h3></h3>
+      </div>
+      </ng-template>
+      <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+      <img src="assets/keynotes/blockchain.png" class="border border-5 border-light-subtle rounded img-fluid card-img-top object-fit-cover zoom" alt="Random fourth slide" />
+      </div>
+      <div class="carousel-caption">
+      <h3></h3>
+      </div>
+      </ng-template>
+      </ngb-carousel>
+      </div>
+    <p>
+    Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+    master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
+    keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
+    salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+    </p>
+    <p>
+    Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth
+    master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
+    keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
+    salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+    </p>
+    <p>Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
+      keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat
+      salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+    </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+    <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(255, 176, 5, 0.748);">La Era Digital</button>
+    <ng-template ngbNavContent>
+    <p>
+    Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+    farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+    ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+    helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
+    8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+    stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+    </p>
+    </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+    <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(238, 1, 56, 0.748);border-left: 1px solid #dee2e6;border-right:1px solid #dee2e6;">El mejor Fronted con Angular</button>
+    <ng-template ngbNavContent>
+    <p>
+    Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
+    Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
+    Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna,
+    egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec
+    tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
+    magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget
+    neque. Phasellus nec tortor vel tellus pulvinar feugiat.
+    </p>
+    </ng-template>
+    </li>
+
+    </ul>
+    <!-- fin sección navbar -->
+
+    <div [ngbNavOutlet]="nav" class="p-3 border-1" style="border-right:1px solid #dee2e6;border-bottom:1px solid #dee2e6;border-left:1px solid #dee2e6;border-top:none;"></div>
+
+    <h3 Class="text-secondary mt-4">¡Prepárate para ampliar tus horizontes y desafiar tu mente!</h3>
+    <p>¡Prepárate para ampliar tus horizontes y desafiar tu mente!</p>
+    <ul>
+    <li>Introducción a Java con el experto Alan Sastre</li>
+    <li>Profundizando en Angular con la experta María López</li>
+    <li>Explorando las últimas novedades en Python con el especialista Carlos García</li>
+    <li>Construyendo aplicaciones escalables con Node.js con la experta Laura Martínez</li>
+    </ul>
+    <p>Aquí algunos de los contenidos</p>
+    <ol>
+    <li>Introducción a Java con el experto Alan Sastre</li>
+    <li>Profundizando en Angular con la experta María López</li>
+    <li>Explorando las últimas novedades en Python con el especialista Carlos García</li>
+    <li>Construyendo aplicaciones escalables con Node.js con la experta Laura Martínez</li>
+    </ol>
+    <p>Distintos lenguajes en programación</p>
+    <dl>
+    <dt>Java</dt>
+    <dd>Un lenguaje de programación de propósito general y orientado a objetos, ampliamente utilizado en el desarrollo de aplicaciones empresariales.</dd>
+    <dt>Angular</dt>
+    <dd>Un framework de desarrollo de aplicaciones web desarrollado y mantenido por Google que permite construir aplicaciones web dinámicas y de una sola página.</dd>
+    <dt>Python</dt>
+    <dd>Un lenguaje de programación interpretado y de alto nivel, conocido por su sintaxis simple y legible, ampliamente utilizado en el desarrollo web, científico y de software en general.</dd>
+    <dt>Node.js</dt>
+    <dd>Un entorno de ejecución de JavaScript del lado del servidor que permite construir aplicaciones web escalables y rápidas.</dd>
+    </dl>
+
+
+    <h2 class="text-primary">Echa un vistazo a nuestras reseñas y descubre lo que la comunidad tecnológica está diciendo sobre &commat;4itech. </h2>
+    <p>Te garantizamos que te sentirás inspirado y motivado para unirte a nosotros en nuestro próximo evento.<a href="/comments">ver reseñas</a>.</p>
+
+    </article>
+
+  </div>
+
+  <div class="col-md-4">
+    <div class="position-sticky" style="top: 2rem;">
+      <div class="p-3 mb-2 bg-body-tertiary rounded">  
+        <h2 class="text-secondary fw-bold" style="font-family: 'Libre Franklin'">Charlas recientes</h2>
+      </div>
+    @if (isLoggedIn) {
+      <ngb-carousel>
+        @for (keynote of keynotes; track keynote.id) {
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="'http://localhost:8080/files/' + keynote?.photoUrl" [routerLink]="['/keynotes', keynote.id, 'detail']"  class="img-fluid card-img-top zoom">
+          </div>
+          <div class="carousel-caption" style="background-color: rgba(0,0,0,0.5); border-radius:10px;">
+            <h3><a [routerLink]="['/keynotes', keynote.id, 'detail']" class="text-light" style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a></h3>
+          </div>
+        </ng-template>
+      }
+      </ngb-carousel>
+    } @else {
+      <div class="container">
+        <h5 class="text-secondary" style="font-family: 'Libre Franklin';"><strong>Para acceder al listado de charlas debes logarte previamente </strong><button class="btn me-3 ms-3"><a class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio "  routerLink="/login" (click)="$event.preventDefault()" id="" role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Acceder</a></button></h5>
+      </div>
+    }
+
+<!-- sección ticket        -->
+<div class="p-3 mb-2 bg-body-tertiary rounded mt-4">  
+<h2 class="text-secondary fw-bold" style="font-family: 'Libre Franklin'">Entradas a la venta</h2>
+</div>
+<div class="row g-0 border rounded overflow-hidden flex-md-row mt-2 mb-2 shadow-sm h-md-250 position-relative">
+<img src="assets/img/ticket.jpeg" alt="">
+</div>
+<button class="btn btn-primary w-100 py-2 gradient-custom-2 fw-bold"  type="submit" routerLink="/tickets" (click)="$event.preventDefault()" >Compra tu ticket Aquí</button>
+<!-- fin sección ticket -->
+
+<div class="p-4 mt-3 bg-body-tertiary mb-3">
+<h4 class="fw-bold fst-italic text-secondary" style="font-family:'Libre Franklin';">¡No esperes más para unirte a la conversación sobre el futuro de la tecnología!</h4>
+</div>
+
+<div class="video-cover vid-container">
+<video autoplay loop muted>
+<source src="assets/videos/video_charlas_2.mp4" type="video/mp4">
+</video>
+</div>
+
+    </div>
+  </div>
+</div>
   
     <!-- Sección sobre nosotros -->
-    <div class="row mb-4 mt-3" style="justify-content: center;">
-      <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
+<div class="row mb-4 mt-3" style="justify-content: center;">
+  <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
 border-radius: 10px; text-align: center; font-family: 'Libre Franklin'; border-top: 6px solid #4284DB;">
-        <img class="rounded-circle mt-2" src="assets/nosotros/Johana.jpeg" alt="Generic placeholder image" width="140" height="140">
-        <h3 class="text-secondary mt-3">Johana Macías</h3>
-        <p class="text-secondary">Desarrolladora Full Stack Java Spring Boot</p>
-        <a href=""><i class="bi bi-linkedin fs-3 me-3"></i></a><a href="" class="text-dark"><i class="bi bi-twitter-x fs-3"></i></a>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
+    <img class="rounded-circle mt-2" src="assets/nosotros/Johana.jpeg" alt="Generic placeholder image" width="140" height="140">
+    <h3 class="text-secondary mt-3">Johana Macías</h3>
+    <p class="text-secondary">Desarrolladora Full Stack Java Spring Boot</p>
+    <a href=""><i class="bi bi-linkedin fs-3 me-3"></i></a><a href="" class="text-dark"><i class="bi bi-twitter-x fs-3"></i></a>
+  </div><!-- /.col-lg-4 -->
+  <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
 border-radius: 10px; text-align: center; font-family: 'Libre Franklin'; border-top: 6px solid rgba(255, 176, 5, 0.748);">
-        <img class="rounded-circle mt-2" src="assets/nosotros/Silvia.png" alt="Generic placeholder image" width="140" height="140">
-        <h3 class="text-secondary mt-3">Silvia Sánchez</h3>
-        <p class="text-secondary">Desarrolladora Full Stack Java Spring Boot</p>
-        <a href=""><i class="bi bi-linkedin fs-3 me-3"></i></a><a href="" class="text-dark"><i class="bi bi-twitter-x fs-3"></i></a>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
+    <img class="rounded-circle mt-2" src="assets/nosotros/Silvia.png" alt="Generic placeholder image" width="140" height="140">
+    <h3 class="text-secondary mt-3">Silvia Sánchez</h3>
+    <p class="text-secondary">Desarrolladora Full Stack Java Spring Boot</p>
+    <a href=""><i class="bi bi-linkedin fs-3 me-3"></i></a><a href="" class="text-dark"><i class="bi bi-twitter-x fs-3"></i></a>
+  </div><!-- /.col-lg-4 -->
+  <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
 border-radius: 10px; text-align: center; font-family: 'Libre Franklin'; border-top: 6px solid #4284DB;">
-        <img class="rounded-circle mt-2" src="assets/nosotros/Aitor.jpeg" alt="Generic placeholder image" width="140" height="140">
-        <h3 class="text-secondary mt-3">Aitor Pérez</h3>
-        <p class="text-secondary">Desarrollador Full Stack Java Spring Boot</p>
-        <a href=""><i class="bi bi-linkedin fs-3 me-3"></i></a><a href="" class="text-dark"><i class="bi bi-twitter-x fs-3"></i></a>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
+    <img class="rounded-circle mt-2" src="assets/nosotros/Aitor.jpeg" alt="Generic placeholder image" width="140" height="140">
+    <h3 class="text-secondary mt-3">Aitor Pérez</h3>
+    <p class="text-secondary">Desarrollador Full Stack Java Spring Boot</p>
+    <a href=""><i class="bi bi-linkedin fs-3 me-3"></i></a><a href="" class="text-dark"><i class="bi bi-twitter-x fs-3"></i></a>
+  </div><!-- /.col-lg-4 -->
+  <div class="col-lg-2 me-3" style="box-shadow: 0 0 4px #ccc; padding: 10px;
 border-radius: 10px; text-align: center; font-family: 'Libre Franklin'; border-top: 6px solid rgba(255, 176, 5, 0.748);">
-        <img class="rounded-circle mt-2" src="assets/nosotros/Javier.png" alt="Generic placeholder image" width="140" height="140">
-        <h3 class="text-secondary mt-3">Javier Baeza</h3>
-        <p class="text-secondary">Desarrollador Full Stack Java Spring Boot</p>
-        <a href=""><i class="bi bi-linkedin fs-3 me-3"></i></a><a href="" class="text-dark"><i class="bi bi-twitter-x fs-3"></i></a>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-2" style="box-shadow: 0 0 4px #ccc; padding: 10px;
+    <img class="rounded-circle mt-2" src="assets/nosotros/Javier.png" alt="Generic placeholder image" width="140" height="140">
+    <h3 class="text-secondary mt-3">Javier Baeza</h3>
+    <p class="text-secondary">Desarrollador Full Stack Java Spring Boot</p>
+    <a href=""><i class="bi bi-linkedin fs-3 me-3"></i></a><a href="" class="text-dark"><i class="bi bi-twitter-x fs-3"></i></a>
+  </div><!-- /.col-lg-4 -->
+  <div class="col-lg-2" style="box-shadow: 0 0 4px #ccc; padding: 10px;
 border-radius: 10px; text-align: center; font-family: 'Libre Franklin'; border-top: 6px solid #4284DB;">
-        <img class="rounded-circle mt-2" src="assets/nosotros/Angel.jpeg" alt="Generic placeholder image" width="140" height="140">
-        <h3 class="text-secondary mt-3">Angel Martínez</h3>
-        <p class="text-secondary">Desarrollador Full Stack Java Spring Boot</p>
-        <a href="https://www.linkedin.com/in/angelmariamartinez/"><i class="bi bi-linkedin fs-3 me-3"></i></a><a href="https://twitter.com/angelmaria75" class="text-dark"><i class="bi bi-twitter-x fs-3"></i></a>
-      </div><!-- /.col-lg-4 -->
-      
-    </div>
+    <img class="rounded-circle mt-2" src="assets/nosotros/Angel.jpeg" alt="Generic placeholder image" width="140" height="140">
+    <h3 class="text-secondary mt-3">Angel Martínez</h3>
+    <p class="text-secondary">Desarrollador Full Stack Java Spring Boot</p>
+    <a href="https://www.linkedin.com/in/angelmariamartinez/"><i class="bi bi-linkedin fs-3 me-3"></i></a><a href="https://twitter.com/angelmaria75" class="text-dark"><i class="bi bi-twitter-x fs-3"></i></a>
+  </div><!-- /.col-lg-4 -->
+  
+</div>
     <!-- fin sección sobre nosotros -->
-  </main>
+</main>
