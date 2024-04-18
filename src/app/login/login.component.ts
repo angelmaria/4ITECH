@@ -3,14 +3,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationService } from '../authentication/authentication.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Login } from '../authentication/login.dto';
 import { Token } from '../authentication/token.dto';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule],
+  imports: [ReactiveFormsModule, HttpClientModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
