@@ -1,19 +1,104 @@
 
+<section class="container " style="text-transform: unset border-left 05px solid #4f8cef!important; border-left-width: 15px !important; padding-top: 25px !important;  margin-bottom:20px ; " >
+    <h1>Compra tus Entradas </h1>
+     <div class="row">
+       <article class="card fl-left">
+        <section class="date">
+          <time datetime="28th may">
+            <span>1 Día</span><span>28 o 29 Mayo</span>
+          </time>
+        </section>
+      <section class="card-cont">
+        <small>Madrid</small>
+        <h3>Ticket Plata/oro</h3>
+        <div class="even-date">
+         <i class="fa fa-calendar"></i>
+         <time>
+           <span>Conectando Mentes,Creando Futuro... </span>
+           <span>09:00 a.m to 17:00 pm</span>
+         </time>
+        </div>
+        <div class="even-info">
+          <i class="fa fa-map-marker"></i>
+          <p>
+            Realiza tu compra
+          </p>
+        </div>
+        <a [routerLink]="['/ticketOrderBuys/create']">Comprar Entrada</a>
+      </section>
+    </article>
+    <article class="card fl-left">
+      <section class="date">
+        <time datetime="29th may">
+          <span>2 Días</span><span>28 y 29 Mayo</span>
+        </time>
+      </section>
+      <section class="card-cont">
+       <small>Madrid</small>
+       <h3>Ticket Diamante</h3>
+        <div class="even-date">
+         <i class="fa fa-calendar"></i>
+         <time>
+           <span>Conectando Mentes,Creando Futuro... </span>
+           <span>09:00 a.m to 17:00 pm</span>
+         </time>
+        </div>
+        <div class="even-info">
+          <i class="fa fa-map-marker"></i>
+          <p>
+            Realiza tu compra
+          </p>
+        </div>
+        <a [routerLink]="['/ticketOrderBuys/create']">Comprar Entrada</a>
+      </section>
+    </article>
+  </div>
 
-
-
-  <header>
-      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-          <h1 class="display-4 fw-normal text-body-emphasis"><strong>Tickets</strong></h1>
-          <p class="fs-5 text-body-secondary">Listado de tickets</p>
+    <h4>
+      <div class="col-4"> 
+        <div class="card shadow-sm" style="border-radius: 25px;"> 
+            <div class="card-body"style="padding-top: 50px !important; width: 900px !important;">
+                <h5 class="card-title ">Recuerda nuestros métodos de pago</h5> 
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <a href="/ticketOrderBuys/create">
+                  <img class="payment-image img-fluid" src="/assets/Ticket/img/t4.png" alt="Credit Card / Debit Card" title="Credit Card / Debit Card" style="margin-right: auto;width: 700px;">
+                  </a>
+                  <img class="payment-image img-fluid" src="/assets/Ticket/img/adeccoPNG.png" alt="Credit Card / Debit Card" title="Credit Card / Debit Card" style="margin-left: auto;width: 250px;">
+                </div>
+                <p style="text-transform: lowercase;font-size: 20px;">¡Estudia y ahorra! Aprovecha un 10% de descuento en tu entrada por ser estudiante Adecco y disfuta de nuestro evento.</p>
+            </div>
+          </div>
       </div>
-  </header>
-<hr>
-<div class="position-fixed bottom-0 start-0 p-5">
-  <a [routerLink]="['/ticketOrderBuys']" style="display: block;">
-    <img src="/assets/Ticket/compra.png" style="width: 200px; height: 150px;" alt="PNG">
-  </a>
-</div>
+    
+
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" style="padding-top: 20px !important; height: 900 !important;">
+        <div class="carousel-inner d-flex flex-column flex-sm-row justify-content-between py-3 my-4 border-top"> 
+            <div class="carousel-item active">
+                <img src="/assets/Ticket/img/t2.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/assets/Ticket/img/t1.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="/assets/Ticket/img/t3.png" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        <div class= "d-flex flex-column flex-sm-row justify-content-between py-3 my-3 border-top"> 
+      </div>
+    </div>
+  </h4>  
+ 
+
+
+
 
 <div class="position-fixed bottom-0 end-0 p-5">
   <!-- <a [routerLink]="['/ticketOrderBuys/create']" style="display: block;">
@@ -21,12 +106,14 @@
   </a> -->
 </div>
 
+@if (isLoggedIn) {
 
-@if (showDeletedTicketMessage) {
+  @if (showDeletedTicketMessage) {
 
   <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
   <ngb-alert type="success" (closed)="hideDeletedTicketMessage()">tikect borrado correctamente</ngb-alert>
-}
+  }
+
 @for (ticket of tickets; track ticket.id) {
   <p class="button-container">
     <div class="container">
@@ -39,46 +126,75 @@
                 <th class="text-center align-middle"><strong>Datos</strong></th>
               </tr>
               <tr>
-              <tr class="table-secondary text center align-middle">
+              <tr class="table-secondary text-center align-middle">
                 <th>ID</th>
                 <td>{{ticket.id}}</td>
               </tr>
-              <tr class="table-secondary">
+              <tr class="table-secondary text-center">
                 <th >Título</th>
                 <td>{{ticket.title}}</td>
               </tr>
-              <tr class="table-secondary">
-                <th>Número Máximo</th>
-                <td>{{ticket.maxNum}}</td>
-              </tr>
+              <!-- <tr class="table-secondary"> -->
+                <!-- <th>Número Máximo</th> -->
+                <!-- <td>{{ticket.maxNum}}</td> -->
+              <!-- </tr> -->
             </tbody>
           </table>
+          <!-- <div class="position-fixed bottom-0 start-0 p-5"> -->
+            <!-- <a [routerLink]="['/ticketOrderBuys']" style="display: block;"> -->
+              <!-- <img src="/assets/Ticket/compra.png" style="width: 200px; height: 150px;" alt="PNG"> -->
+            <!-- </a> -->
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
           
           <div class="d-flex justify-content-between gap-2" style="margin-top: 25px;">
           <button class="w-100 btn btn-lg btn-outline-info  p-1 me-3" style="display: block;"[routerLink]="['/tickets', ticket.id, 'detail']">Ver detalle </button>
           <button class="w-100 btn btn-lg btn-outline-info p-1 me-3" style="display: block;" [routerLink]="['/tickets', ticket.id, 'update']">Editar </button>
           <button class="w-100 btn btn-lg btn-outline-danger p-1 me-3" style="display: block;" (click)="delete(ticket)">Borrar </button>
           <button class="w-100 btn btn-lg btn-outline-info p-1 me-3" style="display: block;" [routerLink]="['/tickets', ticket.id, 'buy']">Comprar </button>
-
           </div>
-        </div>
-      </div>
-    </div>
-
+   
+  
     <div style="display: flex; justify-content: center; align-items: center;  height: 10vh;">
       <button [routerLink]="['/ticketOrderBuys']" class="btn btn-lg btn-outline-primary p-2" style="text-align: center;">
         Ordenes de Compra
       </button>
-    </div>
     
-    
-    
-    
+      @if (isAdmin) {
+
+        <header>
+          <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+              <h1 class="display-4 fw-normal text-body"><strong>Tickets</strong></h1>
+              <p class="fs-5 text-body-secondary">Listado de tickets</p>
+          </div>
+      </header>
+
+      <button class="w-100 btn btn-lg btn-outline-primary p-1 me-3" style="display: block;" [routerLink]="['/tickets', ticket.id  , 'update']">Editar ticket</button>
+      <button class="w-100 btn btn-lg btn-outline-danger p-1 me-3" style="display: block;">Borrar ticket</button>
+      }
+  </div>
+ 
   
 } @empty {
-
-  <ngb-alert type="custom" class="container d-flex justify-content-center align-items-center"[dismissible]="false"><strong>Whoa!</strong> No hay Tickets</ngb-alert>
   <div class="icon-container">
+  <ngb-alert type="custom" class="container d-flex justify-content-center align-items-center"[dismissible]="false"><strong>Whoa! No hay Tickets </strong></ngb-alert>
   <i class="bi bi-bag-x container d-flex justify-content-center align-items-center"></i>
 </div>
 }
+
+
+} @else {
+  <div class="container">
+    <h5 class="text-secondary" style="padding-top: 50px !important; padding-bottom: 30px !important;">
+      <strong>Si deseas ver el listado de tus tickets debes acceder como usuario registrado </strong>
+      <button class="btn me-3 ms-3">
+        <a class="nav-link border border-warning rounded border-2 p-1" routerLink="/register" (click)="$event.preventDefault()" id="" role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Registrarse</a>
+      </button>
+    </h5>
+  </div>
+}
+
+
+

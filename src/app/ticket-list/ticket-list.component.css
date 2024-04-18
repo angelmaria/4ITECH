@@ -2,11 +2,12 @@ body {
     margin: 100;
 min-height: 300px;
 padding-left: 150px !important;
-padding-right: 150px !important;
+padding-right: 200px !important;
 }
 
 .container {
     max-width: 960px;
+    
 }
 
 section article.text h1[data-v-6dfea62d] {
@@ -23,7 +24,7 @@ section article.text h1[data-v-6dfea62d] {
 .custom-table {
     width: 100%;
     border-collapse: collapse;
-    border: 2px solid #8197b0;
+    border: 2px solid #989898;
     border-radius: 20px; 
   }
   .custom-table {
@@ -33,7 +34,7 @@ section article.text h1[data-v-6dfea62d] {
   
   /* Estilos para las celdas de encabezado */
   .custom-table th {
-    background: linear-gradient(to bottom, rgb(30, 0, 255));
+    background: linear-gradient(to bottom, #4b70e1);
     color: #170073; /* Color del texto en las celdas de encabezado */
     font-weight: bold; /* Texto en negrita */
     padding: 10px; /* Espaciado interno */
@@ -42,7 +43,7 @@ section article.text h1[data-v-6dfea62d] {
   /* Estilos para las celdas de datos */
   .custom-table td {
     background-color: #f0f8ff; /* Fondo de las celdas de datos */
-    color: #000; /* Color del texto en las celdas de datos */
+    color: #4b70e1;/* Color del texto en las celdas de datos */
     padding: 10px; /* Espaciado interno */
   }
 
@@ -54,7 +55,191 @@ section article.text h1[data-v-6dfea62d] {
 
 
 
+  /*Css ticket*/
+  
+  body {
+      background-color: #dadde6;
+      font-family:'Oswald'
+  }
+  
+  .fl-left {
+      float: left
+  }
+  
+  .fl-right {
+      float: right
+  }
+  
+  h1 {
+      text-transform: unset ;
+      font-weight: 930;
+      border-left: 05px solid #4f8cef;
+      padding-left: 10px;
+      margin-bottom: 100px
+  }
+  
+  .row {
+      overflow: hidden
+  }
+  
+  .card {
+      display: table-row;
+      width: 49%;
+      background-color: #fff;
+      color: #989898;
+      margin-bottom: 10px;
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      border-radius: 4px;
+      position: relative
+  }
+  
+  .card+.card {
+      margin-left: 2%
+  }
+  
+  .date {
+      display: table-cell;
+      width: 25%;
+      position: relative;
+      text-align: center;
+      border-right: 2px dashed #dadde6
+  }
+  
+  .date:before{
 
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #DADDE6;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    z-index: 1;
+    border-radius: 50%
+    
+  }
 
+  .date:after {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 15px;
+      background-color: #DADDE6;
+      position: absolute;
+      right: -15px;
+      z-index: 1;
+      border-radius: 50px 50px 0 0
+      
+  }
+  
+  .date:after {
+      top: auto;
+      bottom: 0px
+  }
+  
+  .date time {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%)
+  }
+  
+  .date time span {
+      display: block
+  }
+  
+  .date time span:first-child {
+      color: #2b2b2b;
+      font-weight: 600;
+      font-size: 250%
+  }
+  
+  .date time span:last-child {
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: -10px
+  }
+  
+  .card-cont {
+      display: table-cell;
+      width: 75%;
+      font-size: 85%;
+      padding: 10px 10px 30px 50px
+  }
+  
+  .card-cont h3 {
+      color: #3C3C3C;
+      font-size: 130%
+  }
+  
+  .row:last-child .card:last-of-type .card-cont h3 {
+      text-decoration: line-through
+  }
+  
+  .card-cont>div {
+      display: table-row
+  }
+  
+  .card-cont .even-date i,
+  .card-cont .even-info i,
+  .card-cont .even-date time,
+  .card-cont .even-info p {
+      display: table-cell
+  }
+  
+  .card-cont .even-date i,
+  .card-cont .even-info i {
+      padding: 5% 5% 0 0
+  }
+  
+  .card-cont .even-info p {
+      padding: 30px 50px 0 0
+  }
+  
+  .card-cont .even-date time span {
+      display: block
+  }
+  
+  .card-cont a {
+      display: block;
+      text-decoration: none;
+      width: 80px;
+      height: 30px;
+      background-color: #4f8cef;
+      color: #fff;
+      text-align: center;
+      line-height: 30px;
+      border-radius: 2px;
+      position: absolute;
+      right: 10px;
+      bottom: 10px
+  }
 
-
+  .row:last-child .card:first-child .card-cont a {
+      background-color: #4f8cef
+  }
+  
+  .row:last-child .card:last-child .card-cont a {
+      background-color: #F8504C
+  }
+  
+  @media screen and (max-width: 860px) {
+      .card {
+          display: block;
+          float: none;
+          width: 100%;
+          margin-bottom: 10px
+      }
+      .card+.card {
+          margin-left: 0
+      }
+      .card-cont .even-date,
+      .card-cont .even-info {
+          font-size: 75%
+      }
+  }

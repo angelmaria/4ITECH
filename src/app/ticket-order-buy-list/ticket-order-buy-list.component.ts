@@ -17,16 +17,21 @@ import { CommonModule } from '@angular/common';
 export class TicketOrderBuyListComponent implements OnInit {
   ticketOrderBuys: TicketOrderBuy[] = [];
   showDeletedTicketOrderBuyMessage: boolean = false;
-  isAdmin = false;
+  
 
-  constructor(
-    private http: HttpClient,
-    private authService: AuthenticationService) {
-      this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
-    }
+  isAdmin = false;
+  isLoggedIn = false;
+
+  constructor(private http: HttpClient,
+              private authService: AuthenticationService
+  ) {
+    this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+    this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+
+  };
 
   ngOnInit(): void {
-    this.loadTicketOrderBuys();
+  this.loadTicketOrderBuys();
   }
   
   deleteTicketOrderBuy(ticketOrderBuy: TicketOrderBuy) {

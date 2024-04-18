@@ -20,14 +20,14 @@
                   <div class="py-1 text-center">
       <h4 class="mb-3">Datos de la compra</h4>
       @if (showFinishMessage) {
-        <ngb-alert type="success" [dismissible]="false" style="min-height:150px;" class="my-5">
+        <ngb-alert type="primary" [dismissible]="false" style="min-height:150px;" class="my-5">
           Compra completada con éxito.
           <br>
           El localizador de tu reserva es {{ticketOrderBuy?.id}}
           <br>
-          Tu pedido será enviado en las próximas horas, para soporte contacte con
-          <a href="mailto:spam@certidevs.com">spam&commat;certidevs.com</a>.
-          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" routerLink="/books">Volver a ticketr</button>
+          Podrás ver tu pedido en tus reservas ingresando con tu cuenta, para soporte contacte con
+          <a href="mailto:spam@4itech.com">spam&commat;4itech.com</a>.
+          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" routerLink="/ticketOrderBuys">Volver a ticketr</button>
         </ngb-alert>
       } @else {
         <form class="needs-validation" novalidate="" [formGroup]="ticketOrderBuyForm" (submit)="save()">

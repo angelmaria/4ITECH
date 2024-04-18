@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Ticket } from '../models/ticket.model';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-ticket-list',
@@ -12,13 +13,27 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './ticket-list.component.css'
 })
 export class TicketListComponent implements OnInit {
+[x: string]: any;
 handleTableClick() {
 throw new Error('Method not implemented.');
 }
   tickets: Ticket[] = [];
   showDeletedTicketMessage: boolean = false;
 
-  constructor(private http: HttpClient) {}
+
+
+  isAdmin = false;
+  isLoggedIn = false;
+
+  constructor(private http: HttpClient,
+              private authService: AuthenticationService
+  ) {
+    this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+    this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+
+  };
+
+  
 
 
   ngOnInit(): void {
