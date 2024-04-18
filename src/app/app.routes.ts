@@ -120,7 +120,8 @@ export const routes: Routes = [
     },
     {
         path: 'tracks/:id/detail',
-        component: TrackDetailComponent
+        component: TrackDetailComponent,
+        canActivate: [userLoggedInGuard]
     },
     {
         path: 'tracks/create',
@@ -140,15 +141,18 @@ export const routes: Routes = [
     },
     {
         path: 'comments/:id/detail',
-        component: CommentDetailComponent
+        component: CommentDetailComponent,
+        canActivate: [userLoggedInGuard]
     },
     {
         path: 'comments/create',
-        component: CommentFormComponent
+        component: CommentFormComponent,
+        canActivate: [userLoggedInGuard]
     },
     {
         path: 'comments/:id/update',
-        component: CommentFormComponent
+        component: CommentFormComponent,
+        canActivate: [userLoggedInGuard]
     },
     {
         path: 'users',
