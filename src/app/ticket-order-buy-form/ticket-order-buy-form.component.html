@@ -19,6 +19,7 @@
                <div class="col-lg-8 border rounded p-3" style="background-color: #f5f5f5;">
                   <div class="py-1 text-center">
       <h4 class="mb-3">Datos de la compra</h4>
+
       @if (showFinishMessage) {
         <ngb-alert type="primary" [dismissible]="false" style="min-height:150px;" class="my-5">
           Compra completada con éxito.
@@ -27,12 +28,14 @@
           <br>
           Podrás ver tu pedido en tus reservas ingresando con tu cuenta, para soporte contacte con
           <a href="mailto:spam@4itech.com">spam&commat;4itech.com</a>.
-          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" routerLink="/ticketOrderBuys">Volver a ticketr</button>
+          <img class="d-block mx-auto mb-4" src="/assets/Ticket/img/Entrada.gif" alt="" width="72" height="57">
+          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" routerLink="/ticketOrderBuys">Volver a ticket</button>
         </ngb-alert>
       } @else {
         <form class="needs-validation" novalidate="" [formGroup]="ticketOrderBuyForm" (submit)="save()">
           <!-- Aquí iran las fechas de inicio reserva y fecha fin reserva -->
           <div class="form-floating mb-3">
+            <p>Selecciona los días que deseas asistir a nuestro evento:</p>
             <input type="date" class="form-control" id="startDate"
             formControlName="startDate" placeholder="yyyy-mm-dd" (change)="calculatePrice()">
             <label for="startDate">Fecha inicio</label>
@@ -53,11 +56,11 @@
           <hr class="my-4">
           <!-- Selector de  packs -->
           <div class="py-1 text-center">
-            <label for="extraService">Elije tuPacks</label>
+            <label for="extraService">Elije tu Pack</label>
             <select class="form-select" id="extraService" formControlName="extraService" (change)="calculatePrice()">
               <option value="0">Ticket plata (50 €)</option>
               <option value="20">Ticket oro (50 €)</option>
-              <option value="50">Ticket Premium (100 €)</option>
+              <option value="50">Ticket Diamante (100 €)</option>
             </select>
       
           </div>
@@ -90,9 +93,14 @@
         
         <div class="py-2 mb-3 text-center">
           <select class="form-select" id="codigoqrUrl">
-            <option >4itechUrl</option>
+            <select class="form-select form-input" id="paymentMethod">
+              <option selected disabled>Este es tu codigo</option>
+            <option >4itech Url</option>
           </select>
-        </div>
+        </select>
+      </div>
+
+        <p>Antes de confirmar tu compra, recuerda que no se hacen devoluciones.</p>
           <button type="submit" class="btn btn-lg btn-outline-primary p-1 me-3">Comprar</button>
           <button type="submit" class="btn btn-lg btn-outline-info p-1 me-3">Actualizar Ticket</button>
           <button type="button" class="btn btn-lg btn-outline-danger p-1 me-3" [routerLink]="['/tickets', ticket?.id]">Cancelar</button>
