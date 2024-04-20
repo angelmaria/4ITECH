@@ -40,12 +40,10 @@ export const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent
-
     },
     {
         path: 'login',
         component: LoginComponent
-
     },
     {
         path: 'register',
@@ -56,11 +54,9 @@ export const routes: Routes = [
         path: 'keynotes',
         component: KeynoteListComponent
     },
-    // Detalle de keynote accesible solo para usuarios autenticados
     {
         path: 'keynotes/:id/detail',
-        component: KeynoteDetailComponent,
-        canActivate: [userLoggedInGuard]
+        component: KeynoteDetailComponent
     },
     // Creación y actualización de keynotes accesible solo para usuarios con rol ADMIN
     {
@@ -91,7 +87,6 @@ export const routes: Routes = [
         component: TicketFormComponent,
         canActivate: [userRoleGuard]
     },
-   
     {
         path: 'ticketOrderBuys',
         component: TicketOrderBuyListComponent
@@ -127,13 +122,11 @@ export const routes: Routes = [
         path: 'tracks/create',
         component: TrackFormComponent,
         canActivate: [userRoleGuard]
-
     },
     {
         path: 'tracks/:id/update',
         component: TrackFormComponent,
         canActivate: [userRoleGuard]
-
     },
     {
         path: 'comments',
@@ -141,8 +134,7 @@ export const routes: Routes = [
     },
     {
         path: 'comments/:id/detail',
-        component: CommentDetailComponent,
-        canActivate: [userLoggedInGuard]
+        component: CommentDetailComponent
     },
     {
         path: 'comments/create',
@@ -172,7 +164,6 @@ export const routes: Routes = [
         component: UserFormComponent,
         canActivate: [userRoleGuard]
     },
- 
     {
         path: 'rooms',
         component: RoomListComponent
@@ -198,7 +189,6 @@ export const routes: Routes = [
         path: 'rooms/:id/update',
         component: RoomFormComponent,
         canActivate: [userRoleGuard]
-
     },
     {
         path: 'users/account',
@@ -208,12 +198,8 @@ export const routes: Routes = [
         path: 'users/account/avatar',
         component: AvatarFormComponent
     },
-     
-
-
         // El Enrutado del componente not found 404 siempre hay que dejarlo
         //  al final del código ya que el comodín '**' atrapa la ruta de arriba abajo
-
     {
         path: '**',
         component: NotFoundComponent
