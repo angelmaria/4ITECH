@@ -16,6 +16,7 @@ export class AuthenticationService {
   userEmail = new BehaviorSubject<string>(this.getUserEmail());
   isAdmin = new BehaviorSubject<boolean>(this.getIsAdmin());
   userRole: any;
+  userId = new BehaviorSubject<number>(this.getUserId());
 
   constructor() { }
 
@@ -27,6 +28,7 @@ export class AuthenticationService {
     this.isLoggedIn.next(true);
     this.userEmail.next(this.getUserEmail());
     this.isAdmin.next(this.getIsAdmin());
+    this.userId.next(this.getUserId());
   }
   removeToken() {
     localStorage.removeItem('jwt_token');
@@ -45,6 +47,12 @@ export class AuthenticationService {
     if(!token) return false;
     const decodedToken = jwtDecode(token) as DecodedToken;
     return decodedToken.role === 'ADMIN'; // true o false
+  }
+  getUserId(){
+    const token = localStorage.getItem('jwt_token');
+    if(!token) return 0;
+    const decodedToken = jwtDecode(token) as DecodedToken;
+    return parseInt(decodedToken.sub, 10);
   }
 
 }
