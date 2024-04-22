@@ -8,12 +8,13 @@ import { Room } from '../models/room.model';
 import { User } from '../models/user.model';
 import { Track } from '../models/track.model';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-keynote-form',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, EditorModule],
+  imports: [ReactiveFormsModule, RouterLink, EditorModule, DatePipe],
   templateUrl: './keynote-form.component.html',
   styleUrl: './keynote-form.component.css'
 })
@@ -125,7 +126,7 @@ export class KeynoteFormComponent implements OnInit {
       formData.append('photoUrl', this.keynoteForm.get('photoUrl')?.value ?? '');
       //formData.append('room', this.keynoteForm.get('room')?.value);
       //formData.append('room.id', this.keynoteForm.get('room')?.value);
-      //formData.append('track.id', this.keynoteForm.get('track')?.value.id)
+      formData.append('track.id', this.keynoteForm.get('track')?.value.id)
 
       formData.append('maxNumPersons', this.keynoteForm.get('maxNumPersons')?.value?.toString() ?? '0');
       formData.append('difficultyLevel', this.keynoteForm.get('difficultyLevel')?.value ?? '');

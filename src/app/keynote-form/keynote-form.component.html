@@ -77,7 +77,7 @@
           </div>
 
           <!-- Selector NO dinámico de speaker -->
-          <!-- <div class="form-floating mb-3">
+          <div class="form-floating mb-3">
             <select class="form-select form-select-lg mb-3" formControlName="speaker">
               <option selected disabled="true">Ponente</option>
               <option value="1">Carolina Pina</option>
@@ -86,7 +86,7 @@
               <option value="4">Javier Olivas</option>
             </select>
             <label for="speaker">Ponente</label>
-          </div> -->
+          </div>
 
           <!-- Selector simple -->
           <!-- <div class="form-floating mb-3">
@@ -101,14 +101,25 @@
           </div> -->
 
           <!-- Selector simple -->
-          <!-- <div class="form-floating mb-3">
+          <div class="form-floating mb-3">
             <select class="form-select" id="track" formControlName="track" [compareWith]="compareObjects">
                 <option selected disabled>Elegir un track</option>
-              @for (track of tracks; track ???.id) {
-                <option [ngValue]="track">{{track}}</option>
+              @for (track of tracks; track tracks) {
+                <option [ngValue]="track">{{track.name}}</option>
               }
             </select>
             <label for="track">track</label>
+          </div>
+
+          <!-- <div class="form-floating mb-3 border-form">
+            <input type="datetime-local" class="form-control option-int" id="startDate"
+              formControlName="startDate" > 
+            <label for="startDate">Fecha inicio del Track</label>
+          </div>
+          <div class="form-floating mb-3 border-form">
+            <input type="datetime-local" class="form-control option-int" id="endDate"
+              formControlName="endDate"> 
+            <label for="endDate">Fecha fin del Track</label>
           </div> -->
     
           @if (isUpdate) {
