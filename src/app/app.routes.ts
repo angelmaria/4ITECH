@@ -162,7 +162,7 @@ export const routes: Routes = [
     {
         path: 'users/:id/update',
         component: UserFormComponent,
-        canActivate: [userRoleGuard]
+        canActivate: [userLoggedInGuard]
     },
     {
         path: 'rooms',
