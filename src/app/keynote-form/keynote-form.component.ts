@@ -124,6 +124,9 @@ export class KeynoteFormComponent implements OnInit {
       formData.append('description', this.keynoteForm.get('description')?.value ?? '');
       formData.append('photoUrl', this.keynoteForm.get('photoUrl')?.value ?? '');
       //formData.append('room', this.keynoteForm.get('room')?.value);
+      //formData.append('room.id', this.keynoteForm.get('room')?.value);
+      //formData.append('track.id', this.keynoteForm.get('track')?.value.id)
+
       formData.append('maxNumPersons', this.keynoteForm.get('maxNumPersons')?.value?.toString() ?? '0');
       formData.append('difficultyLevel', this.keynoteForm.get('difficultyLevel')?.value ?? '');
       formData.append('durationInMin', this.keynoteForm.get('durationInMin')?.value?.toString() ?? '0');
