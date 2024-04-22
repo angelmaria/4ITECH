@@ -34,8 +34,8 @@
       } @else {
         <form class="needs-validation" novalidate="" [formGroup]="ticketOrderBuyForm" (submit)="save()">
           <!-- Aquí iran las fechas de inicio reserva y fecha fin reserva -->
+          <p>Selecciona los días que deseas asistir a nuestro evento:</p>
           <div class="form-floating mb-3">
-            <p>Selecciona los días que deseas asistir a nuestro evento:</p>
             <input type="date" class="form-control" id="startDate"
             formControlName="startDate" placeholder="yyyy-mm-dd" (change)="calculatePrice()">
             <label for="startDate">Fecha inicio</label>
@@ -92,11 +92,9 @@
         
         <div class="py-2 mb-3 text-center">
           <select class="form-select" id="codigoqrUrl">
-            <select class="form-select form-input" id="paymentMethod">
               <option selected disabled>Este es tu codigo</option>
             <option >4itech Url</option>
           </select>
-        </select>
       </div>
 
         <p>Antes de confirmar tu compra, recuerda que no se hacen devoluciones.</p>
