@@ -5,6 +5,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { CommentModel } from '../models/commentmodel.model';
 import { NgbAlertModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-keynote-detail',
@@ -17,13 +18,17 @@ export class KeynoteDetailComponent implements OnInit {
 
   keynote: Keynote | undefined;
   comments: CommentModel[] = [];
+  isAdmin = false;
   //comments: CommentModel | undefined;
   
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private httpClient: HttpClient
-  ) {}
+    private httpClient: HttpClient,
+    private authService: AuthenticationService
+  ) {
+    this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+  }
 
   ngOnInit(): void {
 
