@@ -136,6 +136,11 @@ export class KeynoteFormComponent implements OnInit {
         const room =  this.keynoteForm.get('room')?.value as Room;
         formData.append('room.id', room.id.toString());
       }
+      if (this.keynoteForm.get('speaker')?.value) {
+        const user =  this.keynoteForm.get('speaker')?.value as User;
+        formData.append('speaker.id', user.id.toString());
+      }
+
       if(this.photoFile) {
         formData.append("photo", this.photoFile);
       }

@@ -26,15 +26,17 @@
                         <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.track.endDate| date:'HH:mm'}}</span>
                     </p>
                 </div>
-                <div>
-                  <!-- Ponente: {{keynote.speaker}} -->
-                </div>
-                
-
-                <p>{{keynote.description}}</p>
+           
+                <p [innerHTML]="keynote.description"></p>
+                @if (keynote.speaker){
+                  <h3>Ponente</h3>
+                  <p>{{keynote.speaker.email}}</p>
+                }
                 <button class="btn btn-success" [routerLink]="['/keynotes', keynote.id, 'update']">Editar Keynote</button>
             }
         </div>
+
+
 
 <!-- Listado de comentarios sobre la charla --> 
                 <div class="row d-flex mb-2">

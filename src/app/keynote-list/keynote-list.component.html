@@ -85,9 +85,14 @@
                 <i class="bi bi-easel-fill me-2 text-secondary"></i
                 ><span class="font-weight-bold">Sala</span>
               </p>
-              <span style="font-size: small; font-weight: 400">{{
-                keynote.room.name
-              }}</span>
+              @if(keynote.room) {
+                <span style="font-size: small; font-weight: 400">{{
+                  keynote.room.name
+                }}</span>
+              } @else {
+                Sin sala.
+              }
+              
             </div>
             <div style="cursor: auto" class="btn mt-2">
               <i class="bi bi-people-fill me-2 text-secondary"></i

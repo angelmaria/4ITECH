@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { CommentModel } from '../models/commentmodel.model';
 import { DatePipe } from '@angular/common';
+import { ShortTextPipe } from '../short-text.pipe';
 
 export class NgbdCarouselConfig {
 
@@ -21,7 +22,7 @@ export class NgbdCarouselConfig {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgbCarouselModule, RouterLink, NgbNavModule, NgbRatingModule, DatePipe],
+  imports: [NgbCarouselModule, RouterLink, NgbNavModule, NgbRatingModule, DatePipe, ShortTextPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -52,9 +53,11 @@ private loadsKeynotes() {
 }
 
 private loadComments() {
-  const backendUrl = 'http://localhost:8080/comments/filter-by-keynote/' + 'id';
+  const backendUrl = 'http://localhost:8080/comments';
   this.httpClient.get<CommentModel[]>(backendUrl).subscribe(commentBackend => {
     this.comments = commentBackend;
+    console.log(this.comments);
+    
   });
 }
 
