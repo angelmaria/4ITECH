@@ -13,42 +13,14 @@
 
           <input type="hidden" formControlName="id">
 
-          @if (isUpdate) {
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="firstName" readonly>
-              <label for="firstName">Nombre</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="lastName" readonly>
-              <label for="lastName">Apellido</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="email" readonly>
-              <label for="email">Email</label>
-            </div>
-
-          } @else {
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="firstName" formControlName="firstName">
-              <label for="firstName">Nombre</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="lastName" formControlName="lastName">
-              <label for="lastName">Apellido</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="email" formControlName="email">
-              <label for="email">Email</label>
-            </div>
-          }
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="firstName" formControlName="firstName">
+            <label for="firstName">Nombre</label>
+          </div>
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="phone" formControlName="phone">
-            <label for="phone">Teléfono de contacto</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName">
+            <label for="lastName">Apellido</label>
           </div>
 
           <div class="form-floating mb-3">
@@ -56,41 +28,36 @@
             <label for="addres">Dirección</label>
           </div>
 
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="email" formControlName="email">
+            <label for="email">Email</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="phone" formControlName="phone">
+            <label for="phone">Teléfono de contacto</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="userName" formControlName="userName">
+            <label for="userName">Nombre de usuario</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="password" formControlName="password">
+            <label for="password">Contraseña</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <select class="form-select" id="userRole" formControlName="userRole">
+              <option value="USER">Usuario/a</option>
+              <option value="ADMIN">Administrador/a</option>
+            </select>
+            <label for="userRole">Tipo de usuario/a</label>
+          </div>
+
           @if (isUpdate) {
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="userName" readonly>
-              <label for="userName">Nombre de usuario</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="password" readonly>
-              <label for="password">Contraseña</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="userRole" readonly>
-              <label for="userRole">{{userForm.get('userRole')?.value ?? ''}}</label>
-            </div>
-
-          } @else {
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="userName" formControlName="userName">
-              <label for="userName">Nombre de usuario</label>
-            </div>
-  
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="password" formControlName="password">
-              <label for="password">Contraseña</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <select class="form-select" id="userRole" formControlName="userRole">
-                <option value="USER">Usuario/a</option>
-                <option value="ADMIN">Administrador/a</option>
-              </select>
-              <label for="userRole">Tipo de usuario/a</label>
-            </div>
-          }
+          } @else {}
 
           @if (isUpdate) {
             <button class="btn btn-success" type="submit">Actualizar</button>

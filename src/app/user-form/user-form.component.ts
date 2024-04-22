@@ -23,7 +23,8 @@ export class UserFormComponent implements OnInit{
     userName: new FormControl<string>(''),
     password: new FormControl<string>(''),
     address: new FormControl<string>(''),
-    userRole: new FormControl<UserRole>(UserRole.USER)
+    userRole: new FormControl<UserRole>(UserRole.USER),
+    photoUrl: new FormControl<string>('')
   });
 
   isUpdate: boolean = false; // por defecto estoy en CREAR, no en ACTUALIZAR.
