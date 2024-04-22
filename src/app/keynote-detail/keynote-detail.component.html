@@ -29,8 +29,28 @@
            
                 <p [innerHTML]="keynote.description"></p>
                 @if (keynote.speaker){
-                  <h3>Ponente</h3>
-                  <p>{{keynote.speaker.email}}</p>
+                  <h4 class="text-secondary" style="font-family:'Libre Franklin'">Ponente</h4>
+                  <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row">
+                      <div class="col">
+                        @if (keynote.speaker.photoUrl) {
+                          <img class="rounded-circle shadow-1-strong p-2 me-0 pt-3"
+                                  [src]="'http://localhost:8080/files/' + 'id'" style="width: 160px;">
+                        }
+                        <img class="rounded-circle shadow-1-strong p-2 me-0 pt-3"
+                                  [src]="'http://localhost:8080/files/' + 'avatar.png'" style="width: 160px;">
+                      </div>
+                      <div class="col-md-8" style="border-left: 1px solid #e6e6e6;">
+                        <div class="card-body">
+                          <h5 class="card-title">{{keynote.speaker.email}}</h5>
+                          <p class="card-text">Ingeniro de Software y Desarrollador FullStack. Director de Merweb.co</p>
+                          <p class="card-text"><small class="text-body-secondary">{{keynote.speaker.firstName}}</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
                 }
                 @if (isAdmin) {
                 <button class="btn btn-success" [routerLink]="['/keynotes', keynote.id, 'update']">Editar Keynote</button>
