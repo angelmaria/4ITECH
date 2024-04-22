@@ -58,7 +58,7 @@
             <label for="address">Dirección</label>
           </div>
   
-          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" type="submit" routerLink="/users">Actualizar</button>
+          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" type="submit" [routerLink]="['/users', user?.id, 'update']">Actualizar</button>
   
         </form>
   
