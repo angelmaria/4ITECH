@@ -75,31 +75,17 @@
             <label for="durationInMin">Duración de la charla (min)</label>
           </div>
 
-          <!-- Selector NO dinámico de speaker -->
+          <!-- Selector dinámico de speaker -->
           <div class="form-floating mb-3">
-            <select class="form-select form-select-lg mb-3" formControlName="speaker">
+            <select class="form-select form-select-lg mb-3 pb-1" formControlName="speaker" [compareWith]="compareObjects">
               <option selected disabled="true">Ponente</option>
               @for (speaker of speakers; track speaker.id) {
-                <option [ngValue]="speaker">{{speaker.email}}</option>
+                <option [ngValue]="speaker">{{speaker.firstName}}</option>
 
               }
-              
-             
             </select>
             <label for="speaker">Ponente</label>
           </div>
-
-          <!-- Selector simple -->
-          <!-- <div class="form-floating mb-3">
-            <select class="form-select" id="speaker" formControlName="speaker" [compareWith]="compareObjects">
-                <option selected disabled>Elegir un ponente</option> -->
-              <!-- iterar sobre el array de speakers mostrando cada uno -->
-              <!-- @for (speaker of speakers; track speaker.id) {
-                <option [ngValue]="speaker">{{speaker}}</option>
-              }
-            </select>
-            <label for="speaker">Ponente</label>
-          </div> -->
 
           <!-- Selector simple -->
           <div class="form-floating mb-3">
