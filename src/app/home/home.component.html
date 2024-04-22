@@ -77,7 +77,7 @@
     <ul ngbNav #nav="ngbNav" class="nav-tabs mt-3">
 
     <li [ngbNavItem]="1">
-    <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(1, 107, 238, 0.748);">Inteligencia Artificial</button>
+    <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(1, 108, 238, 0.464);">Inteligencia Artificial</button>
     <ng-template ngbNavContent>
     <p>
     La inteligencia artificial (IA) ha experimentado un desarrollo exponencial en las últimas décadas. Los avances en algoritmos, hardware y la disponibilidad de grandes cantidades de datos han impulsado su crecimiento.
@@ -144,7 +144,7 @@
     </ng-template>
     </li>
     <li [ngbNavItem]="2">
-    <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(255, 176, 5, 0.748);">La Era Digital</button>
+    <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(255, 176, 5, 0.456);">La Era Digital</button>
     <ng-template ngbNavContent>
     <p>
     Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
@@ -157,7 +157,7 @@
     </ng-template>
     </li>
     <li [ngbNavItem]="3">
-    <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(238, 1, 56, 0.748);border-left: 1px solid #dee2e6;border-right:1px solid #dee2e6;">El mejor Fronted con Angular</button>
+    <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(238, 1, 1, 0.417); border-left: 1px solid #dee2e6;border-right:1px solid #dee2e6;">El mejor Fronted con Angular</button>
     <ng-template ngbNavContent>
     <p>
     Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
@@ -216,7 +216,7 @@
       <div class="p-3 mb-2 bg-body-tertiary rounded">  
         <h2 class="text-secondary fw-bold" style="font-family: 'Libre Franklin'">Charlas recientes</h2>
       </div>
-    @if (isLoggedIn) {
+    
       <ngb-carousel>
         @for (keynote of keynotes; track keynote.id) {
         <ng-template ngbSlide>
@@ -229,11 +229,12 @@
         </ng-template>
       }
       </ngb-carousel>
-    } @else {
-      <div class="container">
+    
+      <!-- contenido del else -->
+      <!-- <div class="container">
         <h5 class="text-secondary" style="font-family: 'Libre Franklin';"><strong>Para acceder al listado de charlas debes logarte previamente </strong><button class="btn me-3 ms-3"><a class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio "  routerLink="/login" (click)="$event.preventDefault()" id="" role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Acceder</a></button></h5>
-      </div>
-    }
+      </div> -->
+    
 
 <!-- sección ticket        -->
 <div class="p-3 mb-2 bg-body-tertiary rounded mt-4">  
