@@ -29,22 +29,26 @@
            
                 <p [innerHTML]="keynote.description"></p>
                 @if (keynote.speaker){
-                  <h4 class="text-secondary" style="font-family:'Libre Franklin'">Ponente</h4>
-                  <div class="card mb-3" style="max-width: 540px;">
-                    <div class="row">
-                      <div class="col">
+                  <h5 class="text-secondary mt-4" style="font-family:'Libre Franklin'">Ponente</h5>
+                  <div class="card mb-3" style="max-width: 520px;border:none;">
+                    <div class="row g-0">
+                      <div class="col-md-3" style="display: flex; justify-content: center;align-items:center">
                         @if (keynote.speaker.photoUrl) {
-                          <img class="rounded-circle shadow-1-strong p-2 me-0 pt-3"
-                                  [src]="'http://localhost:8080/files/' + 'id'" style="width: 160px;">
+                          <img class="rounded-circle shadow-1-strong"
+                                  [src]="'http://localhost:8080/files/' + 'id'">
                         }
-                        <img class="rounded-circle shadow-1-strong p-2 me-0 pt-3"
-                                  [src]="'http://localhost:8080/files/' + 'avatar.png'" style="width: 160px;">
+                        <img class="rounded-circle shadow-1-strong" style="width:100px; height: 100px;"
+                                  [src]="'http://localhost:8080/files/' + 'avatar.png'">
                       </div>
                       <div class="col-md-8" style="border-left: 1px solid #e6e6e6;">
                         <div class="card-body">
-                          <h5 class="card-title">{{keynote.speaker.email}}</h5>
-                          <p class="card-text">Ingeniro de Software y Desarrollador FullStack. Director de Merweb.co</p>
-                          <p class="card-text"><small class="text-body-secondary">{{keynote.speaker.firstName}}</small></p>
+                          @if (keynote.speaker.firstName) {
+                            <h6 class="card-title text-secondary fw-bold" style="font-family:'Libre Franklin';">{{keynote.speaker.firstName}} {{keynote.speaker.lastName}}</h6>  
+                          } @else {
+                          <h6 class="card-title text-secondary fw-bold" style="font-family:'Libre Franklin';">{{keynote.speaker.email}}</h6>
+                          }
+                          <p class="card-text small text-secondary">Ingeniero de Software y Desarrollador FullStack. Director de Merweb.co</p>
+                          <span class="card-text"><small class="text-body-secondary">{{keynote.speaker.email}}</small></span>
                         </div>
                       </div>
                     </div>
