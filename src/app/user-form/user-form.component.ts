@@ -77,7 +77,7 @@ export class UserFormComponent implements OnInit{
   save(){ // crear FormData
     let formData = new FormData();
     formData.append('id', this.userForm.get('id')?.value?.toString() ?? '0');
-    formData.append('name', this.userForm.get('name')?.value ?? '');
+    formData.append('firstName', this.userForm.get('firstName')?.value ?? '');
     formData.append('lastName', this.userForm.get('lastName')?.value ?? '');
     formData.append('email', this.userForm.get('email')?.value ?? '');
     formData.append('phone', this.userForm.get('phone')?.value ?? '');
