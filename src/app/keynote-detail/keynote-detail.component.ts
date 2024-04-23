@@ -39,24 +39,27 @@ export class KeynoteDetailComponent implements OnInit {
       const id = params['id'];
       if (!id) return;
 
-
-      // canWatchVideo = existsByUser_IdAndTicket_Id boolean
-
       const url = 'http://localhost:8080/keynotes/' + id;
       this.httpClient.get<Keynote>(url).subscribe(keynoteBackend => {
         this.keynote = keynoteBackend;
-        console.log(this.keynote);
+        //console.log(this.keynote);
+        this.loadComments();
       });
 
-      const backendUrl = 'http://localhost:8080/comments/filter-by-keynote/' + id;
+      const backendUrl = 'http://localhost:8080/comments/filter-by-keynote/' + this.keynote?.id;
       this.httpClient.get<CommentModel[]>(backendUrl).subscribe(commentBackend => {
         this.comments = commentBackend;
         
         // console.log(this.comment);
       });
-
     });
 
+  }
+  loadComments() {
+    if (!this.keynote) return;
+
+    this.httpClient.get<CommentModel[]>('http://localhost:8080/comments/filter-by-keynote/' + this.keynote?.id)
+        .subscribe(commentsBackend => this.comments = commentsBackend);
   }
 
   // private loadComments() {

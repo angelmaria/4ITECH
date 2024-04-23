@@ -38,9 +38,16 @@
               </ngb-rating></td>
             <td>{{comment.opinion}}</td>
             <td>
+              <!-- @if (comment.user.firstName === null) {
+                                      <h6 class="fw-bold text-primary-emphasis mb-1">{{comment.user.email}}</h6>
+
+                                    }
+                                    @else {
+                                      <h6 class="fw-bold text-primary-emphasis mb-1">{{comment.user.firstName}}</h6>
+                                    }-->
               <a class="badge text-bg-secondary text-decoration-none"
                 [routerLink]="['/users', comment.user.id, 'detail']">
-                {{comment.user.firstName}}
+                @if (comment.user.firstName=== null) { {{comment.user.email}} }@else { {{comment.user.firstName}} }
               </a>
             </td>
             <td>

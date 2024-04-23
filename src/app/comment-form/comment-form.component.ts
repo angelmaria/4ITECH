@@ -38,6 +38,7 @@ export class CommentFormComponent implements OnInit {
 
   isAdmin = false;
   isLoggedIn = false;
+  userId = 0;
 
   
 
@@ -48,6 +49,8 @@ export class CommentFormComponent implements OnInit {
     private authService: AuthenticationService) {
       this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
       this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+      this.authService.userId.subscribe(userId => this.userId = userId);
+
 
       
     }
