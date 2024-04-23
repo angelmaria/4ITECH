@@ -29,7 +29,7 @@
           <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" routerLink="/books">Volver a ticketr</button>
         </ngb-alert>
       } @else {
-        <form class="needs-validation" novalidate="" [formGroup]="ticketOrderBuyForm" (submit)="save()">
+        <form class="needs-validation" novalidate="" [formGroup]="ticketOrderBuyForm" (ngSubmit)="save()">
           <!-- Aquí iran las fechas de inicio reserva y fecha fin reserva -->
           <div class="form-floating mb-3">
             <input type="date" class="form-control" id="startDate"
