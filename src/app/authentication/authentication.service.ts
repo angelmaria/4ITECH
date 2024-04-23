@@ -21,7 +21,7 @@ export class AuthenticationService {
   constructor() { }
 
   existsToken() {
-    return localStorage.getItem("jwt_token") !== null; // true o false. TODO revisar si el token no está expirado
+    return localStorage.getItem("jwt_token") !== null; // true o false. TODO: revisar si el token no está expirado
   }
   saveToken(token: string) {
     localStorage.setItem("jwt_token", token);
