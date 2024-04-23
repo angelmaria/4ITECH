@@ -113,7 +113,7 @@ export class CommentFormComponent implements OnInit {
         const url = 'http://localhost:8080/comments/' + comment.id;
         this.httpClient.put<CommentModel>(url, comment).subscribe(commentFromBackend => {
           this.router.navigate(['/comments', commentFromBackend.id, 'detail']);
-          window.history.go(-2);
+          
         });
         
         
