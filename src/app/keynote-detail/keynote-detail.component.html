@@ -63,8 +63,7 @@
       </div>
 
 <!-- Listado de comentarios sobre la charla --> 
-              <div class="row d-flex mb-2">
-                
+              <div class="row d-flex mb-2 mt-2">
                   <h3 class="text-secondary fw-bold mt-3" style="font-family:'Libre Franklin';">Valoraciones</h3>
                   <p class="text-secondary">¿Qué te pareción la charla? Déjanos tu opinión <span class="btn btn-outline-danger btn-sm rounded" routerLink="/comments/create" (click)="$event.preventDefault()"><strong>aquí</strong></span></p>
                    @for (comment of comments; track comment.id) {
