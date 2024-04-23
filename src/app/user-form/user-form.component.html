@@ -1,54 +1,26 @@
 
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-lg-8">
 
       @if (isUpdate) {
-        <h1 class="mt-5 mb-5">Vas a editar el usuario/a existente con Id: {{userForm.get('id')?.value}}</h1>
+        <h1 style="font-family: 'Libre Franklin';" class="mt-5 mb-5 text-secondary fw-bold">Vas a editar el usuario/a existente con Id <span style="border-radius: 0.25rem; color: #fff; background-color: #6c757d; padding:0.25rem 0.4rem; font-size:75%;">{{userForm.get('id')?.value}}</span></h1>
       } @else {
-        <h1 class="mt-5 bm-5">Vas a crear un nuevo usuario/a</h1>
+        <h1 style="font-family: 'Libre Franklin';" class="mt-5 bm-5 text-secondary fw-bold">Vas a crear un nuevo usuario/a</h1>
       }
 
         <form [formGroup]="userForm" (ngSubmit)="save()">
 
           <input type="hidden" formControlName="id">
 
-          @if (isUpdate) {
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="firstName">
-              <label for="firstName">Nombre</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="lastName">
-              <label for="lastName">Apellido</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="email">
-              <label for="email">Email</label>
-            </div>
-
-          } @else {
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="firstName" formControlName="firstName">
-              <label for="firstName">Nombre</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="lastName" formControlName="lastName">
-              <label for="lastName">Apellido</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="email" formControlName="email">
-              <label for="email">Email</label>
-            </div>
-          }
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="firstName" formControlName="firstName">
+            <label for="firstName">Nombre</label>
+          </div>
 
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="phone" formControlName="phone">
-            <label for="phone">Teléfono de contacto</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName">
+            <label for="lastName">Apellido</label>
           </div>
 
           <div class="form-floating mb-3">
@@ -56,49 +28,59 @@
             <label for="addres">Dirección</label>
           </div>
 
+          <div class="form-floating mb-3">
+            <input class="form-control" formControlName="email" readonly>
+            <label for="email">Email</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="phone" formControlName="phone">
+            <label for="phone">Teléfono de contacto</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="userName" formControlName="userName">
+            <label for="userName">Nombre de usuario</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input class="form-control" formControlName="password" readonly>
+            <label for="password">Contraseña</label>
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="file" class="form-control" id="photo" (change)="onFileChange($event)">
+            <label class="input-group-text" for="photoUrl">Imagen de usuario</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <select class="form-select" id="userRole" formControlName="userRole">
+              <option value="USER">Usuario/a</option>
+              <option value="ADMIN">Administrador/a</option>
+            </select>
+            <label for="userRole">Tipo de usuario/a</label>
+          </div>
+
+          <!-- @if (isUpdate) {
+          } @else {} 
+        -->
+
           @if (isUpdate) {
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="userName">
-              <label for="userName">Nombre de usuario</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="password" readonly>
-              <label for="password">Contraseña</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="userRole" readonly>
-              <label for="userRole">{{userForm.get('userRole')?.value ?? ''}}</label>
-            </div>
-
+            <button class="btn btn-success mb-3" type="submit">Actualizar</button>
           } @else {
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="userName" formControlName="userName">
-              <label for="userName">Nombre de usuario</label>
-            </div>
-  
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="password" formControlName="password">
-              <label for="password">Contraseña</label>
-            </div>
-
-            <div class="form-floating mb-3">
-              <select class="form-select" id="userRole" formControlName="userRole">
-                <option value="USER">Usuario/a</option>
-                <option value="ADMIN">Administrador/a</option>
-              </select>
-              <label for="userRole">Tipo de usuario/a</label>
-            </div>
+            <button class="btn btn-success mb-3" type="submit">Crear</button>
           }
-
-          @if (isUpdate) {
-            <button class="btn btn-success" type="submit">Actualizar</button>
-          } @else {
-            <button class="btn btn-success" type="submit">Crear</button>
-          }
-
         </form>
+    </div>
+    <div class="col-lg-4">
+      @if (photoPreview) {
+        <h3 class="my-5 text-secondary mt-5 fw-bold" style="font-family: 'Libre Franklin';">Preview imagen de usuario</h3>
+        <img class="img-fluid" [src]="photoPreview">
+      }
+      @if (!photoPreview && user?.photoUrl) {
+        <h3 class="my-5 text-secondary mt-5 fw-bold" style="font-family: 'Libre Franklin';">Preview imagen de usuario</h3>
+        <img class="img-fluid" [src]="'http://localhost:8080/files/' + user?.photoUrl">
+      }
     </div>
   </div>
 </div>

@@ -46,8 +46,11 @@
   
                 <td>
                   <button class="btn btn-info btn-sm" [routerLink]="['/users', user.id, 'detail']">Ver</button>
-                  <button class="btn btn-success ms-2 btn-sm" [routerLink]="['/users', user.id, 'update']">Editar</button>
-                  <button class="btn btn-danger ms-2 btn-sm" (click)="delete(user)">Borrar</button>
+                  @if (isAdmin) {
+                    <button class="btn btn-success ms-2 btn-sm" [routerLink]="['/users', user.id, 'update']">Editar</button>
+                    <button class="btn btn-danger ms-2 btn-sm" (click)="delete(user)">Borrar</button>
+                  }
+                  
                 </td>
               </tr>
             } @empty {

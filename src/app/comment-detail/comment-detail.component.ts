@@ -20,6 +20,7 @@ export class CommentDetailComponent implements OnInit{
   rating = 0;
   isAdmin = false;
   isLoggedIn = false;
+  userId = 0;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -27,6 +28,7 @@ export class CommentDetailComponent implements OnInit{
     private authService: AuthenticationService
   ) {this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
      this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+     this.authService.userId.subscribe(userId => this.userId = userId);
 
   }
 
@@ -48,4 +50,3 @@ export class CommentDetailComponent implements OnInit{
   }
   
 }
-

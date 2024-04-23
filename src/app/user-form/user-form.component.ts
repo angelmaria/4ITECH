@@ -24,11 +24,15 @@ export class UserFormComponent implements OnInit{
     userName: new FormControl<string>(''),
     password: new FormControl<string>(''),
     address: new FormControl<string>(''),
-    userRole: new FormControl<UserRole>(UserRole.USER)
+    userRole: new FormControl<UserRole>(UserRole.USER),
+    photoUrl: new FormControl<string>('')
   });
 
   isUpdate: boolean = false; // por defecto estoy en CREAR, no en ACTUALIZAR.
   // userRoles: UserRole[] = []; // array de userRoles para asociar al usuario.
+  photoFile: File | undefined;
+  photoPreview: string | undefined;
+  user: User | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -49,28 +53,56 @@ export class UserFormComponent implements OnInit{
         this.userForm.reset(userFromBackend);
         // marcar boolean isUpdate true
         this.isUpdate = true;
+        
       });
     });
   }
 
-  save(){
-    console.log("eeeeee2");
-    
-    const user: User = this.userForm.value as User;
-    console.log(user); //para visualizar cómo el objeto user se envía al backend.
+  onFileChange(event: Event) {
+    console.log(event);
+    let target = event.target as HTMLInputElement;
 
-    if (this.isUpdate) { // establezco la url de update:
-      const url = 'http://localhost:8080/users/' + user.id;
-      this.httpClient.put<User>(url, user).subscribe(userFromBackend => {
-        this.router.navigate(['/users']);
-      });
-    } else { // establezco la url de create:
-      const url = 'http://localhost:8080/users';
-      this.httpClient.post<User>(url, user).subscribe(userFromBackend => {
-        this.router.navigate(['/users']);
-      });
+    if(target.files === null || target.files.length == 0) {
+      return; // no se procesa ningún archivo
+    }
+
+    this.photoFile = target.files[0]; // guardar el archivo para enviarlo luego en el save()
+
+  // previsualizar la imagen por pantalla
+  let reader = new FileReader();
+  reader.onload = event => this.photoPreview = reader.result as string;
+  reader.readAsDataURL(this.photoFile);
+  }
+
+  save(){ // crear FormData
+    let formData = new FormData();
+    formData.append('id', this.userForm.get('id')?.value?.toString() ?? '0');
+    formData.append('firstName', this.userForm.get('firstName')?.value ?? '');
+    formData.append('lastName', this.userForm.get('lastName')?.value ?? '');
+    formData.append('email', this.userForm.get('email')?.value ?? '');
+    formData.append('phone', this.userForm.get('phone')?.value ?? '');
+    formData.append('userName', this.userForm.get('userName')?.value ?? '');
+    formData.append('password', this.userForm.get('password')?.value ?? '');
+    formData.append('address', this.userForm.get('address')?.value ?? '');
+    formData.append('userRole', this.userForm.get('userRole')?.value ?? '');
+    formData.append('photoUrl', this.userForm.get('photoUrl')?.value ?? '');
+
+    if(this.photoFile){
+      formData.append("photo", this.photoFile); // introducir el photoFile.
+    }
+
+    if(this.isUpdate){
+      // httpClient post para enviar el formData al backend:
+    this.httpClient.put<User>('http://localhost:8080/users/' + this.user?.id, formData)
+    .subscribe(user => this.navigateToList()); // así actualizo el usuario.
+  } else {
+    this.httpClient.post<User>('http://localhost:8080/users', formData)
+    .subscribe(user => this.navigateToList()); // así guardo el usuario.
     }
   }
 
+    navigateToList() {
+      this.router.navigate(['/users']);
+    }
+  }
 
-}

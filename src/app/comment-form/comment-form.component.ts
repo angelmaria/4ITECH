@@ -39,6 +39,7 @@ export class CommentFormComponent implements OnInit {
 
   isAdmin = false;
   isLoggedIn = false;
+  userId = 0;
 
   
 
@@ -49,6 +50,8 @@ export class CommentFormComponent implements OnInit {
     private authService: AuthenticationService) {
       this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
       this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+      this.authService.userId.subscribe(userId => this.userId = userId);
+
 
       
     }
@@ -110,7 +113,7 @@ export class CommentFormComponent implements OnInit {
         const url = 'http://localhost:8080/comments/' + comment.id;
         this.httpClient.put<CommentModel>(url, comment).subscribe(commentFromBackend => {
           this.router.navigate(['/comments', commentFromBackend.id, 'detail']);
-          
+          window.history.go(-2);
         });
         
         
@@ -119,6 +122,7 @@ export class CommentFormComponent implements OnInit {
         const url = 'http://localhost:8080/comments';
         this.httpClient.post<CommentModel>(url, comment).subscribe(commentFromBackend => {
           this.router.navigate(['/comments', commentFromBackend.id, 'detail']);
+          window.history.back();
         });
       }
   }

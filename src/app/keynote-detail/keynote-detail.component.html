@@ -1,122 +1,132 @@
 <div class="container">
-    <div class="row">
-        <div class="col mt-3">
-            @if (keynote) {
-                <div class="d-flex">
-                    <h1 class="text-secondary fw-bold mt-4" style="font-family: 'Libre Franklin', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{keynote.title}}</h1>
-                    <p class="small rounded-pill bg-light p-md-2 ms-3 me-2 mt-4"><i class="bi bi-easel-fill me-2 text-secondary"></i><span class="font-weight-bold me-2">Sala</span>
-                        <span class="mx-1 text-secondary" style="font-size: small; font-weight:500;">{{keynote.room.name}}</span>
-                    </p>
-                    <p class="small rounded-pill bg-light p-md-2 me-2 mt-4"><i class="bi bi-bar-chart-fill me-2 text-secondary"></i><span class="font-weight-bold me-2">Dificultad</span>
-                        <span class="badge rounded-pill mx-1" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.difficultyLevel}}</span>
-                    </p>
-                    <p class="small rounded-pill bg-light p-md-2 mt-4"><i class="bi bi-hourglass-split text-secondary me-2"></i><span class="font-weight-bold me-2">Duración</span>
-                        <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.durationInMin}}</span>
-                    </p>
-                </div>
-                <img [src]="'http://localhost:8080/files/' + keynote.photoUrl" style="max-width: 400px; float:left;" class="img-thumbnail me-3">
+  <div class="row">
+      <div class="col mt-3">
+          @if (keynote) {
+              <div class="d-flex">
+                  <h1 class="text-secondary fw-bold mt-4" style="font-family: 'Libre Franklin', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{keynote.title}}</h1>
+                  <p class="small rounded-pill bg-light p-md-2 ms-3 me-2 mt-4"><i class="bi bi-easel-fill me-2 text-secondary"></i><span class="font-weight-bold me-2">Sala</span>
+                      <span class="mx-1 text-secondary" style="font-size: small; font-weight:500;">{{keynote.room.name}}</span>
+                  </p>
+                  <p class="small rounded-pill bg-light p-md-2 me-2 mt-4"><i class="bi bi-bar-chart-fill me-2 text-secondary"></i><span class="font-weight-bold me-2">Dificultad</span>
+                      <span class="badge rounded-pill mx-1" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.difficultyLevel}}</span>
+                  </p>
+                  <p class="small rounded-pill bg-light p-md-2 mt-4"><i class="bi bi-hourglass-split text-secondary me-2"></i><span class="font-weight-bold me-2">Duración</span>
+                      <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.durationInMin}}</span>
+                  </p>
+              </div>
+              <img [src]="'http://localhost:8080/files/' + keynote.photoUrl" style="max-width: 400px; float:left;" class="img-thumbnail me-3">
 
-                <div class="d-flex">
-                    <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-calendar-date-fill text-secondary me-2"></i><span class="font-weight-bold me-2">Fecha</span>
-                        <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.track.startDate | date:'dd/MM/yy'}}</span>
-                    </p>
-                    <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-alarm me-2 text-secondary"></i><span class="font-weight-bold me-2">Hora inicio</span>
-                        <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.track.startDate | date:'HH:mm'}}</span></p>
-                    <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-alarm me-2 text-secondary"></i><span class="font-weight-bold me-2">Hora fin</span>
-                        <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.track.endDate| date:'HH:mm'}}</span>
-                    </p>
-                </div>
-           
-                <p [innerHTML]="keynote.description"></p>
-                @if (keynote.speaker){
-                  <h5 class="text-secondary mt-4" style="font-family:'Libre Franklin'">Ponente</h5>
-                  <div class="card mb-3" style="max-width: 520px;border:none;">
-                    <div class="row g-0">
-                      <div class="col-md-3" style="display: flex; justify-content: center;align-items:center">
-                        @if (keynote.speaker.photoUrl) {
-                          <img class="rounded-circle shadow-1-strong"
-                                  [src]="'http://localhost:8080/files/' + 'id'">
+              <div class="d-flex">
+                  <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-calendar-date-fill text-secondary me-2"></i><span class="font-weight-bold me-2">Fecha</span>
+                      <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.track.startDate | date:'dd/MM/yy'}}</span>
+                  </p>
+                  <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-alarm me-2 text-secondary"></i><span class="font-weight-bold me-2">Hora inicio</span>
+                      <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.track.startDate | date:'HH:mm'}}</span></p>
+                  <p class="small rounded-pill bg-light p-md-2"><i class="bi bi-alarm me-2 text-secondary"></i><span class="font-weight-bold me-2">Hora fin</span>
+                      <span class="badge rounded-pill" style="color:rgb(255, 255, 255); background-color:rgb(164, 164, 164);">{{keynote.track.endDate| date:'HH:mm'}}</span>
+                  </p>
+              </div>
+         
+              <p [innerHTML]="keynote.description"></p>
+              @if (keynote.speaker){
+                <h5 class="text-secondary mt-4" style="font-family:'Libre Franklin'">Ponente</h5>
+                <div class="card mb-3" style="max-width: 520px;border:none;">
+                  <div class="row g-0">
+                    <div class="col-md-3" style="display: flex; justify-content: center;align-items:center">
+                      @if (keynote.speaker.photoUrl) {
+                        <img class="rounded-circle shadow-1-strong"
+                                [src]="'http://localhost:8080/files/' + 'id'">
+                      }
+                      <img class="rounded-circle shadow-1-strong" style="width:100px; height: 100px;"
+                                [src]="'http://localhost:8080/files/' + 'avatar.png'">
+                    </div>
+                    <div class="col-md-8" style="border-left: 1px solid #e6e6e6;">
+                      <div class="card-body">
+                        @if (keynote.speaker.firstName) {
+                          <h6 class="card-title text-secondary fw-bold" style="font-family:'Libre Franklin';">{{keynote.speaker.firstName}} {{keynote.speaker.lastName}}</h6>  
+                        } @else {
+                        <h6 class="card-title text-secondary fw-bold" style="font-family:'Libre Franklin';">{{keynote.speaker.email}}</h6>
                         }
-                        <img class="rounded-circle shadow-1-strong" style="width:100px; height: 100px;"
-                                  [src]="'http://localhost:8080/files/' + 'avatar.png'">
-                      </div>
-                      <div class="col-md-8" style="border-left: 1px solid #e6e6e6;">
-                        <div class="card-body">
-                          @if (keynote.speaker.firstName) {
-                            <h6 class="card-title text-secondary fw-bold" style="font-family:'Libre Franklin';">{{keynote.speaker.firstName}} {{keynote.speaker.lastName}}</h6>  
-                          } @else {
-                          <h6 class="card-title text-secondary fw-bold" style="font-family:'Libre Franklin';">{{keynote.speaker.email}}</h6>
-                          }
-                          <p class="card-text small text-secondary">Ingeniero de Software y Desarrollador FullStack. Director de Merweb.co</p>
-                          <span class="card-text"><small class="text-body-secondary">{{keynote.speaker.email}}</small></span>
-                        </div>
+                        <p class="card-text small text-secondary">Ingeniero de Software y Desarrollador FullStack. Director de Merweb.co</p>
+                        <span class="card-text"><small class="text-body-secondary">{{keynote.speaker.email}}</small></span>
                       </div>
                     </div>
                   </div>
+                </div>
 
 
-                }
-                @if (isAdmin) {
-                <button class="btn btn-success" [routerLink]="['/keynotes', keynote.id, 'update']">Editar Keynote</button>
-                }
-            }
-        </div>
+              }
+              @if (isAdmin) {
+              <button class="btn btn-success" [routerLink]="['/keynotes', keynote.id, 'update']">Editar Keynote</button>
+              }
+          }
+      </div>
 
 <!-- Listado de comentarios sobre la charla --> 
-                <div class="row d-flex mb-2">
-                  
-                    <h3 class="text-secondary fw-bold mt-3" style="font-family:'Libre Franklin';">Valoraciones</h3>
-                    <p class="text-secondary">¿Qué te pareción la charla? Déjanos tu opinión <span class="btn btn-outline-secondary btn-sm rounded" routerLink="/comments/create" (click)="$event.preventDefault()">aqui</span></p>
-                     @for (comment of comments; track comment.id) {
-                    <div class="col-md-8 col-lg-8 mb-3">
-                      <div class="card shadow-0 border" style="background-color: #f0f2f5;">
-                        <div class="card-body p-4">
-                  
-                          <div class="card mb-4">
-                            <div class="card-body text-secondary">
+              <div class="row d-flex mb-2">
+                
+                  <h3 class="text-secondary fw-bold mt-3" style="font-family:'Libre Franklin';">Valoraciones</h3>
+                  <p class="text-secondary">¿Qué te pareción la charla? Déjanos tu opinión <span class="btn btn-outline-danger btn-sm rounded" routerLink="/comments/create" (click)="$event.preventDefault()"><strong>aquí</strong></span></p>
+                   @for (comment of comments; track comment.id) {
+                  <div class="col-md-8 col-lg-8 mb-3">
+                    <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+                      <div class="card-body p-4">
+                
+                        <div class="card mb-4">
+                          <div class="card-body text-secondary">
 
-                              <div class="d-flex justify-content-between">
-                                <div class="d-flex flex-row align-items-center">
+                            <div class="d-flex justify-content-between">
+                              <div class="d-flex flex-row align-items-center">
 
-                                  <img class="rounded-circle shadow-1-strong me-3"
-                                  [src]="'http://localhost:8080/files/' + 'avatar.png'" alt="avatar" width="60"
-                                    height="60" />
-                                  <div>
+                                <img class="rounded-circle shadow-1-strong me-3"
+                                [src]="'http://localhost:8080/files/' + 'avatar.png'" alt="avatar" width="60"
+                                  height="60" />
+                                <div>
+                                  @if (comment.user.firstName === null) {
+                                    <h6 class="fw-bold text-primary-emphasis mb-1">{{comment.user.email}}</h6>
+
+                                  }
+                                  @else {
                                     <h6 class="fw-bold text-primary-emphasis mb-1">{{comment.user.firstName}}</h6>
-                                    
-                                    <p class="small mb-0 fst-italic">
-                                      Publicado - {{comment.dateTime | date: 'dd/MM/yyyy'}}
-                                    </p>
-                                    
-                                  </div>
-                                </div>
-                                <div class="d-flex flex-row align-items-center">
-                                  <p class="small text-muted mb-0">Rating</p>
-                                  <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i>
-                                  <p class="small text-muted mb-0">
-
-                                        <ngb-rating [(rate)]="comment.rating" [max]="5" [readonly]="true" formControlName="rating">
-                                        <ng-template let-fill="fill" let-index="index">
-                                        <i class="bi-star{{ fill === 100 ? '-fill' : '' }}"
-                                        style="color: rgb(222, 191, 39); margin: 4px;"></i>
-                                        </ng-template>
-                                        </ngb-rating>
-
+                                  }
+                                  
+                                  <p class="small mb-0 fst-italic">
+                                    <strong>Publicado:</strong>&nbsp; <i class="bi bi-calendar3 me-2"></i> 
+                                    {{comment.dateTime | date: 'dd/MM/yyyy'}} &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i class="bi-alarm me-2"></i>
+                                    {{comment.dateTime | date: 'HH:mm'}}
                                   </p>
+
+                                  
                                 </div>
                               </div>
+                              <div class="d-flex flex-row align-items-center">
+                                <p class="small text-muted mb-0">Rating</p>
+                                <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i>
+                                <p class="small text-muted mb-0">
 
-                              <p class="mt-3 mb-4" style="font-family:'Libre Franklin';">{{comment.opinion}}</p>
-                  
+                                      <ngb-rating [(rate)]="comment.rating" [max]="5" [readonly]="true" formControlName="rating">
+                                      <ng-template let-fill="fill" let-index="index">
+                                      <i class="bi-star{{ fill === 100 ? '-fill' : '' }}"
+                                      style="color: rgb(222, 191, 39); margin: 4px;"></i>
+                                      </ng-template>
+                                      </ngb-rating>
 
+                                </p>
+                              </div>
                             </div>
+
+                            <p class="mt-3 mb-4" style="font-family:'Libre Franklin';">{{comment.opinion}}</p>
+                
+
                           </div>
                         </div>
                       </div>
                     </div>
-                }
+                  </div>
+              }
 
-                </div>
+              </div>
 <!-- fin sección de listado de comentarios -->
-    </div>
+  </div>
 </div>
