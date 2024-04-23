@@ -7,6 +7,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
 import { CommentModel } from '../models/commentmodel.model';
 import { DatePipe } from '@angular/common';
 import { ShortTextPipe } from '../short-text.pipe';
+import { FormControl, FormGroup } from '@angular/forms';
 
 export class NgbdCarouselConfig {
 
@@ -29,9 +30,12 @@ export class NgbdCarouselConfig {
 
 
 export class HomeComponent implements OnInit {
+
 ticket: any;
 isLoggedIn = false;
 comments: CommentModel[] = [];
+keynote: Keynote | undefined;
+
 
   constructor(
     private httpClient: HttpClient,

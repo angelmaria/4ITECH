@@ -65,3 +65,7 @@
     }
 
 /* Estilos posts pequeños de Extra Theme */
+#carouselExampleRide .carousel-indicators {
+  background-color: red;
+  
+}
