@@ -156,7 +156,6 @@ export class KeynoteFormComponent implements OnInit {
     }
     private navigateToList() {
       this.router.navigate(['/keynotes']);
-  
    }
   
     compareObjects(o1: any, o2: any): boolean {
