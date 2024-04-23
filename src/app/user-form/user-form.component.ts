@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angul
 import { UserRole } from '../models/userRole.model';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { User } from '../models/user.model';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-user-form',
@@ -36,7 +37,8 @@ export class UserFormComponent implements OnInit{
     private activatedRoute: ActivatedRoute){}
 
   ngOnInit(): void {
-    
+    console.log("eeeeee1");
+
     this.activatedRoute.params.subscribe(params => {
       const id = params['id'];
       if (!id) return;
@@ -52,6 +54,8 @@ export class UserFormComponent implements OnInit{
   }
 
   save(){
+    console.log("eeeeee2");
+    
     const user: User = this.userForm.value as User;
     console.log(user); //para visualizar cómo el objeto user se envía al backend.
 

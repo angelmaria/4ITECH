@@ -38,9 +38,12 @@ export class AccountFormComponent implements OnInit {
   }
 
   save() {
+    console.log("save1");
+    
     if (!this.user) {
       return;
-    }
+    }    console.log("save2");
+
     this.user.firstName = this.userForm.get('firstName')?.value;
     this.user.lastName = this.userForm.get('lastName')?.value;
     this.user.phone = this.userForm.get('phone')?.value;

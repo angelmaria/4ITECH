@@ -39,6 +39,9 @@ export class KeynoteDetailComponent implements OnInit {
       const id = params['id'];
       if (!id) return;
 
+
+      // canWatchVideo = existsByUser_IdAndTicket_Id boolean
+
       const url = 'http://localhost:8080/keynotes/' + id;
       this.httpClient.get<Keynote>(url).subscribe(keynoteBackend => {
         this.keynote = keynoteBackend;
@@ -51,6 +54,7 @@ export class KeynoteDetailComponent implements OnInit {
         
         // console.log(this.comment);
       });
+
     });
 
   }

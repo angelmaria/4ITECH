@@ -40,7 +40,15 @@ keynote: Keynote | undefined;
   constructor(
     private httpClient: HttpClient,
     private authService: AuthenticationService) {
-      this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);}
+      this.authService.isLoggedIn.subscribe(isLoggedIn => {
+        if (isLoggedIn) {
+          this.loadsKeynotes();
+        } else {
+this.loadsKeynoteProjections();
+        }
+
+        this.isLoggedIn = isLoggedIn
+      });}
 
   keynotes: Keynote[] = [];
 
@@ -48,11 +56,17 @@ ngOnInit(): void {
 
   this.loadComments();
 
-  this.loadsKeynotes();
+
 }
 
 private loadsKeynotes() {
+  
   const url = 'http://localhost:8080/keynotes';
+  this.httpClient.get<Keynote[]>(url).subscribe(keynotes => this.keynotes = keynotes);
+}
+private loadsKeynoteProjections() {
+  
+  const url = 'http://localhost:8080/keynotes/projections/home';
   this.httpClient.get<Keynote[]>(url).subscribe(keynotes => this.keynotes = keynotes);
 }
 
