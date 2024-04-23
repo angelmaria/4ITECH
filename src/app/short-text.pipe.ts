@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ShortTextPipe implements PipeTransform {
 
-  transform(value: string, maxLength: number = 45): string {
+  transform(value: string, maxLength: number = 340): string {
     if (!value) {
       return '';
     }

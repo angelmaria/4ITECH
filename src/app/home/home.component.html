@@ -31,7 +31,7 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <!-- Ponentes estático -->
+      <!-- Ponentes estáticos -->
       <div class="p-3 mb-3" style=" background-color: #f9f8f8; box-shadow: 0 0 3px rgb(196, 196, 196);">
         
         <h5 class="fw-bold mb-2" style="color:rgba(59, 113, 179, 0.684); text-transform: uppercase;">Nuestros Ponentes</h5>
@@ -113,7 +113,7 @@
             </ng-template>
             </ngb-rating></span>
           <br>
-          <span class="text-secondary">{{comment.opinion | shortText}}</span>
+          <span class="text-light-emphasis fw-lighter fst-italic">{{comment.opinion}}</span>
           
         </div>
 
@@ -133,19 +133,24 @@
         
       </div>
       <!-- fin del carusel de comentarios adyancete a fotos -->
-      <ul class="p-0" style="list-style:none; border: 1px solid #ccc;">
-        <ngb-carousel class="" [interval]="0">
+      <ul class="p-0" style="list-style:none; box-shadow: 0 0 3px #ccc;">
+        <ngb-carousel class="" [interval]="40000">
           @for (keynote of keynotes; track keynote) {
           @for (comment of comments; track comment.id) {
           <ng-template ngbSlide>
-        <li class="p-3" style="">
-          <img [src]="'http://localhost:8080/files/' + keynote?.photoUrl" [routerLink]="['/keynotes', keynote.id, 'detail']" class="float-start pe-2" style="max-width: 60px;" alt="">
-          <h6 class="mb-0 text-secondary">{{keynote.title}}</h6>
+        <li class="p-3" style="border-bottom: 1px solid #ededed;">
+          <img [src]="'http://localhost:8080/files/' + keynote?.photoUrl" [routerLink]="['/keynotes', keynote.id, 'detail']" class="float-start pe-2" style="max-width: 70px;" alt="">
+          <h6 class="mb-0 text-secondary fw-bold">{{keynote.title}}</h6>
           <span class="small text-body-tertiary">Por {{keynote.speaker.firstName}} | {{keynote.track.startDate | date: 'dd MMM yyyy'}}</span>
           <br>
-          <span class="text-secondary">{{keynote.description}}</span>
+          <span class="text-secondary"><span class="fw-bold">Resúmen:</span> {{keynote.summary}}</span>
             <br>
-            <span class="small text-body-tertiary">Opinión: {{comment.user.firstName}} | {{comment.dateTime | date: 'dd MMM yyyy'}} | <ngb-rating [(rate)]="comment.rating" [max]="5" [readonly]="true" formControlName="rating">
+            <span class="small text-body-tertiary">Descripción:</span> 
+            <br>
+            <span class="text-secondary fw-lighter">{{keynote.description | shortText}}</span>
+            <br>
+            <hr class="text-light">
+            <span class="small text-body-tertiary">{{comment.user.firstName}} | {{comment.dateTime | date: 'dd MMM yyyy'}} | <ngb-rating [(rate)]="comment.rating" [max]="5" [readonly]="true" formControlName="rating">
               <ng-template let-fill="fill" let-index="index">
               <i class="bi-star{{ fill === 100 ? '-fill' : '' }}"
               style="color: rgb(222, 191, 39); margin: 4px;"></i>
@@ -162,7 +167,7 @@
 
     <div class="col-md-12">
       <!-- sección izquierda de comentarios -->
-      <ngb-carousel class="mt-3" [interval]="0">
+      <!-- <ngb-carousel class="mt-3" [interval]="0">
         @for (comment of comments; track comment.id) {
         <ng-template ngbSlide>
           <div class="mb-3">
@@ -207,14 +212,14 @@
           </div>
         </ng-template>
       }
-      </ngb-carousel>
+      </ngb-carousel> -->
       <!-- fin sección izquierda de comentarios -->
     </div>
 
     <article class="blog-post mt-3">
 
     <!-- sección tecnologías usadas -->
-    <div class="text-emphasys">
+    <div class="text-emphasys mt-5">
     <h3 class="fw-bold text-secondary mb-4" style="font-family: 'Libre Franklin';">Tecnologías Utilizadas para el desarrollo de &commat;4iTECH</h3>
     <img src="assets/img/Tecnologias.png" class="img-fluid" alt="Imagen de tecnologias">
     <div class="py-2">
