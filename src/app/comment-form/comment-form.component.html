@@ -67,16 +67,15 @@
               </select>
               <label for="user">Usuario del comentario</label>
             </div>  
-          }@else{}
-        
-        
-
-          @if (isUpdate) {
-            <button class="w-100 btn btn-lg btn-outline-light  p-1 me-3 mb-3" style="display: block;background-color: #1a119a;" type="submit"><i class="bi bi-wrench-adjustable me-2"></i>Actualizar comentario</button>
-          } @else {
-            <button class="w-100 btn btn-lg btn-outline-light p-1 me-3 mb-3" style="display: block; background-color: #1a119a;" type="submit">🪄 Crear comentario</button>
           }
+        
+        
+          <button class="w-100 btn btn-lg btn-outline-light p-1 me-3 mb-3" style="display: block; background-color: #1a119a;" type="submit">🪄 Crear comentario</button>
 
+          @if (isUpdate && isAdmin) {
+            <button class="w-100 btn btn-lg btn-outline-light  p-1 me-3 mb-3" style="display: block;background-color: #1a119a;" type="submit"><i class="bi bi-wrench-adjustable me-2"></i>Actualizar comentario</button>
+          }
+         
 
         </form>
 
