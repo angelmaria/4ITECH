@@ -75,7 +75,7 @@ export class UserFormComponent implements OnInit{
   save(){ // crear FormData
     let formData = new FormData();
     formData.append('id', this.userForm.get('id')?.value?.toString() ?? '0');
-    formData.append('name', this.userForm.get('name')?.value ?? '');
+    formData.append('firstName', this.userForm.get('firstName')?.value ?? '');
     formData.append('lastName', this.userForm.get('lastName')?.value ?? '');
     formData.append('email', this.userForm.get('email')?.value ?? '');
     formData.append('phone', this.userForm.get('phone')?.value ?? '');
@@ -90,17 +90,17 @@ export class UserFormComponent implements OnInit{
     }
 
     if(this.isUpdate){
-      // httpClient post para enviar el formData al backend:
     this.httpClient.put<User>('http://localhost:8080/users/' + this.user?.id, formData)
     .subscribe(user => this.navigateToList()); // así actualizo el usuario.
-  } else {
+    } else {
     this.httpClient.post<User>('http://localhost:8080/users', formData)
     .subscribe(user => this.navigateToList()); // así guardo el usuario.
     }
   }
 
-    navigateToList() {
-      this.router.navigate(['/users']);
-    }
+  private navigateToList() {
+    this.router.navigate(['/users']);
+  }
+  
   }
 
