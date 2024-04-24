@@ -34,11 +34,12 @@
                   <div class="row g-0">
                     <div class="col-md-3" style="display: flex; justify-content: center;align-items:center">
                       @if (keynote.speaker.photoUrl) {
-                        <img class="rounded-circle shadow-1-strong"
-                                [src]="'http://localhost:8080/files/' + 'id'">
-                      }
+                        <img class="rounded-circle shadow-1-strong" style="width:100px; height: 100px; object-fit:cover;"
+                                [src]="'http://localhost:8080/files/' + keynote.speaker.photoUrl">
+                      } @else {
                       <img class="rounded-circle shadow-1-strong" style="width:100px; height: 100px;"
                                 [src]="'http://localhost:8080/files/' + 'avatar.png'">
+                      }
                     </div>
                     <div class="col-md-8" style="border-left: 1px solid #e6e6e6;">
                       <div class="card-body">

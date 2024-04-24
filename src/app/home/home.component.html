@@ -163,58 +163,6 @@
     </ngb-carousel>
       </ul>
 </div>
-    
-
-    <div class="col-md-12">
-      <!-- sección izquierda de comentarios -->
-      <!-- <ngb-carousel class="mt-3" [interval]="0">
-        @for (comment of comments; track comment.id) {
-        <ng-template ngbSlide>
-          <div class="mb-3">
-            <div class="card shadow-0 border" style="background-color: #f0f2f5;">
-              <div class="card-body p-4">
-      
-                <div class="card mb-4">
-                  <div class="card-body text-secondary">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <img class="rounded-circle shadow-1-strong me-3"
-                        [src]="'http://localhost:8080/files/' + 'avatar.png'" alt="avatar" width="60"
-                          height="60" />
-                        <div>
-                          <h6 class="fw-bold text-primary-emphasis mb-1">{{comment.user.firstName}}</h6>
-      
-                          <p class="small mb-0 fst-italic">
-                            Publicado - {{comment.dateTime | date: 'dd/MM/yyyy'}}
-                          </p>
-      
-                        </div>
-                      </div>
-                      <div class="d-flex flex-row align-items-center">
-                        <p class="small text-muted mb-0">Rating</p>
-                        <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i>
-                        <p class="small text-muted mb-0">
-                              <ngb-rating [(rate)]="comment.rating" [max]="5" [readonly]="true" formControlName="rating">
-                              <ng-template let-fill="fill" let-index="index">
-                              <i class="bi-star{{ fill === 100 ? '-fill' : '' }}"
-                              style="color: rgb(222, 191, 39); margin: 4px;"></i>
-                              </ng-template>
-                              </ngb-rating>
-                        </p>
-                      </div>
-                    </div>
-                    <p class="mt-3 mb-4" style="font-family:'Libre Franklin';">{{comment.opinion | shortText}}</p>
-      
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </ng-template>
-      }
-      </ngb-carousel> -->
-      <!-- fin sección izquierda de comentarios -->
-    </div>
 
     <article class="blog-post mt-3" style="display:inline-block">
 
