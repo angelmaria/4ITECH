@@ -19,6 +19,7 @@ export class KeynoteDetailComponent implements OnInit {
   keynote: Keynote | undefined;
   comments: CommentModel[] = [];
   isAdmin = false;
+  isLoggedIn = false;
   //comments: CommentModel | undefined;
   
 
@@ -28,6 +29,7 @@ export class KeynoteDetailComponent implements OnInit {
     private authService: AuthenticationService
   ) {
     this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+    this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
   }
 
   ngOnInit(): void {

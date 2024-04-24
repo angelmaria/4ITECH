@@ -41,11 +41,11 @@ keynote: Keynote | undefined;
     private httpClient: HttpClient,
     private authService: AuthenticationService) {
       this.authService.isLoggedIn.subscribe(isLoggedIn => {
-        if (isLoggedIn) {
+        // if (isLoggedIn) {
           this.loadsKeynotes();
-        } else {
-this.loadsKeynoteProjections();
-        }
+        // } else {
+// this.loadsKeynoteProjections();
+//         }
 
         this.isLoggedIn = isLoggedIn
       });}

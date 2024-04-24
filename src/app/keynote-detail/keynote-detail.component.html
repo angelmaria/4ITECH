@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+    @if (isLoggedIn) {
       <div class="col mt-3">
           @if (keynote) {
               <div class="d-flex">
@@ -128,5 +129,22 @@
 
               </div>
 <!-- fin sección de listado de comentarios -->
+            } @else {
+              <div class="container">
+                <h2 class="text-secondary mt-5" style="font-family: 'Libre Franklin'">
+                  <strong>Para acceder al detalle de la charla debes logarte previamente </strong>
+                  <button class="btn me-3 ms-3">
+                    <a
+                      class="nav-link border border-primary-subtle rounded border-2 pe-3 inicio"
+                      routerLink="/login"
+                      (click)="$event.preventDefault()"
+                      id=""
+                      role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Acceder
+                    </a>
+                  </button>
+                </h2>
+              </div>
+            }
   </div>
+
 </div>
