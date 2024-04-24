@@ -23,6 +23,9 @@ export class RegisterComponent {
    {validators: this.passwordConfirmValidator}  // validacion personalizada que comprueba que los dos campos sean iguales
   );
 
+  errorMessage = '';
+  successMessage = false;
+
   constructor(
     private httpClient: HttpClient,
     private authService: AuthenticationService,
@@ -50,11 +53,17 @@ export class RegisterComponent {
     }
     console.log(register);
     this.httpClient.post('http://localhost:8080/users/register', register)
-    .subscribe(response => {
+    .subscribe({
+      next: response => {
       // navegar a login
       // this.registerForm.reset(); 
       this.router.navigate(['/login']);
-    }); 
+    },
+    error: response => {
+      console.log(response);
+      this.errorMessage = response.error;
+    }
+  }); 
 
 
   }

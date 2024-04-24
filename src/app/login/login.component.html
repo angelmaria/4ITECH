@@ -24,6 +24,9 @@
     
                       <div class="text-center pt-1 mb-5 pb-1">
                         <button class="btn btn-primary w-100 py-2 gradient-custom-2 mb-2 fw-bold" type="submit">Iniciar sesión</button>
+                        @if(errorMessage && errorMessage.length > 0) {
+                          <small class="text-danger">{{errorMessage}}</small>
+                        }
                         <a class="text-muted" href="#!">¿Olvidaste la contraseña?</a>
                       </div>
     
