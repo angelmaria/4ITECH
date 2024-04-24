@@ -27,4 +27,6 @@ export interface Keynote {
 
     // ManyToMany
     attendees: User[]; // ??
+
+    visible: boolean;
 }

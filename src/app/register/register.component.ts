@@ -56,8 +56,8 @@ export class RegisterComponent {
     .subscribe({
       next: response => {
       // navegar a login
-      // this.registerForm.reset(); 
-      this.router.navigate(['/login']);
+      this.registerForm.reset(); 
+      // this.router.navigate(['/login']);
     },
     error: response => {
       console.log(response);

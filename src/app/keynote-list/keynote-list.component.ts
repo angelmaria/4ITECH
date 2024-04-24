@@ -19,6 +19,7 @@ export class KeynoteListComponent implements OnInit {
   showDeleteKeynoteMessage: boolean = false;
   isAdmin = false;
   isLoggedIn = false;
+  visible = true;
 
   constructor(
     private httpClient: HttpClient,
@@ -43,7 +44,7 @@ export class KeynoteListComponent implements OnInit {
     this.showDeleteKeynoteMessage = false;
   }
   archive(keynote: Keynote){
-    //keynote.published = false;
+    keynote.visible = false;
     //this.httpClient.put<Keynote>(url, keynote). subscribe
      //   this.loadsKeynotes
   }
