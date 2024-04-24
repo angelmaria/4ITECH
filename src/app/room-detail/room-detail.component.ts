@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Room } from '../models/room.model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-room-detail',
@@ -13,11 +14,14 @@ import { HttpClient } from '@angular/common/http';
 export class RoomDetailComponent implements OnInit{
 
   room: Room | undefined;
+  isAdmin = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private httpClient: HttpClient
-  ){}
+    private httpClient: HttpClient,
+    private authService: AuthenticationService){   
+         this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+  }
 
 
   ngOnInit(): void {
