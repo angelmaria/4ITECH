@@ -57,6 +57,7 @@ export class RegisterComponent {
       next: response => {
       // navegar a login
       this.registerForm.reset(); 
+      this.successMessage = true;
       // this.router.navigate(['/login']);
     },
     error: response => {
