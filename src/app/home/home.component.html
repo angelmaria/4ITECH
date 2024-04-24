@@ -10,6 +10,7 @@
   <div class="col-md-8 me-0 ms-0 pe-0 ps-0">
 
     <div class="col-md-6 float-end ps-2">
+      <!-- Carousel inmóvil -->
       <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="true" style="border-top: 8px solid rgba(233, 181, 12, 0.944); border-radius: 5px;">
         <div class="carousel-inner">
           <div class="carousel-item active" style="max-height:250px;">
@@ -31,6 +32,7 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+      <!-- fin Carousel inmóvil -->
       <!-- Ponentes estáticos -->
       <div class="p-3 mb-3" style=" background-color: #f9f8f8; box-shadow: 0 0 3px rgb(196, 196, 196);">
         
@@ -91,7 +93,7 @@
 <div class="col-md-6 pe-2">
   <!-- Carusel de comentarios adyacente a las fotos -->
   <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true" style="border-top: 8px solid rgba(2, 147, 220, 0.944); border-radius: 5px;">
-    <ngb-carousel class="" [interval]="10000">
+    <ngb-carousel class="" [interval]="11000">
       @for (keynote of keynotes; track keynote) {
         @for (comment of comments; track comment.id) {
         <ng-template ngbSlide>
@@ -184,11 +186,11 @@
     <!-- sección navbar -->
     <ul ngbNav #nav="ngbNav" class="nav-tabs mt-3" style="font-family: 'Libre Franklin';">
 
-    <li [ngbNavItem]="2">
+    <li [ngbNavItem]="1">
     <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(1, 108, 238, 0.464);">Quienes Somos</button>
     <ng-template ngbNavContent>
-    <p>
-    <span class="text-secondary fw-bold">4iTech</span> somos un grupo de programadores que nace bajo los auspicios de <a class="text-secondary fw-bold" href="www.adecco.com">Adecco</a> y de la mano de nuestro profesor y mentor, Alan Sastre, CEO de <a class="text-secondary fw-bold" href="www.certidevs.com">Certidevs</a>, con el objetivo de ofrecer recursos y contenidos dedicados a la formación profesional. Organizamos eventos presenciales, online e híbridos cuya finalidad es fomentar el intercambio de ideas, la colaboración y el networking en un entorno donde todas las personas puedan expresarse libremente y sentirse cómodas. 
+    <p class="fw-lighter" style="font-size: 1.1rem;">
+    <span class="text-secondary fw-bolder">4iTech</span> somos un grupo de programadores que nace bajo los auspicios de <a class="text-secondary fw-bold" href="www.adecco.com">Adecco</a> y de la mano de nuestro profesor y mentor, Alan Sastre, CEO de <a class="text-secondary fw-bold" href="www.certidevs.com">Certidevs</a>, con el objetivo de ofrecer recursos y contenidos dedicados a la formación profesional. Organizamos eventos presenciales, online e híbridos cuya finalidad es fomentar el intercambio de ideas, la colaboración y el networking en un entorno donde todas las personas puedan expresarse libremente y sentirse cómodas. 
     </p>
     <div class="col-lg-5 float-end ms-3">
       <h4 class="text-secondary fw-lighter ms-2">Algunas de nuestras charlas</h4>
@@ -235,51 +237,51 @@
       </ng-template>
       </ngb-carousel>
       </div>
-    <p>
-    Nuestra <span class="text-secondary fw-bold">VISIÓN</span> es creer que todos podemos construir un futuro mejor a través de la tecnología. En ese futuro, la tecnología es una herramienta universal para el progreso de la sociedad. 
+    <p class="fw-lighter" style="font-size: 1.1rem;">
+    Nuestra <span class="text-secondary fw-bolder">VISIÓN</span> es creer que todos podemos construir un futuro mejor a través de la tecnología. En ese futuro, la tecnología es una herramienta universal para el progreso de la sociedad. 
     </p>
-    <p>
-    La <span class="text-secondary fw-bolder">MISIÓN</span> de <span class="text-secondary fw-bold">4iTech</span> es promover la innovación a través de la creación de una comunidad tecnológica que tenga un impacto positivo en la sociedad. Usamos los <span class="fst-italic">eventos</span> y las <span class="fst-italic">charlas</span> como catalizadores del cambio a través del fomento de la innovación, la construcción de una comunidad tecnológica y resolviendo problemas sociales que mejoren la calidad de vida de las personas.</p>
-    <p>
-    En resumen, en <span class="text-secondary fw-bold">4iTech</span> aspiramos a ser una fuerza impulsora para un futuro mejor impulsado por la tecnología, donde todos tengan la oportunidad de prosperar y contribuir positivamente a la sociedad.
+    <p class="fw-lighter" style="font-size: 1.1rem;">
+    La <span class="text-secondary fw-bolder">MISIÓN</span> de <span class="text-secondary fw-bolder">4iTech</span> es promover la innovación a través de la creación de una comunidad tecnológica que tenga un impacto positivo en la sociedad. Usamos los <span class="fst-italic">eventos</span> y las <span class="fst-italic">charlas</span> como catalizadores del cambio a través del fomento de la innovación, la construcción de una comunidad tecnológica y resolviendo problemas sociales que mejoren la calidad de vida de las personas.</p>
+    <p class="fw-lighter" style="font-size: 1.1rem;">
+    En resumen, en <span class="text-secondary fw-bolder">4iTech</span> aspiramos a ser una fuerza impulsora para un futuro mejor impulsado por la tecnología, donde todos tengan la oportunidad de prosperar y contribuir positivamente a la sociedad.
     </p>
-    <p class="pb-2" style="border-bottom: 1px solid #f3f3f3; width: 130px;">
+    <p class="fw-lighter" style="font-size: 1.1rem; border-bottom: 1px solid #f3f3f3; width: 150px;">
     <span class="text-light-emphasis">Nuestros valores:</span> 
     </p>
-    <ul>
-      <li><span class="text-secondary fw-bold">Crecimiento</span>: La formación continua es fundamental para nosotros y el bojetivo es el de crear contenidos verticales y transversales a través de recorridos educativos sobre las tecnologías más usadas hoy en día.</li>
-      <li><span class="text-secondary fw-bold">Compartir y discutir</span>: El establecimiento de redes de contacto (networking), con la posibilidad de compartir experiencias y  dificultades y el apoyo mutuo son la energía de nuestra comunidad.</li>
-      <li><span class="text-secondary fw-bold">Diversidad y accesibilidad</span>: Una comunidad diversa cuya riqueza está en su heterogeneidad, con diferentes perfiles y puntos de vista, donde todos se puedan sentir cómodos. Animamos y apoyamos a diversos grupos a participar activamente en todas nuestras actividades e iniciativas con el objetivo de proporcionar una educación tecnológica de nivel</li>
+    <ul class="fw-lighter" style="font-size: 1.1rem;">
+      <li><span class="text-secondary fw-bolder">Crecimiento</span>: La formación continua es fundamental para nosotros y el bojetivo es el de crear contenidos verticales y transversales a través de recorridos educativos sobre las tecnologías más usadas hoy en día.</li>
+      <li><span class="text-secondary fw-bolder">Compartir y discutir</span>: El establecimiento de redes de contacto (networking), con la posibilidad de compartir experiencias y  dificultades y el apoyo mutuo son la energía de nuestra comunidad.</li>
+      <li><span class="text-secondary fw-bolder">Diversidad y accesibilidad</span>: Una comunidad diversa cuya riqueza está en su heterogeneidad, con diferentes perfiles y puntos de vista, donde todos se puedan sentir cómodos. Animamos y apoyamos a diversos grupos a participar activamente en todas nuestras actividades e iniciativas con el objetivo de proporcionar una educación tecnológica de nivel</li>
     </ul>
     </ng-template>
     </li>
-    <li [ngbNavItem]="1">
+    <li [ngbNavItem]="2">
     <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(255, 176, 5, 0.456);">Partners</button>
     <ng-template ngbNavContent>
-    <p>
+    <p class="fw-lighter" style="font-size: 1.1rem;">
     Nuestra propuesta de colaboración (partnership) es para: Comunidades que comparten nuestros valores y deseen conectarse, crecer y compartir. También  va dirigida a personas, conferencias y empresas que quieran ofrecer descuentos en productos o servicios que son de interés para la comunidad (formaciones, espacios de trabajo, herramientas, certificaciones, etc)
     </p>
     <img src="assets/img/certidevs.png" class="float-end p-2" style="width:120px; box-shadow:0 0 5px #dedede;" alt="Certidevs">
     <img src="assets/img/adeccoPNG.png" class="float-end p-2 me-3" style="width:120px; box-shadow:0 0 5px #dedede;" alt="Certidevs">
-    <h4 class="text-secondary fw-bold">¿Porqué convertirse en partner?</h4>
-    <p>
-      <span class="text-secondary fw-bold">Apoyo</span>: comparte que nosotros tus eventos y te ayudamos a difundirlo en nuestra newsletter, Twitter e Instagram.
+    <h5 class="text-secondary fw-bolder">¿Porqué convertirse en partner?</h5>
+    <p class="fw-lighter" style="font-size: 1.1rem;">
+      <span class="text-secondary fw-bolder">Apoyo</span>: comparte que nosotros tus eventos y te ayudamos a difundirlo en nuestra newsletter, Twitter e Instagram.
     </p>
-    <p>
-      <span class="text-secondary fw-bold">Proyectos</span>: Participa en nuestras conferencias proponiendo actividades, paneles, presentándote en booths y votando propuestas de charlas. 
+    <p class="fw-lighter" style="font-size: 1.1rem;">
+      <span class="text-secondary fw-bolder">Proyectos</span>: Participa en nuestras conferencias proponiendo actividades, paneles, presentándote en booths y votando propuestas de charlas. 
     </p>
-    <p>
-      <span class="text-secondary fw-bold">Visibilidad</span>: Da a concer tu actividad y tus contenidos, y recluta nuevos miembros.
+    <p class="fw-lighter" style="font-size: 1.1rem;">
+      <span class="text-secondary fw-bolder">Visibilidad</span>: Da a concer tu actividad y tus contenidos, y recluta nuevos miembros.
     </p>
-    <p>
-      <span class="text-secondary fw-bold">Formacón</span>: Recibe descuentos y tickets gratuitos para nuestros eventos dirigidos a formar y hacer crecer a los miembros de tu comundad.
+    <p class="fw-lighter" style="font-size: 1.1rem;">
+      <span class="text-secondary fw-bolder">Formación</span>: Recibe descuentos y tickets gratuitos para nuestros eventos dirigidos a formar y hacer crecer a los miembros de tu comundad.
     </p>
     </ng-template>
     </li>
     <li [ngbNavItem]="3">
     <button ngbNavLink class="fw-bold text-secondary fs-5" style="font-family: 'Libre Franklin'; border-top:6px solid rgba(238, 1, 1, 0.417); border-left: 1px solid #dee2e6;border-right:1px solid #dee2e6;">Contribuye</button>
     <ng-template ngbNavContent>
-    <p>
+    <p class="fw-lighter" style="font-size: 1.1rem;">
       <figure class="text-end mt-2 fst-italic text-secondary fw-bold" style="font-family: 'Libre Franklin';">
         <blockquote class="blockquote">
           <p>Solos avanzamos rápido, pero juntos llegmaos más lejos.</p>
@@ -291,7 +293,7 @@
     En 4iTech queremos trabajar día a día para entregar valor a la comunidad de personas dedicadas al desarrollo y profesionales del mundo de la tecnología. En nuestra web de eventos y charlas abordamos temáticas relacionadoas con todo tipo de lenguajes y tecnologías. Nuestro objetivo es apoyar el crecimiento profesional de los desarrolladores ofreciendo contenido de calidad y a la vanguardia. Por eso creemos en el poder de la divulgación de la comunidad, en el intercambio de conocimientos y en la pasión con la que los desarrolladores viven en su código día a día. 
     </p>
     <h4 class="text-secondary fw-bold">¿Por qué ser colaborador?</h4>
-    <ul class="list-group list-group-flush">
+    <ul class="list-group list-group-flush fw-lighter" style="font-size: 1.1rem;">
       <li class="list-group-item">Sumérgete en nuevas experiencias y atrévete con nuevos desafíos</li>
       <li class="list-group-item">Desarrolla nuevas habilidadaes</li>
       <li class="list-group-item">Interactúa, comparte y crece junto a otros miembros</li>
