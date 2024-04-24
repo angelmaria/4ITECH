@@ -60,15 +60,6 @@ export class CommentFormComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.activatedRoute.params.subscribe(params => {
-      const id = params['id'];
-      if (!id) return;
-
-      const url = 'http://localhost:8080/keynotes/' + id;
-      this.httpClient.get<Keynote>(url).subscribe(keynoteBackend => {
-        this.keynote = keynoteBackend;
-        console.log(this.keynote);
-      });
 
     this.httpClient.get<User[]>('http://localhost:8080/users')
       .subscribe(users => this.users = users);
@@ -94,7 +85,6 @@ export class CommentFormComponent implements OnInit {
 
           this.isUpdate = true;
 
-        });
     });
   });
   }
