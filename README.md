@@ -1,3 +1,4 @@
+![image](https://github.com/angelmaria/4ITECH/assets/18529354/04a53357-7fc3-4198-aba9-bc75fb375f51)
 
 # Proyecto3_Angular_@4iTech
 Proyecto del Grupo 3 de Adecco en Angular para conectar con backend en Java Spring-Boot y desarrollar el frontend.
