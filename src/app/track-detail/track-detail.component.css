@@ -44,4 +44,30 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+/* efecto de agrandar las imágenes del grid un 10% */
+img.zoom {
+  transition: 0.4s ease;
+}
+img.zoom:hover {
+  transform: scale(1.1);
+}
+/* frenar la velocidad de crecimiento del spinner-grow */
+.spinner-grow {
+--bs-spinner-animation-speed: 0.99s;
+}
+
+.container-img {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  width: 50%;
+}
+
+.text {
+  width: 50%;
+  text-align: center;
+}
   

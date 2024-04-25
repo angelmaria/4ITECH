@@ -7,15 +7,16 @@
 
             <marquee style="font-size: larger; color: #ed220c;" width="600" scrollamount="400" scrolldelay="2000">
                 🥳🤔😁🫣 Puedes observar las charlas que se imparten en este track...
-              </marquee>
+            </marquee>
 
-            <div class="container mb-5" >
+            <div class="container mb-5">
 
                 @if (track) {
                 <div class="card mb-5" style="border-radius: 30px;">
 
                     <div class="card-content" style="min-width: 200px;">
-                        <p class="ms-1" style="font-size: large;margin-right: 3px;"><strong style="color: white;">{{track.name}}</strong>
+                        <p class="ms-1" style="font-size: large;margin-right: 3px;"><strong
+                                style="color: white;">{{track.name}}</strong>
                             <strong class="ms-5" style="color: aqua;">&nbsp;
                                 <ins>Inicio:</ins></strong>
                             <span class="badge text-bg-warning text-decoration-none ms-3 me-2">
@@ -40,22 +41,23 @@
                 </div>
 
                 @if (isAdmin){
-                     <button class="w-100 btn btn-lg btn-outline-warning  p-1 me-3 mb-1"
+                <button class="w-100 btn btn-lg btn-outline-warning  p-1 me-3 mb-1"
                     style="display: block; background-color: #de2c5b;"
-                    [routerLink]="['/tracks', track.id, 'update']">Editar Track</button> 
+                    [routerLink]="['/tracks', track.id, 'update']">Editar Track</button>
 
                 }
-               
+                @if (this.keynotes && keynotes.length > 0) {
                 <div class="container-fluid">
                     <div class="px-lg-5">
-                       
-                     
+
+
                         <div class="row">
                             <!-- Gallery item -->
                             @for (keynote of keynotes; track keynote.id) {
                             <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
                                 <div style="box-shadow: 0px 0px 5px #ccc !important; overflow:hidden;"
-                                    class="bg-white rounded shadow-sm"><img [src]="'http://localhost:8080/files/' + keynote.photoUrl"
+                                    class="bg-white rounded shadow-sm"><img
+                                        [src]="'http://localhost:8080/files/' + keynote.photoUrl"
                                         [routerLink]="['/keynotes', keynote.id, 'detail']" style="cursor: pointer;"
                                         alt="" class="img-fluid card-img-top zoom">
                                     <div class="p-4">
@@ -106,9 +108,10 @@
                                     -->
                                         <div style="text-align: center;">
                                             <button data-bs-toggle="tooltip" data-bs-title="Ver"
-                                                style="font-weight: bold; background-color: #00b7ffd3;" class="btn btn-primary btn-sm "
+                                                style="font-weight: bold; background-color: #00b7ffd3;"
+                                                class="btn btn-primary btn-sm "
                                                 [routerLink]="['/keynotes', keynote.id, 'detail']">Ver charla</button>
-                                         
+
                                         </div>
                                     </div>
                                 </div>
@@ -117,9 +120,25 @@
                             <!-- End -->
                         </div>
 
-                      
+
                     </div>
                 </div>
+                } @else {
+                    <h2 class="text-center  mt-5 mb-5 text-gradiente">Visite nuestra cafetería-restaurante</h2>
+                    
+                    <div class="container-img">
+                        <img  class=" center rounded-4 shadow-lg align-items-center" width="550" height="500"  src="assets/keynotes/cafeteria.jpeg" alt="cafetería-restaurante">
+                        <div class="text fs-60" ><span style="font-size: 20px;" class="badge text-bg-warning text-decoration-none">
+                            <p >Cafetería Restaurante de lujo</p>
+                            </span>
+                            <p style="font-style: 15px; margin-inline-start: 10px;">Nuestra cafetería-restaurante dispone de más de 50 mesas para comensales donde degustar los mejores menús variados de la gastronomía del lugar.</p>
+                            <p style="font-style: 15px ; margin-inline-start: 10px;">Dispone de una capacidad de aforo de más de 450 personas donde tomar los mejores desayunos con cafés arábigos y colombianos de alta calidad al igual que nuestras infusiones.Todo ello acompañado de la mejor bollería casera y tostadas de pan de masa madre.</p>
+
+                        </div>
+                      </div>
+                      
+                }
+
 
                 } @else {
                 <h4 style="background-color: #de2c5b;">No hay tracks</h4>
@@ -131,15 +150,3 @@
         </div>
     </div>
 </div>
-
-
-
-<!--
-    <p id="diaSemana"></p>
-
-    <script>
-                var fecha = new Date();
-                var dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-                document.getElementById('diaSemana').innerHTML = dias[fecha.getDay()];
-                </script>
--->
