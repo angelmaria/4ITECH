@@ -5,12 +5,14 @@
       <div class="search-form">
         <div class="form-floating">
           <input
+            id="typeahead-basic"
             type="text"
-            class="search-click"
+            class="search-click form-control"
             name=""
             placeholder="buscar charlas..."
+            [(ngModel)]="model" [ngbTypeahead]="search"
           />
-          <label style="margin-top: -3px; margin-left: 3px" for=""
+          <label class="search" for=""
             ><i
               style="color: #a2a2a2; font-size: large"
               class="bi bi-search"

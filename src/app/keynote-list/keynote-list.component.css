@@ -68,6 +68,15 @@ padding-bottom: 2rem !important;
     width: 300px;
     padding-left: 50px;
   }
+  input:focus .form-floating > .form-control-plaintext ~ label, .form-floating > .form-control:focus ~ label, .form-floating > .form-control:not(:placeholder-shown) ~ label, .form-floating > .form-select ~ label {
+    top: 10px !important;
+  }
+  input.search-click {
+    color: grey;
+    font-size: 1.2rem;
+    font-family: 'Libre Franklin';
+    font-weight: lighter;
+  }
   .search-click {
     /* position: relative; */
     overflow: hidden;
