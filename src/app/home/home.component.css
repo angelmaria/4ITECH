@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
 
 .registro {
           /* fallback for old browsers */
@@ -17,25 +19,6 @@
 }
 
 /* Estilos para el video */
-/* .vid-wrapper {
-    position: relative;
-    width: 100%;
-}
-.vid-wrapper::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: '';
-    background-image: radial-gradient(
-      circle at 36% 48%,
-      #000000,
-      rgba(11, 39, 65, 0.32) 87%,
-      rgba(0, 0, 0, 0)
-    );
-  } */
-  
   video {
     width: 100%;
     height: 100%;
@@ -64,7 +47,7 @@
     background: linear-gradient(to right, #4f8cef, #4b70e1, #5498f2, #31b4c8);
     }
 
-/* Estilos para slider portrato de ponentes */
+/* Estilos para slider portrato de ponentes dinámico */
 .gallery {
   --d: 20s; /* duration */
   
@@ -257,3 +240,4 @@
   background-color: #f7f5ec;
 } */
 /* Fin estilos para contacto */
+
