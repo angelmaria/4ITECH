@@ -5,7 +5,7 @@
 
             <h1 class="mt-5 mb-5 text-gradiente">Detalle de Track con Id: {{track?.id}}</h1>
 
-            <marquee style="font-size: larger; color: #f65803;" width="600" scrollamount="400" scrolldelay="2000">
+            <marquee style="font-size: larger; color: #ed220c;" width="600" scrollamount="400" scrolldelay="2000">
                 🥳🤔😁🫣 Puedes observar las charlas que se imparten en este track...
               </marquee>
 
@@ -15,8 +15,8 @@
                 <div class="card mb-5" style="border-radius: 30px;">
 
                     <div class="card-content" style="min-width: 200px;">
-                        <p style="font-size: large;"><strong style="color: rgb(240, 242, 247);">{{track.name}}</strong>
-                            <strong style="color: aqua;">&nbsp;
+                        <p class="ms-1" style="font-size: large;margin-right: 3px;"><strong style="color: white;">{{track.name}}</strong>
+                            <strong class="ms-5" style="color: aqua;">&nbsp;
                                 <ins>Inicio:</ins></strong>
                             <span class="badge text-bg-warning text-decoration-none ms-3 me-2">
                                 <i class="bi bi-calendar3 me-2" style="font-size: 1rem; color:white;"></i>
@@ -63,14 +63,14 @@
                                                 style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a>
                                         </h5>
                                         <p class="small text-muted mb-0">{{keynote.summary}}</p>
-                                        <div
+                                        <!--<div
                                             class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3 mb-2">
                                             <p class="small mb-0"><i
                                                     class="bi bi-easel-fill me-2 text-secondary"></i><span
                                                     class="font-weight-bold">Sala</span></p>
                                             <span
                                                 style="font-size: small; font-weight:400;">{{keynote.room.name}}</span>
-                                        </div>
+                                        </div> 
                                         <button style="cursor: auto;" type="button" class="btn mt-2"
                                             data-mdb-ripple-init><i
                                                 class="bi bi-people-fill me-2 text-secondary"></i><span
@@ -85,13 +85,15 @@
                                                 class="badge badge-{{keynote.difficultyLevel}} px-3 rounded-pill font-weight-normal">
                                                 {{keynote.difficultyLevel}}</div>
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-start px-3 py-2 mt-3">
+                                            -->
+                                        <div class="d-flex align-items-center justify-content-start px-3 py-2 mt-2">
                                             <span class="font-weight-bold small me-1"><i
                                                     class="bi bi-alarm me-2 text-secondary"></i>Duración</span>
                                             <p class="spinner-grow text-light mb-0"><span
-                                                    class="ms-1 fs-6 text-success fw-bold">{{keynote.durationInMin}}</span>
+                                                    class="ms-1 fs-6 text-primary fw-bold">{{keynote.durationInMin}}</span>
                                             </p><span class="font-weight-bold small ms-1">min</span>
                                         </div>
+                                        <!--
                                         @if(keynote.track) {
                                         <div
                                             class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3">
@@ -101,12 +103,11 @@
                                                 'dd/MM/yy'}}</div>
                                         </div>
                                         }
-
+                                    -->
                                         <div style="text-align: center;">
                                             <button data-bs-toggle="tooltip" data-bs-title="Ver"
-                                                style="font-weight: bold;" class="btn btn-ver btn-sm mt-3 me-3"
-                                                [routerLink]="['/keynotes', keynote.id, 'detail']"><i
-                                                    class="bi bi-eye-fill"></i></button>
+                                                style="font-weight: bold; background-color: #00b7ffd3;" class="btn btn-primary btn-sm "
+                                                [routerLink]="['/keynotes', keynote.id, 'detail']">Ver charla</button>
                                          
                                         </div>
                                     </div>
