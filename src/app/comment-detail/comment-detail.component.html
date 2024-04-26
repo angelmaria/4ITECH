@@ -47,7 +47,7 @@
      
             </div>
 
-            @if (isAdmin) {
+            @if (isAdmin || isLoggedIn) {
 
               <button class="w-100 btn btn-lg btn-outline-light p-1 me-3 mb-5" style="display: block; background-color: #2f6ac9;" 
               [routerLink]="['/comments']"><i class="bi bi-wrench-adjustable me-2"></i>Volver a Listado de comentarios</button>
