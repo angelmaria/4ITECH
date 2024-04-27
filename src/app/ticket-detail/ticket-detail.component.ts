@@ -2,19 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from '../models/ticket.model';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-ticket-detail',
   standalone: true,
-  imports: [RouterLink,NgbAlert],
+  imports: [RouterLink,NgbAlert,FormsModule],
   templateUrl: './ticket-detail.component.html',
   styleUrls: ['./ticket-detail.component.css']
 })
 export class TicketDetailComponent implements OnInit {
   ticket: Ticket | undefined;
-  showCreateTicketMessage: boolean = true;
+  showCreateTicketMessage: boolean = false;
   showUpdateTicketMessage: boolean = false;
   ticketForm: FormGroup;
   isUpdate: boolean = false;

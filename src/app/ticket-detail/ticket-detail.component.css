@@ -1,12 +1,18 @@
+/* Centrar elementos en la página de formulario */
 .form-page {
     display: flex;
     justify-content: center;
-    min-height: 0vh;
+    align-items: center; /* Alineación vertical */
+    height: 100vh; /* Altura de la página */
 }
-.my-margin {
+
+/* Espaciado vertical de 20px */
+.margin-y-20 {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+/* Estilos para pantalla completa */
 .full-screen {
     display: flex;
     justify-content: center;
@@ -16,17 +22,16 @@
     font-family: 'Urbanist', sans-serif;
     color: #0b842a;
 }
-.form-page {
-margin-top: 0;
-}
 
+/* Estilos para el badge-line */
 .badge-line {
     border: none;
     text-decoration: underline;
-    padding: 10;
-    cursor: pointer; /* Opcional, agrega un cursor al pasar sobre el badge */
+    padding: 10px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el badge */
 }
 
+/* Estilos para el fondo degradado */
 .background-gradient {
     background: linear-gradient(to right, #104ba8, #2f6ac9, #4184da, #69a8f9);
     border-radius: 20px;
@@ -35,11 +40,12 @@ margin-top: 0;
     justify-content: center;
     align-items: center;
     height: 500px;
-    width: 80%;
+    width: 80%; /* Puedes ajustar el ancho según tus necesidades */
     margin: auto;
     margin-top: 50px;
 }
 
+/* Estilos para alertas centradas */
 .centered-alert {
     position: fixed;
     top: 50%;
@@ -48,5 +54,5 @@ margin-top: 0;
     font-size: 0.8rem;
     padding: 2rem 6rem;
     border-radius: 0.255rem;
-    z-index:99;
+    z-index: 99; /* Asegúrate de que el z-index sea coherente con otros elementos */
 }
