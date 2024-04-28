@@ -1,59 +1,51 @@
-<div class="container py-3 background-gradient" style="margin-bottom: 80px !important;">
-    <header>
-        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-            <h1 class="display-4 fw-normal text-body-emphasis"><strong>Tickets Order Buys</strong></h1>
-            <p class="fs-5 text-body-secondary">Ordenes de compras </p>
+<div class="container py-3" style="margin-bottom: 80px;">
+    <header class="text-center mb-4">
+        <div class="pricing-header p-3 pb-md-4 mx-auto">
+            <h1 class="display-4 fw-normal text-dark"><strong>Detalle de Compra </strong></h1>
+            <p class="fs-5 text-muted">Te encuentras en la sección de ordenes de compra : {{ticketOrderBuy?.id}} ✍</p>
         </div>
     </header>
 
+    <main>
+        <div class="card mx-5 my-3 p-3">
+            <div class="row">
+                <!-- Columna izquierda: Imagen dentro de la tarjeta -->
+                <div class="col-md-6 d-flex justify-content-center align-items-center">
+                        <img src="/assets/Ticket/img/colabora.png" alt="Conectando mentes creando futuro" class="img-fluid" style="width: 100%;">
+                 
+                </div>
 
-        <div class="col-md-8">
-            <main>
-              
-                <div class="row-flex row-cols-1  text-center">
-                    <div class="col">
-                        <div class="card mb-4 rounded-3 shadow-sm">
-                            <div class="card-header py-3  margin-bottom: 100px">
-                                <h4 class="my-0 fw-normal text-primary"><strong><Tbody></Tbody> Orden de compra</strong></h4>
-                            </div>
+                <!-- Columna derecha: Ticket dentro de la tarjeta -->
+                <div class="col-md-6">
+                    <div class="card mb-4 rounded-3 shadow-sm p-3">
+                        <div class="card-header py-3 bg-light text-center">
+                            <h4 class="my-0 fw-normal text-primary"><strong>Orden de compra</strong></h4>
+                        </div>
+                        <div class="card-body ">
+                            <!-- Detalles del ticket -->
+                            <h1 class="card-title pricing-card-title text-center">{{ticketOrderBuy?.id}}<small class="text-muted fw-light">✍</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li><strong>• Fecha:</strong> {{ticketOrderBuy?.startDate | date: 'dd/MM/yyyy'}}</li>
+                                <li><strong>• Descuento:</strong> {{ticketOrderBuy?.discount}}%</li>
+                                <li><strong>• Método de Pago:</strong> {{ticketOrderBuy?.paymentMethod}}</li>
+                                <li><strong>• Cantidad:</strong> {{ticketOrderBuy?.quantity}}</li>
+                                <li><strong>• Medio de Compra:</strong> {{ticketOrderBuy?.channel}}</li>
+                                <li><strong>• Precio Total:</strong> {{ticketOrderBuy?.totalPrice}}</li>
+                                <li><strong>• QR:</strong> {{ticketOrderBuy?.qrUrl}}</li>
+                            </ul>
                             
-                            <div class="card-responsive">
-                
-                                    <span class="bg-primary" style="font-size: large;">
-                                        <i class="fas fa-glass-cheers"></i>
-                                    </span>
-                                    
-                                <h1 class="card-title pricing-card-title"> {{ticketOrderBuy?.id}}<small class="text-body-secondary fw-light"> ✍ </small></h1>
-                                <ul class="list-unstyled mt-3 mb-4">
-                                    <span class="badge bg-primary" style="font-size: large;">
-                                        <i class="fas fa-glass-cheers"></i>
-                                    </span>
-                                    
-                                    @if (ticketOrderBuy) {
-                                        <p>
-                                           
-                                            
-                                            <label><strong>Fecha:</strong>  {{ticketOrderBuy.startDate| date: 'dd/MM/yyyy'}} </label>
-                                            <label><strong>Descuento: </strong>  {{ticketOrderBuy.discount}}% </label>
-                                            <label><strong>Precio Toltal: </strong>  {{ticketOrderBuy.totalPrice}} </label>
-                                            <label><strong>Metodo de pago: </strong>  {{ticketOrderBuy.paymentMethod}} </label>
-                                            <label><strong>Cantidad: </strong>  {{ticketOrderBuy.quantity}} </label>
-                                            <label><strong>Medio de compra: </strong>  {{ticketOrderBuy.channel}} </label>
-                                            <label><strong>Código: </strong>  {{ticketOrderBuy.qrUrl}} </label>
-                                            <span class="badge bg-primary" style="font-size: large;"></span>
-                                        }
-                                            <a class="w-50 btn btn-lg btn-outline-primary p-1 me-3 mx-auto" [routerLink]="['/ticketOrderBuys/create']">Editar Ticket</a>
-
-                                   
-
-                                </ul>
+                            <div class="text-center mb-3">
+                                <img src="/assets/Ticket/qr.png" alt="Código QR" class="img-fluid" style=" width: 150px;">
+                            </div>
+                            <h4 class="text-center text-info ">¡Gracias por tu compra!</h4>
+                           
+                            <div>
+                                <a class="w-50 btn btn-lg btn-outline-primary mx-auto" style="display: block;" href="/ticketOrderBuys/create">Editar Ticket</a>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
-    </div>
-
-
+    </main>
+</div>

@@ -1,13 +1,4 @@
-body {
-    margin: 100;
-min-height: 300px;
-padding-left: 150px !important;
-padding-right: 150px !important;
-}
 
-.container {
-    max-width: 960px;
-}
 
 section article.text h1[data-v-6dfea62d] {
         font-size: 8em;

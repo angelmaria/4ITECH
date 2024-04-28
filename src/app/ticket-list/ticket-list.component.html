@@ -24,7 +24,7 @@
             Realiza tu compra
           </p>
         </div>
-        <a [routerLink]="['/ticketOrderBuys/create']">Comprar Entrada</a>
+        <a [routerLink]="['/tickets/2/buy']">Comprar Entrada</a>
       </section>
     </article>
     <article class="card fl-left">
@@ -49,7 +49,7 @@
             Realiza tu compra
           </p>
         </div>
-        <a [routerLink]="['/ticketOrderBuys/create']">Comprar Entrada</a>
+        <a [routerLink]="['/tickets/2/buy']">Comprar Entrada</a>
       </section>
     </article>
   </div>
@@ -65,7 +65,7 @@
                   </a>
                   <img class="payment-image img-fluid" src="/assets/Ticket/img/adeccoPNG.png" alt="Credit Card / Debit Card" title="Credit Card / Debit Card" style="margin-left: auto;width: 250px;">
                 </div>
-                <p style="text-transform: lowercase;font-size: 20px;">¡Estudia y ahorra! Aprovecha un 10% de descuento en tu entrada por ser estudiante Adecco y disfuta de nuestro evento.</p>
+                <p style="text-transform: lowercase;font-size: 20px;">¡Estudia y ahorra! Aprovecha un 10% de descuento en tu entrada por ser estudiante Adecco y disfruta de nuestro evento.</p>
             </div>
           
       </div>
@@ -122,7 +122,7 @@
   @if (showDeletedTicketMessage) {
 
   <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-  <ngb-alert type="success" (closed)="hideDeletedTicketMessage()">tikect borrado correctamente</ngb-alert>
+  <ngb-alert type="danger" (closed)="hideDeletedTicketMessage()">ticket borrado correctamente</ngb-alert>
   }
 
 @for (ticket of tickets; track ticket.id) {

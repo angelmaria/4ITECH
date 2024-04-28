@@ -1,3 +1,5 @@
+
+
 <div class="container py-3 background-gradient" style="max-width:960px; margin-bottom: 80px !important;">
   <main> 
   <header>
@@ -12,6 +14,7 @@
       <img class="d-block mx-auto mb-4" src="/assets/Ticket/img/compras.gif" alt="" width="72" height="57">
     </div>
   </header>
+  <div class="d-flex flex-column flex-sm-row justify-content-between py-1 my-1 border-top"></div>
   
           
              <div class="row g-5">
@@ -25,8 +28,9 @@
           El localizador de tu reserva es {{ticketOrderBuy?.id}}
           <br>
           Tu pedido será enviado en las próximas horas, para soporte contacte con
-          <a href="mailto:spam@certidevs.com">spam&commat;certidevs.com</a>.
-          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" routerLink="/books">Volver a ticketr</button>
+          <a href="mailto:spam@4itech.com">spam&commat;4itech.com</a>.
+          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" routerLink="/tickets">Volver a ticket</button>
+          <img class="d-block mx-auto mb-4" src="/assets/Ticket/img/compraorden.png" alt="Orden de compra" width="72" height="57">
         </ngb-alert>
       } @else {
         <form class="needs-validation" novalidate="" [formGroup]="ticketOrderBuyForm" (ngSubmit)="save()">
@@ -63,7 +67,7 @@
           <div class="py-3 text-center">
             <label for="quantity" class="form-label"><strong>Cantidad de tickets a comprar</strong></label>
             <input min="1" max="15" type="number" class="form-control form-input" id="quantity" name="quantity" formControlName="quantity" (change)="calculatePrice()">
-            <small class="form-text text-muted">Máximo 15 tickets por compra.</small>
+            <small class="form-text text-muted">Máximo 10 tickets por compra.</small>
           </div>
           <div class="py-3 text-center">
           <label for="paymentMethod" class="form-label"> <strong>Método de Pago</strong></label>
@@ -92,8 +96,8 @@
             <option >4itechUrl</option>
           </select>
         </div>
-          <button type="submit" class="btn btn-lg btn-outline-primary p-1 me-3">Comprar</button>
-          <button type="submit" class="btn btn-lg btn-outline-info p-1 me-3">Actualizar Ticket</button>
+          <button type="ngSubmit" class="btn btn-lg btn-outline-primary p-1 me-3">Comprar</button>
+          <button type="ngSubmit" class="btn btn-lg btn-outline-info p-1 me-3">Actualizar Ticket</button>
           <button type="button" class="btn btn-lg btn-outline-danger p-1 me-3" [routerLink]="['/tickets', ticket?.id]">Cancelar</button>
       
         </form>
@@ -153,8 +157,17 @@
                     <button type="submit" class="btn btn-secondary">Obten tu Descuento por ser estudiante</button>
                   </div>
                 </form>
+                <div class="video-cover vid-container pt-1" style="width: 40%; max-width: 500px; margin: -10 auto;">
+                  <video autoplay loop muted style="width: 250%;">
+                      <source src="assets/videos/venta.mp4" type="video/mp4" />
+                  </video>
+              </div>
+              <img src="/assets/Ticket/img/colabora.png" alt="Conectando mentes creando futuro " width="280">
+              
                 </div>
              </div>
           
         </main>
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-5  my-5 border-top"></div>
 </div>
+
