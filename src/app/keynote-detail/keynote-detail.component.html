@@ -93,10 +93,16 @@
 
                             <div class="d-flex justify-content-between">
                               <div class="d-flex flex-row align-items-center">
-
-                                <img class="rounded-circle shadow-1-strong me-3"
+                                @if (comment.user?.photoUrl) {
+                                  <img class="rounded-circle shadow-1-strong me-3"
+                                [src]="'http://localhost:8080/files/' + comment.user?.photoUrl" alt="avatar" width="60"
+                                  height="60" />
+                                } @else {
+                                  <img class="rounded-circle shadow-1-strong me-3"
                                 [src]="'http://localhost:8080/files/' + 'avatar.png'" alt="avatar" width="60"
                                   height="60" />
+                                }
+                                
                                 <div>
                                   @if (comment.user?.firstName === null) {
                                     <h6 class="fw-bold text-primary-emphasis mb-1">{{comment.user?.email}}</h6>
@@ -149,7 +155,7 @@
               }
 
               @if (showForm) {
-                <div class="col-4 position-absolute" style="right: 0; top: 7rem; ">
+                <div class="col-4" style="right: 0; top: 7rem; ">
                   <div class="">
                     <div class="">
                       <!-- Formulario para agregar nuevas valoraciones -->
