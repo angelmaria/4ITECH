@@ -29,11 +29,13 @@
               </div>
          
               <p style="font-family: 'Libre Franklin';" class="text-secondary" [innerHTML]="keynote.description"></p>
+              @if (keynote.webinarUrl) {
               <div class="col-sm-6" style="float: left;">
                 <p class="border border-2 border-light-subtle text-center p-3 text-bg-light">
                   <iframe width="560" height="315"
                   [src]="sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + keynote.webinarUrl + '?autoplay=1&mute=1&cc_load_policy=0&?loop=1')" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
               </div>
+            } @else {
 
               <div class="col-sm-4 ms-5" style="float:left;">
                 @if (keynote.speaker){
@@ -64,6 +66,7 @@
                   </div>
                 }
               </div>
+            }
               @if (isAdmin) {
               <button class="btn btn-success" style="display: block; clear: both;" [routerLink]="['/keynotes', keynote.id, 'update']">Editar Keynote</button>
               }
@@ -173,11 +176,11 @@
                         </ng-template>
                       </ngb-rating>
             
-                      <div class="form-floating mb-3">
-                        <textarea class="form-control"
+                      <div class="form-floating mb-1" style="font-family:'Libre Franklin';">
+                        <textarea class="form-control text-secondary"
                           placeholder="Leave a comment here" id="opinion" formControlName="opinion" style="min-height: 120px;">
                         </textarea>
-                        <label for="opinion">Comentario de texto</label>
+                        <label for="opinion" class="text-secondary">Comentario de texto</label>
                       </div>
             
                       <button class="w-100 btn btn-primary btn-lg mb-1 mt-1" style="background: #3271cf;" type="submit" >Enviar comentario</button>
