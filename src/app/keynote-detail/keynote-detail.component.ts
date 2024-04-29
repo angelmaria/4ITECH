@@ -7,6 +7,7 @@ import { CommentModel } from '../models/commentmodel.model';
 import { NgbAlertModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-keynote-detail',
@@ -32,12 +33,14 @@ export class KeynoteDetailComponent implements OnInit {
     rating: new FormControl<number>(0),
     opinion: new FormControl<string>(''),
     dateTime: new FormControl<Date>(new Date()),
+    webinarUrl: new FormControl(''),
   });
   
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private httpClient: HttpClient,
+    protected sanitizer: DomSanitizer,
     private authService: AuthenticationService
   ) {
     this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);

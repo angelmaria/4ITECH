@@ -29,7 +29,8 @@
               </div>
          
               <p [innerHTML]="keynote.description"></p>
-              <!-- <p>{{keynote.webinarUrl}}</p>  PREGUNTAR A ALAN -->
+              <p><iframe width="560" height="315" 
+                [src]="sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + keynote.webinarUrl + '?autoplay=1')" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
 
               @if (keynote.speaker){
                 <h5 class="text-secondary mt-4" style="font-family:'Libre Franklin'">Ponente</h5>

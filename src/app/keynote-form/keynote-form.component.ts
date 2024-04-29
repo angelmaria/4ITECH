@@ -34,7 +34,8 @@ export class KeynoteFormComponent implements OnInit {
     durationInMin: new FormControl(0),
     speaker: new FormControl(),
     track: new FormControl(),
-    attendees: new FormControl()
+    attendees: new FormControl(),
+    visible: new FormControl()
   })
 
   isUpdate: boolean = false; // por defecto estamos en CREAR no en ACTUALIZAR
@@ -126,6 +127,8 @@ export class KeynoteFormComponent implements OnInit {
       formData.append('summary', this.keynoteForm.get('summary')?.value ?? '');
       formData.append('description', this.keynoteForm.get('description')?.value ?? '');
       formData.append('photoUrl', this.keynoteForm.get('photoUrl')?.value ?? '');
+      formData.append('visible', this.keynoteForm.get('visible')?.value ?? '');
+      formData.append('webinarUrl', this.keynoteForm.get('webinarUrl')?.value ?? '');
       //formData.append('room', this.keynoteForm.get('room')?.value);
       //formData.append('room.id', this.keynoteForm.get('room')?.value);
       formData.append('track.id', this.keynoteForm.get('track')?.value.id)
