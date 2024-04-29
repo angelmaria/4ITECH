@@ -7,6 +7,7 @@ import { DatePipe, JsonPipe } from '@angular/common';
 import { AuthenticationService } from '../authentication/authentication.service';
 import { Observable, OperatorFunction, debounceTime, distinctUntilChanged, map } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 
 const charlas = [
 	'Inteligencia Artificial',
@@ -47,6 +48,7 @@ export class KeynoteListComponent implements OnInit {
 
   constructor(
     private httpClient: HttpClient,
+    protected sanitizer: DomSanitizer,
     private authService: AuthenticationService) {
       this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
       this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);

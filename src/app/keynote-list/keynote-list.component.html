@@ -114,7 +114,7 @@
               <div
                 class="badge badge-{{
                   keynote.difficultyLevel
-                }} px-3 rounded-pill font-weight-normal"
+                }} px-3 rounded-pill"
               >
                 {{ keynote.difficultyLevel }}
               </div>
@@ -145,10 +145,19 @@
               </div>
             </div>
             }
-            <!-- <div style="cursor: auto;" class="btn mt-2" ><i class="bi bi-person-video3 me-2 text-secondary"></i><span class="small text-secondary">Ponente</span><span class="badge text-bg-danger ms-2">{{keynote.speaker}}</span>
-              </div> -->
+            <div style="cursor: auto;" class="btn mt-2 mb-1" ><i class="bi bi-person-video3 me-2 text-secondary"></i><span class="font-weight-bold small me-1 text-secondary">Ponente</span><span class="badge text-bg-light text-secondary ms-2" style="font-size:.9rem; font-family:'Libre Franklin';">{{keynote.speaker.firstName}}</span>
+              <span class="ms-2">
+                @if (keynote.speaker.photoUrl) {
+                  <img class="rounded-circle border border-2 border-dark-subtle" style="width:40px; height: 40px; object-fit:cover;"
+                          [src]="'http://localhost:8080/files/' + keynote.speaker.photoUrl">
+                } @else {
+                <img class="rounded-circle shadow-1-strong" style="width:30px; height: 30px;"
+                          [src]="'http://localhost:8080/files/' + 'avatar.png'">
+                }
+              </span>
+              </div>
 
-            <div style="text-align: center">
+            <div style="text-align: center; border-top: 1px solid #f1f1f1;">
               <button
                 data-bs-toggle="tooltip"
                 data-bs-title="Ver"
