@@ -35,7 +35,7 @@
                   <iframe width="560" height="315"
                   [src]="sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + keynote.webinarUrl + '?autoplay=1&mute=1&cc_load_policy=0&?loop=1')" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></p>
               </div>
-            } @else {
+            }
 
               <div class="col-sm-4 ms-5" style="float:left;">
                 @if (keynote.speaker){
@@ -66,7 +66,7 @@
                   </div>
                 }
               </div>
-            }
+            
               @if (isAdmin) {
               <button class="btn btn-success" style="display: block; clear: both;" [routerLink]="['/keynotes', keynote.id, 'update']">Editar Keynote</button>
               }
