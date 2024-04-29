@@ -67,7 +67,7 @@
       </div>
 
 <!-- Listado de comentarios sobre la charla --> 
-              <div class="row d-flex mb-2 mt-2">
+              <div class="row d-flex mb-2 mt-2 position-relative">
                   <h3 class="text-secondary fw-bold mt-3" style="font-family:'Libre Franklin';">Valoraciones</h3>
                   <p class="text-secondary">¿Qué te pareción la charla? Déjanos tu opinión <span class="btn btn-outline-danger btn-sm rounded" (click)="$event.preventDefault(); showForm = true; "><strong>aquí</strong></span></p>
                   <hr>
@@ -149,9 +149,9 @@
               }
 
               @if (showForm) {
-                <div class="col">
-                  <div class="position-relative">
-                    <div class="position-absolute top-0 start-0 translate-middle-y">
+                <div class="col-4 position-absolute" style="right: 0; top: 7rem; ">
+                  <div class="">
+                    <div class="">
                       <!-- Formulario para agregar nuevas valoraciones -->
                     <h3 class="text-secondary fw-bold mt-3" style="font-family:'Libre Franklin';" >Añade tu reseña</h3>
             
