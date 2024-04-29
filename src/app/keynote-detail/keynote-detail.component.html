@@ -69,7 +69,20 @@
 <!-- Listado de comentarios sobre la charla --> 
               <div class="row d-flex mb-2 mt-2">
                   <h3 class="text-secondary fw-bold mt-3" style="font-family:'Libre Franklin';">Valoraciones</h3>
-                  <p class="text-secondary">¿Qué te pareción la charla? Déjanos tu opinión <span class="btn btn-outline-danger btn-sm rounded" routerLink="/comments/create" (click)="$event.preventDefault()"><strong>aquí</strong></span></p>
+                  <p class="text-secondary">¿Qué te pareción la charla? Déjanos tu opinión <span class="btn btn-outline-danger btn-sm rounded" (click)="$event.preventDefault(); showForm = true; "><strong>aquí</strong></span></p>
+                  <hr>
+                  @if (showSuccessDeletedComment) {
+                    <ngb-alert type="success" (closed)="showSuccessDeletedComment=false;">
+                      Comentario borrado correctamente.
+                    </ngb-alert>
+                  }
+
+                  @if (showErrorDeletedComment) {
+                    <ngb-alert type="danger" (closed)="showErrorDeletedComment=false;">
+                      No se ha podido borrar el comentario
+                    </ngb-alert>
+                  }
+
                    @for (comment of comments; track comment.id) {
                   <div class="col-md-8 col-lg-8 mb-3">
                     <div class="card shadow-0 border" style="background-color: #f0f2f5;">
@@ -85,12 +98,12 @@
                                 [src]="'http://localhost:8080/files/' + 'avatar.png'" alt="avatar" width="60"
                                   height="60" />
                                 <div>
-                                  @if (comment.user.firstName === null) {
-                                    <h6 class="fw-bold text-primary-emphasis mb-1">{{comment.user.email}}</h6>
+                                  @if (comment.user?.firstName === null) {
+                                    <h6 class="fw-bold text-primary-emphasis mb-1">{{comment.user?.email}}</h6>
 
                                   }
                                   @else {
-                                    <h6 class="fw-bold text-primary-emphasis mb-1">{{comment.user.firstName}}</h6>
+                                    <h6 class="fw-bold text-primary-emphasis mb-1">{{comment.user?.firstName}}</h6>
                                   }
                                   
                                   <p class="small mb-0 fst-italic">
@@ -108,12 +121,18 @@
                                 <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i>
                                 <p class="small text-muted mb-0">
 
-                                      <ngb-rating [(rate)]="comment.rating" [max]="5" [readonly]="true" formControlName="rating">
+                                      <ngb-rating [(rate)]="comment.rating" [max]="5" [readonly]="true">
                                       <ng-template let-fill="fill" let-index="index">
                                       <i class="bi-star{{ fill === 100 ? '-fill' : '' }}"
                                       style="color: rgb(222, 191, 39); margin: 4px;"></i>
                                       </ng-template>
                                       </ngb-rating>
+
+                                      @if (comment.user?.id === userId || isAdmin) {
+
+                                        <i class="bi bi-x-circle-fill fs-3 ms-3 text-danger" style="cursor:pointer;"
+                                        (click)="deleteComment(comment)"></i>
+                                      }
 
                                 </p>
                               </div>
@@ -127,6 +146,39 @@
                       </div>
                     </div>
                   </div>
+              }
+
+              @if (showForm) {
+                <div class="col">
+                  <div class="position-relative">
+                    <div class="position-absolute top-0 start-0 translate-middle-y">
+                      <!-- Formulario para agregar nuevas valoraciones -->
+                    <h3 class="text-secondary fw-bold mt-3" style="font-family:'Libre Franklin';" >Añade tu reseña</h3>
+            
+                    <form [formGroup]="commentForm" (ngSubmit)="save()">
+            
+                      <ngb-rating [max]="5" formControlName="rating">
+                        <ng-template let-fill="fill" let-index="index">
+                          <i class="bi-star{{ fill === 100 ? '-fill' : '' }} fs-3" style="color:#debf27; margin: 2px;"></i>
+                        </ng-template>
+                      </ngb-rating>
+            
+                      <div class="form-floating mb-3">
+                        <textarea class="form-control"
+                          placeholder="Leave a comment here" id="opinion" formControlName="opinion" style="min-height: 120px;">
+                        </textarea>
+                        <label for="opinion">Comentario de texto</label>
+                      </div>
+            
+                      <button class="w-100 btn btn-primary btn-lg mb-1 mt-1" style="background: #3271cf;" type="submit" >Enviar comentario</button>
+             
+                    </form>
+  
+                    </div>
+                  </div>
+                  
+                  
+              </div>
               }
 
               </div>

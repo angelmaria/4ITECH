@@ -47,13 +47,13 @@
                                     }-->
                @if (isAdmin) {
                 <a class="badge text-bg-secondary text-decoration-none"
-                [routerLink]="['/users', comment.user.id, 'detail']">
-                @if (comment.user.firstName === null) { {{comment.user.email}} } @else { {{comment.user.firstName}} }
+                [routerLink]="['/users', comment.user?.id, 'detail']">
+                @if (comment.user?.firstName === null) { {{comment.user?.email}} } @else { {{comment.user?.firstName}} }
               </a>
 
                } @else {
                 <a class="badge text-bg-secondary text-decoration-none">
-                @if (comment.user.firstName=== null) { {{comment.user.email}} } @else { {{comment.user.firstName}} }
+                @if (comment.user?.firstName=== null) { {{comment.user?.email}} } @else { {{comment.user?.firstName}} }
               </a>
 
                }                    
@@ -61,8 +61,8 @@
             </td>
             <td>
               <a class="badge text-bg-warning text-decoration-none"
-                [routerLink]="['/keynotes', comment.keynote.id, 'detail']">
-                {{comment.keynote.title}}
+                [routerLink]="['/keynotes', comment.keynote?.id, 'detail']">
+                {{comment.keynote?.title}}
               </a>
             </td>
             <td>

@@ -295,7 +295,7 @@
                 <br />
                 <hr class="text-light" />
                 <span class="small text-body-tertiary"
-                  >{{ comment.user.firstName }} |
+                  >{{ comment.user?.firstName }} |
                   {{ comment.dateTime | date : "dd MMM yyyy" }} |
                   <ngb-rating
                     [(rate)]="comment.rating"
@@ -776,7 +776,7 @@
                           />
                           <div>
                             <h6 class="fw-bold text-primary-emphasis mb-1">
-                              {{ comment.user.firstName }}
+                              {{ comment.user?.firstName }}
                             </h6>
 
                             <p class="small mb-0 fst-italic">

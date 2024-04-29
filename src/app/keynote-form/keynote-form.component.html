@@ -38,10 +38,10 @@
             <label class="input-group-text" for="photoUrl">Subir imagen</label>
           </div>
 
-          <!-- <div class="input-group mb-3">
-            <input type="file" class="form-control" id="webinarUrl" (change)="onFileChange($event)">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="webinarUrl" formControlName="webinarUrl" >
             <label class="input-group-text" for="webinarUrl">Video</label>
-          </div> PREGUNTAR A ALAN-->
+          </div>
 
           <!-- <div class="form-floating mb-3">
               <input class="form-control" type="text" id="webinarUrl" formControlName="webinarUrl">
@@ -122,6 +122,15 @@
         </form>
     </div>
     <div class="col-lg-4">
+
+      @if(keynoteForm.get('webinarUrl')?.value) {
+        <p>Video seleccionado:</p>
+        <div class="ratio ratio-16x9">
+
+        <iframe width="560" height="315" 
+        [src]="sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + keynoteForm.get('webinarUrl')?.value)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      }
       @if (photoPreview) {
         <h2 class="my-5 text-secondary mt-5 fw-bold" style="font-family: 'Libre Franklin';">Previsualización foto</h2>
         <img class="img-fluid" [src]="photoPreview">

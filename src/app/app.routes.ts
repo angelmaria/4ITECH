@@ -105,7 +105,7 @@ export const routes: Routes = [
         canActivate: [userRoleGuard]
     },
     {
-        path: 'tickets/2/buy',
+        path: 'tickets/:id/buy',
         component: TicketOrderBuyFormComponent
     },
     {

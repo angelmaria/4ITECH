@@ -24,7 +24,7 @@
             Realiza tu compra
           </p>
         </div>
-        <a [routerLink]="['/tickets/2/buy']">Comprar Entrada</a>
+        <a [routerLink]="['/tickets/buy']">Comprar Entrada</a>
       </section>
     </article>
     <article class="card fl-left">
@@ -140,6 +140,8 @@
         <div class="card-body text-center">
             <div class="d-flex justify-content-center">
                 <button class="btn btn-lg btn-outline-primary p-1 me-3" [routerLink]="['/tickets', ticket.id, 'detail']">Ver detalle </button>
+                <button class="btn btn-lg btn-outline-primary p-1 me-3" [routerLink]="['/tickets', ticket.id, 'buy']">Comprar </button>
+
                 <button class="btn btn-lg btn-outline-danger p-1 me-3" (click)="delete(ticket)">Borrar ticket</button>
             </div>
         </div>

@@ -9,6 +9,7 @@ import { User } from '../models/user.model';
 import { Track } from '../models/track.model';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { DatePipe } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -49,7 +50,8 @@ export class KeynoteFormComponent implements OnInit {
     // private fb: FormBuilder, 
     private httpClient: HttpClient,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    protected sanitizer: DomSanitizer
   ) {}
 
     ngOnInit(): void {
