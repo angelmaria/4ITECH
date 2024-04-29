@@ -58,7 +58,17 @@
 						<a routerLink="/comments" (click)="$event.preventDefault()" class="nav-link me-2" tabindex="0"
 							id="navbarDropdown1" role="button"><i class="bi bi-chat-right-text me-1"></i>Reseñas</a>
 
-						
+						<div style="margin-top: -1px;" ngbDropdownMenu aria-labelledby="navbarDropdown2"
+							class="dropdown-menu dropdown-menu resto">
+							<a ngbDropdownItem routerLink="/comments" (click)="$event.preventDefault()"><i
+									class="bi bi-card-checklist me-1"></i>Listado de Comentarios</a>
+						<!--	@if (isAdmin) {
+							<a ngbDropdownItem routerLink="/comments/create" (click)="$event.preventDefault()"><i
+									class="bi bi-file-earmark-plus me-1"></i>Crear Comentario</a>
+
+							} -->
+
+						</div>
 					</li>
 					<li class="nav-item" ngbDropdown>
 						<a style="cursor: default;" class="nav-link me-2" tabindex="0" ngbDropdownToggle
