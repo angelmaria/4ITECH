@@ -62,11 +62,6 @@
 							class="dropdown-menu dropdown-menu resto">
 							<a ngbDropdownItem routerLink="/comments" (click)="$event.preventDefault()"><i
 									class="bi bi-card-checklist me-1"></i>Listado de Comentarios</a>
-							@if (isAdmin) {
-							<a ngbDropdownItem routerLink="/comments/create" (click)="$event.preventDefault()"><i
-									class="bi bi-file-earmark-plus me-1"></i>Crear Comentario</a>
-
-							}
 
 						</div>
 					</li>
