@@ -22,16 +22,19 @@
                   <div class="py-1 text-center">
       <h4 class="mb-3">Datos de la compra</h4>
       @if (showFinishMessage) {
-        <ngb-alert type="success" [dismissible]="false" style="min-height:150px;" class="my-5">
+        <ngb-alert type="primary" [dismissible]="false" style="min-height:150px;" class="my-5">
           Compra completada con éxito.
           <br>
           El localizador de tu reserva es {{ticketOrderBuy?.id}}
           <br>
           Tu pedido será enviado en las próximas horas, para soporte contacte con
-          <a href="mailto:spam@4itech.com">spam&commat;4itech.com</a>.
+          <a href="mailto:spam@4itech.com">compras&commat;4itech.com</a>.
           <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" routerLink="/tickets">Volver a ticket</button>
-          <img class="d-block mx-auto mb-4" src="/assets/Ticket/img/compraorden.png" alt="Orden de compra" width="72" height="57">
+          <img class="d-block mx-auto mb-4" src="/assets/Ticket/compraorden.png" alt="Orden de compra" width="382" height="505">
         </ngb-alert>
+
+        
+
       } @else {
         <form class="needs-validation" novalidate="" [formGroup]="ticketOrderBuyForm" (ngSubmit)="save()">
           <!-- Aquí iran las fechas de inicio reserva y fecha fin reserva -->
@@ -47,9 +50,9 @@
           </div>
           <hr class="my-4">
           <div class="col-md-7 col-lg-8">
-            <input type="checkbox" class="form-check-input" id="isStudent"
+            <input type="checkbox" class="form-check-input" style="cursor:pointer;" id="isStudent" value=""
             formControlName="isStudent" (change)="calculatePrice()">
-            <label class="form-check-label ms-2" for="isStudent">
+            <label class="form-check-label ms-2" for="isStudent" style="cursor:pointer;">
               Soy Estudiante Adecco
             </label>
           </div>
