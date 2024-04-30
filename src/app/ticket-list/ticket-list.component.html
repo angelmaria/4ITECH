@@ -1,58 +1,44 @@
 
 <section class="container " style="text-transform: unset border-left 05px solid #4f8cef!important; border-left-width: 15px !important; padding-top: 25px !important;  margin-bottom:20px ; " >
     <h1 class="text-dark mb-4" style="font-family: 'Libre Franklin'">Compra tus Entradas </h1>
+    
      <div class="row">
-       <article class="card fl-left">
-        <section class="date">
-          <time datetime="28th may">
-            <span>1 Día</span><span>28 o 29 Mayo</span>
-          </time>
-        </section>
-      <section class="card-cont">
-        <small>Madrid</small>
-        <h3>Ticket Plata/oro</h3>
-        <div class="even-date">
-         <i class="fa fa-calendar"></i>
-         <time>
-           <span>Conectando Mentes,Creando Futuro... </span>
-           <span>09:00 a.m a 17:00 pm</span>
-         </time>
-        </div>
-        <div class="even-info">
-          <i class="fa fa-map-marker"></i>
-          <p>
-            Realiza tu compra
-          </p>
-        </div>
-        <a [routerLink]="['/ticketOrderBuys/create']">Comprar Entrada</a>
-      </section>
-    </article>
-    <article class="card fl-left">
-      <section class="date">
-        <time datetime="29th may">
-          <span>2 Días</span><span>28 y 29 Mayo</span>
-        </time>
-      </section>
-      <section class="card-cont">
-       <small>Madrid</small>
-       <h3>Ticket Diamante</h3>
-        <div class="even-date">
-         <i class="fa fa-calendar"></i>
-         <time>
-           <span>Conectando Mentes,Creando Futuro... </span>
-           <span>09:00 a.m a 17:00 pm</span>
-         </time>
-        </div>
-        <div class="even-info">
-          <i class="fa fa-map-marker"></i>
-          <p>
-            Realiza tu compra
-          </p>
-        </div>
-        <a [routerLink]="['/ticketOrderBuys/create']">Comprar Entrada</a>
-      </section>
-    </article>
+      @for (ticket of tickets; track ticket.id) {
+       <div class="col">
+         <article class="card fl-left">
+         
+          <section class="date">
+            <time datetime="28th may">
+              <span class="fs-6 mb-3">{{ticket.title}}</span><span>28 o 29 Mayo</span>
+            </time>
+          </section>
+          
+               <section class="card-cont">
+          <small>Madrid</small>
+          <h3>Ticket {{ticket.title}}</h3>
+          <div class="even-date">
+           <i class="fa fa-calendar"></i>
+           <time>
+             <span>Conectando Mentes,Creando Futuro... </span>
+             <span>09:00 a.m a 17:00 pm</span>
+           </time>
+          </div>
+          <div class="even-info">
+            <i class="fa fa-map-marker"></i>
+            <p>
+              Realiza tu compra
+            </p>
+          </div>
+         
+          <a [routerLink]="['/tickets', ticket.id, 'buy']">Comprar Entrada</a>
+               </section>
+             
+             </article>
+       </div>
+  }
+    
   </div>
+
   <div class= "d-flex flex-column flex-sm-row justify-content-between py-3 my-3 border-top"> 
     <h4>
       

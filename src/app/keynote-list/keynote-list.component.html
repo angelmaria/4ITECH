@@ -10,7 +10,9 @@
             class="search-click form-control"
             name=""
             placeholder="buscar charlas..."
-            [(ngModel)]="model" [ngbTypeahead]="search"
+            [(ngModel)]="model" 
+            [ngbTypeahead]="search"
+            (selectItem)="onSelectTitle($event)"
           />
           <label class="search" for=""
             ><i
