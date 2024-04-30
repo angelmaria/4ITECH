@@ -6,7 +6,7 @@
 }
 
 table {
-    background-color: #e3c9b6; /* Color de fondo para toda la tabla  */
+    background-color: #f1f1f1; /* Color de fondo para toda la tabla  */
 
 
 }
@@ -14,11 +14,11 @@ tr:nth-child(even) {
     background-color: #5890ea; /* Color de fondo para filas alternas */
 }
 td {
-    background-color: #eaccb6; /* Color de fondo para celdas */
+    background-color: #f0f0f0; /* Color de fondo para celdas */
 }
 td {
-    box-shadow: 2px 2px 5px #e66cc1; /* Sombra en las celdas */
-    border: 1px solid #dd3675; /* Borde en las celdas */
+    box-shadow: 2px 2px 5px #969696; /* Sombra en las celdas */
+    border: 1px solid #4d4d4d; /* Borde en las celdas */
     border-radius: 10px;
     border-style: ridge;
 }
