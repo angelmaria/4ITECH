@@ -136,11 +136,17 @@
             <span class="badge bg-primary" style="font-size: large;"><strong>{{ ticket.price }} €</strong></span>
         </div>
 
+        <div class="card-body text-center">
+          <div class="d-flex justify-content-center">
+              <button class="btn btn-lg btn-outline-primary p-1 me-3" [routerLink]="['/tickets', ticket.id, 'detail']">Ver detalle </button>
+              <button class="btn btn-lg btn-outline-primary p-1 me-3" [routerLink]="['/tickets', ticket.id, 'buy']">Comprar </button>
+             
+          </div>
+      </div>
+
         @if (isAdmin) {
         <div class="card-body text-center">
             <div class="d-flex justify-content-center">
-                <button class="btn btn-lg btn-outline-primary p-1 me-3" [routerLink]="['/tickets', ticket.id, 'detail']">Ver detalle </button>
-                <button class="btn btn-lg btn-outline-primary p-1 me-3" [routerLink]="['/tickets', ticket.id, 'buy']">Comprar </button>
 
                 <button class="btn btn-lg btn-outline-danger p-1 me-3" (click)="delete(ticket)">Borrar ticket</button>
             </div>
@@ -148,11 +154,6 @@
         }
     </div>
 </div>
-
-
-
-
-
 
   
       <div class= "d-flex flex-column flex-sm-row justify-content-between py-3 my-3 border-top"> </div>
