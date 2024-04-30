@@ -45,19 +45,19 @@
                                     @else {
                                       <h6 class="fw-bold text-primary-emphasis mb-1">{{comment.user.firstName}}</h6>
                                     }-->
-               @if (isAdmin) {
-                <a class="badge text-bg-secondary text-decoration-none"
+              @if (isAdmin) {
+              <a class="badge text-bg-secondary text-decoration-none"
                 [routerLink]="['/users', comment.user?.id, 'detail']">
                 @if (comment.user?.firstName === null) { {{comment.user?.email}} } @else { {{comment.user?.firstName}} }
               </a>
 
-               } @else {
-                <a class="badge text-bg-secondary text-decoration-none">
+              } @else {
+              <a class="badge text-bg-secondary text-decoration-none">
                 @if (comment.user?.firstName=== null) { {{comment.user?.email}} } @else { {{comment.user?.firstName}} }
               </a>
 
-               }                    
-              
+              }
+
             </td>
             <td>
               <a class="badge text-bg-warning text-decoration-none"
@@ -67,7 +67,7 @@
             </td>
             <td>
               <button class="btn btn-info mb-1 me-1" style="background-color: #62AFFE;"
-              [routerLink]="['/keynotes', comment.keynote?.id, 'detail']"><i class="bi bi-eye me-1"></i>Ver</button>
+                [routerLink]="['/keynotes', comment.keynote?.id, 'detail']"><i class="bi bi-eye me-1"></i>Ver</button>
               @if (isAdmin) {
               <button class="btn btn-success mb-1 me-1" style="background-color: #49CC90;"
                 [routerLink]="['/comments', comment.id, 'update']"><i
@@ -85,18 +85,16 @@
       </table>
 
       } @else {
-        <div class="container">
-          <h3 class="text-secondary" style="font-family: 'Libre Franklin'">
-            <strong>Para ver listado de comentarios debes acceder como usuario registrado </strong><button class="btn me-3 ms-3">
-              <a
-                class="nav-link border border-warning rounded border-2 p-1"
-                routerLink="/register"
-                (click)="$event.preventDefault()"
-                id=""
-                role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Registrarse</a>
-            </button>
-          </h3>
-        </div>
+      <div class="container">
+        <h3 id="myText" class="text-secondary" style="font-family: 'Libre Franklin'">
+          <strong>Para ver listado de comentarios debes acceder como usuario registrado </strong><button
+            class="btn me-3 ms-3">
+            <a class="nav-link border border-warning rounded border-2 " routerLink="/register"
+              (click)="$event.preventDefault()" id="" role="button"><i
+                class="bi bi-box-arrow-in-right me-2"></i>Registrarse</a>
+          </button>
+        </h3>
+      </div>
       }
 
     </div>

@@ -19,3 +19,41 @@ td {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* estilos texto aviso si no estás logado */
+@-webkit-keyframes track-in-out {
+    0% {
+      letter-spacing: .1em;
+      opacity: 0;
+    }
+    20% {
+      letter-spacing: normal;
+      opacity: 1;
+    }
+    80% {
+      letter-spacing: normal;
+      opacity: 1;
+    }
+    100% {
+      letter-spacing: .1em;
+      opacity: 0;
+    }
+  }
+  
+  #myText{
+    font-size: 2rem;
+    margin-top: 100px;
+    color: #009499;
+    word-spacing: 5px;
+    text-shadow: 2px 2px 5px rgb(222, 222, 222);
+    width: 100%;
+    text-align: center;
+    font-family: 'Monoton', cursive;
+    animation-name: track-in-out;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+  }
+  /* fin estilos texto de aviso */
+
