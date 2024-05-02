@@ -5,7 +5,7 @@
   <header>
     <div class="py-5 text-center">
       @if (ticket) {
-        <h2>Compra tu ticket {{ticket.id}} </h2>
+        <h2>Compra de ticket : {{ticket.id}} </h2>
       }@else {
         <h1 class="display-4 fw-normal text-body-emphasis text-primary"><strong>Aquí esta tu orden de compra</strong></h1>
       }
@@ -58,15 +58,15 @@
           </div>
           <hr class="my-4">
           <!-- Selector de  packs -->
-          <div class="py-1 text-center">
-            <label for="extraService">Elije tuPacks</label>
-            <select class="form-select" id="extraService" formControlName="extraService" (change)="calculatePrice()">
-              <option value="0">Ticket plata (50 €)</option>
-              <option value="20">Ticket oro (50 €)</option>
-              <option value="50">Ticket Premium (100 €)</option>
-            </select>
+          <!-- <div class="py-1 text-center"> -->
+            <!-- <label for="extraService">Elije tu entrada: </label> -->
+            <!-- <select class="form-select" id="extraService" formControlName="extraService" (change)="calculatePrice()"> -->
+              <!-- <option value="0">Ticket plata 28 mayo (50 €)</option> -->
+              <!-- <option value="20">Ticket oro 29 mayo (50 €)</option> -->
+              <!-- <option value="50">Ticket Diamante 28 y 29 mayo (100 €)</option> -->
+            <!-- </select> -->
       
-          </div>
+          <!-- </div> -->
           <div class="py-3 text-center">
             <label for="quantity" class="form-label"><strong>Cantidad de tickets a comprar</strong></label>
             <input min="1" max="15" type="number" class="form-control form-input" id="quantity" name="quantity" formControlName="quantity" (change)="calculatePrice()">
@@ -147,7 +147,7 @@
                           <h6 class="my-0">Promo code</h6>
                           <small>Soy &commat;4itech</small>
                         </div>
-                        <span class="text-success"> - 20% de descuento </span>
+                        <span class="text-success"> - 10% de descuento </span>
                       </li>
                       <li class="list-group-item justify-content-between">
                         <span>Total (EUR)</span>

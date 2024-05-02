@@ -77,6 +77,7 @@ showFinishMessage= false;
     finishDate = new Date(finishDate);
     console.log(startDate);
     console.log(finishDate);
+    
     const diffMilliseconds = finishDate.getTime() - startDate.getTime();
     if (diffMilliseconds <= 0) {
       this.ticketPrice = 0;
@@ -87,7 +88,7 @@ showFinishMessage= false;
       return; // fechas incorrectas
     }
 
-    this.numDays = Math.round(diffMilliseconds / (1000 * 60 * 60 * 24));
+    this.numDays = Math.round(diffMilliseconds / (1000 * 60 * 60 * 24))+1;
     console.log('Numero de dias calculado ', this.numDays);
 
     if (this.numDays <= 0) {
