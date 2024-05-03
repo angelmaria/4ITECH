@@ -22,6 +22,9 @@ export class TicketOrderBuyFormComponent implements OnInit {
   ticket: Ticket | undefined;
   user: User | undefined;
   ticketOrderBuy: TicketOrderBuy | undefined;
+  buttonClicked: boolean = false;
+  isCardNumberComplete: boolean = false;
+  showCardData: boolean = false;
   
   ticketOrderBuyForm = new FormGroup({
     startDate: new FormControl(new Date()),
@@ -29,7 +32,7 @@ export class TicketOrderBuyFormComponent implements OnInit {
     isPremiumShip: new FormControl<boolean>(false),
     extraService: new FormControl<string>('0'),
     quantity: new FormControl(1),
-    isStudent: new FormControl(false)
+    isStudent: new FormControl(true)
   });
   
 
@@ -40,6 +43,8 @@ extraPrice= 0; // no
 numDays = 0;
 shipPrice= 0; // no
 showFinishMessage= false;
+promoCode: string = '';
+
   
   constructor(
   
@@ -59,6 +64,18 @@ showFinishMessage= false;
     });
   }
 
+  applyDiscount(event: Event): void {
+    event.preventDefault(); // Previene el envío predeterminado del formulario
+
+    // Valida el código de promoción ingresado
+    if (this.validatePromoCode(this.promoCode)) {
+        console.log('Descuento aplicado');
+        // Aplica el descuento aquí
+        // Por ejemplo, puedes actualizar el total del precio o cambiar el estado del pedido
+    } else {
+        console.log('Código de promoción no válido');
+    }
+}
   calculatePrice() {
  
 
@@ -157,4 +174,52 @@ showFinishMessage= false;
         // Hacer lo que necesites después de guardar
       });
   }
+  onButtonClick(): void {
+    // Cambia el estado de buttonClicked a true
+    this.buttonClicked = true;
+}
+onCardNumberInput(event: Event): void {
+  const inputElement = event.target as HTMLInputElement;
+  const cardNumber = inputElement.value;
+
+  // Verifica si el número de tarjeta está completo (por ejemplo, si tiene 16 dígitos)
+  if (cardNumber.replace(/\D/g, '').length === 16) {
+      this.isCardNumberComplete = true;
+  } else {
+      this.isCardNumberComplete = false;
+  }
+}
+onPaymentMethodChange(event: Event): void {
+  const selectElement = event.target as HTMLSelectElement;
+  const selectedMethod = selectElement.value;
+
+  // Muestra la tarjeta de datos de pago si el método de pago es "tarjeta" o "tarjeta2"
+  if (selectedMethod === 'tarjeta' || selectedMethod === 'tarjeta2') {
+      this.showCardData = true;
+  } else {
+      this.showCardData = false;
+  }
+}
+validatePromoCode(code: string): boolean {
+  let discountApplied = false;
+
+  // Verifica si el código ingresado es válido
+  const validPromoCodes = ['soy4itech', 'formadoradecco'];
+  if (validPromoCodes.includes(code)) {
+      // Si el código de promoción es válido, aplica un descuento
+      this.totalPrice *= 0.90; // Aplicar descuento del 10%
+      discountApplied = true; // Marcar el descuento como aplicado
+  }
+
+  // Si el usuario es estudiante, aplica otro descuento
+  if (this.ticketOrderBuyForm.get('isStudent')?.value) {
+      this.totalPrice *= 0.90; // Aplicar descuento del 10%
+      discountApplied = true; // Marcar el descuento como aplicado
+  }
+
+  // Retorna verdadero si se aplicó algún descuento
+  return discountApplied;
+}
+
+
 }
