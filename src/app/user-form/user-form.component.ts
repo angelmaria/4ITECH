@@ -5,6 +5,9 @@ import { UserRole } from '../models/userRole.model';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { User } from '../models/user.model';
 import { LoginComponent } from '../login/login.component';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-user-form',
@@ -92,17 +95,34 @@ export class UserFormComponent implements OnInit{
     }
 
     if(this.isUpdate){
-      // httpClient post para enviar el formData al backend:
-    this.httpClient.put<User>('http://localhost:8080/users/' + this.user?.id, formData)
-    .subscribe(user => this.navigateToList()); // así actualizo el usuario.
-  } else {
-    this.httpClient.post<User>('http://localhost:8080/users', formData)
-    .subscribe(user => this.navigateToList()); // así guardo el usuario.
+      this.httpClient.put<User>('http://localhost:8080/users/' + this.user?.id, formData)
+      .pipe(
+        catchError(error => {
+          console.error('Error occurred:', error);
+          return of(error);
+        })
+      )
+      .subscribe({
+        next: user => this.navigateToList(),
+        error: error => console.error('Subscription error:', error)
+      });
+    } else {
+      this.httpClient.post<User>('http://localhost:8080/users', formData)
+      .pipe(
+        catchError(error => {
+          console.error('Error occurred:', error);
+          return of(error);
+        })
+      )
+      .subscribe({
+        next: user => this.navigateToList(),
+        error: error => console.error('Subscription error:', error)
+      });
     }
   }
-
-    navigateToList() {
-      this.router.navigate(['/users']);
-    }
+  
+  navigateToList() {
+    this.router.navigate(['/users']);
+  }
   }
 
