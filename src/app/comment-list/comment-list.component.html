@@ -4,6 +4,80 @@
 
       <h1 class="mt-5 mb-5 text-gradiente">Listado de Comentarios</h1>
 
+      <ngb-carousel class="mt-3">
+        @for (comment of comments; track comment.id) {
+        <ng-template ngbSlide>
+          <div class="mb-3">
+            <div
+              class="card shadow-0 border"
+              style="background-color: #f0f2f5"
+            >
+              <div class="card-body p-4 with=300; height=200">
+                <div class="card mb-4">
+                  <div class="card-body text-secondary">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <img
+                          class="rounded-circle shadow-1-strong me-3"
+                          [src]="
+                            'http://localhost:8080/files/' + 'avatar.png'
+                          "
+                          alt="avatar"
+                          width="60"
+                          height="60"
+                        />
+                        <div>
+                          <h6 class="fw-bold text-primary-emphasis mb-1">
+                            {{ comment.user?.firstName }}
+                          </h6>
+
+                          <p class="small mb-0 fst-italic">
+                            Publicado -
+                            {{ comment.dateTime | date : "dd/MM/yyyy" }}
+                          </p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <p class="small text-muted mb-0">Rating</p>
+                        <i
+                          class="far fa-thumbs-up mx-2 fa-xs text-black"
+                          style="margin-top: -0.16rem"
+                        ></i>
+                        <p class="small text-muted mb-0">
+                          <ngb-rating
+                            [(rate)]="comment.rating"
+                            [max]="5"
+                            [readonly]="true"
+                            formControlName="rating"
+                          >
+                            <ng-template let-fill="fill" let-index="index">
+                              <i
+                                class="bi-star{{
+                                  fill === 100 ? '-fill' : ''
+                                }}"
+                                style="color: rgb(222, 191, 39); margin: 4px"
+                              ></i>
+                            </ng-template>
+                          </ngb-rating>
+                        </p>
+                      </div>
+                    </div>
+
+                    <p
+                      class="text-light-emphasis fw-lighter fst-italic mt-3 mb-4"
+                      style="font-family: 'Libre Franklin'"
+                    >
+                      {{ comment.opinion | shortText }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        }
+      </ngb-carousel>
+
       @if (showDeletedCommentMessage) {
       <!--<ngb-alert type="success" [dismissible]="false">Comentario borrado correctamente</ngb-alert>-->
       <ngb-alert type="success" (closed)="hideDeletedCommentMessage()">Comentario borrado correctamente.</ngb-alert>
@@ -87,16 +161,18 @@
       } @else {
       <div class="container">
         <h3 id="myText" class="text-secondary" style="font-family: 'Libre Franklin'">
-          <strong>Para ver listado de comentarios debes acceder como usuario registrado </strong><button
+          <strong>Para ver listado y dejar tus comentarios, debes acceder como usuario registrado </strong><button
             class="btn me-3 ms-3">
             <a class="nav-link border border-warning rounded border-2 p-1 " routerLink="/register"
               (click)="$event.preventDefault()" id="" role="button"><i
                 class="bi bi-box-arrow-in-right me-2"></i>Registrarse</a>
           </button>
         </h3>
+          
       </div>
+          
       }
-
+    
     </div>
   </div>
 </div>
