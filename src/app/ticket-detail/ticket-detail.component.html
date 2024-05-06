@@ -45,14 +45,21 @@
                                         <strong>  {{ ticket.price }} €</strong>
                                     </span>
                                 </p>
-                                <button type="button" class="w-100 btn btn-lg btn-outline-primary" [routerLink]="['/tickets', ticket.id, 'update']">Editar Ticket</button>    
+                                <button type="button" class="w-50 btn btn-lg btn-outline-primary  p-1 me-3" [routerLink]="['/tickets', ticket.id, 'update']">Editar Ticket</button>    
 
                         </ul>
                     </div>
                 }
+
                 </div>
             </div>
+            <div style="display: flex; justify-content: flex-end; padding-right: 70px;">
+
+                <button type="submit" class="w-50 btn-outline-primary p-1 me-1" style="display: block; margin-left: 0;" routerLink="/tickets">volver</button>
+            </div>
+
         </div> 
+        
     </main>
     
 

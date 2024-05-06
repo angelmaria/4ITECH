@@ -22,6 +22,9 @@ export class TicketOrderBuyFormComponent implements OnInit {
   ticket: Ticket | undefined;
   user: User | undefined;
   ticketOrderBuy: TicketOrderBuy | undefined;
+  buttonClicked: boolean = false;
+  isCardNumberComplete: boolean = false;
+  showCardData: boolean = false;
   
   ticketOrderBuyForm = new FormGroup({
     startDate: new FormControl(new Date()),
@@ -29,7 +32,7 @@ export class TicketOrderBuyFormComponent implements OnInit {
     isPremiumShip: new FormControl<boolean>(false),
     extraService: new FormControl<string>('0'),
     quantity: new FormControl(1),
-    isStudent: new FormControl(false)
+    isStudent: new FormControl(true)
   });
   
 
@@ -40,6 +43,8 @@ extraPrice= 0; // no
 numDays = 0;
 shipPrice= 0; // no
 showFinishMessage= false;
+
+
   
   constructor(
   
@@ -77,6 +82,7 @@ showFinishMessage= false;
     finishDate = new Date(finishDate);
     console.log(startDate);
     console.log(finishDate);
+    
     const diffMilliseconds = finishDate.getTime() - startDate.getTime();
     if (diffMilliseconds <= 0) {
       this.ticketPrice = 0;
@@ -87,7 +93,7 @@ showFinishMessage= false;
       return; // fechas incorrectas
     }
 
-    this.numDays = Math.round(diffMilliseconds / (1000 * 60 * 60 * 24));
+    this.numDays = Math.round(diffMilliseconds / (1000 * 60 * 60 * 24))+1;
     console.log('Numero de dias calculado ', this.numDays);
 
     if (this.numDays <= 0) {
@@ -156,4 +162,32 @@ showFinishMessage= false;
         // Hacer lo que necesites después de guardar
       });
   }
+  
+  onButtonClick(): void {
+    // Cambia el estado de buttonClicked a true
+    this.buttonClicked = true;
+}
+onCardNumberInput(event: Event): void {
+  const inputElement = event.target as HTMLInputElement;
+  const cardNumber = inputElement.value;
+
+  // Verifica si el número de tarjeta está completo (por ejemplo, si tiene 16 dígitos)
+  if (cardNumber.replace(/\D/g, '').length === 16) {
+      this.isCardNumberComplete = true;
+  } else {
+      this.isCardNumberComplete = false;
+  }
+}
+onPaymentMethodChange(event: Event): void {
+  const selectElement = event.target as HTMLSelectElement;
+  const selectedMethod = selectElement.value;
+
+  // Muestra la tarjeta de datos de pago si el método de pago es "tarjeta" o "tarjeta2"
+  if (selectedMethod === 'tarjeta' || selectedMethod === 'tarjeta2') {
+      this.showCardData = true;
+  } else {
+      this.showCardData = false;
+  }
+}
+
 }
