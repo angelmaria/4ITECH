@@ -8,6 +8,8 @@ import { LoginComponent } from '../login/login.component';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { of } from 'rxjs';
+import { Token } from '../authentication/token.dto';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-user-form',
@@ -41,7 +43,9 @@ export class UserFormComponent implements OnInit{
     private fb: FormBuilder,
     private httpClient: HttpClient,
     private router: Router,
-    private activatedRoute: ActivatedRoute){}
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthenticationService
+    ) {}
 
   ngOnInit(): void {
     console.log("eeeeee1");
@@ -77,22 +81,24 @@ export class UserFormComponent implements OnInit{
   reader.readAsDataURL(this.photoFile);
   }
 
-  save(){ // crear FormData
-    let formData = new FormData();
-    formData.append('id', this.userForm.get('id')?.value?.toString() ?? '0');
-    formData.append('firstName', this.userForm.get('firstName')?.value ?? '');
-    formData.append('lastName', this.userForm.get('lastName')?.value ?? '');
-    formData.append('email', this.userForm.get('email')?.value ?? '');
-    formData.append('phone', this.userForm.get('phone')?.value ?? '');
-    formData.append('userName', this.userForm.get('userName')?.value ?? '');
-    formData.append('password', this.userForm.get('password')?.value ?? '');
-    formData.append('address', this.userForm.get('address')?.value ?? '');
-    formData.append('userRole', this.userForm.get('userRole')?.value ?? '');
-    formData.append('photoUrl', this.userForm.get('photoUrl')?.value ?? '');
+  save(){
+    
+    let formData = this.createFormData();
 
-    if(this.photoFile){
-      formData.append("photo", this.photoFile); // introducir el photoFile.
-    }
+    // Crear un nuevo objeto con solo email y password
+    let loginData = {
+      email: formData.get('email'),
+      password: formData.get('password')
+    };
+
+    const url = 'http://localhost:8080/users/login';
+    this.httpClient.post<Token>(url, loginData).subscribe({
+      next: response => {
+        console.log(response.token)
+        this.authService.saveToken(response.token);
+      },
+      error: error => console.error('Subscription error:', error)
+    })
 
     if(this.isUpdate){
       this.httpClient.put<User>('http://localhost:8080/users/' + this.user?.id, formData)
@@ -119,6 +125,26 @@ export class UserFormComponent implements OnInit{
         error: error => console.error('Subscription error:', error)
       });
     }
+  }
+
+  createFormData() {
+    let formData = new FormData();
+    formData.append('id', this.userForm.get('id')?.value?.toString() ?? '0');
+    formData.append('firstName', this.userForm.get('firstName')?.value ?? '');
+    formData.append('lastName', this.userForm.get('lastName')?.value ?? '');
+    formData.append('email', this.userForm.get('email')?.value ?? '');
+    formData.append('phone', this.userForm.get('phone')?.value ?? '');
+    formData.append('userName', this.userForm.get('userName')?.value ?? '');
+    formData.append('password', this.userForm.get('password')?.value ?? '');
+    formData.append('address', this.userForm.get('address')?.value ?? '');
+    formData.append('userRole', this.userForm.get('userRole')?.value ?? '');
+    formData.append('photoUrl', this.userForm.get('photoUrl')?.value ?? '');
+  
+    if(this.photoFile){
+      formData.append("photo", this.photoFile);
+    }
+  
+    return formData;
   }
   
   navigateToList() {
