@@ -19,6 +19,9 @@ export class TrackDetailComponent implements OnInit {
   keynotes: Keynote[] = [];
   isAdmin = false;
 
+  // imageDefault = 'http://localhost:8080/files/uploads/cafeteria.jpeg';
+  // image: string;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
@@ -41,7 +44,12 @@ export class TrackDetailComponent implements OnInit {
 
        // traer las keynotes del track
        this.http.get<Keynote[]>('http://localhost:8080/keynotes/filter-by-track/' + id)
-       .subscribe(keynotes => this.keynotes = keynotes);
+       .subscribe(keynotes => {
+        this.keynotes = keynotes;
+        // if (this.keynotes === null || this.keynotes.length === 0) {
+        //   this.image = this.imageDefault;
+        // }
+      });
       });
 
     });
@@ -49,3 +57,35 @@ export class TrackDetailComponent implements OnInit {
   }
   
 }
+/*
+export class TrackDetailComponent implements OnInit {
+  // ...
+  imagenPorDefecto = 'ruta/a/carpeta/uploads/en/backend';
+  imagenAMostrar: string;
+
+  ngOnInit(): void {
+    // ...
+    this.activatedRoute.params.subscribe(params => {
+      const id = params['id'];
+      if (!id) { 
+        return;
+      }
+      const backendUrl = 'http://localhost:8080/tracks/' + id;
+      this.http.get<Track>(backendUrl).subscribe(trackBackend => {
+        this.track = trackBackend;
+
+        // traer las keynotes del track
+        this.http.get<Keynote[]>('http://localhost:8080/keynotes/filter-by-track/' + id)
+        .subscribe(keynotes => {
+          this.keynotes = keynotes;
+          if (this.keynotes === null || this.keynotes.length === 0) {
+            this.imagenAMostrar = this.imagenPorDefecto;
+          }
+        });
+      });
+    });
+  }
+  // ...
+}
+
+*/

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Room } from '../models/room.model';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-room-list',
@@ -19,8 +20,12 @@ export class RoomListComponent implements OnInit{
 
   rooms: Room[] = [];
   showDeletedRoomMessage: boolean = false;
+  isAdmin = false;
 
-  constructor(private httpClient: HttpClient) {};
+  constructor(private httpClient: HttpClient,
+              private authService: AuthenticationService) {
+                this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+  };
 
   ngOnInit(): void {
       this.loadRooms();

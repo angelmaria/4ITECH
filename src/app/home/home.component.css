@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@500;600;900&display=swap");
 
 .registro {
           /* fallback for old browsers */
@@ -17,25 +19,6 @@
 }
 
 /* Estilos para el video */
-/* .vid-wrapper {
-    position: relative;
-    width: 100%;
-}
-.vid-wrapper::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: '';
-    background-image: radial-gradient(
-      circle at 36% 48%,
-      #000000,
-      rgba(11, 39, 65, 0.32) 87%,
-      rgba(0, 0, 0, 0)
-    );
-  } */
-  
   video {
     width: 100%;
     height: 100%;
@@ -64,4 +47,204 @@
     background: linear-gradient(to right, #4f8cef, #4b70e1, #5498f2, #31b4c8);
     }
 
-    
+/* efecto de agrandar las imágenes del grid un 20% */
+img.zoom {
+  transition: 0.4s ease-in-out;
+  border:none;
+}
+img.zoom:hover {
+  transform: scale(1.2);
+  border: 2px solid #4284db;
+}
+img.zoom1 {
+  transition: 0.4s ease-in-out;
+  border:none;
+}
+img.zoom1:hover {
+  transform: scale(1.2);
+  border: 2px solid #D2B53B;
+}
+/* Estilos para slider portrato de ponentes dinámico */
+.gallery {
+  --d: 20s; /* duration */
+  
+  display: grid;
+  width: 280px;
+}
+
+.gallery > img {
+  grid-area: 1/1;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 10px solid #f2f2f2;
+  box-shadow: 0 0 4px #0007;
+  z-index: 2;
+  animation: 
+    slide var(--d) infinite,
+    z-order var(--d) infinite steps(1);
+}
+
+.gallery img:last-child {
+  animation-name: slide, z-order-last;
+}
+
+.gallery > img:nth-child(1) {
+  animation-delay: calc((1 - 1)/5*var(--d));
+  --r: -20deg; /* Random rotation between -20deg and 20deg */
+}
+
+.gallery > img:nth-child(2) {
+  animation-delay: calc((1 - 2)/5*var(--d));
+  --r: 0deg; /* Random rotation between -20deg and 20deg */
+}
+
+.gallery > img:nth-child(3) {
+  animation-delay: calc((1 - 3)/5*var(--d));
+  --r: 10deg; /* Random rotation between -20deg and 20deg */
+}
+
+.gallery > img:nth-child(4) {
+  animation-delay: calc((1 - 4)/5*var(--d));
+  --r: -10deg; /* Random rotation between -20deg and 20deg */
+}
+
+.gallery > img:nth-child(5) {
+  animation-delay: calc((1 - 5)/5*var(--d));
+  --r: 20deg; /* Random rotation between -20deg and 20deg */
+}
+
+@keyframes slide {
+  10%  {transform: translateX(120%) rotate(var(--r))}
+  0%,
+  100%,
+  20% {transform: translateX(0%)   rotate(var(--r))}
+}
+
+@keyframes z-order {
+  10%,
+  20% {z-index: 1}
+  80% {z-index: 2}
+}
+
+@keyframes z-order-last {
+  10%,
+  20% {z-index: 1}
+  75% {z-index: 2}
+}
+
+/* Estilos para categorías en banderolas */
+
+ul.banderolas {
+  --col-gap: 2rem;
+  --barH: 1rem;
+  --roleH: 2rem;
+  --flapH: 2rem;
+
+  width: min(60rem, 90%);
+  margin-inline: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: var(--col-gap);
+  padding-inline: calc(var(--col-gap) / 2);
+
+  justify-content: center;
+  align-items: flex-start;
+  list-style: none;
+}
+ul.banderolas li {
+  width: 10em;
+  display: grid;
+  grid-template:
+    "role"
+    "icon"
+    "title"
+    "descr";
+  align-items: flex-start;
+  gap: 1rem;
+  padding-block-end: calc(var(--flapH) + 1rem);
+  text-align: center;
+  background: var(--accent-color);
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.6) var(--roleH),
+    rgba(0, 0, 0, 0.4) calc(var(--roleH) + 0.5rem),
+    rgba(0, 0, 0, 0) calc(var(--roleH) + 0.5rem + 5rem)
+  );
+  clip-path: polygon(
+    calc(var(--col-gap) / -2 - 5px) 0,
+    calc(100% + var(--col-gap) / 2 + 5px) 0,
+    calc(100% + var(--col-gap) / 2 + 5px ) calc(100% - var(--flapH)),
+    50% 100%,
+    calc(var(--col-gap) / -2 - 5px) calc(100% - var(--flapH))
+  );
+}
+
+/* bar */
+ul.banderolas li::before {
+  content: "";
+  grid-area: role;
+  height: var(--barH);
+  width: calc(100% + var(--col-gap));
+  margin-left: calc(var(--col-gap) / -2);
+  margin-top: calc(var(--roleH) / 2 - var(--barH) / 2);
+  background: grey;
+  z-index: -1;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.4)
+  );
+}
+
+/* role */
+ul.banderolas li::after {
+  content: "";
+  grid-area: role;
+  background: var(--accent-color);
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.2) 70%,
+    rgba(0, 0, 0, 0.4)
+  );
+  height: var(--roleH);
+}
+
+ul.banderolas li .icon,
+ul.banderolas li .title,
+ul.banderolas li .descr {
+  padding-inline: 1rem;
+  color: white;
+  text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+ul.banderolas li .icon {
+  font-size: 3rem;
+}
+ul.banderolas li .title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+ul.banderolas li .descr {
+  font-size: 0.9rem;
+}
+
+.credits {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+.credits a {
+  color: var(--color);
+}
+
+
+/* Fin de estilos para categorías en banderolas */

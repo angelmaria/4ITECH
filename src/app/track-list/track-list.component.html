@@ -6,7 +6,7 @@
 
       @if (isLoggedIn) {
 
-      <marquee style="font-size: larger; color: #f65803;" width="400" scrollamount="200" scrolldelay="2000">
+      <marquee style="font-size: larger; color: #f65803;" width="600" scrollamount="400" scrolldelay="2000">
         🥳🤔😁😀🫣 Puedes observar todos los cronogramas existentes...
       </marquee>
 
@@ -63,8 +63,8 @@
       </table>
       } @else {
         <div class="container">
-          <h3 class="text-secondary" style="font-family: 'Libre Franklin'">
-            <strong>Para ver listado de comentarios debes acceder como usuario registrado </strong><button class="btn me-3 ms-3">
+          <h3 id="myText" class="text-secondary" style="font-family: 'Libre Franklin'">
+            <strong>Para ver listado de tracks debes acceder como usuario registrado </strong><button class="btn me-3 ms-3">
               <a
                 class="nav-link border border-warning rounded border-2 p-1"
                 routerLink="/register"

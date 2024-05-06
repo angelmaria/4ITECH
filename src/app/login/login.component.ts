@@ -19,6 +19,7 @@ export class LoginComponent {
     email: [''],
     password: ['']
   });
+  errorMessage = '';
 
   constructor(
     private fb: FormBuilder,
@@ -34,14 +35,17 @@ export class LoginComponent {
     }
     // console.log(login);
     const url = 'http://localhost:8080/users/login';
-    this.httpClient.post<Token>(url,login).subscribe(response => {
+    this.httpClient.post<Token>(url,login).subscribe({
+      next: response => {
       console.log(response.token)
       this.authService.saveToken(response.token);
       this.router.navigate(['/keynotes']);
-
-
-    });
+    },
+    error: response => {
+      console.log(response);
+      this.errorMessage = response.error;
+    }
+  });
       
-
   }
 }

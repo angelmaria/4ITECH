@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { User } from '../models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-user-list',
@@ -19,8 +20,13 @@ export class UserListComponent implements OnInit{
   
   users: User[] = []; //variable donde se guarda la respuesta del método 'ngOnInit'.
   showDeletedUserMessage: boolean = false;
+  isAdmin = false;
 
-  constructor(private httpClient: HttpClient){};
+  constructor(private httpClient: HttpClient,
+              private authService: AuthenticationService
+  ){this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
+    
+  }
 
   ngOnInit(): void {
   

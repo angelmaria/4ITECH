@@ -37,14 +37,28 @@
             id="phone" formControlName="phone" placeholder="666555444">
             <label for="phone">Teléfono móvil</label>
           </div>
-  
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control"
+            id="userName" formControlName="userName">
+            <label for="userName">Nombre de usuario</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control"
+            id="password" formControlName="password">
+            <label for="password">Contraseña</label>
+          </div>
+
+          
+
           <div class="form-floating mb-3">
             <input type="text" class="form-control"
             id="address" formControlName="address" placeholder="Calle Falsa 1, 5D, Barcelona">
             <label for="address">Dirección</label>
           </div>
   
-          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" type="submit" routerLink="/users">Actualizar</button>
+          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" type="submit" [routerLink]="['/users', user?.id, 'update']">Actualizar</button>
   
         </form>
   

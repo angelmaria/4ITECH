@@ -1,12 +1,13 @@
 <div class="container py-3 background-gradient">
-    
   <header>
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
       <h1 class="display-4 fw-normal text-body-emphasis"><strong>Ordenes de Compra</strong></h1>
       <p class="fs-5 text-body-secondary">Aquí están las ordenes de compra de tu interés</p>
     </div>
-    <div class="d-flex flex-column flex-sm-row justify-content-between py-2 my-2 border-top"></div>
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-1 my-1 border-top"></div>
   </header>
+  <img src="/assets/Ticket/banner.png" alt="Código QR" class="img-fluid" style="width: 1500px;"> 
+  <div class="d-flex flex-column flex-sm-row justify-content-between py-3 my-3 border-top"></div>
 
   @if (isLoggedIn) {
     
@@ -16,58 +17,65 @@
     }
     
     @for (ticketOrderBuy of ticketOrderBuys; track ticketOrderBuy.id) {
-      <p class="button-container">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-8">
-              <table class="table table-bordered table-hover table-info custom-table">
-                <tbody>
-                  <tr class="table-primary">
-                    <th class="text-center align-middle"><strong>Nombre</strong></th>
-                    <th class="text-center align-middle"><strong>Datos</strong></th>
-                  </tr>
-                  <tr class="table-secondary text center align-middle">
-                    <th>ID</th>
-                    <td>{{ticketOrderBuy.id}}</td>
-                  </tr>
-                  <tr class="table-secondary">
-                    <th>Fecha - Hora</th>
-                    <td>{{ticketOrderBuy.startDate| date: 'dd/MM/yyyy'}}</td>
-                  </tr>
-                  <tr class="table-secondary">
-                    <th>Descuento</th>
-                    <td>{{ticketOrderBuy.discount}}%</td>
-                  </tr>
-                  <tr class="table-secondary">
-                    <th>Precio Total</th>
-                    <td>{{ticketOrderBuy.totalPrice}}</td>
-                  </tr>
-                  <tr class="table-secondary">
-                    <th>Número Máximo</th>
-                    <td>{{ticketOrderBuy.quantity}}</td>
-                  </tr>
-                  <tr class="table-secondary">
-                    <th>Método de pago</th>
-                    <td>{{ticketOrderBuy.paymentMethod}}</td>
-                  </tr>
-                  <tr class="table-secondary">
-                    <th>Medio de compra</th>
-                    <td>{{ticketOrderBuy.channel}}</td>
-                  </tr>
-                  <tr class="table-secondary">
-                    <th>Código Qr</th>
-                    <td>{{ticketOrderBuy.qrUrl}}</td>
-                  </tr>
-                </tbody>
-              </table>
+      <div class="container my-2">
+        <div class="row justify-content-center">
+          <div class="col-md-5">
+            <div class="card ticket-card border-secondary">
+              <div class="card-header bg-primary text-light text-center">
+                <h4>Orden de compra {{ticketOrderBuy.id}}</h4>
+              </div>
+              <div class="card-body">
+                <div class="card-header text-card  mb-4">
+                    <div class="ticket-primary">
+                     <div class="ticket-item">
+                      <strong>• Fecha:</strong>
+                      <span>{{ticketOrderBuy.startDate | date: 'dd/MM/yyyy'}}</span>
+                    </div>
+                     
+                      <div class="ticket-item">
+                        <strong>• Descuento:</strong>
+                        <span>{{ticketOrderBuy.discount}}%</span>
+                      </div>
+                      <div class="ticket-item">
+                        <strong>• Cantidad :</strong>
+                        <span>{{ticketOrderBuy.quantity}}</span>
+                      </div>
+                      <div class="ticket-item">
+                        <strong>• Método de Pago:</strong>
+                        <span>{{ticketOrderBuy.paymentMethod}}</span>
+                      </div>
+                      <div class="ticket-item">
+                        <strong>• Medio de Compra:</strong>
+                        <span>{{ticketOrderBuy.channel}}</span>
+                      </div>
+                      <div class="ticket-item">
+                        <strong>• Precio Total:</strong>
+                        <span>{{ticketOrderBuy.totalPrice | currency}}</span>
+                      </div>
+                    </div>
+                </div>
+
+              <div class="card justify-content align-items-center p-3"> 
+                <h2>{{ticketOrderBuy.qrUrl}}</h2>
+                <img src="/assets/Ticket/qr.png" alt="Código QR" class="img-fluid" style="width: 100px;">
+               </div>
+             </div>
+             <h4 class="text-center text-info ">¡Gracias por tu compra!</h4>
+            
+              <div class="card-footer text-center">
+                <p class="text-muted">Por favor, presenta este ticket a la entrada del evento.</p>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-2 my-2 border-top"></div>
+
         <div class="d-flex justify-content-center">
-          <button class="w-100 btn btn-lg btn-outline-info p-1 me-3" style="display: block;" [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'detail']">Ver Orden de Compra</button>
+          <button class="w-30 btn btn-lg btn-outline-info p-1 me-3" style="display: block;" [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'detail']">Ver </button>
           @if (isAdmin) {
-            <button class="w-100 btn btn-lg btn-outline-primary p-1 me-3" style="display: block;" [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'update']">Editar Orden de Compra</button>
-            <button class="w-100 btn btn-lg btn-outline-danger p-1 me-3" style="display: block;">Borrar ticketOrderBuy</button>
+            <button class="w-30 btn btn-lg btn-outline-primary p-1 me-3" style="display: block;" [routerLink]="['/ticketOrderBuys', ticketOrderBuy.id, 'update']">Editar </button>
+            <button class="w-30 btn btn-lg btn-outline-danger p-1 me-3 " style="display: block; ">Borrar</button>
           }
         </div>
       
@@ -85,5 +93,12 @@
       </h5>
     </div>
   }
+  <a [routerLink]="['/ticketOrderBuys/create']">
+  <div class="video-cover vid-container pt-1" style="width: 40%; max-width: 500px; margin: -10 auto;">
+    <video autoplay loop muted style="width: 250%;">
+        <source src="assets/videos/venta.mp4" type="video/mp4" />
+    </video>
+</div>
+</a>
 
 </div>

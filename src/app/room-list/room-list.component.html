@@ -25,10 +25,14 @@
                       Ver
                       <i class="bi bi-eye ms-2"></i>
                     </button>
-                    <button class="btn btn-success btn-sm" [routerLink]="['/rooms', room.id, 'update']">
-                      Editar
-                      <i class="bi bi-pencil ms-2"></i>
-                    </button>
+                    @if (isAdmin) {
+                      <button class="btn btn-success btn-sm" [routerLink]="['/rooms', room.id, 'update']">
+                        Editar
+                        <i class="bi bi-pencil ms-2"></i>
+                      </button>
+
+                    }
+                    
                   </li>
 
                 </ul>  

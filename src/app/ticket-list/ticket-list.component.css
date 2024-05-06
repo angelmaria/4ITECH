@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
 body {
     margin: 100;
 min-height: 300px;
@@ -5,10 +6,10 @@ padding-left: 150px !important;
 padding-right: 200px !important;
 }
 
-.container {
+/* .container {
     max-width: 960px;
     
-}
+} */
 
 section article.text h1[data-v-6dfea62d] {
         font-size: 8em;
@@ -71,6 +72,7 @@ section article.text h1[data-v-6dfea62d] {
   }
   
   h1 {
+    
       text-transform: unset ;
       font-weight: 930;
       border-left: 05px solid #4f8cef;
@@ -84,7 +86,7 @@ section article.text h1[data-v-6dfea62d] {
   
   .card {
       display: table-row;
-      width: 49%;
+      /* width: 49%; */
       background-color: #fff;
       color: #989898;
       margin-bottom: 10px;

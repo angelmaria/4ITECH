@@ -38,13 +38,17 @@ export class AccountFormComponent implements OnInit {
   }
 
   save() {
+    console.log("save1");
+    
     if (!this.user) {
       return;
-    }
+    }    console.log("save2");
+
     this.user.firstName = this.userForm.get('firstName')?.value;
     this.user.lastName = this.userForm.get('lastName')?.value;
     this.user.phone = this.userForm.get('phone')?.value;
     this.user.userName = this.userForm.get('userName')?.value;
+    this.user.password = this.userForm.get('password')?.value;
     this.user.address = this.userForm.get('address')?.value;
 
     this.httpClient.put<User>('http://localhost:8080/users/account', this.user)

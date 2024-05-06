@@ -35,9 +35,11 @@ export class CommentFormComponent implements OnInit {
   keynotes: Keynote[] = [];
   rating = 0;
   dateTime = new Date();
+  keynote: Keynote | undefined;
 
   isAdmin = false;
   isLoggedIn = false;
+  userId = 0;
 
   
 
@@ -48,6 +50,8 @@ export class CommentFormComponent implements OnInit {
     private authService: AuthenticationService) {
       this.authService.isAdmin.subscribe(isAdmin => this.isAdmin = isAdmin);
       this.authService.isLoggedIn.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+      this.authService.userId.subscribe(userId => this.userId = userId);
+
 
       
     }
@@ -55,6 +59,7 @@ export class CommentFormComponent implements OnInit {
   
 
   ngOnInit(): void {
+
 
     this.httpClient.get<User[]>('http://localhost:8080/users')
       .subscribe(users => this.users = users);
@@ -80,8 +85,8 @@ export class CommentFormComponent implements OnInit {
 
           this.isUpdate = true;
 
-        });
     });
+  });
   }
   
   save() {
@@ -107,6 +112,7 @@ export class CommentFormComponent implements OnInit {
         const url = 'http://localhost:8080/comments';
         this.httpClient.post<CommentModel>(url, comment).subscribe(commentFromBackend => {
           this.router.navigate(['/comments', commentFromBackend.id, 'detail']);
+          window.history.back();
         });
       }
   }

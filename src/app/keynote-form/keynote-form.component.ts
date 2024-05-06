@@ -8,12 +8,14 @@ import { Room } from '../models/room.model';
 import { User } from '../models/user.model';
 import { Track } from '../models/track.model';
 import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { DatePipe } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
   selector: 'app-keynote-form',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, EditorModule],
+  imports: [ReactiveFormsModule, RouterLink, EditorModule, DatePipe],
   templateUrl: './keynote-form.component.html',
   styleUrl: './keynote-form.component.css'
 })
@@ -32,7 +34,8 @@ export class KeynoteFormComponent implements OnInit {
     durationInMin: new FormControl(0),
     speaker: new FormControl(),
     track: new FormControl(),
-    attendees: new FormControl()
+    attendees: new FormControl(),
+    visible: new FormControl()
   })
 
   isUpdate: boolean = false; // por defecto estamos en CREAR no en ACTUALIZAR
@@ -48,7 +51,8 @@ export class KeynoteFormComponent implements OnInit {
     // private fb: FormBuilder, 
     private httpClient: HttpClient,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    protected sanitizer: DomSanitizer
   ) {}
 
     ngOnInit(): void {
@@ -123,7 +127,12 @@ export class KeynoteFormComponent implements OnInit {
       formData.append('summary', this.keynoteForm.get('summary')?.value ?? '');
       formData.append('description', this.keynoteForm.get('description')?.value ?? '');
       formData.append('photoUrl', this.keynoteForm.get('photoUrl')?.value ?? '');
+      formData.append('visible', this.keynoteForm.get('visible')?.value ?? '');
+      formData.append('webinarUrl', this.keynoteForm.get('webinarUrl')?.value ?? '');
       //formData.append('room', this.keynoteForm.get('room')?.value);
+      //formData.append('room.id', this.keynoteForm.get('room')?.value);
+      formData.append('track.id', this.keynoteForm.get('track')?.value.id)
+
       formData.append('maxNumPersons', this.keynoteForm.get('maxNumPersons')?.value?.toString() ?? '0');
       formData.append('difficultyLevel', this.keynoteForm.get('difficultyLevel')?.value ?? '');
       formData.append('durationInMin', this.keynoteForm.get('durationInMin')?.value?.toString() ?? '0');
@@ -132,6 +141,11 @@ export class KeynoteFormComponent implements OnInit {
         const room =  this.keynoteForm.get('room')?.value as Room;
         formData.append('room.id', room.id.toString());
       }
+      if (this.keynoteForm.get('speaker')?.value) {
+        const user =  this.keynoteForm.get('speaker')?.value as User;
+        formData.append('speaker.id', user.id.toString());
+      }
+
       if(this.photoFile) {
         formData.append("photo", this.photoFile);
       }
@@ -147,7 +161,6 @@ export class KeynoteFormComponent implements OnInit {
     }
     private navigateToList() {
       this.router.navigate(['/keynotes']);
-  
    }
   
     compareObjects(o1: any, o2: any): boolean {

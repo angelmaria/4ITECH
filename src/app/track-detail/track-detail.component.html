@@ -1,18 +1,23 @@
-<div class="container" style="width: 80%;">
+<div class="container" style="width: 100%;">
     <div class="row">
         <div class="col">
 
 
             <h1 class="mt-5 mb-5 text-gradiente">Detalle de Track con Id: {{track?.id}}</h1>
 
-            <div class="container mb-5" >
+            <marquee style="font-size: larger; color: #ed220c;" width="600" scrollamount="400" scrolldelay="2000">
+                🥳🤔😁🫣 Puedes observar las charlas que se imparten en este track...
+            </marquee>
+
+            <div class="container mb-5">
 
                 @if (track) {
                 <div class="card mb-5" style="border-radius: 30px;">
 
                     <div class="card-content" style="min-width: 200px;">
-                        <p style="font-size: large;"><strong style="color: rgb(240, 242, 247);">{{track.name}}</strong>
-                            <strong style="color: aqua;">&nbsp;
+                        <p class="ms-1" style="font-size: large;margin-right: 3px;"><strong
+                                style="color: white;">{{track.name}}</strong>
+                            <strong class="ms-5" style="color: aqua;">&nbsp;
                                 <ins>Inicio:</ins></strong>
                             <span class="badge text-bg-warning text-decoration-none ms-3 me-2">
                                 <i class="bi bi-calendar3 me-2" style="font-size: 1rem; color:white;"></i>
@@ -36,22 +41,23 @@
                 </div>
 
                 @if (isAdmin){
-                     <button class="w-100 btn btn-lg btn-outline-warning  p-1 me-3 mb-1"
+                <button class="w-100 btn btn-lg btn-outline-warning  p-1 me-3 mb-1"
                     style="display: block; background-color: #de2c5b;"
-                    [routerLink]="['/tracks', track.id, 'update']">Editar Track</button> 
+                    [routerLink]="['/tracks', track.id, 'update']">Editar Track</button>
 
                 }
-               
+                @if (this.keynotes && keynotes.length > 0) {
                 <div class="container-fluid">
                     <div class="px-lg-5">
-                       
-                     
+
+
                         <div class="row">
                             <!-- Gallery item -->
                             @for (keynote of keynotes; track keynote.id) {
                             <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
                                 <div style="box-shadow: 0px 0px 5px #ccc !important; overflow:hidden;"
-                                    class="bg-white rounded shadow-sm"><img src="{{keynote.photoUrl}}"
+                                    class="bg-white rounded shadow-sm"><img
+                                        [src]="'http://localhost:8080/files/' + keynote.photoUrl"
                                         [routerLink]="['/keynotes', keynote.id, 'detail']" style="cursor: pointer;"
                                         alt="" class="img-fluid card-img-top zoom">
                                     <div class="p-4">
@@ -59,14 +65,14 @@
                                                 style="text-decoration: none; font-weight: bold; font-family: 'Libre Franklin'">{{keynote.title}}</a>
                                         </h5>
                                         <p class="small text-muted mb-0">{{keynote.summary}}</p>
-                                        <div
+                                        <!--<div
                                             class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3 mb-2">
                                             <p class="small mb-0"><i
                                                     class="bi bi-easel-fill me-2 text-secondary"></i><span
                                                     class="font-weight-bold">Sala</span></p>
                                             <span
                                                 style="font-size: small; font-weight:400;">{{keynote.room.name}}</span>
-                                        </div>
+                                        </div> 
                                         <button style="cursor: auto;" type="button" class="btn mt-2"
                                             data-mdb-ripple-init><i
                                                 class="bi bi-people-fill me-2 text-secondary"></i><span
@@ -81,13 +87,15 @@
                                                 class="badge badge-{{keynote.difficultyLevel}} px-3 rounded-pill font-weight-normal">
                                                 {{keynote.difficultyLevel}}</div>
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-start px-3 py-2 mt-3">
+                                            -->
+                                        <div class="d-flex align-items-center justify-content-start px-3 py-2 mt-2">
                                             <span class="font-weight-bold small me-1"><i
                                                     class="bi bi-alarm me-2 text-secondary"></i>Duración</span>
                                             <p class="spinner-grow text-light mb-0"><span
-                                                    class="ms-1 fs-6 text-success fw-bold">{{keynote.durationInMin}}</span>
+                                                    class="ms-1 fs-6 text-primary fw-bold">{{keynote.durationInMin}}</span>
                                             </p><span class="font-weight-bold small ms-1">min</span>
                                         </div>
+                                        <!--
                                         @if(keynote.track) {
                                         <div
                                             class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-3">
@@ -97,13 +105,13 @@
                                                 'dd/MM/yy'}}</div>
                                         </div>
                                         }
-
+                                    -->
                                         <div style="text-align: center;">
                                             <button data-bs-toggle="tooltip" data-bs-title="Ver"
-                                                style="font-weight: bold;" class="btn btn-ver btn-sm mt-3 me-3"
-                                                [routerLink]="['/keynotes', keynote.id, 'detail']"><i
-                                                    class="bi bi-eye-fill"></i></button>
-                                         
+                                                style="font-weight: bold; background-color: #00b7ffd3;"
+                                                class="btn btn-primary btn-sm "
+                                                [routerLink]="['/keynotes', keynote.id, 'detail']">Ver charla</button>
+
                                         </div>
                                     </div>
                                 </div>
@@ -112,9 +120,28 @@
                             <!-- End -->
                         </div>
 
-                      
+
                     </div>
                 </div>
+                } @else {
+                    <h2 class="text-center  mt-5 mb-5 text-gradiente">Visite nuestra cafetería-restaurante</h2>
+                    
+                    <div class="container-img">
+                        <img  class=" center rounded-4 shadow-lg align-items-center" width="550" height="500"  src="assets/keynotes/cafeteria.jpeg" alt="cafetería-restaurante">
+                        <div class="text fs-60" ><span style="font-size: 20px;" class="badge text-bg-warning text-decoration-none">
+                            <p >Cafetería Restaurante de lujo</p>
+                            </span>
+                            <hr>
+                            <p style="font-style: 15px; margin-inline-start: 10px;">Nuestra cafetería-restaurante dispone de más de 50 mesas para comensales donde degustar los mejores menús variados de la gastronomía del lugar.</p>
+                            <p style="font-style: 15px ; margin-inline-start: 10px;">Dispone de una capacidad de aforo de más de 450 personas donde tomar los mejores desayunos con cafés arábigos y colombianos de alta calidad al igual que nuestras infusiones.Todo ello acompañado de la mejor bollería casera y tostadas de pan de masa madre.</p>
+                            <p style="font-style: 15px ; margin-inline-start: 10px;">No podemos olvidar, que disponemos de las más auténticas, magníficas y variadas <strong>Cervezas y vinos </strong> para relajar los cuerpos de una dura jornada de trabajo, esfuerzo y dedicación. Disfrutar en compañía de colaboradores, patrocinadores, mentores y toda la comunidad de amigos programadores que quieran unirse y pasar un rato divertido.</p>
+
+
+                        </div>
+                      </div>
+                      
+                }
+
 
                 } @else {
                 <h4 style="background-color: #de2c5b;">No hay tracks</h4>
@@ -126,15 +153,3 @@
         </div>
     </div>
 </div>
-
-
-
-<!--
-    <p id="diaSemana"></p>
-
-    <script>
-                var fecha = new Date();
-                var dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-                document.getElementById('diaSemana').innerHTML = dias[fecha.getDay()];
-                </script>
--->

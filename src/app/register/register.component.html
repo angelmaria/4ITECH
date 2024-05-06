@@ -60,9 +60,22 @@
                             }
                         </div>
                         <button style="font-family: 'Libre Franklin' " class="btn text-light fw-bold gradient-custom-2 w-100 py-2 mb-4" type="submit" [disabled]="registerForm.invalid">Registrarse</button>
-                        @if (registerForm.touched && (
+                        @if (registerForm.touched && !successMessage && (
                         (registerForm.invalid))) {
                           <small class="text-danger">Debes completar los campos correctamente para poder guardar</small>
+                        }
+                        @if(errorMessage && errorMessage.length > 0) {
+                          <small class="text-danger">{{errorMessage}}</small>
+                        }
+                        @if (successMessage) {
+                          <p>
+                            <small class="text-success">
+                              Registro completado con éxito.
+                            </small>
+                          </p>
+                          <p class="text-success">
+                            Inicia sección <button style="opacity: .8;" type="button" class="btn btn-sm text-bg-primary text-light fw-semibold" routerLink="/login" (click)="$event.preventDefault()">aquí</button>
+                          </p>
                         }
                       </div>
                       <div class="d-flex align-items-center justify-content-center pb-4">
