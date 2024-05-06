@@ -147,7 +147,7 @@ export class UserFormComponent implements OnInit{
     return formData;
   }
 
-  private navigateToList() {
+  navigateToList() {
     this.router.navigate(['/users']);
   }
   
