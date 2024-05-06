@@ -66,7 +66,7 @@ img.zoom1:hover {
 }
 /* Estilos para slider portrato de ponentes dinámico */
 .gallery {
-  --d: 20s; /* duration */
+  --d: 25s; /* duration */
   
   display: grid;
   width: 280px;
@@ -90,30 +90,45 @@ img.zoom1:hover {
 }
 
 .gallery > img:nth-child(1) {
-  animation-delay: calc((1 - 1)/5*var(--d));
+  animation-delay: calc((1 - 1)/9*var(--d));
   --r: -20deg; /* Random rotation between -20deg and 20deg */
 }
 
 .gallery > img:nth-child(2) {
-  animation-delay: calc((1 - 2)/5*var(--d));
+  animation-delay: calc((1 - 2)/9*var(--d));
   --r: 0deg; /* Random rotation between -20deg and 20deg */
 }
 
 .gallery > img:nth-child(3) {
-  animation-delay: calc((1 - 3)/5*var(--d));
+  animation-delay: calc((1 - 3)/9*var(--d));
   --r: 10deg; /* Random rotation between -20deg and 20deg */
 }
 
 .gallery > img:nth-child(4) {
-  animation-delay: calc((1 - 4)/5*var(--d));
+  animation-delay: calc((1 - 4)/9*var(--d));
   --r: -10deg; /* Random rotation between -20deg and 20deg */
 }
 
 .gallery > img:nth-child(5) {
-  animation-delay: calc((1 - 5)/5*var(--d));
+  animation-delay: calc((1 - 5)/9*var(--d));
   --r: 20deg; /* Random rotation between -20deg and 20deg */
 }
-
+.gallery > img:nth-child(6) {
+  animation-delay: calc((1 - 6)/9*var(--d));
+  --r: 10deg; /* Random rotation between -20deg and 20deg */
+}
+.gallery > img:nth-child(7) {
+  animation-delay: calc((1 - 7)/9*var(--d));
+  --r: 0deg; /* Random rotation between -20deg and 20deg */
+}
+.gallery > img:nth-child(8) {
+  animation-delay: calc((1 - 8)/9*var(--d));
+  --r: -20deg; /* Random rotation between -20deg and 20deg */
+}
+.gallery > img:nth-child(9) {
+  animation-delay: calc((1 - 9)/9*var(--d));
+  --r: 20deg; /* Random rotation between -20deg and 20deg */
+}
 @keyframes slide {
   10%  {transform: translateX(120%) rotate(var(--r))}
   0%,
