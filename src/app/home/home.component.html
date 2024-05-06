@@ -197,6 +197,8 @@
                     [src]="'http://localhost:8080/files/' + keynote?.photoUrl"
                     class="d-block w-100"
                     alt="{{ keynote.title }}"
+                    [routerLink]="['/keynotes', keynote.id, 'detail']"
+                    style="cursor: pointer;"
                   />
                 </div>
               </div>
@@ -212,7 +214,7 @@
                   class="fw-bold mb-0"
                   style="
                     color: rgba(59, 113, 179, 0.684);
-                    text-transform: uppercase;
+                    text-transform: uppercase; cursor: pointer;
                   "
                   [routerLink]="['/keynotes', keynote.id, 'detail']"
                 >
@@ -253,6 +255,8 @@
           </button> -->
         </div>
         <!-- fin del carusel de comentarios adyancete a fotos -->
+
+        <!-- Carusel de charlas con formato de imágen de la charla más pequeño -->
         <ul class="p-0" style="list-style: none; box-shadow: 0 0 3px #ccc">
           <ngb-carousel class="" [interval]="12000">
             @for (keynote of keynotes; track keynote) {
@@ -262,10 +266,10 @@
                   [src]="'http://localhost:8080/files/' + keynote?.photoUrl"
                   [routerLink]="['/keynotes', keynote.id, 'detail']"
                   class="float-start pe-2"
-                  style="max-width: 70px"
+                  style="max-width: 70px; cursor: pointer;"
                   alt=""
                 />
-                <h6 class="mb-0 text-secondary fw-bold">{{ keynote.title }}</h6>
+                <h6 class="mb-0 text-secondary fw-bold" [routerLink]="['/keynotes', keynote.id, 'detail']" style="cursor:pointer;">{{ keynote.title }}</h6>
                 <span class="small text-body-tertiary"
                   >Por {{ keynote.speaker.firstName }} |
                   {{ keynote.track.startDate | date : "dd MMM yyyy" }}</span
@@ -302,6 +306,7 @@
             }
           </ngb-carousel>
         </ul>
+        <!-- fin del carusel de charlas con formato de imágen de la charla más pequeño -->
       </div>
 
       <article class="blog-post mt-3" style="display: inline-block">
@@ -695,7 +700,7 @@
     </div>
 
     <div class="col-md-4 ps-3 pe-0">
-      <div class="position-sticky" style="top: 2rem">
+      <div class="position-sticky" style="top: 1rem">
         <div
           class="p-3 mb-2 bg-body-tertiary rounded"
           style="border-top: 8px solid rgba(128, 128, 128, 0.627)"
