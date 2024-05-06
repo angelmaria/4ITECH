@@ -86,19 +86,19 @@ export class UserFormComponent implements OnInit{
     let formData = this.createFormData();
 
     // Crear un nuevo objeto con solo email y password
-    let loginData = {
-      email: formData.get('email'),
-      password: formData.get('password')
-    };
+    // let loginData = {
+    //   email: formData.get('email'),
+    //   password: formData.get('password')
+    // };
 
-    const url = 'http://localhost:8080/users/login';
-    this.httpClient.post<Token>(url, loginData).subscribe({
-      next: response => {
-        console.log(response.token)
-        this.authService.saveToken(response.token);
-      },
-      error: error => console.error('Subscription error:', error)
-    })
+    // const url = 'http://localhost:8080/users/login';
+    // this.httpClient.post<Token>(url, loginData).subscribe({
+    //   next: response => {
+    //     console.log(response.token)
+    //     this.authService.saveToken(response.token);
+    //   },
+    //   error: error => console.error('Subscription error:', error)
+    // })
 
     if(this.isUpdate){
       this.httpClient.put<User>('http://localhost:8080/users/' + this.user?.id, formData)
