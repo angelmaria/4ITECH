@@ -244,4 +244,9 @@ section article.text h1[data-v-6dfea62d] {
       .card-cont .even-info {
           font-size: 75%
       }
+      .spinner-grow {
+        --bs-spinner-animation-speed: 1.75s;
+       
+        }
+        
   }

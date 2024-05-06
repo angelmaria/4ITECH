@@ -77,13 +77,14 @@
         </ng-template>
         }
       </ngb-carousel>
+      <hr>
 
       @if (showDeletedCommentMessage) {
       <!--<ngb-alert type="success" [dismissible]="false">Comentario borrado correctamente</ngb-alert>-->
       <ngb-alert type="success" (closed)="hideDeletedCommentMessage()">Comentario borrado correctamente.</ngb-alert>
       }
       @if (isLoggedIn) {
-      <table class="table mb-5" style="border-collapse: collapse;">
+      <table class="table mb-5 mt-5" style="border-collapse: collapse;">
         <thead>
           <tr>
             <th scope="col" class="text-center-bg-primary"></th>
