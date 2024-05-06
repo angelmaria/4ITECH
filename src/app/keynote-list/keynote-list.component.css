@@ -16,9 +16,11 @@
     background: linear-gradient(to right, #4f8cef, #4b70e1, #5498f2, #31b4c8);
   }
   
-h1.display-4 {
+h1.display-4, p.display-4 {
     font-family: 'Libre Franklin', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
+    color: #103a96;
+    text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
 }
 /* Estiilos para los botones de ver, editar y archivar las keynotes */
 .btn-ver {
@@ -53,7 +55,7 @@ padding-bottom: 2rem !important;
 }
 
 /* estilos del search form */
-.search-click {
+/* .search-click {
     border: 1px solid #ccc;
     outline: none;
     background-size: 22px;
@@ -78,7 +80,7 @@ padding-bottom: 2rem !important;
     font-weight: lighter;
   }
   .search-click {
-    /* position: relative; */
+    
     overflow: hidden;
     height: 50px;
   }
@@ -86,22 +88,27 @@ padding-bottom: 2rem !important;
     background: transparent;
     border: 1px solid #ccc;
     outline: none;
-    /* position: absolute; */
+    
     width: 300px;
     height: 50px;
     left: 0%;
     padding: 10px;
-  }
+  } */
  .search-form{
     position: absolute;
     right: 4rem;
-    top: 8rem;
- }
+    top: 4.1rem;
+    width: 400px;
+ } 
 ::placeholder {
   color: #a5a5a5;
   font-size: 1.2rem;
   font-family: 'Libre Franklin';
 } 
+.sticky-top input {
+  font-size: 1.4rem;
+  color: #757575;
+}
 
 
 /* efecto de agrandar las imágenes del grid un 10% */
