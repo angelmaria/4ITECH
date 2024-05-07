@@ -6,7 +6,7 @@
             <h1 class="mt-5 mb-5 text-gradiente">Detalle de Track con Id: {{track?.id}}</h1>
 
             <marquee style="font-size: larger; color: #ed220c;" width="600" scrollamount="400" scrolldelay="2000">
-                🥳🤔😁🫣 Puedes observar las charlas que se imparten en este track...
+                🥳🤔😁🫣 Puedes observar las charlas que se imparten en esta franja horaria...
             </marquee>
 
             <div class="container mb-5">
@@ -41,7 +41,7 @@
                 </div>
 
                 @if (isAdmin){
-                <button class="w-100 btn btn-lg btn-outline-warning  p-1 me-3 mb-1"
+                <button class="w-100 btn btn-lg btn-outline-warning  p-1 me-3 mb-5"
                     style="display: block; background-color: #de2c5b;"
                     [routerLink]="['/tracks', track.id, 'update']">Editar Track</button>
 
