@@ -58,6 +58,7 @@ export class UserFormComponent implements OnInit{
       .subscribe(userFromBackend => {
         // cargar el usuario obtenido en el formulario userForm.
         this.userForm.reset(userFromBackend);
+        this.user=userFromBackend;
         // marcar boolean isUpdate true
         this.isUpdate = true;
         

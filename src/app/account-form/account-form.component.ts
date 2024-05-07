@@ -51,6 +51,8 @@ export class AccountFormComponent implements OnInit {
     this.user.password = this.userForm.get('password')?.value;
     this.user.address = this.userForm.get('address')?.value;
 
+    console.log(this.user);
+    
     this.httpClient.put<User>('http://localhost:8080/users/account', this.user)
     .subscribe(user => this.user = user);
   }
