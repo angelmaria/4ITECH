@@ -1,68 +1,90 @@
 
 
 
-<div class="container">
-    <div class="row">
-      <div class="col-12">
+<div class="container" style=" max-width: 80%" >
+  <div class="row">
+    <div class="col-12">
+
+      <h1 class="my-5 text-gradiente">
+        Mi perfil </h1>
+        <button class="btn btn-success" routerLink="avatar">
+          Cambiar avatar
+        </button>
+   
+        <img class="d-block mx-auto mb-4 rounded-circle"
+        [src]="'http://localhost:8080/files/' + user?.photoUrl" alt="avatar de user logado" style="max-width: 200px;">
+   
   
-        <h1 class="my-5">
-          Mi perfil
-          <button class="btn btn-success" routerLink="avatar">
-            Cambiar avatar
-          </button>
-          <img class="d-block mx-auto mb-4 rounded-circle"
-          [src]="'http://localhost:8080/files/' + user?.photoUrl" alt="avatar de user logado" style="max-width: 150px;">
-      </h1>
-      
+    
+  
     
       
+ 
+      <form [formGroup]="userForm" (ngSubmit)="save()">
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control"
+          id="firstName" formControlName="firstName">
+          <label for="firstName">Nombre</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control"
+          id="lastName" formControlName="lastName">
+          <label for="lastName">Apellido</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="phone" class="form-control"
+          id="phone" formControlName="phone" placeholder="666555444" maxlength="9">
+          <label for="phone">Teléfono móvil</label>
+          @if (userForm.controls.phone.touched && userForm.controls.phone.errors) {
+            <div>
+                @if (userForm.controls.phone.errors ['required']){
+                    <small class="text-danger">Teléfono es Obligatorio</small>
+                }
+                @if (userForm.controls.phone.errors ['pattern']){
+                    <small class="text-danger">Formato de teléfono incorrecto. Debe tener 9 digitos.</small>
+                }
+            </div>
+        }
+      </div> 
+      
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control"
+          id="userName" formControlName="userName" >
+          <label for="userName">Nombre de usuario</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control"
+          id="password" formControlName="password" maxlength="30" minlength="8"  >
+          <label for="password">Contraseña</label>
+          @if(userForm.controls.password.touched &&
+                        (
+                          userForm.controls.password.errors ||                    
+                          userForm.getError('confirmError')
+                          )) {
+                            <small class="text-danger">
+                                La contraseña es obligatoria, y estar comprendida entre 8 y 30 caracteres.
+                            </small>
+                          }
+        </div>
+
         
-  
-        <form [formGroup]="userForm" (ngSubmit)="save()">
-  
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control"
-            id="firstName" formControlName="firstName">
-            <label for="firstName">Nombre</label>
-          </div>
-  
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control"
-            id="lastName" formControlName="lastName">
-            <label for="lastName">Apellido</label>
-          </div>
 
-          <div class="form-floating mb-3">
-            <input type="phone" class="form-control"
-            id="phone" formControlName="phone" placeholder="666555444">
-            <label for="phone">Teléfono móvil</label>
-          </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control"
+          id="address" formControlName="address" placeholder="Calle Falsa 1, 5D, Barcelona">
+          <label for="address">Dirección</label>
+        </div>
 
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control"
-            id="userName" formControlName="userName">
-            <label for="userName">Nombre de usuario</label>
-          </div>
+        <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" type="submit">Actualizar</button>
 
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control"
-            id="password" formControlName="password">
-            <label for="password">Contraseña</label>
-          </div>
+      </form>
 
-          
-
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control"
-            id="address" formControlName="address" placeholder="Calle Falsa 1, 5D, Barcelona">
-            <label for="address">Dirección</label>
-          </div>
-  
-          <button class="w-100 btn btn-primary btn-lg mb-5 mt-5" type="submit">Actualizar</button>
-  
-        </form>
-  
-      </div>
     </div>
   </div>
-  
+</div>
+

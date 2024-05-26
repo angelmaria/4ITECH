@@ -10,31 +10,43 @@
 } -->
 
 <div class="container">
-  <h1 class="mt-5 mb-3" style="color: green;">Listado de usuarios</h1>
+  
   <div class="row">
     <div class="col">
+      <h1 class="mt-5 mb-4 text-gradiente">Listado de usuarios</h1>
+      <hr>
+      @if (isAdmin) {
+
+        <marquee style="font-size: larger; color: #f65803;" width="600" scrollamount="400" scrolldelay="2000">
+          🥳🤔😁😀🫣 Puedes observar todos los usuarios registrados...
+        </marquee>
+        <hr>
       @if (showDeletedUserMessage) {
         <ngb-alert type="success" (closed)="hideDeletedUserMessage()">Usuario borrado correctamente.</ngb-alert>
       }
-      <div class="table-responsive">
-        <table class="table table-sm">
+      
+        <table class="table mb-5" style="zoom: 0.8;" >
           <thead>
             <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Apellido</th>
-              <th scope="col">email</th>
-              <th scope="col">Teléfono</th>
-              <th scope="col">User name</th>
-              <th scope="col">Dirección</th>
-              <th scope="col">Rol</th>
-              <th scope="col">Acciones</th>
+              <th scope="col" class="text-center-bg-primary"></th>
+
+              <th scope="col"  style="background-color: #62AFFE;" >Id</th>
+              <th scope="col" class="text-bg-secondary" >Nombre</th>
+              <th scope="col" style="background-color: #62AFFE;" >Apellido</th>
+              <th scope="col" class="text-bg-secondary" >email</th>
+              <th scope="col"  style="background-color: #62AFFE;" >Teléfono</th>
+              <th scope="col" class="text-bg-secondary" >User name</th>
+              <th scope="col" style="background-color: #62AFFE;" >Dirección</th>
+              <th scope="col" class="text-bg-secondary" >Rol</th>
+              <th scope="col" style="background-color: #62AFFE;" >Acciones</th>
             </tr>
           </thead>
-          <tbody class="table-group-divider">
+          <tbody>
             @for (user of users; track user.id) {
               <tr>
-                <th scope="row">{{user.id}}</th>
+                <th scope="row" class="text-center-bg-primary"></th>
+
+                <td scope="row" class="text-center-bg-primary"><strong>{{user.id}}</strong></td>
                 <td>{{user.firstName}}</td>
                 <td>{{user.lastName}}</td>
                 <td>{{user.email}}</td>
@@ -45,9 +57,12 @@
   
   
                 <td>
-                  <button class="btn btn-info btn-sm" [routerLink]="['/users', user.id, 'detail']">Ver</button>     
-                  <button class="btn btn-success ms-2 btn-sm" [routerLink]="['/users', user.id, 'update']">Editar</button>
-                  <button class="btn btn-danger ms-2 btn-sm" (click)="delete(user)">Borrar</button>
+                  <button class="btn btn-info mb-1"  style="background-color: #62AFFE;" 
+                  [routerLink]="['/users', user.id, 'detail']"><i class="bi bi-eye me-1"></i></button>     
+                  <button class="btn btn-success ms-2 mb-1 " style="background-color: #49CC90;"
+                   [routerLink]="['/users', user.id, 'update']"><i class="bi bi-pencil-square me-1"></i></button>
+                  <button class="btn btn-danger ms-2 mb-1" style="background-color: #F93E3F;" (click)="delete(user)"><i
+                    class="bi bi-trash me-1"></i></button>
                 </td>
                 </tr>
             } @empty {
@@ -56,9 +71,16 @@
   
           </tbody>
         </table>
-      </div>
       
-
+      
+    } @else {
+      <div class="container">
+        <h3 id="myText" class="text-secondary" style="font-family: 'Libre Franklin'">
+          <strong>Para ver listado de usuarios debes tener rol de administrador </strong>
+          <p style="color: green; font-size: medium;">Se han guardado tus datos de usuario correctamente</p>
+        </h3>
+      </div>
+    }
     </div>
   </div>
 </div>

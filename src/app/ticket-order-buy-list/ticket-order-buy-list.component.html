@@ -28,29 +28,29 @@
                 <div class="card-header text-card  mb-4">
                     <div class="ticket-primary">
                      <div class="ticket-item">
-                      <strong>• Fecha:</strong>
+                      <strong>• Fecha:&ensp;</strong>
                       <span>{{ticketOrderBuy.startDate | date: 'dd/MM/yyyy'}}</span>
                     </div>
                      
                       <div class="ticket-item">
-                        <strong>• Descuento:</strong>
+                        <strong>• Descuento:&ensp;</strong>
                         <span>{{ticketOrderBuy.discount}}%</span>
                       </div>
                       <div class="ticket-item">
-                        <strong>• Cantidad :</strong>
+                        <strong>• Cantidad:&ensp;</strong>
                         <span>{{ticketOrderBuy.quantity}}</span>
                       </div>
                       <div class="ticket-item">
-                        <strong>• Método de Pago:</strong>
+                        <strong>• Método de Pago:&ensp;</strong>
                         <span>{{ticketOrderBuy.paymentMethod}}</span>
                       </div>
                       <div class="ticket-item">
-                        <strong>• Medio de Compra:</strong>
+                        <strong>• Medio de Compra:&ensp;&ensp;</strong>
                         <span>{{ticketOrderBuy.channel}}</span>
                       </div>
                       <div class="ticket-item">
-                        <strong>• Precio Total:</strong>
-                        <span>{{ticketOrderBuy.totalPrice | currency}}</span>
+                        <strong>• Precio Total:&ensp;</strong>
+                        <span>{{ticketOrderBuy.totalPrice | currency:'EUR':'symbol':'1.2-2'}}</span>
                       </div>
                     </div>
                 </div>

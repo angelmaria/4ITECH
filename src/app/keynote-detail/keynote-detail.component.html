@@ -76,7 +76,7 @@
 <!-- Listado de comentarios sobre la charla --> 
               <div class="row d-flex mb-2 mt-2 position-relative">
                   <h3 class="text-secondary fw-bold mt-3" style="font-family:'Libre Franklin';">Valoraciones</h3>
-                  <p class="text-secondary">¿Qué te pareción la charla? Déjanos tu opinión <span class="btn btn-outline-danger btn-sm rounded" (click)="$event.preventDefault(); showForm = true; "><strong>aquí</strong></span></p>
+                  <p class="text-secondary">¿Qué te pareción la charla? Déjanos tu opinión <span class="btn btn-outline-danger btn-sm rounded " style="padding-left: 8px; padding-right: 8px; padding-bottom: 8px; padding-top: 4px;" (click)="$event.preventDefault(); showForm = true; "><strong>&nbsp;&nbsp;aquí&nbsp;&nbsp; </strong></span></p>
                   <hr>
                   @if (showSuccessDeletedComment) {
                     <ngb-alert type="success" (closed)="showSuccessDeletedComment=false;">
@@ -120,7 +120,7 @@
                                   }
                                   
                                   <p class="small mb-0 fst-italic">
-                                    <strong>Publicado:</strong>&nbsp; <i class="bi bi-calendar3 me-2"></i> 
+                                    <strong>Publicado:</strong>&nbsp;&nbsp;&nbsp;&nbsp; <i class="bi bi-calendar3 me-2"></i> 
                                     {{comment.dateTime | date: 'dd/MM/yyyy'}} &nbsp;&nbsp;&nbsp;&nbsp;
                                     <i class="bi-alarm me-2"></i>
                                     {{comment.dateTime | date: 'HH:mm'}}
@@ -188,7 +188,7 @@
                         <label for="opinion" class="text-secondary">Comentario de texto</label>
                       </div>
             
-                      <button class="w-100 btn btn-primary btn-lg mb-1 mt-1" style="background: #3271cf;" type="submit" >Enviar comentario</button>
+                      <button class="w-100 btn btn-primary btn-lg mb-4 mt-4" style="background: #3271cf;" type="submit" >Enviar comentario</button>
                       
                     </form>
   

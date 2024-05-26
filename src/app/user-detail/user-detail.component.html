@@ -1,20 +1,45 @@
+
 <div class="container">
   <div class="row">
-      <div class="col mt-3">
-          @if (user) {
-            <h1 class="text-secondary fw-bold" style="font-family: 'Libre Franklin', 'Gill Sans', 'Gill Sans MT', Calibri,
-            'Trebuchet MS', sans-serif;">Detalle del usuario con Id: {{user.id}}</h1>
-            <div class="d-flex">
-              <p>Nombre: {{user.firstName}} {{user.lastName}}</p>
-              <p>Datos de contacto: {{user.email}} - {{user.phone}}</p>
-              <p>Dirección: {{user.address}}</p>
-              <p>Nombre de usuario: {{user.userName}}</p>
-              <p>Rol: {{user.userRole}}</p>
-            </div>
-            
+    <div class="col">
+      @if (user) {
+      <h1 class="text-secondary fw-bold mb-5" style="font-family: 'Libre Franklin', 'Gill Sans', 'Gill Sans MT', Calibri,
+          'Trebuchet MS', sans-serif;">Detalle del usuario con Id: {{user.id}}</h1>
+            <img class="d-block mx-auto mb-4 rounded-circle"
+            [src]="'http://localhost:8080/files/' + user.photoUrl" alt="avatar de user logado" style="max-width: 200px;">
+       
+      
 
-          <button class="btn btn-success" [routerLink]="['/users', user.id, 'update']">Editar usuario</button>
-          }
-      </div>
+      <div class="card mb-5" style="border-radius: 30px;">
+
+        <div class="card-content" style="min-width: 200px;">
+          <p class="ms-1" style="font-size: large;margin-right: 4px;"><strong
+              style="color: white;"><ins>Nombre y apellidos:</ins>&ensp;{{user.firstName}}&nbsp;{{user.lastName}}</strong>
+            <strong class="ms-5" style="color: aqua;">&nbsp;
+              <ins>E-mail:</ins>&nbsp;&nbsp;&nbsp;{{user.email}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ins>Teléfono:</ins>&nbsp;&nbsp;&nbsp;{{user.phone}}</strong>
+              
+          </p>   
+        </div>
+        </div>
+        <div class="card mb-5" style="border-radius: 30px;">
+
+        <div class="card-content" style="min-width: 200px;">
+          <p class="ms-1" style="font-size: large;margin-right: 3px;"><strong
+              style="color: white;"><ins>Dirección:</ins>&ensp;{{user.address}}</strong>
+            <strong class="ms-5" style="color: aqua;">&nbsp;
+              <ins>Nombre de usuario:</ins>&nbsp;&nbsp;&nbsp;{{user.userName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ins>ROL:</ins>&nbsp;&nbsp;&nbsp;{{user.userRole}}</strong>
+
+          </p>
+        </div>
+        </div>
+      
+      <button class="w-100 btn btn-lg btn-outline-warning  p-1 me-3 mb-5"
+      style="display: block; background-color: #de2c5b;" [routerLink]="['/users', user.id, 'update']">Editar usuario</button>
+      }
+    </div>
+    </div>
   </div>
-</div>
+
+  
+
+

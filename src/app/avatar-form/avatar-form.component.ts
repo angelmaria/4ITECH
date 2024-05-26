@@ -45,7 +45,12 @@ export class AvatarFormComponent implements OnInit {
 
     const url = 'http://localhost:8080/users/account/avatar';
     this.httpClient.post<User>(url, formData)
-    .subscribe(user => this.user = user);
+    .subscribe(user => {
+      this.user = user;
+      history.back();
+      
+    });
+    
 
   }
 

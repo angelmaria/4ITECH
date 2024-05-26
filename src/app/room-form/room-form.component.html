@@ -1,68 +1,89 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-lg-8">
 
       @if (isUpdate) {
-        <h1 class="mt-5 mb-5 text-gradiente " >Vas a editar la sala existente con Id: {{roomForm.get('id')?.value}}</h1>
+      <h1 class="mt-5 mb-5 text-gradiente">Editar la sala existente con Id: {{roomForm.get('id')?.value}}</h1>
       } @else {
-        <h1 class="mt-5 mb-5">Vas a crear una nueva sala</h1>
+      <h1 class="mt-5 mb-5 text-gradiente">Crear una nueva sala</h1>
       }
 
-        <form [formGroup]="roomForm" (ngSubmit)="save()">
+      <form [formGroup]="roomForm" (ngSubmit)="save()">
 
-          <input type="hidden" formController="id">
+        <input type="hidden" formControlName="id">
 
-          @if (isUpdate) {
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="name" readonly>
-              <label for="name">Nombre de la sala</label>
-            </div>
+        @if (isUpdate) {
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="name"
+          formControlName="name" readonly>
+          <label for="name">Nombre de la sala</label>
+        </div>
 
-            <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="capacity" formControlName="capacity">
-              <label for="capacity">Aforo máximo</label>
-            </div>
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="capacity" formControlName="capacity">
+          <label for="capacity">Aforo máximo</label>
+        </div>
 
-            <div class="form-floating mb-3">
-              <input class="form-control" formControlName="hasSockets" readonly>
-              <label for="hasSockets">Tomas de corriente disponibles</label>
-            </div>
+        <div class="form-check mb-3">
+          <input type="checkbox" class="form-check-input" id="hasSockets" formControlName="hasSockets">
+          <label class="form-check-label" for="hasSockets" style="cursor: pointer;">
+            Tomas de corriente disponibles
+          </label>
+        </div>
 
-            <!--<div class="form-floating mb-3">
-              <input class="form-control" formControlName="photoUrl" readonly>
-              <label for="photoUrl">Imágenes</label>
-            </div> -->
+        <input type="hidden" formControlName="photoUrl">
 
-          } @else {
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="name" formControlName="name">
-              <label for="name">Nombre de la sala</label>
-            </div>
+        <div class="input-group mb-3">
+          <input type="file" class="form-control" id="photo" (change)="onFileChange($event)">
+          <button class="btn btn-outline-secondary" type="button" id="photoBtn">Subir imagen</button>
+        </div>
 
-            <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="capacity" formControlName="capacity">
-              <label for="capacity">Aforo máximo</label>
-            </div>
 
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="hasSockets" formControlName="hasSockets">
-              <label class="form-check-label" for="hasSockets">
-                Tomas de corriente disponibles
-              </label>
-            </div>
-            
-            <!--<div class="form-floating mb-3">
-              <input type="text" class="form-control" id="photoUrl" formControlName="photoUrl">
-              <label for="photoUrl">Imágenes</label>
-            </div> -->
-          }
+        } @else {
 
-          @if (isUpdate) {
-            <button class="btn btn-success" type="submit">Actualizar</button>
-          } @else {
-            <button class="btn btn-success" type="submit">Crear</button>
-          }
-        </form>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="name" formControlName="name">
+          <label for="name">Nombre de la sala</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" id="capacity" formControlName="capacity">
+          <label for="capacity">Aforo máximo</label>
+        </div>
+
+        <div class="form-check mb-3">
+          <input type="checkbox" class="form-check-input" id="hasSockets" formControlName="hasSockets">
+          <label class="form-check-label" for="hasSockets" style="cursor: pointer;">
+            Tomas de corriente disponibles
+          </label>
+        </div>
+
+         <input type="hidden" formControlName="photoUrl">
+
+        <div class="input-group mb-3">
+          <input type="file" class="form-control" id="photo" (change)="onFileChange($event)">
+          <button class="btn btn-outline-secondary" type="button" id="photoBtn">Subir imagen</button>
+        </div>
+
+        }
+        @if (isUpdate) {
+        <button class="btn btn-success mt-3 mb-5" type="submit">Actualizar</button>
+
+        } @else {
+        <button class="btn btn-success mt-3 mb-5" type="submit">Crear</button>
+        }
+      </form>
     </div>
+    <div class="col-lg-4 text-bg-light">
+      @if (photoPreview) {
+      <h2 class="my-5 text-secondary mt-5 mb-3 fw-bold" style="font-family: 'Libre Franklin';">Previsualización foto</h2>
+      <img class="img-fluid mb-5 rounded-4 shadow-lg" [src]="photoPreview">
+      }
+      @if (!photoPreview && room?.photoUrl) {
+      <h2 class="my-5 text-secondary mt-5 mb-3 fw-bold" style="font-family: 'Libre Franklin';">Previsualización foto</h2>
+      <img class="img-fluid mb-5 rounded-4 shadow-lg" [src]="'http://localhost:8080/files/' + room?.photoUrl">
+      }
+    </div>
+
   </div>
 </div>

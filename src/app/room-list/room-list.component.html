@@ -1,45 +1,75 @@
 <div class="container px-4 py-5" id="custom-cards">
-  <h2 class="pb-2 border-bottom" style="color: green;">Listado de Salas</h2>
+  <div class="row">
+    <div class="col">
+      <h1 class="pb-2 border-bottom text-gradiente">Listado de Salas</h1>
+      
+      @if (isLoggedIn) {
+        <marquee style="font-size: larger; color: #3371d3;" width="600" scrollamount="400" scrolldelay="2000">
+          🥳🤔😁😀🫣 Puedes observar todas las salas existentes...
+        </marquee>
+        <hr>
 
-    <div class="row">
-      @if (showDeletedRoomMessage) {
-        <ngb-alert type="success" (closed)="hideDeletedRoomMessage()">Sala eliminada de la lista correctamente.</ngb-alert>
-      }
-    </div>
-    <div class="row row-cols-1 row-cols-lg-3 align-itmes-stretch g-4 py-5">
+      <div class="row">
+        @if (showDeletedRoomMessage) {
+        <ngb-alert type="success" (closed)="hideDeletedRoomMessage()">Sala eliminada de la lista
+          correctamente.</ngb-alert>
+        }
+      </div>
+      <div class="row row-cols-1 row-cols-lg-3 align-itmes-stretch g-4 py-5">
 
-      @for (room of rooms; track room.id) {
+        @for (room of rooms; track room.id) {
         <div class="col">
-          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" [style.background-image]="'url(http://localhost:8080/files/'+ room.photoUrl +')'" style="background-position:center;">
-           
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{room.name}}</h3>
-                <ul class="d-flex list-unstyled mt-auto">
-                  <li class="me-auto">
-                    <i class="bi bi-people-fill fs-5 me-2"></i>
-                    {{room.capacity}}
-                  </li>
+          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+            [style.background-image]="'url(http://localhost:8080/files/'+ room.photoUrl +')'"
+            style="background-position:center;">
 
-                  <li class="d-flex align-items-center">
-                    <button class="btn btn-primary btn-sm me-2" [routerLink]="['/rooms', room.id, 'detail']">
-                      Ver
-                      <i class="bi bi-eye ms-2"></i>
-                    </button>
-                    @if (isAdmin) {
-                      <button class="btn btn-success btn-sm" [routerLink]="['/rooms', room.id, 'update']">
-                        Editar
-                        <i class="bi bi-pencil ms-2"></i>
-                      </button>
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+              <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{room.name}}</h3>
+              <ul class="d-flex list-unstyled mt-auto">
+                <li class="me-auto">
+                  <i class="bi bi-people-fill fs-5 me-2"></i>
+                  {{room.capacity}}
+                </li>
 
-                    }
+                <li class="d-flex align-items-center">
+                  <button class="btn btn-primary btn-sm me-2" [routerLink]="['/rooms', room.id, 'detail']">
                     
-                  </li>
+                    <i class="bi bi-eye"></i>
+                  </button>
+                  @if (isAdmin) {
+                  <button class="btn btn-success btn-sm me-2" [routerLink]="['/rooms', room.id, 'update']">
+                    
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  <button class="btn btn-danger btn-sm" style="background-color: #F93E3F;" (click)="delete(room)">
+                    <i class="bi bi-trash"></i></button>
+                      
 
-                </ul>  
-              </div>
+                  }
+
+                </li>
+
+              </ul>
+            </div>
           </div>
         </div>
-      }
+        }
 
+      </div>
+    } @else {
+      <div class="container">
+        <h3 id="myText" class="text-secondary" style="font-family: 'Libre Franklin'">
+          <strong>Para ver listado de salas debes acceder como usuario registrado </strong><button class="btn me-3 ms-3">
+            <a
+              class="nav-link border border-warning rounded border-2 p-1"
+              routerLink="/register"
+              (click)="$event.preventDefault()"
+              id=""
+              role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Registrarse</a>
+          </button>
+        </h3>
+      </div>
+    }
     </div>
+  </div>
 </div>

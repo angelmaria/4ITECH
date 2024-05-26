@@ -3,6 +3,7 @@
     <div class="col">
 
       <h1 class="mt-5 mb-5 text-gradiente">Listado de Comentarios</h1>
+      <hr>
 
       <ngb-carousel class="mt-3">
         @for (comment of comments; track comment.id) {
@@ -10,7 +11,7 @@
           <div class="mb-3">
             <div
               class="card shadow-0 border"
-              style="background-color: #f0f2f5"
+              style="background-color: #73a0e3"
             >
               <div class="card-body p-4 with=300; height=200">
                 <div class="card mb-4">
@@ -30,8 +31,10 @@
                           </h6>
 
                           <p class="small mb-0 fst-italic">
-                            Publicado -
-                            {{ comment.dateTime | date : "dd/MM/yyyy" }}
+                            <strong>Publicado:</strong>&nbsp;&nbsp;&nbsp;&nbsp; <i class="bi bi-calendar3 me-2"></i> 
+                            {{ comment.dateTime | date : "dd/MM/yyyy" }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <i class="bi-alarm me-2"></i>
+                            {{comment.dateTime | date: 'HH:mm'}}
                           </p>
                         </div>
                       </div>

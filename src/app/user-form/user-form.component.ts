@@ -110,7 +110,7 @@ export class UserFormComponent implements OnInit{
         })
       )
       .subscribe({
-        next: user => this.navigateToList(),
+        next: user => this.navigateToDetail(),
         error: error => console.error('Subscription error:', error)
       });
     } else {
@@ -122,7 +122,7 @@ export class UserFormComponent implements OnInit{
         })
       )
       .subscribe({
-        next: user => this.navigateToList(),
+        next: user => this.navigateToDetail(),
         error: error => console.error('Subscription error:', error)
       });
     }
@@ -148,8 +148,8 @@ export class UserFormComponent implements OnInit{
     return formData;
   }
 
-  navigateToList() {
-    this.router.navigate(['/users']);
+  navigateToDetail() {
+    this.router.navigate(['/users', this.user?.id, 'detail']);
   }
   
   }

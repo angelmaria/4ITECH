@@ -22,11 +22,11 @@
 
       @if (photoPreview) {
         <h2 class="my-5">Nuevo avatar a subir</h2>
-        <img class="img-fluid" [src]="photoPreview">
+        <img class="img-fluid  rounded-4 mb-5" [src]="photoPreview">
       }
       @if (!photoPreview && user?.photoUrl) {
         <h2 class="my-5">Avatar existente</h2>
-        <img class="img-fluid" [src]="'http://localhost:8080/files/' + user?.photoUrl">
+        <img class="img-fluid rounded-4 mb-5 " [src]="'http://localhost:8080/files/' + user?.photoUrl">
       }
 
     </div>

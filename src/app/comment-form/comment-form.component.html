@@ -27,11 +27,11 @@
             <pre style="font-size: larger; border-radius:5px;"><span class="badge text-bg-primary ms-1 me-3">Valoración: <b>{{commentForm.get('rating')?.value ?? 0}}</b></span></pre>
           </div>
 
+          <!--
           <div class="form-floating mb-3 border-form" >
             <select class="form-select option-int"  id="keynote" formControlName="keynote" [compareWith]="compareObjects">
 
-
-                <!-- iterar sobre el array de keynotes mostrando cada una -->
+                iterar sobre el array de keynotes mostrando cada una 
               @for (keynote of keynotes; track keynote.id) {
                 <option [ngValue]="keynote">{{keynote.title}}</option>
               }
@@ -39,6 +39,7 @@
             </select>
             <label for="keynote">Charla del comentario</label>
           </div>
+        -->
 
           <div class="form-floating mb-3">
             
@@ -52,14 +53,14 @@
             [ngModel]="dateTime | date:'yyyy-MM-ddTHH:mm'" [readonly]="true">
            
             <label for="dateTime">Fecha de creación del comentario</label>
-          </div>-->
+          </div>
            
           @if (isAdmin) {
             <div class="form-floating mb-5 border-form">
               <select class="form-select option-int"  id="user" formControlName="user" [compareWith]="compareObjects">
   
   
-                  <!-- iterar sobre el array de users mostrando cada uno -->
+                   iterar sobre el array de users mostrando cada uno 
                @for (user of users; track user.id) {
                   <option readonly [ngValue]="user">{{user.firstName}}--{{user.email}}</option>
                 }
@@ -68,12 +69,12 @@
               <label for="user">Usuario del comentario</label>
             </div>  
           }
+        -->
         
         
-          <button class="w-100 btn btn-lg btn-outline-light p-1 me-3 mb-3" style="display: block; background-color: #1a119a;" type="submit">🪄 Crear comentario</button>
 
           @if (isUpdate && isAdmin) {
-            <button class="w-100 btn btn-lg btn-outline-light  p-1 me-3 mb-3" style="display: block;background-color: #1a119a;" type="submit"><i class="bi bi-wrench-adjustable me-2"></i>Actualizar comentario</button>
+            <button class="w-100 btn btn-lg btn-outline-light  p-1 me-3 mb-3" style="display: block;background-color: #1a119a;" type="submit"><i class="bi bi-wrench-adjustable me-2"></i>Guardar comentario</button>
           }
          
 

@@ -3,16 +3,18 @@
     <div class="col">
 
       <h1 class="mt-5 mb-4 text-gradiente">Listado de tracks</h1>
+      <hr>
 
       @if (isLoggedIn) {
 
       <marquee style="font-size: larger; color: #f65803;" width="600" scrollamount="400" scrolldelay="2000">
         🥳🤔😁😀🫣 Puedes observar todos los cronogramas existentes...
       </marquee>
+      <hr>
 
       @if (showDeletedBookMessage) {
-      <!--<ngb-alert type="success" [dismissible]="false">Libro borrado correctamente</ngb-alert>-->
-      <ngb-alert type="success" (closed)="hideDeletedBookMessage()">Track borrado correctamente.</ngb-alert>
+      <!--<ngb-alert type="success" [dismissible]="false">Track borrado correctamente</ngb-alert>-->
+      <ngb-alert type="success" (closed)="hideDeletedTrackMessage()">Track borrado correctamente.</ngb-alert>
       }
 
       <table class="table mb-5">
@@ -20,13 +22,13 @@
           <tr>
             <th scope="col" class="text-center-bg-primary"></th>
 
-            <th scope="col" class="text-center-bg-primary">Id</th>
+            <th scope="col" style="background-color: #62AFFE;">Id</th>
             <th scope="col" class="text-bg-secondary">Nombre</th>
-            <th scope="col" class="text-bg-primary">Fecha inicio</th>
+            <th scope="col"  style="background-color: #62AFFE;">Fecha inicio</th>
             <th scope="col" class="text-bg-secondary">Hora inicio</th>
-            <th scope="col" class="text-bg-primary">Fecha fin</th>
+            <th scope="col"  style="background-color: #62AFFE;">Fecha fin</th>
             <th scope="col" class="text-bg-secondary">Hora fin</th>
-            <th scope="col" class="text-bg-primary">Acciones</th>
+            <th scope="col"  style="background-color: #62AFFE;">Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -43,7 +45,7 @@
 
 
             <td>
-              <button class="btn btn-info" style="background-color: #62AFFE;"
+              <button class="btn btn-info " style="background-color: #62AFFE;"
                 [routerLink]="['/tracks', track.id, 'detail']"><i class="bi bi-eye me-1"></i>Ver</button>
               @if (isAdmin) {
 
@@ -56,24 +58,22 @@
             </td>
           </tr>
           } @empty {
-          <h5 class="cbadge text-bg-danger text-decoration-none">No hay tracks</h5>
+          <h5 class="cbadge text-bg-danger text-decoration-none">No hay tracks!</h5>
           }
 
         </tbody>
       </table>
       } @else {
-        <div class="container">
-          <h3 id="myText" class="text-secondary" style="font-family: 'Libre Franklin'">
-            <strong>Para ver listado de tracks debes acceder como usuario registrado </strong><button class="btn me-3 ms-3">
-              <a
-                class="nav-link border border-warning rounded border-2 p-1"
-                routerLink="/register"
-                (click)="$event.preventDefault()"
-                id=""
-                role="button"><i class="bi bi-box-arrow-in-right me-2"></i>Registrarse</a>
-            </button>
-          </h3>
-        </div>
+      <div class="container">
+        <h3 id="myText" class="text-secondary" style="font-family: 'Libre Franklin'">
+          <strong>Para ver listado de tracks debes acceder como usuario registrado </strong><button
+            class="btn me-3 ms-3">
+            <a class="nav-link border border-warning rounded border-2 p-1" routerLink="/register"
+              (click)="$event.preventDefault()" id="" role="button"><i
+                class="bi bi-box-arrow-in-right me-2"></i>Registrarse</a>
+          </button>
+        </h3>
+      </div>
       }
 
     </div>

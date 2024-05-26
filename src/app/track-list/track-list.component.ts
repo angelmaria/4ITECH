@@ -42,7 +42,7 @@ export class TrackListComponent implements OnInit {
        this.showDeletedBookMessage = true;
       });  
     }
-    hideDeletedBookMessage() { //solo cambia la variable booleana de arriba de true a false
+    hideDeletedTrackMessage() { //solo cambia la variable booleana de arriba de true a false
       this.showDeletedBookMessage = false;
       }
 
