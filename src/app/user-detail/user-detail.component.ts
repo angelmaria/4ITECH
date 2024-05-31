@@ -26,7 +26,7 @@ export class UserDetailComponent implements OnInit{
       const backendUrl = 'http://localhost:8080/users/' + id; //llamo al controlador:
       this.httpClient.get<User>(backendUrl).subscribe(userFromBackend => {
         this.user = userFromBackend;
-        console.log(this.user);
+        //console.log(this.user);
       });
     });
   }
