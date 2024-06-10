@@ -3,5 +3,7 @@ export interface Track {
     name: string;
     startDate: Date;
     endDate: Date;
+    visible: boolean;
+
     
 }

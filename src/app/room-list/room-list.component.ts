@@ -22,6 +22,8 @@ export class RoomListComponent implements OnInit{
   showDeletedRoomMessage: boolean = false;
   isAdmin = false;
   isLoggedIn = false;
+  visible = true;
+
 
   constructor(private httpClient: HttpClient,
               private authService: AuthenticationService) {
@@ -43,6 +45,10 @@ export class RoomListComponent implements OnInit{
 
   hideDeletedRoomMessage() {
     this.showDeletedRoomMessage = false;
+  }
+  archive(room: Room){
+    room.visible = false;
+    
   }
 
   private loadRooms() {

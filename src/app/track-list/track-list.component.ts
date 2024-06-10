@@ -21,6 +21,8 @@ export class TrackListComponent implements OnInit {
 
   isAdmin = false;
   isLoggedIn = false;
+  visible = true;
+
 
   constructor(private httpClient: HttpClient,
               private authService: AuthenticationService
@@ -46,6 +48,10 @@ export class TrackListComponent implements OnInit {
       this.showDeletedBookMessage = false;
       }
 
+    archive(track: Track){
+      track.visible = false;
+
+    }  
   private loadTracks() {
     const backenUrl = 'http://localhost:8080/tracks';
     this.httpClient.get<Track[]>(backenUrl).subscribe(tracks => {

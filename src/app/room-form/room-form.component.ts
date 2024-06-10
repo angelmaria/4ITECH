@@ -18,7 +18,9 @@ export class RoomFormComponent implements OnInit{
     name: new FormControl<string>(''),
     capacity: new FormControl<number>(0),
     hasSockets: new FormControl<boolean>(false),
-    photoUrl: new FormControl<string>('')
+    photoUrl: new FormControl<string>(''),
+    visible: new FormControl<boolean>(false)
+
   });
    
   photoFile: File | undefined;
@@ -72,6 +74,8 @@ export class RoomFormComponent implements OnInit{
     formData.append('capacity', this.roomForm.get('capacity')?.value?.toString() ?? '0');
     formData.append('hasSockets', this.roomForm.get('hasSockets')?.value?.toString() ?? 'false');
     formData.append('photoUrl', this.roomForm.get('photoUrl')?.value ?? '');
+    formData.append('visible', this.roomForm.get('visible')?.value?.toString() ?? 'false');
+
 
     if(this.photoFile) {
       formData.append("photo", this.photoFile);

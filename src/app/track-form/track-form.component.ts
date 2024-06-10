@@ -18,7 +18,9 @@ export class TrackFormComponent {
     id: new FormControl<number>(0),
     name: new FormControl<string>(''),
     startDate: new FormControl<Date>(new Date()),
-    endDate: new FormControl<Date>(new Date())
+    endDate: new FormControl<Date>(new Date()),
+    visible: new FormControl<boolean>(false)
+
   });
 
   isUpdate: boolean = false;

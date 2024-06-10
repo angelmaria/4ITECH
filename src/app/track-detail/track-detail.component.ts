@@ -17,6 +17,7 @@ export class TrackDetailComponent implements OnInit {
 
   track: Track | undefined;
   keynotes: Keynote[] = [];
+  
   isAdmin = false;
 
   // imageDefault = 'http://localhost:8080/files/uploads/cafeteria.jpeg';
